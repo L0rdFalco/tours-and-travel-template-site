@@ -1,0 +1,76 @@
+ROUTERS
+ toursRouter
+ reviewsRouter
+ usersRouter
+ bookingsRouter
+
+CONTROLLERS
+ usersController
+  getAllUsers
+  createSingleUser
+  getSingleUser
+  updateSingleUser
+  deleteSingleUser
+  getMyData
+  updateMyData
+  deactivateAccount
+  
+ authController
+  signup
+  login
+  logout
+  forgotPassword
+  resetPassword
+  updatePassword
+  isLoggedIn
+  protect
+  restrictTo
+  
+
+ viewsController
+  getOverviewPage
+  getSingleTourPage
+  getAuthWall
+  getDashboardPage
+  getBookingsPage
+  getReviewsPage
+  getSecurityPage
+
+ toursController
+   getAllTours
+   createSingleTour
+   getSingleTour
+   updateSingleTour
+   deleteSingleTour
+   getSingleTourStats
+   getToursWithinRadius
+   getMonthlyPlan
+ 
+ reviewsController
+   getAllReviews
+   createSingleReview
+   getSingleReview
+   updateSingleReview
+   deleteSingleReview
+ bookingsController
+   getAllBookings
+   createSingleBooking
+   getSingleBooking
+   deleteSingleBooking
+
+MODELS
+ toursModel
+ reviewsModel
+ usersModel
+ bookingsModel
+
+VIEWS
+ toursOverviewPage
+ singleTourPage
+ dashboardPage
+ authWall
+ forgotPasswordPage
+
+
+
+
