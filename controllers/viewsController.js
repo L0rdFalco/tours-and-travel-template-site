@@ -6,6 +6,8 @@ const toursModel = require("../models/toursModel.js")
 exports.getOverviewPage = (request, response, next) => {
     try {
 
+        response.status(200).render("overview")
+
 
     } catch (error) {
 
