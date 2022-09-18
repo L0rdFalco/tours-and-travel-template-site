@@ -52,10 +52,12 @@ CONTROLLERS
    getSingleReview
    updateSingleReview
    deleteSingleReview
+
+
  bookingsController
    getAllBookings
-   createSingleBooking
    getSingleBooking
+   createSingleBooking
    deleteSingleBooking
 
 MODELS
