@@ -14,5 +14,4 @@ ViewsRouter.route("/users-panel").get(authController.protect, authController.isL
 ViewsRouter.route("/security").get(authController.protect, authController.isLoggedIn, viewsController.getSecuritypage)
 
 
-
 module.exports = ViewsRouter

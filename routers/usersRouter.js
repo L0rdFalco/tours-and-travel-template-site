@@ -4,6 +4,19 @@ const usersController = require("../controllers/usersController.js")
 
 const UsersRouter = express.Router();
 
+UsersRouter.route("/signup").post(authController.signup)
+UsersRouter.route("/login").post(authController.login)
+UsersRouter.route("/logout").get(authController.logout)
+UsersRouter.route("/forgotpassword").post(authController.forgotpassword)
+UsersRouter.route("/resetpassword/:token").post(authController.resetpassword)
+UsersRouter.route("/updatemydata").patch(usersController.updateMyData)
+
+UsersRouter.route("/updatepassword")
+    .patch(authController.protect,
+        authController.restrictTo("admin", "user"),
+        authController.updatepassword)
+
+
 UsersRouter.route("/")
     .get(usersController.getAllUsers)
     .post(authController.protect, authController.restrictTo("admin", "user"), usersController.createSingleUser)
