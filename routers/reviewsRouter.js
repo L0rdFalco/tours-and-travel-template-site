@@ -11,4 +11,5 @@ ReviewsRouter.route("/:review-id")
     .get(reviewsController.getSingleReview)
     .patch(authController.protect, authController.restrictTo("admin", "user"), reviewsController.updateSingleReview)
     .delete(authController.protect, authController.restrictTo("admin", "user"), reviewsController.deleteSingleReview)
+
 module.exports = ReviewsRouter
