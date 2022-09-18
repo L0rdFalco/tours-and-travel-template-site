@@ -73,6 +73,51 @@ VIEWS
  authWall
  forgotPasswordPage
 
+404
+about-us
+add-destinations
+add-tours
+basic-settings
+booking-1
+coming-soon
+contact
+dashboard
+destination-detail
+destination-grid-sidebar
+destination-grid
+destination-list-sidebar
+destination-list
+faqs
+guide-detail
+hire-guider
+hotel-detail
+hotel-grid-sidebar
+hotel-grid
+hotel-list-sidebar
+hotel-list
+invoice
+login
+manage-destinations
+manage-hotels
+manage-restaurants
+manage-tours
+messages
+my-profile
+pricing
+restaurant-detail
+restaurant-grid-sidebar
+restaurant-grid
+restaurant-list-sidebar
+restaurant-list
+signup
+site-settings
+success-page
+tour-detail
+tour-grid-sidebar
+tour-grid
+tour-list-sidebar
+tour-list
+
 
 
 
