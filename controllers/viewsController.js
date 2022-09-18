@@ -16,8 +16,10 @@ exports.getAuthWall = (request, response, next) => {
     }
 }
 
-eexports.get404Page = (request, response, next) => {
+exports.get404Page = (request, response, next) => {
     try {
+
+        response.status(200).render("404.pug")
 
 
     } catch (error) {
@@ -30,12 +32,13 @@ eexports.get404Page = (request, response, next) => {
 }
 exports.getAboutUsPage = (request, response, next) => {
     try {
+        response.status(200).render("about-us.pug")
 
 
     } catch (error) {
 
         response.status(400).json({
-            status: " fail",
+            status: "getAboutUsPage fail",
 
         })
     }
@@ -540,6 +543,20 @@ exports.getAllToursListPage = (request, response, next) => {
 
         response.status(400).json({
             status: " fail",
+
+        })
+    }
+}
+exports.getSingleTourDetailPage = (request, response, next) => {
+    try {
+
+        response.status(200).render("tour-detail")
+
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: "getSingleTourDetailPage fail",
 
         })
     }
