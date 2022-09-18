@@ -7,7 +7,7 @@ const ToursRouter = express.Router()
 ToursRouter.use("/:tourid/reviews", ReviewsRouter)
 
 
-ToursRouter.route("/get-tours-in/:distance/center/:latlong/unit/:unit").get(toursController.getToursWithinRadius)
+ToursRouter.route("/get-tours-in/:distance/center/:latlong/unit/:unit").get(toursController.getToursWithin)
 ToursRouter.route("/get-monthly-plan/:year").get(toursController.getMonthlyPlan)
 
 ToursRouter.route("/")
