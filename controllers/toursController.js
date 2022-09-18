@@ -120,7 +120,7 @@ exports.getToursWithin = (request, response, next) => {
     }
 }
 
-exports.getMontlyPlan = (request, response, next) => {
+exports.getMonthlyPlan = (request, response, next) => {
     try {
 
         response.status(200).json({
