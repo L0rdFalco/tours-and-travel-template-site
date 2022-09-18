@@ -152,14 +152,14 @@ nav.navbar.navbar-default.navbar-mobile.navbar-fixed.light.bootsnav
     // /.navbar-collapse
 // ======================= End Navigation =====================
 // ======================= Start Page Title =====================
-.page-title.image-title(style='background-image:url(assets/img/hotel.jpg);')
+.page-title.image-title(style='background-image:url(assets/img/tour.jpg);')
   .container
     .page-title-wrap
-      h2 Hotel List Sidebar
+      h2 Tour list Sidebar
       p
         a.theme-cl(href='#') Home
         |  | 
-        span Hotel List Sidebar
+        span Tour list Sidebar
 // ======================= End Page Title =====================
 // =========== Start All Hotel In Grid View ===================
 section.gray-bg
@@ -365,7 +365,6 @@ section.gray-bg
                     span.pull-right 45
       // All Item
       .col-md-8.col-sm-12
-        // Row
         .row.mrg-0
           .tr-single-box.short-box
             .col-sm-3.hidden-xs.align-self-center
@@ -379,298 +378,278 @@ section.gray-bg
                   a(href='#') Decending
                   a(href='#') By Date
               .btn-group
-                a.btn.btn-default.tooltips(href='hotel-grid-sidebar.html')
+                a.btn.btn-default.tooltips(href='tour-grid-sidebar.html')
                   i.ti-flix.ti-layout-grid2
               .btn-group
-                a.btn.btn-default.tooltips(href='hotel-list-sidebar.html')
+                a.btn.btn-default.tooltips(href='tour-list-sidebar.html')
                   i.ti-flix.ti-view-list-alt
         // /Row
         // Row
         .row
-          // Singl hotel List
-          .col-md-12.col-sm-12
-            article.hotel-box.list-style
+          // Single Tour List
+          .col-lg-12.col-md-12
+            article.tour-box.list-style
               .row
                 .col-md-5.col-sm-5
-                  .hotel-box-image
-                    a(href='hotel-detail.html')
-                      img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-1.jpg' alt='')
+                  .tour-box-image
+                    a(href='tour-detail.html')
+                      img.img-responsive.tour-box-img(src='assets/img/tour/tour-8.jpg' alt='')
                     .entry-bookmark
                       a(href='#')
                         i.ti-bookmark
-                    h4.hotel-place
-                      a(href='#') Netherlands
-                    span.featured-tour
-                      i.fa.fa-star
+                    .tour-time
+                      i.ti.ti-car
+                      span 17h
                 .col-md-7.col-sm-7
                   .inner-box
-                    .discount-flick -12%
+                    .discount-flick -22%
                     .box-inner-ellipsis
                       div(style='margin: 0px; padding: 0px; border: 0px;')
                         h3.entry-title
-                          a(href='hotel-detail.html') Antique Resort
+                          a(href='tour-detail.html') Istanbul, Luciano Mortula
                         .entry-content
                           p
                             | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
                           span.price
                             | From 
-                            strong.theme-cl $254
+                            strong.theme-cl $224
                             |  /per person
                     .entry-meta
                       .meta-item.meta-author
-                        .hotel-review.entry-location
-                          span.review-status.bg-warning
-                            i.ti-check
-                          h6
-                            span.cl-warning.font-bold fair
-                            | 1050 Review
+                        .coauthors
+                          span.vcard.author
+                            span.fn
+                              a(href='#')
+                                img.avatar.avatar-24(alt='' src='assets/img/user-1.jpg' height='24' width='24')
+                                | Lisa Scholfield
                       .meta-item.meta-comment.fl-right
-                        .view-box
-                          .fl-right
-                            span
-                              i.ti-eye.padd-r-5
-                              | 782
+                        i.ti-comment-alt
+                        span 10
                       .meta-item.meta-rating.fl-right
                         i.fa.fa-star
                         i.fa.fa-star
                         i.fa.fa-star
                         i.fa.fa-star
                         i.fa.fa-star-half
-          // Singl hotel List
-          .col-md-12.col-sm-12
-            article.hotel-box.list-style
+          // Single Tour List
+          .col-lg-12.col-md-12
+            article.tour-box.list-style
               .row
                 .col-md-5.col-sm-5
-                  .hotel-box-image
-                    a(href='hotel-detail.html')
-                      img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-2.jpg' alt='')
+                  .tour-box-image
+                    a(href='tour-detail.html')
+                      img.img-responsive.tour-box-img(src='assets/img/tour/tour-7.jpg' alt='')
                     .entry-bookmark
                       a(href='#')
                         i.ti-bookmark
-                    h4.hotel-place
-                      a(href='#') Saudi Arabia
-                .col-md-7.col-sm-7
-                  .inner-box
-                    .discount-flick -13%
-                    .box-inner-ellipsis
-                      div(style='margin: 0px; padding: 0px; border: 0px;')
-                        h3.entry-title
-                          a(href='hotel-detail.html') Iceberg Resort
-                        .entry-content
-                          p
-                            | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
-                          span.price
-                            | From 
-                            strong.theme-cl $220
-                            |  /per person
-                    .entry-meta
-                      .meta-item.meta-author
-                        .hotel-review.entry-location
-                          span.review-status.bg-success
-                            i.ti-check
-                          h6
-                            span.cl-success.font-bold Good
-                            | 1062 Review
-                      .meta-item.meta-comment.fl-right
-                        .view-box
-                          .fl-right
-                            span
-                              i.ti-eye.padd-r-5
-                              | 1782
-                      .meta-item.meta-rating.fl-right
-                        i.fa.fa-star
-                        i.fa.fa-star
-                        i.fa.fa-star
-                        i.fa.fa-star
-                        i.fa.fa-star-half
-          // Singl hotel List
-          .col-md-12.col-sm-12
-            article.hotel-box.list-style
-              .row
-                .col-md-5.col-sm-5
-                  .hotel-box-image
-                    a(href='hotel-detail.html')
-                      img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-3.jpg' alt='')
-                    .entry-bookmark
-                      a(href='#')
-                        i.ti-bookmark
-                    h4.hotel-place
-                      a(href='#') United States
-                    span.featured-tour
-                      i.fa.fa-star
-                .col-md-7.col-sm-7
-                  .inner-box
-                    .discount-flick -10%
-                    .box-inner-ellipsis
-                      div(style='margin: 0px; padding: 0px; border: 0px;')
-                        h3.entry-title
-                          a(href='hotel-detail.html') Vision Motel
-                        .entry-content
-                          p
-                            | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
-                          span.price
-                            | From 
-                            strong.theme-cl $424
-                            |  /per person
-                    .entry-meta
-                      .meta-item.meta-author
-                        .hotel-review.entry-location
-                          span.review-status.bg-info
-                            i.ti-check
-                          h6
-                            span.cl-info.font-bold superb
-                            | 1362 Review
-                      .meta-item.meta-comment.fl-right
-                        .view-box
-                          .fl-right
-                            span
-                              i.ti-eye.padd-r-5
-                              | 7254
-                      .meta-item.meta-rating.fl-right
-                        i.fa.fa-star
-                        i.fa.fa-star
-                        i.fa.fa-star
-                        i.fa.fa-star
-                        i.fa.fa-star-half
-          // Singl hotel List
-          .col-md-12.col-sm-12
-            article.hotel-box.list-style
-              .row
-                .col-md-5.col-sm-5
-                  .hotel-box-image
-                    a(href='hotel-detail.html')
-                      img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-4.jpg' alt='')
-                    .entry-bookmark
-                      a(href='#')
-                        i.ti-bookmark
-                    h4.hotel-place
-                      a(href='#') San Marino
-                    span.featured-tour
-                      i.fa.fa-star
-                .col-md-7.col-sm-7
-                  .inner-box
-                    .discount-flick -12%
-                    .box-inner-ellipsis
-                      div(style='margin: 0px; padding: 0px; border: 0px;')
-                        h3.entry-title
-                          a(href='hotel-detail.html') Monsoon Motel
-                        .entry-content
-                          p
-                            | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
-                          span.price
-                            | From 
-                            strong.theme-cl $324
-                            |  /per person
-                    .entry-meta
-                      .meta-item.meta-author
-                        .hotel-review.entry-location
-                          span.review-status.bg-danger
-                            i.ti-check
-                          h6
-                            span.cl-danger.font-bold poor
-                            | 1240 Review
-                      .meta-item.meta-comment.fl-right
-                        .view-box
-                          .fl-right
-                            span
-                              i.ti-eye.padd-r-5
-                              | 2412
-                      .meta-item.meta-rating.fl-right
-                        i.fa.fa-star
-                        i.fa.fa-star
-                        i.fa.fa-star
-                        i.fa.fa-star
-                        i.fa.fa-star-half
-          // Singl hotel List
-          .col-md-12.col-sm-12
-            article.hotel-box.list-style
-              .row
-                .col-md-5.col-sm-5
-                  .hotel-box-image
-                    a(href='hotel-detail.html')
-                      img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-5.jpg' alt='')
-                    .entry-bookmark
-                      a(href='#')
-                        i.ti-bookmark
-                    h4.hotel-place
-                      a(href='#') Switzerland
+                    .tour-time
+                      i.ti.ti-car
+                      span 2h
                 .col-md-7.col-sm-7
                   .inner-box
                     .discount-flick -20%
                     .box-inner-ellipsis
                       div(style='margin: 0px; padding: 0px; border: 0px;')
                         h3.entry-title
-                          a(href='hotel-detail.html') Comfort Motel
+                          a(href='tour-detail.html') Kuala Lumpur, Malaysia
                         .entry-content
                           p
                             | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
                           span.price
                             | From 
-                            strong.theme-cl $324
+                            strong.theme-cl $221
                             |  /per person
                     .entry-meta
                       .meta-item.meta-author
-                        .hotel-review.entry-location
-                          span.review-status.bg-success
-                            i.ti-check
-                          h6
-                            span.cl-success.font-bold Good
-                            | 1300 Review
+                        .coauthors
+                          span.vcard.author
+                            span.fn
+                              a(href='#')
+                                img.avatar.avatar-24(alt='' src='assets/img/user-2.jpg' height='24' width='24')
+                                | Lisa Scholfield
                       .meta-item.meta-comment.fl-right
-                        .view-box
-                          .fl-right
-                            span
-                              i.ti-eye.padd-r-5
-                              | 2541
+                        i.ti-comment-alt
+                        span 16
                       .meta-item.meta-rating.fl-right
                         i.fa.fa-star
                         i.fa.fa-star
                         i.fa.fa-star
                         i.fa.fa-star
                         i.fa.fa-star-half
-          // Singl hotel List
-          .col-md-12.col-sm-12
-            article.hotel-box.list-style
+          // Single Tour List
+          .col-lg-12.col-md-12
+            article.tour-box.list-style
               .row
                 .col-md-5.col-sm-5
-                  .hotel-box-image
-                    a(href='hotel-detail.html')
-                      img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-6.jpg' alt='')
+                  .tour-box-image
+                    a(href='tour-detail.html')
+                      img.img-responsive.tour-box-img(src='assets/img/tour/tour-6.jpg' alt='')
                     .entry-bookmark
                       a(href='#')
                         i.ti-bookmark
-                    h4.hotel-place
-                      a(href='#') Singapore
-                    span.featured-tour
-                      i.fa.fa-star
+                    .tour-time
+                      i.ti.ti-car
+                      span 12h
                 .col-md-7.col-sm-7
                   .inner-box
-                    .discount-flick -11%
+                    .discount-flick -13%
                     .box-inner-ellipsis
                       div(style='margin: 0px; padding: 0px; border: 0px;')
                         h3.entry-title
-                          a(href='hotel-detail.html') Farmhouse Hotel
+                          a(href='tour-detail.html') Singapore. platongkoh
                         .entry-content
                           p
                             | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
                           span.price
                             | From 
-                            strong.theme-cl $234
+                            strong.theme-cl $134
                             |  /per person
                     .entry-meta
                       .meta-item.meta-author
-                        .hotel-review.entry-location
-                          span.review-status.bg-info
-                            i.ti-check
-                          h6
-                            span.cl-info.font-bold superb
-                            | 2541 Review
+                        .coauthors
+                          span.vcard.author
+                            span.fn
+                              a(href='#')
+                                img.avatar.avatar-24(alt='' src='assets/img/user-3.jpg' height='24' width='24')
+                                | Lisa Scholfield
                       .meta-item.meta-comment.fl-right
-                        .view-box
-                          .fl-right
-                            span
-                              i.ti-eye.padd-r-5
-                              | 3215
+                        i.ti-comment-alt
+                        span 16
+                      .meta-item.meta-rating.fl-right
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star-half
+          // Single Tour List
+          .col-lg-12.col-md-12
+            article.tour-box.list-style
+              .row
+                .col-md-5.col-sm-5
+                  .tour-box-image
+                    a(href='tour-detail.html')
+                      img.img-responsive.tour-box-img(src='assets/img/tour/tour-5.jpg' alt='')
+                    .entry-bookmark
+                      a(href='#')
+                        i.ti-bookmark
+                    .tour-time
+                      i.ti.ti-car
+                      span 17h
+                .col-md-7.col-sm-7
+                  .inner-box
+                    .discount-flick -32%
+                    .box-inner-ellipsis
+                      div(style='margin: 0px; padding: 0px; border: 0px;')
+                        h3.entry-title
+                          a(href='tour-detail.html') Dubai, United Arab Emirates
+                        .entry-content
+                          p
+                            | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                          span.price
+                            | From 
+                            strong.theme-cl $524
+                            |  /per person
+                    .entry-meta
+                      .meta-item.meta-author
+                        .coauthors
+                          span.vcard.author
+                            span.fn
+                              a(href='#')
+                                img.avatar.avatar-24(alt='' src='assets/img/user-4.jpg' height='24' width='24')
+                                | Lisa Scholfield
+                      .meta-item.meta-comment.fl-right
+                        i.ti-comment-alt
+                        span 19
+                      .meta-item.meta-rating.fl-right
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star-half
+          // Single Tour List
+          .col-lg-12.col-md-12
+            article.tour-box.list-style
+              .row
+                .col-md-5.col-sm-5
+                  .tour-box-image
+                    a(href='tour-detail.html')
+                      img.img-responsive.tour-box-img(src='assets/img/tour/tour-4.jpg' alt='')
+                    .entry-bookmark
+                      a(href='#')
+                        i.ti-bookmark
+                    .tour-time
+                      i.ti.ti-car
+                      span 2 days
+                .col-md-7.col-sm-7
+                  .inner-box
+                    .discount-flick -15%
+                    .box-inner-ellipsis
+                      div(style='margin: 0px; padding: 0px; border: 0px;')
+                        h3.entry-title
+                          a(href='tour-detail.html') Paris, France. neirfy
+                        .entry-content
+                          p
+                            | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                          span.price
+                            | From 
+                            strong.theme-cl $987
+                            |  /per person
+                    .entry-meta
+                      .meta-item.meta-author
+                        .coauthors
+                          span.vcard.author
+                            span.fn
+                              a(href='#')
+                                img.avatar.avatar-24(alt='' src='assets/img/user-5.jpg' height='24' width='24')
+                                | Lisa Scholfield
+                      .meta-item.meta-comment.fl-right
+                        i.ti-comment-alt
+                        span 17
+                      .meta-item.meta-rating.fl-right
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star-half
+          // Single Tour List
+          .col-lg-12.col-md-12
+            article.tour-box.list-style
+              .row
+                .col-md-5.col-sm-5
+                  .tour-box-image
+                    a(href='tour-detail.html')
+                      img.img-responsive.tour-box-img(src='assets/img/tour/tour-3.jpg' alt='')
+                    .entry-bookmark
+                      a(href='#')
+                        i.ti-bookmark
+                    .tour-time
+                      i.ti.ti-car
+                      span 3 days
+                .col-md-7.col-sm-7
+                  .inner-box
+                    .discount-flick -12%
+                    .box-inner-ellipsis
+                      div(style='margin: 0px; padding: 0px; border: 0px;')
+                        h3.entry-title
+                          a(href='tour-detail.html') London, England. AndreaAstes
+                        .entry-content
+                          p
+                            | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                          span.price
+                            | From 
+                            strong.theme-cl $184
+                            |  /per person
+                    .entry-meta
+                      .meta-item.meta-author
+                        .coauthors
+                          span.vcard.author
+                            span.fn
+                              a(href='#')
+                                img.avatar.avatar-24(alt='' src='assets/img/user-6.jpg' height='24' width='24')
+                                | Lisa Scholfield
+                      .meta-item.meta-comment.fl-right
+                        i.ti-comment-alt
+                        span 23
                       .meta-item.meta-rating.fl-right
                         i.fa.fa-star
                         i.fa.fa-star
@@ -855,8 +834,8 @@ footer.footer.dark-bg
                 input.form-control(type='password' placeholder='*********')
               .form-group
                 span.custom-checkbox
-                  input#54(type='checkbox')
-                  label(for='54')
+                  input#45(type='checkbox')
+                  label(for='45')
                   | Remember me
                 a.fl-right(href='#' title='Forget') Forgot Password?
               .form-group.text-center

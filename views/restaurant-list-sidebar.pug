@@ -1,0 +1,949 @@
+doctype html
+head
+  meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Tour &amp; Travel Bootstrap Template
+  // Plugins CSS
+  link(rel='stylesheet' href='assets/plugins/css/plugins.css')
+  // Custom style
+  link(href='assets/css/style.css' rel='stylesheet')
+  link(href='assets/css/responsiveness.css' rel='stylesheet')
+  link#jssDefault(rel='stylesheet' href='assets/css/skins/default.css')
+// ======================= Start Navigation =====================
+nav.navbar.navbar-default.navbar-mobile.navbar-fixed.light.bootsnav
+  .container
+    // Start Logo Header Navigation
+    .navbar-header
+      button.navbar-toggle(type='button' data-toggle='collapse' data-target='#navbar-menu')
+        i.fa.fa-bars
+      a.navbar-brand(href='index-2.html')
+        img.logo.logo-display(src='assets/img/logo.png' alt='')
+        img.logo.logo-scrolled(src='assets/img/logo.png' alt='')
+    // End Logo Header Navigation
+    // Collect the nav links, forms, and other content for toggling
+    #navbar-menu.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-left(data-in='fadeInDown' data-out='fadeOutUp')
+        li.dropdown
+          a.dropdown-toggle(href='#' data-toggle='dropdown') Home
+          ul.dropdown-menu.animated.fadeOutUp
+            li
+              a(href='index-2.html') Home 1
+            li
+              a(href='home-2.html') Home 2
+            li
+              a(href='home-3.html') Home 3
+            li
+              a(href='home-4.html') Home 4
+            li
+              a(href='home-5.html') Home 5
+        li.dropdown.megamenu-fw
+          a.dropdown-toggle(href='#' data-toggle='dropdown') Brows
+          ul.dropdown-menu.megamenu-content(role='menu')
+            li
+              .row
+                .col-menu.col-md-3
+                  h6.title Destinations
+                  .content
+                    ul.menu-col
+                      li
+                        a(href='destination-grid.html') Destination Grid
+                      li
+                        a(href='destination-list.html') Destination List
+                      li
+                        a(href='destination-grid-sidebar.html') Destination Grid Sidebar
+                      li
+                        a(href='destination-list-sidebar.html') Destination List Sidebar
+                      li
+                        a(href='destination-detail.html') Destination Detail
+                // end col-3
+                .col-menu.col-md-3
+                  h6.title Tours
+                  .content
+                    ul.menu-col
+                      li
+                        a(href='tour-grid.html') Tour Grid
+                      li
+                        a(href='tour-list.html') Tour List
+                      li
+                        a(href='tour-grid-sidebar.html') Tour Grid Sidebar
+                      li
+                        a(href='tour-list-sidebar.html') tour List Sidebar
+                      li
+                        a(href='tour-detail.html') Tour Detail
+                // end col-3
+                .col-menu.col-md-3
+                  h6.title Hotels
+                  .content
+                    ul.menu-col
+                      li
+                        a(href='hotel-grid.html') Hotel Grid
+                      li
+                        a(href='hotel-list.html') Hotel List
+                      li
+                        a(href='hotel-grid-sidebar.html') Hotel Grid Sidebar
+                      li
+                        a(href='hotel-list-sidebar.html') Hotel List Sidebar
+                      li
+                        a(href='hotel-detail.html') Hotel Detail
+                .col-menu.col-md-3
+                  h6.title Restaurants
+                  .content
+                    ul.menu-col
+                      li
+                        a(href='restaurant-grid.html') Restaurant Grid
+                      li
+                        a(href='restaurant-list.html') Restaurant List
+                      li
+                        a(href='restaurant-grid-sidebar.html') Restaurant Grid Sidebar
+                      li
+                        a(href='restaurant-list-sidebar.html') Restaurant List Sidebar
+                      li
+                        a(href='restaurant-detail.html') Restaurant Detail
+                // end col-3
+              // end row
+        li
+          a(href='hire-guider.html') Find Guide
+        li.dropdown
+          a.dropdown-toggle(href='#' data-toggle='dropdown') Extra
+          ul.dropdown-menu.animated.fadeOutUp
+            li
+              a(href='cart.html') Add To Cart
+            li
+              a(href='payment-methode.html') Paayment Methode
+            li
+              a(href='success-page.html') Success Page
+            li
+              a(href='coming-soon.html') Coming Soon
+            li
+              a(href='about-us.html') About Us
+            li
+              a(href='pricing.html') Pricing
+            li
+              a(href='services.html') Services
+            li.dropdown
+              a(href='#') View More
+              ul.dropdown-menu
+                li
+                  a(href='blog.html') Blog
+                li
+                  a(href='faqs.html') FAQs
+                li
+                  a(href='login.html') LogIn
+                li
+                  a(href='signup.html') SignUp
+                li
+                  a(href='contact.html') Contact
+                li
+                  a(href='icons.html') icons
+                li
+                  a(href='404.html') 404
+        li
+          a(href='dashboard.html') Dashboard
+      ul.nav.navbar-nav.navbar-right
+        li.br-right
+          a(href='javascript:void(0)' data-toggle='modal' data-target='#signin')
+            i.login-icon.ti-user
+            | Login
+        li.sign-up
+          a.btn-signup.red-btn(href='tour-grid-sidebar.html')
+            span.ti-briefcase
+            | Booking Toor
+    // /.navbar-collapse
+// ======================= End Navigation =====================
+// ======================= Start Page Title =====================
+.page-title.image-title(style='background-image:url(assets/img/restaurant.jpg);')
+  .container
+    .page-title-wrap
+      h2 Restaurant List Sidebar
+      p
+        a.theme-cl(href='#') Home
+        |  | 
+        span Restaurant List Sidebar
+// ======================= End Page Title =====================
+// =========== Start All Hotel In Grid View ===================
+section.gray-bg
+  .container
+    .row
+      // Filter Sidebar
+      .col-md-4.col-sm-12
+        .tr-single-box
+          .tr-single-header
+            h4 Filter
+            span.pull-right.clickables(data-toggle='collapse' data-target='#filter')
+              i.ti-align-left
+          #filter.collapse.in
+            // Input Box Search
+            .tr-single-body
+              .sidebar-input
+                input.form-control(type='text' placeholder='Type Keyword..')
+              .sidebar-input
+                input.form-control(type='text' placeholder='Destination..')
+              .sidebar-input
+                input.form-control(type='text' placeholder='Location..')
+            // Range Slider
+            .tr-inner-single-box
+              .tr-single-header
+                h4 Distance In Km.
+              .tr-single-body
+                form(method='post')
+                  #price-range
+            // Distance
+            .tr-inner-single-box
+              .tr-single-header
+                h4 By Distance
+              .tr-single-body
+                ul.side-list-check
+                  li
+                    span.custom-checkbox
+                      input#144(type='checkbox')
+                      label(for='144')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 10Km To 100Km
+                    span.pull-right 102
+                  li
+                    span.custom-checkbox
+                      input#133(type='checkbox')
+                      label(for='133')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 100Km To 500Km
+                    span.pull-right 110
+                  li
+                    span.custom-checkbox
+                      input#122(type='checkbox')
+                      label(for='122')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 150Km To 700Km
+                    span.pull-right 56
+                  li
+                    span.custom-checkbox
+                      input#111(type='checkbox')
+                      label(for='111')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 700Km To 1000Km
+                    span.pull-right 18
+                  li
+                    span.custom-checkbox
+                      input#161(type='checkbox')
+                      label(for='161')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 10000Km To 50000Km
+                    span.pull-right 75
+            // Start Rating
+            .tr-inner-single-box
+              .tr-single-header
+                h4 Start Rating
+              .tr-single-body
+                ul.side-list-check
+                  li
+                    span.custom-checkbox
+                      input#11(type='checkbox')
+                      label(for='11')
+                    .search-rating
+                      i.fa.fa-star.enable
+                      i.fa.fa-star
+                      i.fa.fa-star
+                      i.fa.fa-star
+                      i.fa.fa-star
+                    span.pull-right 102
+                  li
+                    span.custom-checkbox
+                      input#12(type='checkbox')
+                      label(for='12')
+                    .search-rating
+                      i.fa.fa-star.enable
+                      i.fa.fa-star.enable
+                      i.fa.fa-star
+                      i.fa.fa-star
+                      i.fa.fa-star
+                    span.pull-right 110
+                  li
+                    span.custom-checkbox
+                      input#13(type='checkbox')
+                      label(for='13')
+                    .search-rating
+                      i.fa.fa-star.enable
+                      i.fa.fa-star.enable
+                      i.fa.fa-star.enable
+                      i.fa.fa-star
+                      i.fa.fa-star
+                    span.pull-right 56
+                  li
+                    span.custom-checkbox
+                      input#14(type='checkbox')
+                      label(for='14')
+                    .search-rating
+                      i.fa.fa-star.enable
+                      i.fa.fa-star.enable
+                      i.fa.fa-star.enable
+                      i.fa.fa-star.enable
+                      i.fa.fa-star
+                    span.pull-right 18
+                  li
+                    span.custom-checkbox
+                      input#15(type='checkbox')
+                      label(for='15')
+                    .search-rating
+                      i.fa.fa-star.enable
+                      i.fa.fa-star.enable
+                      i.fa.fa-star.enable
+                      i.fa.fa-star.enable
+                      i.fa.fa-star.enable
+                    span.pull-right 75
+            // Tour Type
+            .tr-inner-single-box
+              .tr-single-header
+                h4 Tour Type
+              .tr-single-body
+                ul.side-list-check
+                  li
+                    span.custom-checkbox
+                      input#a(type='checkbox')
+                      label(for='a')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Food &amp; Cooking Tours
+                    span.pull-right 36
+                  li
+                    span.custom-checkbox
+                      input#b(type='checkbox')
+                      label(for='b')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Sightseeing Tours
+                    span.pull-right 75
+                  li
+                    span.custom-checkbox
+                      input#c(type='checkbox')
+                      label(for='c')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Museums &amp; Art
+                    span.pull-right 69
+                  li
+                    span.custom-checkbox
+                      input#d(type='checkbox')
+                      label(for='d')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Extraordinary Tours
+                    span.pull-right 20
+                  li
+                    span.custom-checkbox
+                      input#e(type='checkbox')
+                      label(for='e')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;History &amp; Architecture
+                    span.pull-right 45
+                  li
+                    span.custom-checkbox
+                      input#f(type='checkbox')
+                      label(for='f')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Trips out of town
+                    span.pull-right 45
+            // Animinities
+            .tr-inner-single-box
+              .tr-single-header
+                h4 Animinities
+              .tr-single-body
+                ul.side-list-check
+                  li
+                    span.custom-checkbox
+                      input#a1(type='checkbox')
+                      label(for='a1')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;With guide
+                    span.pull-right 36
+                  li
+                    span.custom-checkbox
+                      input#b2(type='checkbox')
+                      label(for='b2')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Breakfast
+                    span.pull-right 75
+                  li
+                    span.custom-checkbox
+                      input#c3(type='checkbox')
+                      label(for='c3')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Musician
+                    span.pull-right 69
+                  li
+                    span.custom-checkbox
+                      input#d4(type='checkbox')
+                      label(for='d4')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Hot Water
+                    span.pull-right 20
+                  li
+                    span.custom-checkbox
+                      input#e5(type='checkbox')
+                      label(for='e5')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;High Difinition TV
+                    span.pull-right 45
+      // All Item
+      .col-md-8.col-sm-12
+        // Row
+        .row.mrg-0
+          .tr-single-box.short-box
+            .col-sm-3.hidden-xs.align-self-center
+              h4 Shorty By
+            .col-sm-9.text-right
+              .btn-group.mr-lg-2
+                button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                  | Short By
+                .dropdown-menu.pull-right.animated.flipInX
+                  a(href='#') Accending
+                  a(href='#') Decending
+                  a(href='#') By Date
+              .btn-group
+                a.btn.btn-default.tooltips(href='restaurant-grid-sidebar.html')
+                  i.ti-flix.ti-layout-grid2
+              .btn-group
+                a.btn.btn-default.tooltips(href='restaurant-list-sidebar.html')
+                  i.ti-flix.ti-view-list-alt
+        // /Row
+        // Row
+        .row
+          // Single Restaurent List
+          .col-md-12.col-sm-12
+            article.restaurent-box.list-style
+              .row
+                .col-md-5.col-sm-5
+                  .restaurent-box-image
+                    a(href='restaurant-detail.html')
+                      img.img-responsive.restaurent-box-img(src='assets/img/res/res-1.jpg' alt='')
+                    a.list-like.left(href='#')
+                      i.ti-heart
+                    h4.restaurent-place
+                      a(href='#') Austrailia
+                    span.featured-tour
+                      i.fa.fa-star
+                .col-md-7.col-sm-7
+                  .inner-box
+                    .discount-flick -10%
+                    .box-inner-ellipsis
+                      div(style='margin: 0px; padding: 0px; border: 0px;')
+                        h3.entry-title
+                          a(href='restaurant-detail.html') The Dairy Balcony
+                        .entry-content
+                          p
+                            | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                          span.price
+                            | From 
+                            strong.theme-cl $150
+                            |  /per person
+                    .entry-meta
+                      .meta-item.meta-author
+                        .hotel-review.entry-location
+                          span.review-status.bg-success
+                            i.ti-check
+                          h6
+                            span.cl-success.font-bold Good
+                            | 1162 Review
+                      .meta-item.meta-comment.fl-right
+                        .view-box
+                          .fl-right
+                            span
+                              i.ti-eye.padd-r-5
+                              | 1780
+                      .meta-item.meta-rating.fl-right
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star-half
+          // Single Restaurent List
+          .col-md-12.col-sm-12
+            article.restaurent-box.list-style
+              .row
+                .col-md-5.col-sm-5
+                  .restaurent-box-image
+                    a(href='restaurant-detail.html')
+                      img.img-responsive.restaurent-box-img(src='assets/img/res/res-2.jpg' alt='')
+                    a.list-like.left(href='#')
+                      i.ti-heart
+                    h4.restaurent-place
+                      a(href='#') Switzerland
+                .col-md-7.col-sm-7
+                  .inner-box
+                    .discount-flick -15%
+                    .box-inner-ellipsis
+                      div(style='margin: 0px; padding: 0px; border: 0px;')
+                        h3.entry-title
+                          a(href='restaurant-detail.html') Fire and Ice Soss
+                        .entry-content
+                          p
+                            | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                          span.price
+                            | From 
+                            strong.theme-cl $230
+                            |  /per person
+                    .entry-meta
+                      .meta-item.meta-author
+                        .hotel-review.entry-location
+                          span.review-status.bg-warning
+                            i.ti-check
+                          h6
+                            span.cl-warning.font-bold fair
+                            | 1023 Review
+                      .meta-item.meta-comment.fl-right
+                        .view-box
+                          .fl-right
+                            span
+                              i.ti-eye.padd-r-5
+                              | 2482
+                      .meta-item.meta-rating.fl-right
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star-half
+          // Single Restaurent List
+          .col-md-12.col-sm-12
+            article.restaurent-box.list-style
+              .row
+                .col-md-5.col-sm-5
+                  .restaurent-box-image
+                    a(href='restaurant-detail.html')
+                      img.img-responsive.restaurent-box-img(src='assets/img/res/res-3.jpg' alt='')
+                    a.list-like.left(href='#')
+                      i.ti-heart
+                    h4.restaurent-place
+                      a(href='#') Singapore
+                    span.featured-tour
+                      i.fa.fa-star
+                .col-md-7.col-sm-7
+                  .inner-box
+                    .discount-flick -15%
+                    .box-inner-ellipsis
+                      div(style='margin: 0px; padding: 0px; border: 0px;')
+                        h3.entry-title
+                          a(href='restaurant-detail.html') Fluorescence Chilly Soss
+                        .entry-content
+                          p
+                            | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                          span.price
+                            | From 
+                            strong.theme-cl $360
+                            |  /per person
+                    .entry-meta
+                      .meta-item.meta-author
+                        .hotel-review.entry-location
+                          span.review-status.bg-danger
+                            i.ti-check
+                          h6
+                            span.cl-danger.font-bold poor
+                            | 236 Review
+                      .meta-item.meta-comment.fl-right
+                        .view-box
+                          .fl-right
+                            span
+                              i.ti-eye.padd-r-5
+                              | 1820
+                      .meta-item.meta-rating.fl-right
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star-half
+          // Single Restaurent List
+          .col-md-12.col-sm-12
+            article.restaurent-box.list-style
+              .row
+                .col-md-5.col-sm-5
+                  .restaurent-box-image
+                    a(href='restaurant-detail.html')
+                      img.img-responsive.restaurent-box-img(src='assets/img/res/res-4.jpg' alt='')
+                    a.list-like.left(href='#')
+                      i.ti-heart
+                    h4.restaurent-place
+                      a(href='#') Qatar
+                .col-md-7.col-sm-7
+                  .inner-box
+                    .discount-flick -12%
+                    .box-inner-ellipsis
+                      div(style='margin: 0px; padding: 0px; border: 0px;')
+                        h3.entry-title
+                          a(href='restaurant-detail.html') The Dwarf Pond
+                        .entry-content
+                          p
+                            | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                          span.price
+                            | From 
+                            strong.theme-cl $540
+                            |  /per person
+                    .entry-meta
+                      .meta-item.meta-author
+                        .hotel-review.entry-location
+                          span.review-status.bg-info
+                            i.ti-check
+                          h6
+                            span.cl-info.font-bold superb
+                            | 1122 Review
+                      .meta-item.meta-comment.fl-right
+                        .view-box
+                          .fl-right
+                            span
+                              i.ti-eye.padd-r-5
+                              | 1325
+                      .meta-item.meta-rating.fl-right
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star-half
+          // Single Restaurent List
+          .col-md-12.col-sm-12
+            article.restaurent-box.list-style
+              .row
+                .col-md-5.col-sm-5
+                  .restaurent-box-image
+                    a(href='restaurant-detail.html')
+                      img.img-responsive.restaurent-box-img(src='assets/img/res/res-5.jpg' alt='')
+                    a.list-like.left(href='#')
+                      i.ti-heart
+                    h4.restaurent-place
+                      a(href='#') Hong Kong
+                .col-md-7.col-sm-7
+                  .inner-box
+                    .discount-flick -12%
+                    .box-inner-ellipsis
+                      div(style='margin: 0px; padding: 0px; border: 0px;')
+                        h3.entry-title
+                          a(href='restaurant-detail.html') The Eastern Lily
+                        .entry-content
+                          p
+                            | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                          span.price
+                            | From 
+                            strong.theme-cl $370
+                            |  /per person
+                    .entry-meta
+                      .meta-item.meta-author
+                        .hotel-review.entry-location
+                          span.review-status.bg-info
+                            i.ti-check
+                          h6
+                            span.cl-info.font-bold superb
+                            | 850 Review
+                      .meta-item.meta-comment.fl-right
+                        .view-box
+                          .fl-right
+                            span
+                              i.ti-eye.padd-r-5
+                              | 2514
+                      .meta-item.meta-rating.fl-right
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star-half
+          // Single Restaurent List
+          .col-md-12.col-sm-12
+            article.restaurent-box.list-style
+              .row
+                .col-md-5.col-sm-5
+                  .restaurent-box-image
+                    a(href='restaurant-detail.html')
+                      img.img-responsive.restaurent-box-img(src='assets/img/res/res-6.jpg' alt='')
+                    a.list-like.left(href='#')
+                      i.ti-heart
+                    h4.restaurent-place
+                      a(href='#') United Kingdom
+                    span.featured-tour
+                      i.fa.fa-star
+                .col-md-7.col-sm-7
+                  .inner-box
+                    .discount-flick -22%
+                    .box-inner-ellipsis
+                      div(style='margin: 0px; padding: 0px; border: 0px;')
+                        h3.entry-title
+                          a(href='restaurant-detail.html') The Chili Shack
+                        .entry-content
+                          p
+                            | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                          span.price
+                            | From 
+                            strong.theme-cl $524
+                            |  /per person
+                    .entry-meta
+                      .meta-item.meta-author
+                        .hotel-review.entry-location
+                          span.review-status.bg-warning
+                            i.ti-check
+                          h6
+                            span.cl-warning.font-bold Good
+                            | 682 Review
+                      .meta-item.meta-comment.fl-right
+                        .view-box
+                          .fl-right
+                            span
+                              i.ti-eye.padd-r-5
+                              | 1780
+                      .meta-item.meta-rating.fl-right
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star-half
+        // /Row
+        .row
+          ul.pagination
+            li.page-item
+              a.page-link(href='#' aria-label='Previous')
+                span.ti-arrow-left
+                span.sr-only Previous
+            li.page-item
+              a.page-link(href='#') 1
+            li.page-item
+              a.page-link(href='#') 2
+            li.page-item.active
+              a.page-link(href='#') 3
+            li.page-item
+              a.page-link(href='#') 4
+            li.page-item
+              a.page-link(href='#') 5
+            li.page-item
+              a.page-link(href='#' aria-label='Next')
+                span.ti-arrow-right
+                span.sr-only Next
+// =========== End All Hotel In Grid View ===================
+// ============== Before Footer ======================
+section.before-footer.bt-1.bb-1
+  .container-fluid.padd-0.full-width
+    .col-md-2.col-sm-2.br-1.mbb-1
+      .data-flex
+        h4 Contact Us!
+    .col-md-3.col-sm-3.br-1.mbb-1
+      .data-flex.text-center
+        | 53 Boulevard Victor Hugo 44200 Nantes, France
+    .col-md-3.col-sm-3.br-1.mbb-1
+      .data-flex.text-center
+        span.d-block.mrg-bot-0 06 52 52 20 30
+        a.theme-cl(href='#')
+          strong hello@gmail.com
+    .col-md-4.col-sm-4.padd-0
+      .data-flex.padd-0
+        ul.social-share
+          li
+            a(href='#')
+              i.fa.fa-facebook.theme-cl
+          li
+            a(href='#')
+              i.fa.fa-google-plus.theme-cl
+          li
+            a(href='#')
+              i.fa.fa-twitter.theme-cl
+          li
+            a(href='#')
+              i.fa.fa-linkedin.theme-cl
+// =================== Before Footer ======================
+// ================= footer start =========================
+footer.footer.dark-bg
+  .container
+    // Row Start
+    .row
+      .col-md-8.col-sm-8
+        .row
+          .col-md-4.col-sm-4
+            h4 Featured Destinations
+            ul
+              li
+                a(href='destination-grid.html') Destination Grid
+              li
+                a(href='destination-list.html') Destination List
+              li
+                a(href='destination-grid-sidebar.html') Destination Grid Sidebar
+              li
+                a(href='destination-list-sidebar.html') Destination List Sidebar
+              li
+                a(href='destination-detail.html') Destination Detail
+              li
+                a(href='restaurant-grid.html') Restaurant Grid
+          .col-md-4.col-sm-4
+            h4 Featured Tours
+            ul
+              li
+                a(href='tour-grid.html') Tour Grid
+              li
+                a(href='tour-list.html') Tour List
+              li
+                a(href='tour-grid-sidebar.html') Tour Grid Sidebar
+              li
+                a(href='tour-list-sidebar.html') tour List Sidebar
+              li
+                a(href='tour-detail.html') Tour Detail
+              li
+                a(href='http://themezhub.com/') Restaurant Grid
+          .col-md-4.col-sm-4
+            h4 Featured Hotels
+            ul
+              li
+                a(href='hotel-grid.html') Hotel Grid
+              li
+                a(href='hotel-list.html') Hotel List
+              li
+                a(href='hotel-grid-sidebar.html') Hotel Grid Sidebar
+              li
+                a(href='hotel-list-sidebar.html') Hotel List Sidebar
+              li
+                a(href='hotel-detail.html') Hotel Detail
+              li
+                a(href='restaurant-detail.html') Restaurant Detail
+      .col-md-4.col-sm-4
+        h4 Subscribe Now
+        // Newsletter
+        .input-group
+          input.form-control(type='text' placeholder='Enter Email')
+          span.input-group-btn
+            button.btn.btn-default(type='button')
+              i.fa.fa-location-arrow.font-20
+        // Social Box
+        .f-social-box
+          ul
+            li
+              a(href='#')
+                i.fa.fa-facebook.facebook-cl
+            li
+              a(href='#')
+                i.fa.fa-google.google-plus-cl
+            li
+              a(href='#')
+                i.fa.fa-twitter.twitter-cl
+            li
+              a(href='#')
+                i.fa.fa-pinterest.pinterest-cl
+            li
+              a(href='#')
+                i.fa.fa-instagram.instagram-cl
+        // App Links
+        .f-app-box
+          ul
+            li
+              a(href='#')
+                i.fa.fa-apple
+                | App Store
+            li
+              a(href='#')
+                i.fa.fa-android
+                | Play Store
+    // Row Start
+    .row
+      .col-md-12
+        .copyright.text-center
+          p
+            a(target='_balnk' href='https://www.templatespoint.net') Templates Point
+// Sign Up Window Code
+#signin.modal.fade(tabindex='-1' role='dialog' aria-labelledby='myModalLabel1' aria-hidden='true')
+  .modal-dialog
+    #myModalLabel1.modal-content
+      .modal-body
+        .text-center
+          img.img-responsive(src='assets/img/logo.png' alt='')
+        // Nav tabs
+        ul.nav.nav-tabs.nav-advance.theme-bg(role='tablist')
+          li.nav-item.active
+            a.nav-link(data-toggle='tab' href='#employer' role='tab')
+              i.ti-user
+              |  Employer
+          li.nav-item
+            a.nav-link(data-toggle='tab' href='#candidate' role='tab')
+              i.ti-user
+              |  Candidate
+        // Nav tabs
+        // Tab panels
+        .tab-content
+          // Employer Panel 1
+          #employer.tab-pane.fade.in.show.active(role='tabpanel')
+            form
+              .form-group
+                label User Name
+                input.form-control(type='text' placeholder='User Name')
+              .form-group
+                label Password
+                input.form-control(type='password' placeholder='*********')
+              .form-group
+                span.custom-checkbox
+                  input#45(type='checkbox')
+                  label(for='45')
+                  | Remember me
+                a.fl-right(href='#' title='Forget') Forgot Password?
+              .form-group.text-center
+                button.btn.theme-btn.full-width.btn-m(type='button') LogIn 
+            .log-option
+              span OR
+            .row.mrg-bot-20
+              .col-md-6
+                a.fb-log-btn.log-btn(href='#' title='')
+                  i.fa.fa-facebook
+                  | Sign In With Facebook
+              .col-md-6
+                a.gplus-log-btn.log-btn(href='#' title='')
+                  i.fa.fa-google-plus
+                  | Sign In With Google+
+          // /.Panel 1
+          // Candidate Panel 2
+          #candidate.tab-pane.fade(role='tabpanel')
+            form
+              .form-group
+                label User Name
+                input.form-control(type='text' placeholder='User Name')
+              .form-group
+                label Password
+                input.form-control(type='password' placeholder='*********')
+              .form-group
+                span.custom-checkbox
+                  input#44(type='checkbox')
+                  label(for='44')
+                  | Remember me
+                a.fl-right(href='#' title='Forget') Forgot Password?
+              .form-group.text-center
+                button.btn.theme-btn.full-width.btn-m(type='button') LogIn 
+            .log-option
+              span OR
+            .row.mrg-bot-20
+              .col-md-6
+                a.fb-log-btn.log-btn(href='#' title='')
+                  i.fa.fa-facebook
+                  | Sign In With Facebook
+              .col-md-6
+                a.gplus-log-btn.log-btn(href='#' title='')
+                  i.fa.fa-google-plus
+                  | Sign In With Google+
+          // /.Panel 2
+        // Tab panels
+// End Sign Up Window
+// Switcher
+button.w3-button.w3-teal.w3-xlarge.w3-right(onclick='openRightMenu()')
+  i.spin.theme-cl.fa.fa-cog(aria-hidden='true')
+#rightMenu.w3-sidebar.w3-bar-block.w3-card-2.w3-animate-right(style='display:none;right:0;')
+  button.w3-bar-item.w3-button.w3-large.theme-bg(onclick='closeRightMenu()') Close &times;
+  ul#styleOptions(title='switch styling')
+    li
+      a.cl-box.cl-default(href='javascript: void(0)' data-theme='skins/default')
+    li
+      a.cl-box.cl-red(href='javascript: void(0)' data-theme='skins/red')
+    li
+      a.cl-box.cl-green(href='javascript: void(0)' data-theme='skins/green')
+    li
+      a.cl-box.cl-blue(href='javascript: void(0)' data-theme='skins/blue')
+    li
+      a.cl-box.cl-pink(href='javascript: void(0)' data-theme='skins/pink')
+    li
+      a.cl-box.cl-purple(href='javascript: void(0)' data-theme='skins/purple')
+// /Switcher
+// =================== START JAVASCRIPT ==================
+script(src='assets/plugins/js/jquery.min.js')
+script(src='assets/plugins/js/bootstrap.min.js')
+script(src='assets/plugins/js/viewportchecker.js')
+script(src='assets/plugins/js/bootsnav.js')
+script(src='assets/plugins/js/slick.min.js')
+script(src='assets/plugins/js/jquery.nice-select.min.js')
+script(src='assets/plugins/js/jquery.fancybox.min.js')
+script(src='assets/plugins/js/jquery.downCount.js')
+script(src='assets/plugins/js/freshslider.1.0.0.js')
+script(src='assets/plugins/js/moment.min.js')
+script(src='assets/plugins/js/daterangepicker.js')
+script(src='assets/plugins/js/wysihtml5-0.3.0.js')
+script(src='assets/plugins/js/bootstrap-wysihtml5.js')
+// Dashboard Js
+script(src='assets/plugins/js/jquery.slimscroll.min.js')
+script(src='assets/plugins/js/jquery.metisMenu.js')
+script(src='assets/plugins/js/jquery.easing.min.js')
+// Custom Js
+script(src='assets/js/custom.js')
+script(src='assets/js/jQuery.style.switcher.js')
+script.
+  function openRightMenu() {
+  document.getElementById("rightMenu").style.display = "block";
+  }
+  function closeRightMenu() {
+  document.getElementById("rightMenu").style.display = "none";
+  }
+script(type='text/javascript').
+  $(document).ready(function() {
+  $('#styleOptions').styleSwitcher();
+  });
