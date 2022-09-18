@@ -1,7 +1,7 @@
 {
-  "name": "natours_d",
+  "name": "tours-n-travel",
   "version": "1.0.0",
-  "description": "fourth run of the natours project",
+  "description": " tours and travels project",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

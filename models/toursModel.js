@@ -1,6 +1,102 @@
 const mongoose = require("mongoose")
 
 const toursSchema = mongoose.Schema({
+    name: {
+        type: String,
+        required: [true, "a tour must have a name"],
+        unique: true,
+        trim: true,
+        maxLength: [40, "name has exceed maximum length (40)"],
+        minLength: [10, "name length should be increased"]
+    },
+    duration: {
+        type: Number,
+        required: [true, "a tour must have a duration"],
+
+    },
+    maxGroupSize: {
+        type: Number,
+        required: [true, "a tour must have a group size"],
+    },
+    difficulty: {
+        type: String,
+        required: [true, "a tour must have a difficulty"],
+        trim: true,
+        enum: {
+            values: ["easy", "medium", "difficult"],
+            message: "wrong difficulty setting"
+        }
+    },
+    ratingsAverage: {
+        type: Number,
+        default: 4.5,
+        min: [1, "rating must be above 1"],
+        max: [5, "rating must be below 5"]
+
+    },
+    ratingsQuantity: {
+        type: Number,
+        default: 0
+    },
+    price: {
+        type: Number,
+        required: [true, "a tour must have a price"],
+    },
+
+    summary: {
+        type: String,
+        required: [true, "a tour must have a summary"],
+        trim: true
+    },
+    description: {
+        type: String,
+        required: [true, "a tour must have a description"],
+        trim: true
+    },
+    imageCover: {
+        type: String,
+        required: [true, "a tour must have a Cover image"],
+    },
+    images: [String],
+    startDates: [Date],
+    slug: String,
+    secretTour: {
+        type: Boolean,
+        default: false
+    },
+    startLocation: {
+        type: {
+            type: String,
+            default: "Point",
+            enum: ["Point"]
+        },
+        coordinates: [Number],
+        address: String,
+        description: String
+
+    },
+    locations: [ // embedding location data
+        {
+            type: {
+                type: String,
+                default: "Point",
+                enum: ["Point"]
+            },
+            coordinates: [Number],
+            address: String,
+            description: String,
+            day: Number
+
+        }
+
+    ],
+    guides: [ // parent referencing tour guides
+        {
+            type: mongoose.Schema.ObjectId,
+            ref: "User" // collection name
+
+        }
+    ]
 
 },
     { //allows virtual fields to show up in responses
