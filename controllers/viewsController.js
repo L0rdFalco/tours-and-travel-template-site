@@ -106,3 +106,15 @@ exports.getSecuritypage = (request, response, next) => {
         })
     }
 }
+exports.getForgotPasswordPage = (request, response, next) => {
+    try {
+
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: "getForgotPasswordPage fail",
+
+        })
+    }
+}
