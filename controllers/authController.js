@@ -87,14 +87,16 @@ exports.login = async (request, response, next) => {
         if (!queriedUser) return response.status(400).json({ message: "user does not exist in the db" });
 
         //4.
-        const authToken = jwt.sign({ id: queriedUser._id }, process.env.JWT_SECRET, { expiresIn: 90 + "d" })
+        const authToken = jwt.sign({ id: queriedUser._id }, process.env.JWT_SECRET, { expiresIn: 90 + "d" });
 
-        response.cookie(process.env.cookie_name, authToken, cookieOptions())
+        response.cookie(process.env.cookie_name, authToken, cookieOptions());
         response.status(200).json({
             status: "login  success",
             token: authToken
 
         })
+
+
 
     } catch (error) {
 
@@ -109,11 +111,19 @@ exports.login = async (request, response, next) => {
 
 exports.logout = (request, response, next) => {
     try {
+        /**
+         * send auth_cookie as null to overwrite the preexisting cookie in the client
+         * give new cookie very short expiration time
+         */
 
-        response.status(200).json({
-            status: "logout  success",
-
+        response.cookie(process.env.cookie_name, "", {
+            expires: new Date(Date.now() + (10 * 1000)),
+            secure: false,
+            httpOnly: true
         })
+
+        response.status(200).json({ message: "you have been logged out!" })
+
 
     } catch (error) {
 
