@@ -1,3 +1,4 @@
+const crypto = require("crypto");
 const mongoose = require("mongoose")
 const validator = require("validator")
 const bcrypt = require("bcryptjs")
@@ -62,7 +63,7 @@ const usersSchema = mongoose.Schema({
 //called during signup and updating password info
 usersSchema.pre("save", async function (next) {
     //skip hashing if  password isn't being modified
-    if (!this.isModified) return next()
+    if (!this.isModified("password")) return next()
     this.password = await bcrypt.hash(this.password, 12)
 
     //so that it isn't saved in the db
@@ -75,6 +76,15 @@ usersSchema.pre(/^find/, function (next) {
     this.find({ isActive: true })
     next()
 })
+
+//
+usersSchema.methods.createPasswordResetToken = function () {
+    const plainResetToken = crypto.randomBytes(32).toString("hex");
+    this.encrResetToken = crypto.createHash("sha256").update(plainResetToken).digest("hex")
+    this.resetTokenExpires = Date.now() + 600000; //expires in 10 minutes
+
+    return plainResetToken
+}
 
 const UsersModel = mongoose.model("User", usersSchema)
 

@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken")
 const UsersModel = require("../models/usersModel.js")
-
+const Email = require("../utils/Email.js")
 function cookieOptions() {
     let cookieOptions =
     {
@@ -134,8 +134,26 @@ exports.logout = (request, response, next) => {
     }
 }
 
-exports.forgotpassword = (request, response, next) => {
+exports.forgotpassword = async (request, response, next) => {
     try {
+        /**
+         * 1. find user with provided email
+         * 2. generate reset token, save encrypted version and time remaining to expire
+         * 3. save the ecrypted token to the db
+         * 4. generate endpoint with appended endpoint and send it to said email
+         */
+
+        const queriedUser = await UsersModel.findOne({ email: request.body.email })
+
+        if (!queriedUser) return response.status(400).json({ message: "user does not exist" })
+
+        const plainResetToken = queriedUser.createPasswordResetToken();
+
+        queriedUser.save({ validateBeforeSave: false })//prevents from checking passwords, name and email validity
+
+        const resetURL = `${request.protocol}://${request.get("host")}/api/v1/users/reset-password/${plainResetToken}`
+
+        await new Email(queriedUser, resetURL).sendPWResetEmail()
 
         response.status(200).json({
             status: "forgotpassword  success",
@@ -143,6 +161,7 @@ exports.forgotpassword = (request, response, next) => {
         })
 
     } catch (error) {
+        console.log(error);
 
         response.status(400).json({
             status: "forgotpassword fail",
