@@ -3,6 +3,8 @@ const reviewsModel = require("../models/reviewsModel.js")
 const bookingsModel = require("../models/bookingsModel.js")
 const toursModel = require("../models/toursModel.js")
 
+exports.getForgot
+
 exports.getAuthWall = (request, response, next) => {
     try {
 
@@ -581,6 +583,19 @@ exports.getForgotPasswordPage = (request, response, next) => {
 
         response.status(400).json({
             status: "getForgotPasswordPage fail",
+
+        })
+    }
+}
+
+exports.getResetPasswordPage = (request, response, next) => {
+    try {
+
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: "getResetPasswordPage fail",
 
         })
     }
