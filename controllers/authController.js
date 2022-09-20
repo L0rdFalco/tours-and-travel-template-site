@@ -1,3 +1,4 @@
+const crypto = require("crypto")
 const jwt = require("jsonwebtoken")
 const UsersModel = require("../models/usersModel.js")
 const Email = require("../utils/Email.js")
@@ -149,7 +150,9 @@ exports.forgotpassword = async (request, response, next) => {
 
         const plainResetToken = queriedUser.createPasswordResetToken();
 
-        queriedUser.save({ validateBeforeSave: false })//prevents from checking passwords, name and email validity
+        //this aupdates the document with the newly created fields
+        //turning off validation keeps node from looking for required fields for user b4 saving
+        queriedUser.save({ validateBeforeSave: false })
 
         const resetURL = `${request.protocol}://${request.get("host")}/api/v1/users/reset-password/${plainResetToken}`
 
@@ -161,8 +164,6 @@ exports.forgotpassword = async (request, response, next) => {
         })
 
     } catch (error) {
-        console.log(error);
-
         response.status(400).json({
             status: "forgotpassword fail",
 
@@ -170,13 +171,50 @@ exports.forgotpassword = async (request, response, next) => {
     }
 }
 
-exports.resetpassword = (request, response, next) => {
+exports.resetpassword = async (request, response, next) => {
     try {
+        /**
+         * 1. extract plain reset token from request.params
+         * 2. query the db for a user with the hashed version of the above token
+         * 3. check if token is valid and whether it has expired
+         * 4. overwrite the password field in the db with the new on in request.body
+         * 5. automatically log in user by signing and sending a JWT
+         */
 
+        //1.
+        const plainResetToken = request.params.token;
+
+        const hashedToken = crypto.createHash("sha256").update(plainResetToken).digest("hex")
+
+        //2. and 3.
+        const queriedUser = await UsersModel.findOne(
+            {
+                encrResetToken: hashedToken,
+                resetTokenExpires: { $gt: Date.now() }
+
+            })
+
+        if (!queriedUser) return response.status(400).json({ message: "user does not exist or token has expired" })
+
+        //4.
+        queriedUser.password = request.body.password;
+        queriedUser.passwordConfirm = request.body.passwordConfirm;
+        queriedUser.encrResetToken = undefined;
+        queriedUser.resetTokenExpires = undefined;
+
+        await queriedUser.save() //input validation is turned on
+
+
+        //5.
+        const authToken = jwt.sign({ id: queriedUser._id }, process.env.JWT_SECRET, { expiresIn: 90 + "d" });
+
+        response.cookie(process.env.cookie_name, authToken, cookieOptions());
         response.status(200).json({
-            status: "reset  success",
+            status: "resetpassword success",
+            token: authToken
 
         })
+
 
     } catch (error) {
 

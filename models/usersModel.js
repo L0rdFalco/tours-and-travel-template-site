@@ -43,6 +43,8 @@ const usersSchema = mongoose.Schema({
         }
     },
     passwordChangedAt: Date,
+    encrResetToken: String,
+    resetTokenExpires: Date,
     role: {
         type: String,
         default: "user",
