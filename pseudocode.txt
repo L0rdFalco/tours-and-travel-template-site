@@ -119,4 +119,10 @@ getTourListSidebarPage
 getTourListPage
 
 
+features
+list of tours
+detail of single tour
+ability to book a tour
+
+
 

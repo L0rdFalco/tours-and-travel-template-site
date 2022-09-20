@@ -58,6 +58,18 @@ const usersSchema = mongoose.Schema({
     toObject: { virtuals: true }
 })
 
+//pre save middleware to encrypt password
+//called during signup and updating password info
+usersSchema.pre("save", async function (next) {
+    //skip hashing if  password isn't being modified
+    if (!this.isModified) return next()
+    this.password = await bcrypt.hash(this.password, 12)
+
+    //so that it isn't saved in the db
+    this.passwordConfirm = undefined;
+    next()
+})
+
 const UsersModel = mongoose.model("User", usersSchema)
 
 module.exports = UsersModel
