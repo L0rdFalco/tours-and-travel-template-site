@@ -70,6 +70,12 @@ usersSchema.pre("save", async function (next) {
     next()
 })
 
+//query middleware to only find active users
+usersSchema.pre(/^find/, function (next) {
+    this.find({ isActive: true })
+    next()
+})
+
 const UsersModel = mongoose.model("User", usersSchema)
 
 module.exports = UsersModel

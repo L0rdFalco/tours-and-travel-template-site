@@ -45,7 +45,7 @@ exports.signup = async (request, response, next) => {
         let authToken = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: process.env.EXP_IN + "d" })
 
         //5.
-        response.cookie("auth_cookie", authToken, cookieOptions())
+        response.cookie(process.env.cookie_name, authToken, cookieOptions())
         response.status(200).json({
             status: "signup  success",
             token: authToken,
@@ -56,7 +56,6 @@ exports.signup = async (request, response, next) => {
         })
 
     } catch (error) {
-        console.log(error);
 
         response.status(400).json({
             status: "signup fail",
@@ -65,11 +64,35 @@ exports.signup = async (request, response, next) => {
     }
 }
 
-exports.login = (request, response, next) => {
+exports.login = async (request, response, next) => {
     try {
+        /**
+         * 1. check if both email and password are provided in the request.body
+         * 2. find out if user with said credentials exists in the db
+         * 3. check if provided credentials match those in the queried user
+         * 4. if the above checks pass, sign a jwt and send it back as a response
+         * 
+         */
 
+        const email = request.body.email;
+        const password = request.body.password;
+
+        //1. 
+        if (!email || !password) return response.status(400).json({ message: "please provide required information!" })
+
+        //2.
+        const queriedUser = await UsersModel.findOne({ email: email }).select("+password")
+
+        //3.
+        if (!queriedUser) return response.status(400).json({ message: "user does not exist in the db" });
+
+        //4.
+        const authToken = jwt.sign({ id: queriedUser._id }, process.env.JWT_SECRET, { expiresIn: 90 + "d" })
+
+        response.cookie(process.env.cookie_name, authToken, cookieOptions())
         response.status(200).json({
             status: "login  success",
+            token: authToken
 
         })
 
