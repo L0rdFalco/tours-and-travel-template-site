@@ -1,10 +1,16 @@
 const BookingsModel = require("../models/bookingsModel.js")
 
-exports.getAllBookings = (request, response, next) => {
+exports.getAllBookings = async (request, response, next) => {
     try {
+
+        const boookingDocs = await BookingsModel.find().select("-__v")
 
         response.status(200).json({
             status: "get all bookings success",
+            num: boookingDocs.length,
+            payload: {
+                data: boookingDocs
+            }
 
         })
 

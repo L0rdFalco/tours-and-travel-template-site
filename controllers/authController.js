@@ -241,9 +241,9 @@ exports.updatepassword = async (request, response, next) => {
          * 
          */
 
-        const oldPassword = request.body.oldPassword.trim()
-        const newPassword = request.body.newPassword.trim()
-        const passwordConfirm = request.body.passwordConfirm.trim()
+        const oldPassword = request.body.oldPassword
+        const newPassword = request.body.newPassword
+        const passwordConfirm = request.body.passwordConfirm
 
         //1.
         if (newPassword !== passwordConfirm) return response.status(400).json({ message: "provided passwords dont match!" })
@@ -286,10 +286,14 @@ exports.updatepassword = async (request, response, next) => {
 exports.isLoggedIn = (request, response, next) => {
     try {
 
-        response.status(200).json({
-            status: "isLoggedIn  success",
+        next()
 
-        })
+
+
+        // response.status(200).json({
+        //     status: "isLoggedIn  success",
+
+        // })
 
     } catch (error) {
 
@@ -341,9 +345,7 @@ exports.protect = async (request, response, next) => {
         //5.
         request.user = currentUser
 
-        console.log("currently logged in user", currentUser);
-
-
+        response.locals.user = currentUser
         //6.
         next()
     } catch (error) {
