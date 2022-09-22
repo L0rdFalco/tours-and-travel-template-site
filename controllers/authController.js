@@ -87,6 +87,10 @@ exports.login = async (request, response, next) => {
         //3.
         if (!queriedUser) return response.status(400).json({ message: "user does not exist in the db" });
 
+        const matches = await queriedUser.doPasswordsMatch(password, queriedUser.password)
+
+        if (!matches) return response.status(400).json({ message: "please enter correct password" });
+
         //4.
         const authToken = jwt.sign({ id: queriedUser._id }, process.env.JWT_SECRET, { expiresIn: 90 + "d" });
 
@@ -225,16 +229,53 @@ exports.resetpassword = async (request, response, next) => {
     }
 }
 
-exports.updatepassword = (request, response, next) => {
+exports.updatepassword = async (request, response, next) => {
     try {
+        /**
+         *1. check of provided password match
+         *2. query db for user from request.user.id
+         *3. find out if provided password matches the stored pw using a static method in the schema
+         *4. overwrite password using usermdel.save()
+            [runs automatically when save() is called] presave middleware to update passwordChangedAt field
+         *5. automatically log in user by sending a newly generated jwt
+         * 
+         */
 
+        const oldPassword = request.body.oldPassword.trim()
+        const newPassword = request.body.newPassword.trim()
+        const passwordConfirm = request.body.passwordConfirm.trim()
+
+        //1.
+        if (newPassword !== passwordConfirm) return response.status(400).json({ message: "provided passwords dont match!" })
+
+        //2.
+        const queriedUser = await UsersModel.findById(request.user._id).select("+password")
+
+        //3.
+        const matches = await queriedUser.doPasswordsMatch(oldPassword, queriedUser.password)
+
+        if (!matches) return response.status(400).json({ message: "no user with THE provided password." })
+
+        queriedUser.password = newPassword;
+        queriedUser.passwordConfirm = passwordConfirm;
+
+        //4.
+        await queriedUser.save()
+
+        //5.
+        const authToken = jwt.sign({ id: queriedUser._id }, process.env.JWT_SECRET, { expiresIn: 90 + "d" });
+
+        response.cookie(process.env.cookie_name, authToken, cookieOptions());
         response.status(200).json({
-            status: "updatepassword  success",
+            status: "updatepassword success",
+            token: authToken
 
         })
 
+
     } catch (error) {
 
+        console.log(error);
         response.status(400).json({
             status: "updatepassword fail",
 
@@ -259,15 +300,54 @@ exports.isLoggedIn = (request, response, next) => {
     }
 }
 
-exports.protect = (request, response, next) => {
+exports.protect = async (request, response, next) => {
     try {
+        /**
+         *1. check if jwt has been sent in th header or cookie
+         *2. verify the token
+         *3. check if econded user is in the db
+         *4. check of user changed passwords after token was issued
+         *5. asign said user to request.user()
+         *6. call next() if all abiove checks pass
+         */
 
-        response.status(200).json({
-            status: "protect  success",
+        let token = null;
+
+        const authHeader = request.headers.authrization
+
+        if (authHeader && authHeader.startsWith("Bearer")) token = authHeader.split(" ")[1]
+        else if (request.cookies?.auth_cookie) token = request.cookies.auth_cookie
+
+        if (!token) return response.status(400).json({ message: "please log in" })
+
+        let verifyPromise = new Promise(function (resolve, reject) {
+
+            return jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+                if (err) reject(err)
+                else if (decoded) resolve(decoded)
+            })
 
         })
 
+        //2.
+        let decoded = await verifyPromise
+
+        let currentUser = await UsersModel.findById(decoded.id)
+        if (!currentUser) return response.status(400).json({ message: "sorry but user does not exist in db" })
+
+        //4.
+        if (currentUser.passwordChangedAfter(decoded.iat)) return response.status(401).json({ message: "sorry! password mismatch!" })
+
+        //5.
+        request.user = currentUser
+
+        console.log("currently logged in user", currentUser);
+
+
+        //6.
+        next()
     } catch (error) {
+        console.log(error);
 
         response.status(400).json({
             status: "protect fail",
@@ -280,12 +360,16 @@ exports.restrictTo = (...roles) => {
     return (request, response, next) => {
         try {
 
-            if (!roles.includes(request.user)) return response.status(400).json({ message: "inadequate permissions" })
+            if (!roles.includes(request.user.role)) return response.status(400).json({ message: "inadequate permissions" })
 
+            next()
         } catch (error) {
 
             console.log("restrictTo failed");
+            response.status(400).json({
+                status: "restrictTo fail",
 
+            })
         }
     }
 }

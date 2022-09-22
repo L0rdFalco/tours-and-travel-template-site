@@ -70,6 +70,8 @@ usersSchema.pre("save", async function (next) {
 
     //so that it isn't saved in the db
     this.passwordConfirm = undefined;
+
+    console.log(this.password);
     next()
 })
 
@@ -79,7 +81,8 @@ usersSchema.pre(/^find/, function (next) {
     next()
 })
 
-//
+
+//static method used when reseting password
 usersSchema.methods.createPasswordResetToken = function () {
     const plainResetToken = crypto.randomBytes(32).toString("hex");
     this.encrResetToken = crypto.createHash("sha256").update(plainResetToken).digest("hex")
@@ -87,6 +90,24 @@ usersSchema.methods.createPasswordResetToken = function () {
 
     return plainResetToken
 }
+
+//used in login and when updating passwords
+usersSchema.methods.doPasswordsMatch = async function (inputtedPW, savedPW) {
+    return await bcrypt.compare(inputtedPW, savedPW)
+}
+
+//instance method used for verification in protected routes
+usersSchema.methods.passwordChangedAfter = function (tokenIssueDate) {
+
+
+    //return true if token was issued after password was changed
+    if (this.passwordChangedAt) return parseInt(this.passwordChangedAt.getTime() / 1000, 10) > tokenIssueDate
+
+    //returning false means that the password was never changed because the field doesn't exist
+    return false;
+
+}
+
 
 const UsersModel = mongoose.model("User", usersSchema)
 
