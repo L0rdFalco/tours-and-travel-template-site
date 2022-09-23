@@ -3,7 +3,6 @@ const reviewsModel = require("../models/reviewsModel.js")
 const bookingsModel = require("../models/bookingsModel.js")
 const toursModel = require("../models/toursModel.js")
 
-exports.getForgot
 
 exports.getAuthWall = (request, response, next) => {
     try {

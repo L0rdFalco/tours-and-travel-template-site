@@ -1,7 +1,12 @@
 const ReviewsModel = require("../models/reviewsModel.js")
 exports.getAllReviews = async (request, response, next) => {
     try {
-        const reviews = await ReviewsModel.find().select("-__v")
+
+        //get all riews for all tours or all reviews for single tour depending on the endpoint supplied
+        let reviews = ""
+        if (!request.params.tourid) reviews = await ReviewsModel.find().select("-__v")
+        else reviews = await ReviewsModel.find({ tour: request.params.tourid }).select("-__v")
+
 
         response.status(200).json({
             status: "get all Reviews success",
