@@ -15,7 +15,8 @@ const reviewsSchema = mongoose.Schema({
     },
     createdAt: {
         type: String,
-        default: Date.now
+        default: Date.now,
+        select: false
 
     },
     tour: {
@@ -33,6 +34,7 @@ const reviewsSchema = mongoose.Schema({
         toObject: { virtuals: true }
     })
 
+//popuate child referenced tour and user
 reviewsSchema.pre(/^find/, function (next) {
     this.populate({
         path: 'tour',
@@ -42,8 +44,11 @@ reviewsSchema.pre(/^find/, function (next) {
         select: 'name photo'
     });
 
+
+
     next();
 });
+
 const ReviewsModel = mongoose.model("Review", reviewsSchema)
 
 module.exports = ReviewsModel

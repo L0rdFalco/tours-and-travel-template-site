@@ -132,6 +132,7 @@ toursSchema.pre(/^find/, function (next) {
 })
 
 /**
+ * middleware to populate parent referenced reviews
  * to get all reviews per tour, we can
  * 1. (antipattern ) do child referencing of reviews in tour schema and use pre find midleware to populate in query
  * 2. (cumbersome, slow, resource intensive) query for all reviews with the tour id we need
