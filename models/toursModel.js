@@ -113,8 +113,21 @@ toursSchema.pre("save", function (next) {
 
 })
 
+//creates said virtual property in each query
 toursSchema.virtual("durationWeeks").get(function () {
     return Math.round(this.duration / 7 * 100) / 100
+
+})
+
+//child referencing to populate the guides field. alternative is calling populate on the query object
+toursSchema.pre(/^find/, function (next) {
+    this.populate({
+        path: "guides",
+        select: "name photo role"
+
+    })
+
+    next()
 
 })
 const ToursModel = mongoose.model("Tour", toursSchema)
