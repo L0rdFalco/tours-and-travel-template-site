@@ -2,6 +2,13 @@ const ToursModel = require("../models/toursModel.js")
 
 exports.getAllTours = (request, response, next) => {
     try {
+        /**
+        - example endpoint for sorting 127.0.0.1:3000/api/v1/tours/?sort=-price,-ratingsAverage
+        - example enpoint for filtering 127.0.0.1:3000/api/v1/tours/?duration[gte]=5&difficulty=easy&price[lte]=1500
+        - example endpoint for pagination 127.0.0.1:3000/api/v1/tours/?page=2&limit=10
+        - example endpoint for field limiting 127.0.0.1:3000/api/v1/tours/?fields=name,duration,difficulty,price
+         
+        */
 
         response.status(200).json({
             status: "get all tours success",

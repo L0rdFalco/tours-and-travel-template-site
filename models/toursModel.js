@@ -105,6 +105,18 @@ const toursSchema = mongoose.Schema({
         toObject: { virtuals: true }
     })
 
+//document middleware that runs before the save event
+//runs on .save() and .create() not on insertMany(), findIdAndUpdate() etc.
+toursSchema.pre("save", function (next) {
+    this.slug = slugify(this.name, { lower: true, trim: true })
+    next()
+
+})
+
+toursSchema.virtual("durationWeeks").get(function () {
+    return Math.round(this.duration / 7 * 100) / 100
+
+})
 const ToursModel = mongoose.model("Tour", toursSchema)
 
 module.exports = ToursModel
