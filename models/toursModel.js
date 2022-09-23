@@ -130,6 +130,21 @@ toursSchema.pre(/^find/, function (next) {
     next()
 
 })
+
+/**
+ * to get all reviews per tour, we can
+ * 1. (antipattern ) do child referencing of reviews in tour schema and use pre find midleware to populate in query
+ * 2. (cumbersome, slow, resource intensive) query for all reviews with the tour id we need
+ * 3. use virtual populate as below
+ * NB: AFTER THE BELOW, DO THE POPULATE IN THE TOURSCONTROLLER with populate("name of field ie reviews")
+ */
+toursSchema.virtual("reviews", {
+    ref: "Review",
+    foreignField: "tour",
+    localField: "_id"
+
+})
+
 const ToursModel = mongoose.model("Tour", toursSchema)
 
 module.exports = ToursModel

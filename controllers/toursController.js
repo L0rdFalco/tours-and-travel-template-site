@@ -94,7 +94,7 @@ exports.getAllTours = async (request, response, next) => {
 exports.getSingleTour = async (request, response, next) => {
     try {
         // const singleTour = await ToursModel.findOne({ _id: request.params.id })
-        const singleTour = await ToursModel.findById(request.params.id).select("-__v -secretTour")
+        const singleTour = await ToursModel.findById(request.params.id).populate("reviews").select("-__v -secretTour")
         response.status(200).json({
             status: "success",
             data: {
