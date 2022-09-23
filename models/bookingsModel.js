@@ -27,6 +27,12 @@ const bookingSchema = mongoose.Schema({
         type: Boolean,
         default: true
 
+    },
+    status: {
+        type: String,
+        default: "pending",
+        enum: ["inactive", "pending", "active"]
+
     }
 }, {
     toJSON: { virtuals: true },

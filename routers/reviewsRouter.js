@@ -7,7 +7,7 @@ ReviewsRouter.route("/")
     .get(reviewsController.getAllReviews)
     .post(authController.protect, authController.restrictTo("admin", "user"), reviewsController.createSingleReview)
 
-ReviewsRouter.route("/:review-id")
+ReviewsRouter.route("/:review_id")
     .get(reviewsController.getSingleReview)
     .patch(authController.protect, authController.restrictTo("admin", "user"), reviewsController.updateSingleReview)
     .delete(authController.protect, authController.restrictTo("admin", "user"), reviewsController.deleteSingleReview)

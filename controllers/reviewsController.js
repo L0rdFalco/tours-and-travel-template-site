@@ -13,6 +13,7 @@ exports.getAllReviews = async (request, response, next) => {
         })
 
     } catch (error) {
+        console.log(error);
 
         response.status(400).json({
             status: "get all Reviews fail",
@@ -25,7 +26,7 @@ exports.getAllReviews = async (request, response, next) => {
 
 exports.getSingleReview = async (request, response, next) => {
     try {
-        const singleReview = await ReviewsModel.findById(request.params.id).select("-__v")
+        const singleReview = await ReviewsModel.findById(request.params.review_id).select("-__v")
 
         response.status(200).json({
             status: "get single Reviews success",
