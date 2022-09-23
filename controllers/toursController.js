@@ -1,4 +1,4 @@
-const toursModel = require("../models/toursModel.js")
+const ToursModel = require("../models/toursModel.js")
 
 exports.getAllTours = (request, response, next) => {
     try {
@@ -18,65 +18,81 @@ exports.getAllTours = (request, response, next) => {
 }
 
 
-exports.getSingleTour = (request, response, next) => {
+exports.getSingleTour = async (request, response, next) => {
     try {
-
+        // const singleTour = await ToursModel.findOne({ _id: request.params.id })
+        const singleTour = await ToursModel.findById(request.params.id)
         response.status(200).json({
-            status: "get single tour  success",
+            status: "success",
+            data: {
+                payload: singleTour
 
+            }
         })
 
     } catch (error) {
 
         response.status(400).json({
-            status: "get single tour  fail",
+            status: "get single tours fail",
 
         })
     }
 }
 
-exports.createSingleTour = (request, response, next) => {
+exports.createSingleTour = async (request, response, next) => {
     try {
+        const toursDoc = await ToursModel.create(request.body)
 
         response.status(200).json({
-            status: "create single tour  success",
+            status: "success",
+            data: {
+                payload: toursDoc
 
+            }
         })
-
     } catch (error) {
 
         response.status(400).json({
-            status: "create single tour  fail",
+            status: "create single tour fail",
 
         })
     }
 }
 
-exports.updateSingleTour = (request, response, next) => {
+exports.updateSingleTour = async (request, response, next) => {
     try {
+        // const updatedTour = await ToursModel.updateOne({ _id: request.params.id }, request.body)
+        const updatedTour = await ToursModel.findByIdAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators: true })
 
         response.status(200).json({
-            status: "update single tour  success",
+            status: "success",
+            data: {
+                payload: updatedTour
+            }
 
         })
-
     } catch (error) {
 
         response.status(400).json({
-            status: "update single tour  fail",
+            status: "update single tour fail",
 
         })
     }
 }
 
-exports.deleteSingleTour = (request, response, next) => {
+exports.deleteSingleTour = async (request, response, next) => {
     try {
+        const deletedTour = await ToursModel.deleteOne({ _id: request.params.id })
 
-        response.status(200).json({
-            status: "delete single tour  success",
+        // const deletedTour = await ToursModel.findByIdAndDelete({ _id: request.params.id })
+
+        response.status(204).json({
+            status: "success",
+            data: {
+                payload: deletedTour
+            }
 
         })
-
     } catch (error) {
 
         response.status(400).json({
@@ -84,8 +100,11 @@ exports.deleteSingleTour = (request, response, next) => {
 
         })
     }
+
 }
 
+
+//data aggregation methods. TODO
 exports.getTourStats = (request, response, next) => {
     try {
 
