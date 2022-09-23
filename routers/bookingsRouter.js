@@ -13,9 +13,10 @@ BookingsRouter.route("/:userid")
 
 BookingsRouter.route("/b/:bookingid")
     .get(authController.restrictTo("admin", "user"), bookingsController.getSingleBooking)
+    .patch(authController.restrictTo("admin"), bookingsController.updateSingleBooking)
     .delete(authController.restrictTo("admin"), bookingsController.deleteSingleBooking)
 
-BookingsRouter.route("book-now").post(
+BookingsRouter.route("book-now").get(
     authController.restrictTo("admin", "user"),
     bookingsController.createSingleBooking)
 

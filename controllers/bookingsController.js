@@ -62,6 +62,23 @@ exports.createSingleBooking = (request, response, next) => {
     }
 }
 
+exports.updateSingleBooking = (request, response, next) => {
+    try {
+
+        response.status(200).json({
+            status: "update single booking success",
+
+        })
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: "delete single booking fail",
+
+        })
+    }
+}
+
 exports.deleteSingleBooking = (request, response, next) => {
     try {
 
