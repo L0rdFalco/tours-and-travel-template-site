@@ -21,7 +21,7 @@ exports.getAdminLoginPage = (request, response, next) => {
 exports.get404Page = (request, response, next) => {
     try {
 
-        response.status(200).render("404.pug")
+        response.status(200).render("404")
 
 
     } catch (error) {
@@ -34,7 +34,7 @@ exports.get404Page = (request, response, next) => {
 }
 exports.getAboutUsPage = (request, response, next) => {
     try {
-        response.status(200).render("about-us.pug")
+        response.status(200).render("about-us")
 
 
     } catch (error) {
@@ -47,6 +47,7 @@ exports.getAboutUsPage = (request, response, next) => {
 }
 exports.getAddDestinationsPage = (request, response, next) => {
     try {
+        response.status(200).render("add-destinations")
 
 
     } catch (error) {
@@ -59,6 +60,7 @@ exports.getAddDestinationsPage = (request, response, next) => {
 }
 exports.getAddToursPage = (request, response, next) => {
     try {
+        response.status(200).render("add-tours")
 
 
     } catch (error) {
