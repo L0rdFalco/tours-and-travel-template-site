@@ -4,8 +4,9 @@ const bookingsModel = require("../models/bookingsModel.js")
 const toursModel = require("../models/toursModel.js")
 
 
-exports.getAuthWall = (request, response, next) => {
+exports.getAdminLoginPage = (request, response, next) => {
     try {
+        response.status(200).render("admin-login")
 
 
     } catch (error) {

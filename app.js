@@ -37,7 +37,7 @@ app.use(
     helmet.contentSecurityPolicy({
         useDefaults: true,
         directives: {
-            scriptSrcElem: ["'self'", 'https:', 'https://*.jsdelivr.com']
+            scriptSrcElem: ["'self'", 'https:', 'https://*.jsdelivr.com', "'unsafe-inline'"]
         },
     })
 );
