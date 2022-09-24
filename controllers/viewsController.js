@@ -73,6 +73,7 @@ exports.getAddToursPage = (request, response, next) => {
 }
 exports.getBasicSettingsPage = (request, response, next) => {
     try {
+        response.status(200).render("basic-settings")
 
 
     } catch (error) {
@@ -86,6 +87,7 @@ exports.getBasicSettingsPage = (request, response, next) => {
 exports.getBookingPage = (request, response, next) => {
     try {
 
+        response.status(200).render("bookings")
 
     } catch (error) {
 
@@ -97,6 +99,7 @@ exports.getBookingPage = (request, response, next) => {
 }
 exports.getComingSoonPage = (request, response, next) => {
     try {
+        response.status(200).render("coming-soon")
 
 
     } catch (error) {

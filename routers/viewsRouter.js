@@ -9,6 +9,11 @@ ViewsRouter.route("/404").get(viewsController.get404Page)
 ViewsRouter.route("/about-us").get(viewsController.getAboutUsPage)
 ViewsRouter.route("/add-destinations").get(viewsController.getAddDestinationsPage)
 ViewsRouter.route("/add-tours").get(viewsController.getAddToursPage)
+ViewsRouter.route("/basic-settings").get(viewsController.getBasicSettingsPage)
+ViewsRouter.route("/current-bookings").get(viewsController.getBookingPage)
+ViewsRouter.route("/coming-soon").get(viewsController.getComingSoonPage)
+
+
 ViewsRouter.route("/tour/:slug").get(viewsController.getSingleTourDetailPage)
 // ViewsRouter.route("/forgotpassword").get(viewsController.getForgotPasswordPage)
 // ViewsRouter.route("/my-dashboard").get(authController.protect, authController.isLoggedIn, viewsController.getDashboardPage)

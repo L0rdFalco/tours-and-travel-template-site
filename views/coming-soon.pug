@@ -10,73 +10,75 @@ head
   link(href='assets/css/style.css' rel='stylesheet')
   link(href='assets/css/responsiveness.css' rel='stylesheet')
   link#jssDefault(rel='stylesheet' href='assets/css/skins/default.css')
-section.soon-wrapper
-  .container
-    .col-md-7.content
-      .row.mrg-bot-15.text-center
-        a(href='index-2.html')
-          img.img-responsive(src='assets/img/favicon.png' alt='')
-        h5.cl-yellow.font-16 Drop your eamil We will advice when we will be online!
-      .row.coming-counter.mrg-bott-30
-        .col-md-3.col-sm-3.hour-sec
-          ul.countdown.purple
-            li.day
-              span.days 00
-              p.day_ref.theme-cl days
-        .col-md-3.col-sm-3.days-sec
-          ul.countdown
-            li.hour
-              span.hours 00
-              p.hours_ref.theme-cl days
-        .col-md-3.col-sm-3.minut-sec
-          ul.countdown.yellow
-            li.minut
-              span.minutes 00
-              p.minutes_ref.theme-cl minutes
-        .col-md-3.col-sm-3.minut-sec
-          ul.countdown.yellow
-            li.second
-              span.seconds 00
-              p.seconds_ref.theme-cl seconds
-      .row.mrg-top-30
-        .col-md-12
-          h5.font-16.cl-white Subscribe to get notified!
-          form.wow-form.mrg-top-10
-            input(type='text' placeholder='Enter your Email Address..')
-            button.btn.btn-wow.theme-btn(type='submit' name='submit' value='Search')  Find Tour 
-      .row
-        .col-md-12
-          ul.coming-social
-            li
-              a.theme-cl(href='#')
-                i.fa.fa-facebook
-            li
-              a.theme-cl(href='#')
-                i.fa.fa-twitter
-            li
-              a.theme-cl(href='#')
-                i.fa.fa-google-plus
-            li
-              a.theme-cl(href='#')
-                i.fa.fa-instagram
-// Switcher
-button.w3-button.w3-teal.w3-xlarge.w3-right(onclick='openRightMenu()')
-  i.spin.theme-cl.fa.fa-cog(aria-hidden='true')
-#rightMenu.w3-sidebar.w3-bar-block.w3-card-2.w3-animate-right(style='display:none;right:0;')
-  button.w3-bar-item.w3-button.w3-large.theme-bg(onclick='closeRightMenu()') Close &times;
-  ul#styleOptions(title='switch styling')
-    li
-      a.cl-box.cl-default(href='javascript: void(0)' data-theme='skins/default')
-    li
-      a.cl-box.cl-red(href='javascript: void(0)' data-theme='skins/red')
-    li
-      a.cl-box.cl-green(href='javascript: void(0)' data-theme='skins/green')
-    li
-      a.cl-box.cl-blue(href='javascript: void(0)' data-theme='skins/blue')
-    li
-      a.cl-box.cl-pink(href='javascript: void(0)' data-theme='skins/pink')
-    li
-      a.cl-box.cl-purple(href='javascript: void(0)' data-theme='skins/purple')
+
+  body.coming-soon.theme-bg
+    section.soon-wrapper
+      .container
+        .col-md-7.content
+          .row.mrg-bot-15.text-center
+            a(href='index-2.html')
+              img.img-responsive(src='assets/img/favicon.png' alt='')
+            h5.cl-yellow.font-16 Drop your eamil We will advice when we will be online!
+          .row.coming-counter.mrg-bott-30
+            .col-md-3.col-sm-3.hour-sec
+              ul.countdown.purple
+                li.day
+                  span.days 00
+                  p.day_ref.theme-cl days
+            .col-md-3.col-sm-3.days-sec
+              ul.countdown
+                li.hour
+                  span.hours 00
+                  p.hours_ref.theme-cl days
+            .col-md-3.col-sm-3.minut-sec
+              ul.countdown.yellow
+                li.minut
+                  span.minutes 00
+                  p.minutes_ref.theme-cl minutes
+            .col-md-3.col-sm-3.minut-sec
+              ul.countdown.yellow
+                li.second
+                  span.seconds 00
+                  p.seconds_ref.theme-cl seconds
+          .row.mrg-top-30
+            .col-md-12
+              h5.font-16.cl-white Subscribe to get notified!
+              form.wow-form.mrg-top-10
+                input(type='text' placeholder='Enter your Email Address..')
+                button.btn.btn-wow.theme-btn(type='submit' name='submit' value='Search')  Find Tour 
+          .row
+            .col-md-12
+              ul.coming-social
+                li
+                  a.theme-cl(href='#')
+                    i.fa.fa-facebook
+                li
+                  a.theme-cl(href='#')
+                    i.fa.fa-twitter
+                li
+                  a.theme-cl(href='#')
+                    i.fa.fa-google-plus
+                li
+                  a.theme-cl(href='#')
+                    i.fa.fa-instagram
+    // Switcher
+    button.w3-button.w3-teal.w3-xlarge.w3-right(onclick='openRightMenu()')
+      i.spin.theme-cl.fa.fa-cog(aria-hidden='true')
+    #rightMenu.w3-sidebar.w3-bar-block.w3-card-2.w3-animate-right(style='display:none;right:0;')
+      button.w3-bar-item.w3-button.w3-large.theme-bg(onclick='closeRightMenu()') Close &times;
+      ul#styleOptions(title='switch styling')
+        li
+          a.cl-box.cl-default(href='javascript: void(0)' data-theme='skins/default')
+        li
+          a.cl-box.cl-red(href='javascript: void(0)' data-theme='skins/red')
+        li
+          a.cl-box.cl-green(href='javascript: void(0)' data-theme='skins/green')
+        li
+          a.cl-box.cl-blue(href='javascript: void(0)' data-theme='skins/blue')
+        li
+          a.cl-box.cl-pink(href='javascript: void(0)' data-theme='skins/pink')
+        li
+          a.cl-box.cl-purple(href='javascript: void(0)' data-theme='skins/purple')
 // /Switcher
 // =================== START JAVASCRIPT ==================
 script(src='assets/plugins/js/jquery.min.js')
