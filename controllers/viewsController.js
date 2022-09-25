@@ -112,6 +112,7 @@ exports.getComingSoonPage = (request, response, next) => {
 }
 exports.getContactPage = (request, response, next) => {
     try {
+        response.status(200).render("contact")
 
 
     } catch (error) {
@@ -124,6 +125,7 @@ exports.getContactPage = (request, response, next) => {
 }
 exports.getDashboardPage = (request, response, next) => {
     try {
+        response.status(200).render("dashboard")
 
 
     } catch (error) {
@@ -136,6 +138,7 @@ exports.getDashboardPage = (request, response, next) => {
 }
 exports.getDestinationDetailPage = (request, response, next) => {
     try {
+        response.status(200).render("destination-detail")
 
 
     } catch (error) {
@@ -149,6 +152,7 @@ exports.getDestinationDetailPage = (request, response, next) => {
 exports.getDestinationGridSidebarPage = (request, response, next) => {
     try {
 
+        response.status(200).render("destination-grid-sidebar")
 
     } catch (error) {
 
@@ -160,6 +164,7 @@ exports.getDestinationGridSidebarPage = (request, response, next) => {
 }
 exports.getDestinationGridPage = (request, response, next) => {
     try {
+        response.status(200).render("destination-grid")
 
 
     } catch (error) {
@@ -172,6 +177,7 @@ exports.getDestinationGridPage = (request, response, next) => {
 }
 exports.getDestinationListSidebarPage = (request, response, next) => {
     try {
+        response.status(200).render("destination-list-sidebar")
 
 
     } catch (error) {
@@ -184,6 +190,7 @@ exports.getDestinationListSidebarPage = (request, response, next) => {
 }
 exports.getDestinationListPage = (request, response, next) => {
     try {
+        response.status(200).render("destination-list")
 
 
     } catch (error) {
@@ -196,6 +203,7 @@ exports.getDestinationListPage = (request, response, next) => {
 }
 exports.getFAQsPage = (request, response, next) => {
     try {
+        response.status(200).render("faqs")
 
 
     } catch (error) {
@@ -208,6 +216,7 @@ exports.getFAQsPage = (request, response, next) => {
 }
 exports.getGuideDetailPage = (request, response, next) => {
     try {
+        response.status(200).render("guide-detail")
 
 
     } catch (error) {
@@ -220,6 +229,7 @@ exports.getGuideDetailPage = (request, response, next) => {
 }
 exports.getHireGuidePage = (request, response, next) => {
     try {
+        response.status(200).render("hire-guide")
 
 
     } catch (error) {
@@ -232,6 +242,7 @@ exports.getHireGuidePage = (request, response, next) => {
 }
 exports.getHotelDetailPage = (request, response, next) => {
     try {
+        response.status(200).render("hotel-detail")
 
 
     } catch (error) {
@@ -244,6 +255,7 @@ exports.getHotelDetailPage = (request, response, next) => {
 }
 exports.getHotelGridSidebarPage = (request, response, next) => {
     try {
+        response.status(200).render("hotel-grid-sidebar")
 
 
     } catch (error) {
@@ -256,6 +268,7 @@ exports.getHotelGridSidebarPage = (request, response, next) => {
 }
 exports.getHotelGridPage = (request, response, next) => {
     try {
+        response.status(200).render("hotel-grid")
 
 
     } catch (error) {
@@ -268,6 +281,7 @@ exports.getHotelGridPage = (request, response, next) => {
 }
 exports.getHotelListSidebarPage = (request, response, next) => {
     try {
+        response.status(200).render("hotel-list-sidebar")
 
 
     } catch (error) {
@@ -280,6 +294,7 @@ exports.getHotelListSidebarPage = (request, response, next) => {
 }
 exports.getHotelListPage = (request, response, next) => {
     try {
+        response.status(200).render("hotel-list")
 
 
     } catch (error) {
@@ -292,6 +307,7 @@ exports.getHotelListPage = (request, response, next) => {
 }
 exports.getInvoicePage = (request, response, next) => {
     try {
+        response.status(200).render("invoice")
 
 
     } catch (error) {
@@ -317,6 +333,7 @@ exports.getLoginPage = (request, response, next) => {
 exports.getManageDestinationsPage = (request, response, next) => {
     try {
 
+        response.status(200).render("manage-destinations")
 
     } catch (error) {
 
@@ -328,6 +345,7 @@ exports.getManageDestinationsPage = (request, response, next) => {
 }
 exports.getManageHotelsPage = (request, response, next) => {
     try {
+        response.status(200).render("manage-hotels")
 
 
     } catch (error) {
@@ -340,6 +358,7 @@ exports.getManageHotelsPage = (request, response, next) => {
 }
 exports.getManageRestaurantsPage = (request, response, next) => {
     try {
+        response.status(200).render("manage-restaurants")
 
 
     } catch (error) {
@@ -352,6 +371,7 @@ exports.getManageRestaurantsPage = (request, response, next) => {
 }
 exports.getManageToursPage = (request, response, next) => {
     try {
+        response.status(200).render("manage-tours")
 
 
     } catch (error) {
@@ -364,6 +384,7 @@ exports.getManageToursPage = (request, response, next) => {
 }
 exports.getMessagesPage = (request, response, next) => {
     try {
+        response.status(200).render("messages")
 
 
     } catch (error) {
@@ -377,6 +398,7 @@ exports.getMessagesPage = (request, response, next) => {
 exports.getMyProfilePage = (request, response, next) => {
     try {
 
+        response.status(200).render("my-profile")
 
     } catch (error) {
 
@@ -388,6 +410,7 @@ exports.getMyProfilePage = (request, response, next) => {
 }
 exports.getPricingPage = (request, response, next) => {
     try {
+        response.status(200).render("pricing")
 
 
     } catch (error) {
@@ -400,6 +423,7 @@ exports.getPricingPage = (request, response, next) => {
 }
 exports.getRestaurantDetailPage = (request, response, next) => {
     try {
+        response.status(200).render("restaurant-detail")
 
 
     } catch (error) {
@@ -413,6 +437,7 @@ exports.getRestaurantDetailPage = (request, response, next) => {
 exports.getRestaurantGridSidebarPage = (request, response, next) => {
     try {
 
+        response.status(200).render("restaurant-grid-sidebar")
 
     } catch (error) {
 
@@ -425,6 +450,7 @@ exports.getRestaurantGridSidebarPage = (request, response, next) => {
 exports.getRestaurantGridPage = (request, response, next) => {
     try {
 
+        response.status(200).render("restaurant-grid")
 
     } catch (error) {
 
@@ -436,6 +462,7 @@ exports.getRestaurantGridPage = (request, response, next) => {
 }
 exports.getRestaurantListSidebarPage = (request, response, next) => {
     try {
+        response.status(200).render("restaurant-list-sidebar")
 
 
     } catch (error) {
@@ -449,6 +476,7 @@ exports.getRestaurantListSidebarPage = (request, response, next) => {
 exports.getRestaurantListPage = (request, response, next) => {
     try {
 
+        response.status(200).render("restaurant-list")
 
     } catch (error) {
 
@@ -460,6 +488,7 @@ exports.getRestaurantListPage = (request, response, next) => {
 }
 exports.getSignupPage = (request, response, next) => {
     try {
+        response.status(200).render("signup")
 
 
     } catch (error) {
@@ -472,6 +501,7 @@ exports.getSignupPage = (request, response, next) => {
 }
 exports.getSiteSettingsPage = (request, response, next) => {
     try {
+        response.status(200).render("site-settings")
 
 
     } catch (error) {
@@ -484,6 +514,7 @@ exports.getSiteSettingsPage = (request, response, next) => {
 }
 exports.getSuccessPage = (request, response, next) => {
     try {
+        response.status(200).render("success-page")
 
 
     } catch (error) {
@@ -494,20 +525,10 @@ exports.getSuccessPage = (request, response, next) => {
         })
     }
 }
-exports.getSingleTourDetailPage = (request, response, next) => {
-    try {
 
-
-    } catch (error) {
-
-        response.status(400).json({
-            status: " fail",
-
-        })
-    }
-}
 exports.getAllToursGridSidebarPage = (request, response, next) => {
     try {
+        response.status(200).render("all-tours-grid-sidebar")
 
 
     } catch (error) {
@@ -520,6 +541,7 @@ exports.getAllToursGridSidebarPage = (request, response, next) => {
 }
 exports.getAllToursGridPage = (request, response, next) => {
     try {
+        response.status(200).render("all-tours-grid")
 
 
     } catch (error) {
@@ -532,6 +554,7 @@ exports.getAllToursGridPage = (request, response, next) => {
 }
 exports.getAllToursListSidebarPage = (request, response, next) => {
     try {
+        response.status(200).render("all-tours-list-sidebar")
 
 
     } catch (error) {
@@ -544,6 +567,7 @@ exports.getAllToursListSidebarPage = (request, response, next) => {
 }
 exports.getAllToursListPage = (request, response, next) => {
     try {
+        response.status(200).render("all-tours-list")
 
 
     } catch (error) {
@@ -582,6 +606,7 @@ exports.getSecuritypage = (request, response, next) => {
 }
 exports.getForgotPasswordPage = (request, response, next) => {
     try {
+        response.status(200).render("forgot-password")
 
 
     } catch (error) {
@@ -595,6 +620,7 @@ exports.getForgotPasswordPage = (request, response, next) => {
 
 exports.getResetPasswordPage = (request, response, next) => {
     try {
+        response.status(200).render("password-reset")
 
 
     } catch (error) {
