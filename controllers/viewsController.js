@@ -3,6 +3,17 @@ const reviewsModel = require("../models/reviewsModel.js")
 const bookingsModel = require("../models/bookingsModel.js")
 const toursModel = require("../models/toursModel.js")
 
+exports.getOrderPage = (request, response, next) => {
+    try {
+        response.status(200).render("onetime-payment")
+
+    } catch (error) {
+        response.status(400).json({
+            status: "getAuthWall fail",
+
+        })
+    }
+}
 
 exports.getAdminLoginPage = (request, response, next) => {
     try {

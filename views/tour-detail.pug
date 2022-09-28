@@ -10,6 +10,8 @@ head
   link(href='/assets/css/style.css' rel='stylesheet')
   link(href='/assets/css/responsiveness.css' rel='stylesheet')
   link#jssDefault(rel='stylesheet' href='assets/css/skins/default.css')
+  script(src='https://www.paypal.com/sdk/js?client-id=AeqKEWESQpJNMKRNMOO8LYp9z8IMI3y8JZTAkIf-6h4zeN8avqqhGhUYRnYeW0ZtxXvxqdt1lcrLgtu3&currency=USD')
+
 // ======================= Start Navigation =====================
 nav.navbar.navbar-default.navbar-mobile.navbar-fixed.light.bootsnav
   .container
@@ -716,7 +718,8 @@ section.tr-single-detail.gray-bg
                           | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Security cameras
               .row
                 .col-xs-12.mrg-top-15
-                  a.btn.btn-arrow.theme-btn.full-width(href='#') Book now
+                  a#bookbtn.btn.btn-arrow.theme-btn.full-width(onclick="window.open('http://127.0.0.1:3000/get-orderpage', '_blank');") Book now
+                  
         // Share this
         .tr-single-box
           .tr-single-header
@@ -992,6 +995,7 @@ button.w3-button.w3-teal.w3-xlarge.w3-right(onclick='openRightMenu()')
       a.cl-box.cl-purple(href='javascript: void(0)' data-theme='skins/purple')
 // /Switcher
 // =================== START JAVASCRIPT ==================
+script(src='assets/js/auth.js')
 script(src='assets/plugins/js/jquery.min.js')
 script(src='assets/plugins/js/bootstrap.min.js')
 script(src='assets/plugins/js/viewportchecker.js')

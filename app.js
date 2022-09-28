@@ -7,12 +7,14 @@ const xss = require("xss-clean")
 const path = require("path")
 const hpp = require("hpp")
 const cookieParser = require("cookie-parser")
+const cors = require("cors")
 
 const ViewsRouter = require("./routers/viewsRouter.js")
 const BookingsRouter = require("./routers/bookingsRouter.js")
 const ReviewsRouter = require("./routers/reviewsRouter.js")
 const ToursRouter = require("./routers/toursRouter.js")
 const UsersRouter = require("./routers/usersRouter.js")
+const PaypalRouter = require("./routers/paypalRouter.js")
 
 const app = express()
 //set up pug templating engine
@@ -30,17 +32,17 @@ const limiter = rateLimit({
 app.use("/api", limiter)
 
 //global middleware for setting security headers
-app.use(helmet())
+// app.use(helmet())
 
-//this content security allows for axios to work from the cdn
-app.use(
-    helmet.contentSecurityPolicy({
-        useDefaults: true,
-        directives: {
-            scriptSrcElem: ["'self'", 'https:', 'https://*.jsdelivr.com', "'unsafe-inline'"]
-        },
-    })
-);
+// //this content security allows for axios to work from the cdn
+// app.use(
+//     helmet.contentSecurityPolicy({
+//         useDefaults: true,
+//         directives: {
+//             scriptSrcElem: ["'self'", 'https:', '*', "'unsafe-inline'"],
+//         },
+//     })
+// );
 
 //glonal middlware for logging
 if (process.env.NODE_ENV === "development") app.use(morgan("dev"))
@@ -78,7 +80,8 @@ app.use(express.static(path.join(__dirname, "public")))
 app.use(cookieParser())
 
 
-// app.use(express.urlencoded({ extended: true, limit: '10kb' }))
+app.use(express.urlencoded({ extended: true, limit: '10kb' }))
+
 
 app.use((request, response, next) => {
     console.log("custom middleware");
@@ -93,6 +96,7 @@ app.use("/api/v1/booking", BookingsRouter)
 app.use("/api/v1/reviews", ReviewsRouter)
 app.use("/api/v1/tours", ToursRouter)
 app.use("/api/v1/users", UsersRouter)
+app.use("/api/v1/orders", PaypalRouter)
 
 
 //this handles unknown routes
