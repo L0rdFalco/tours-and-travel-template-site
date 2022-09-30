@@ -3,6 +3,21 @@ const reviewsModel = require("../models/reviewsModel.js")
 const bookingsModel = require("../models/bookingsModel.js")
 const toursModel = require("../models/toursModel.js")
 
+
+exports.getTestPage = (request, response, next) => {
+    try {
+        response.status(200).render("1")
+
+    } catch (error) {
+        response.status(400).json({
+            status: "getTestPage fail",
+
+        })
+    }
+}
+
+
+
 exports.getOrderPage = (request, response, next) => {
     try {
         response.status(200).render("onetime-payment")

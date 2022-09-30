@@ -1,0 +1,139 @@
+nav.navbar.navbar-default.navbar-mobile.navbar-fixed.light.bootsnav
+  .container
+    // Start Logo Header Navigation
+    .navbar-header
+      button.navbar-toggle(type='button' data-toggle='collapse' data-target='#navbar-menu')
+        i.fa.fa-bars
+      a.navbar-brand(href='index-2.html')
+        img.logo.logo-display(src='assets/img/logo.png' alt='')
+        img.logo.logo-scrolled(src='assets/img/logo.png' alt='')
+    // End Logo Header Navigation
+    // Collect the nav links, forms, and other content for toggling
+    #navbar-menu.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-left(data-in='fadeInDown' data-out='fadeOutUp')
+        li.dropdown
+          a.dropdown-toggle(href='#' data-toggle='dropdown') Home
+          ul.dropdown-menu.animated.fadeOutUp
+            li
+              a(href='index-2.html') Home 1
+            li
+              a(href='home-2.html') Home 2
+            li
+              a(href='home-3.html') Home 3
+            li
+              a(href='home-4.html') Home 4
+            li
+              a(href='home-5.html') Home 5
+        li.dropdown.megamenu-fw
+          a.dropdown-toggle(href='#' data-toggle='dropdown') Brows
+          ul.dropdown-menu.megamenu-content(role='menu')
+            li
+              .row
+                .col-menu.col-md-3
+                  h6.title Destinations
+                  .content
+                    ul.menu-col
+                      li
+                        a(href='destination-grid.html') Destination Grid
+                      li
+                        a(href='destination-list.html') Destination List
+                      li
+                        a(href='destination-grid-sidebar.html') Destination Grid Sidebar
+                      li
+                        a(href='destination-list-sidebar.html') Destination List Sidebar
+                      li
+                        a(href='destination-detail.html') Destination Detail
+                // end col-3
+                .col-menu.col-md-3
+                  h6.title Tours
+                  .content
+                    ul.menu-col
+                      li
+                        a(href='tour-grid.html') Tour Grid
+                      li
+                        a(href='tour-list.html') Tour List
+                      li
+                        a(href='tour-grid-sidebar.html') Tour Grid Sidebar
+                      li
+                        a(href='tour-list-sidebar.html') tour List Sidebar
+                      li
+                        a(href='tour-detail.html') Tour Detail
+                // end col-3
+                .col-menu.col-md-3
+                  h6.title Hotels
+                  .content
+                    ul.menu-col
+                      li
+                        a(href='hotel-grid.html') Hotel Grid
+                      li
+                        a(href='hotel-list.html') Hotel List
+                      li
+                        a(href='hotel-grid-sidebar.html') Hotel Grid Sidebar
+                      li
+                        a(href='hotel-list-sidebar.html') Hotel List Sidebar
+                      li
+                        a(href='hotel-detail.html') Hotel Detail
+                .col-menu.col-md-3
+                  h6.title Restaurants
+                  .content
+                    ul.menu-col
+                      li
+                        a(href='restaurant-grid.html') Restaurant Grid
+                      li
+                        a(href='restaurant-list.html') Restaurant List
+                      li
+                        a(href='restaurant-grid-sidebar.html') Restaurant Grid Sidebar
+                      li
+                        a(href='restaurant-list-sidebar.html') Restaurant List Sidebar
+                      li
+                        a(href='restaurant-detail.html') Restaurant Detail
+                // end col-3
+              // end row
+        li
+          a(href='hire-guider.html') Find Guide
+        li.dropdown
+          a.dropdown-toggle(href='#' data-toggle='dropdown') Extra
+          ul.dropdown-menu.animated.fadeOutUp
+            li
+              a(href='cart.html') Add To Cart
+            li
+              a(href='payment-methode.html') Paayment Methode
+            li
+              a(href='success-page.html') Success Page
+            li
+              a(href='coming-soon.html') Coming Soon
+            li
+              a(href='about-us.html') About Us
+            li
+              a(href='pricing.html') Pricing
+            li
+              a(href='services.html') Services
+            li.dropdown
+              a(href='#') View More
+              ul.dropdown-menu
+                li
+                  a(href='blog.html') Blog
+                li
+                  a(href='faqs.html') FAQs
+                li
+                  a(href='login.html') LogIn
+                li
+                  a(href='signup.html') SignUp
+                li
+                  a(href='contact.html') Contact
+                li
+                  a(href='icons.html') icons
+                li
+                  a(href='404.html') 404
+        li
+          a(href='dashboard.html') Dashboard
+      ul.nav.navbar-nav.navbar-right
+        li.br-right
+          a(href='javascript:void(0)' data-toggle='modal' data-target='#signin')
+            i.login-icon.ti-user
+            | Login
+        li.sign-up
+          a.btn-signup.red-btn(href='tour-grid-sidebar.html')
+            span.ti-briefcase
+            | Booking Toor
+    // /.navbar-collapse

@@ -4,6 +4,7 @@ const authController = require("../controllers/authController.js")
 const ViewsRouter = express.Router()
 
 ViewsRouter.route("/").get(viewsController.getAllToursGridPage)
+ViewsRouter.route("/test").get(viewsController.getTestPage)
 ViewsRouter.route("/get-orderpage").get(viewsController.getOrderPage)
 ViewsRouter.route("/admin-login").get(viewsController.getAdminLoginPage)
 ViewsRouter.route("/404").get(viewsController.get404Page)
