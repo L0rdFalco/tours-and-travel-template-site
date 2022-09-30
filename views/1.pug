@@ -1,313 +1,127 @@
 extends base
 
 block content 
-    section.dashboard.gray-bg.padd-0.mrg-top-50
-        .container-fluid
+    .page-title.image-title(style='background-image:url(assets/img/about.jpg);')
+        .container
+            .page-title-wrap
+                h2 Who We Are?
+                p
+                    a.theme-cl(href='#') Home
+                    |  | 
+                    span About Us
+    // ======================= End Page Title =====================
+    // =========== Who We Are ===================
+    section
+        .container
             .row
-                .col-lg-2.col-md-2.col-sm-3.dashboard-bg
-                    // /. NAV TOP
-                    nav.navbar.navbar-side
-                        // Start Logo Header Navigation
-                        .navbar-header
-                            button.navbar-toggle(type='button' data-toggle='collapse' data-target='#dashboard-menu')
-                                i.fa.fa-bars
-                        #dashboard-menu.collapse.sidebar-collapse
-                            .profile-wrapper
-                                .profile-wrapper-thumb
-                                    img.img-responsive.img-circle(src='assets/img/user-3.jpg' alt='')
-                                    span.dashboard-user-status.bg-success
-                                h4 Duke Daniel
-                            ul#main-menu.nav
-                                li
-                                    a(href='dashboard.html')
-                                        i.fa.fa-dashboard(aria-hidden='true')
-                                        | Dashboard
-                                li
-                                    a(href='messages.html')
-                                        i.ti-email(aria-hidden='true')
-                                        | Messages
-                                li
-                                    a(href='javascript:void(0)')
-                                        i.fa.fa-clone(aria-hidden='true')
-                                        | Manage Listing 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='manage-hotels.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Hotels
-                                        li
-                                            a(href='manage-tours.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Tours
-                                        li
-                                            a(href='manage-destinations.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Destinations
-                                        li
-                                            a(href='manage-restaurants.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Restaurants
-                                li.active
-                                    a(href='javascript:void(0)')
-                                        i.ti-location-pin(aria-hidden='true')
-                                        | Add Listings 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='http://themezhub.com/')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Hotels
-                                        li
-                                            a(href='add-tours.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Tours
-                                        li
-                                            a(href='add-destinations.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Destinations
-                                        li
-                                            a(href='add-restaurants.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Restaurants
-                                li
-                                    a(href='invoice.html')
-                                        i.fa-print(aria-hidden='true')
-                                        | Invoice
-                                li
-                                    a(href='javascript:void(0)')
-                                        i.ti-calendar(aria-hidden='true')
-                                        | My Booking 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='booking-1.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Booking 1
-                                        li
-                                            a(href='booking-2.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Booking 2
-                                li
-                                    a(href='javascript:void(0)')
-                                        i.fa.fa-cog(aria-hidden='true')
-                                        | Settings 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='basic-settings.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Basic Settings
-                                        li
-                                            a(href='site-settings.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Site Settings
-                                li
-                                    a(href='my-profile.html')
-                                        i.ti-user(aria-hidden='true')
-                                        | My Profile
-                                li
-                                    a(href='add-payment-methode.html')
-                                        i.ti-credit-card(aria-hidden='true')
-                                        | Add Payment Methode
-                                li.log-off
-                                    a(href='login.html')
-                                        i.fa.fa-power-off(aria-hidden='true')
-                                        | Logout
-                    // /. NAV SIDE
-                .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
-                    .row.mrg-0.mrg-top-20
-                        .tr-single-box
-                            .tr-single-header
-                                h3.dashboard-title Add Destination
-                            .tr-single-body
-                                form#msform
-                                    // progressbar
-                                    ul#progressbar
-                                        li.active Basic Information
-                                        li Available Amenities
-                                        li Confirmation
-                                    // fieldsets
-                                    fieldset
-                                        .text-center
-                                            h2.fs-title Create your account
-                                            h3.fs-subtitle This is step 1
-                                        .row
-                                            .col-xs-6
-                                                label Hotel Name
-                                                input.form-control(type='text' placeholder='Green Valley')
-                                            .col-xs-6
-                                                label Upload Logo
-                                                .cf-input
-                                                    label.custom-file
-                                                        input#file.custom-file-input(type='file')
-                                                        span.custom-file-control
-                                            .col-xs-6
-                                                label Ratting
-                                                .sl-box
-                                                    select.form-control.wide
-                                                        option Hotel ratting
-                                                        option Normal
-                                                        option 3 Start
-                                                        option 4 Start
-                                                        option 5 Start
-                                                        option 7 Startg
-                                            .col-xs-6
-                                                label Charge/Night
-                                                input.form-control(type='text' placeholder='$220')
-                                            .col-xs-6
-                                                label Phone
-                                                input.form-control(type='text' placeholder='+91 254 875 8457')
-                                            .col-xs-6
-                                                label Landline
-                                                input.form-control(type='text' placeholder='172 025 458')
-                                            .col-xs-6
-                                                label Email
-                                                input.form-control(type='text' placeholder='yourht@gmail.com')
-                                            .col-xs-6
-                                                label Fax
-                                                input.form-control(type='text' placeholder='fax')
-                                            .col-xs-6
-                                                label Address
-                                                input.form-control(type='text' placeholder='#548, Near Big Market')
-                                            .col-xs-6
-                                                label City
-                                                input.form-control(type='text' placeholder='city')
-                                            .col-xs-6
-                                                label State
-                                                input.form-control(type='text' placeholder='state')
-                                            .col-xs-6
-                                                label Country
-                                                input.form-control(type='text' placeholder='country')
-                                            .col-xs-6
-                                                label Owner Name
-                                                input.form-control(type='text' placeholder='Daniel Duke')
-                                            .col-xs-6
-                                                label Owner Contact
-                                                input.form-control(type='text' placeholder='987 584 5847')
-                                            .col-xs-6
-                                                label Featured Iamge
-                                                .cf-input
-                                                    label.custom-file
-                                                        input#featured-image.custom-file-input(type='file')
-                                                        span.custom-file-control
-                                            .col-xs-6
-                                                label Upload Gallery
-                                                .cf-input
-                                                    label.custom-file
-                                                        input#gallery.custom-file-input(type='file')
-                                                        span.custom-file-control
-                                            .col-xs-12
-                                                label Hotel Information
-                                                textarea.form-control.height-120(placeholder='About Hotel')
-                                        input.next.action-button(type='button' name='next' value='Next')
-                                    fieldset
-                                        h2.fs-title Available Amenities
-                                        h3.fs-subtitle Your presence on the social network
-                                        .row
-                                            .col-md-12
-                                                ul.add-amenities
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#1(type='checkbox')
-                                                            label(for='1')
-                                                        | Satellite TV
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#2(type='checkbox')
-                                                            label(for='2')
-                                                        | Coffeemaker
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#3(type='checkbox')
-                                                            label(for='3')
-                                                        | Hair Dryer
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#4(type='checkbox')
-                                                            label(for='4')
-                                                        | Swimming Pool
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#5(type='checkbox')
-                                                            label(for='5')
-                                                        | Room Service
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#6(type='checkbox')
-                                                            label(for='6')
-                                                        | Luxury Bedding
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#7(type='checkbox')
-                                                            label(for='7')
-                                                        | Good Showers
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#8(type='checkbox')
-                                                            label(for='8')
-                                                        | Free Parking
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#9(type='checkbox')
-                                                            label(for='9')
-                                                        | Free Wifi
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#0(type='checkbox')
-                                                            label(for='0')
-                                                        | Bath towel
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#11(type='checkbox')
-                                                            label(for='11')
-                                                        | Free Coffee
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#12(type='checkbox')
-                                                            label(for='12')
-                                                        | Pets Allow
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#13(type='checkbox')
-                                                            label(for='13')
-                                                        | Hot Water
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#14(type='checkbox')
-                                                            label(for='14')
-                                                        | Attached garage
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#15(type='checkbox')
-                                                            label(for='15')
-                                                        | Elevator
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#16(type='checkbox')
-                                                            label(for='16')
-                                                        | Spa/Sauna
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#17(type='checkbox')
-                                                            label(for='17')
-                                                        | Indoor pool
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#18(type='checkbox')
-                                                            label(for='18')
-                                                        | Security cameras
-                                        input.previous.action-button(type='button' name='previous' value='Previous')
-                                        input.next.action-button(type='button' name='next' value='Next')
-                                    fieldset
-                                        .row
-                                            .col-md-12.text-center
-                                                i.ti-thumb-up.cl-success.font-50
-                                                h3.cl-success Congratulations!
-                                                p
-                                                    strong Hi Daniel
-                                                    | , You Listing has been submitted successfully
-    // ======================= End  Add Hotel=====================
+                .col-md-6.col-sm-12
+                    .ab-detail
+                        h2 Who We Are?
+                        p
+                            | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+                        p
+                            | Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+                .col-md-6.col-sm-12
+                    // row
+                    .row
+                        .col-md-6.col-sm-6
+                            .info-module
+                                i.ti-help-alt.cl-success
+                                h4.infobox_title 24x7 Support
+                        .col-md-6.col-sm-6
+                            .info-module
+                                i.ti-world.cl-success
+                                h4.infobox_title 150+ Countries
+                    // /row
+                    // row
+                    .row
+                        .col-md-6.col-sm-6
+                            .info-module
+                                i.ti-headphone-alt.cl-success
+                                h4.infobox_title 740+ Branches
+                        .col-md-6.col-sm-6
+                            .info-module
+                                i.ti-user.cl-success
+                                h4.infobox_title 10,000+ Member
+                    // /row
+    // =========== End Who We are ===================
+    // =========== Start Testimonial ===================
+    section.half-bg
+        .container
+            .row
+                .col-md-12
+                    .heading.light
+                        span.cl-white Our Testimonials
+                        h1 What People Says
+            .row
+                .testimonial-carousel
+                    // Single Testimonial
+                    .testimonial-carousel-box
+                        .testimonial-caption
+                            i.ti-quote-right
+                            p
+                                | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+                            .testimonial-author
+                                img.img-responsive.img-circle(src='assets/img/avatar4.jpg' alt='')
+                                h4 Adam Cristwal
+                    // Single Testimonial
+                    .testimonial-carousel-box
+                        .testimonial-caption
+                            i.ti-quote-right
+                            p
+                                | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+                            .testimonial-author
+                                img.img-responsive.img-circle(src='assets/img/avatar4.jpg' alt='')
+                                h4 Adam Cristwal
+                    // Single Testimonial
+                    .testimonial-carousel-box
+                        .testimonial-caption
+                            i.ti-quote-right
+                            p
+                                | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+                            .testimonial-author
+                                img.img-responsive.img-circle(src='assets/img/avatar4.jpg' alt='')
+                                h4 Adam Cristwal
+                    // Single Testimonial
+                    .testimonial-carousel-box
+                        .testimonial-caption
+                            i.ti-quote-right
+                            p
+                                | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+                            .testimonial-author
+                                img.img-responsive.img-circle(src='assets/img/avatar4.jpg' alt='')
+                                h4 Adam Cristwal
+    // =========== End Testimonial ===================
+    // ================= Features =====================
+    section
+        .container
+            .row
+                .col-md-12
+                    .heading
+                        span.theme-cl New Features
+                        h1 Latest Features
+            .row
+                .col-md-3.col-sm-6
+                    .info-features
+                        i.ti-headphone-alt.info-ibox.bg-success-light
+                        h4.infobox_title 24x7 Support
+                        .infobox_content Cryptronick caters to clients who require an intensive.
+                .col-md-3.col-sm-6
+                    .info-features
+                        i.ti-rocket.info-ibox.bg-success-light
+                        h4.infobox_title Fast &amp; Protect Services
+                        .infobox_content Cryptronick caters to clients who require an intensive.
+                .col-md-3.col-sm-6
+                    .info-features
+                        i.ti-dashboard.info-ibox.bg-success-light
+                        h4.infobox_title Creative Dashboard
+                        .infobox_content Cryptronick caters to clients who require an intensive.
+                .col-md-3.col-sm-6
+                    .info-features
+                        i.ti-gift.info-ibox.bg-success-light
+                        h4.infobox_title Winner Announced
+                        .infobox_content Cryptronick caters to clients who require an intensive.
+    // ===================== End fetures =====================
     // ============== Before Footer ======================
     section.before-footer.bt-1.bb-1
         .container-fluid.padd-0.full-width
@@ -337,4 +151,6 @@ block content
                         li
                             a(href='#')
                                 i.fa.fa-linkedin.theme-cl
-    
+
+block content_footer 
+    include _footer
