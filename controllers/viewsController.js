@@ -71,9 +71,9 @@ exports.getAboutUsPage = (request, response, next) => {
         })
     }
 }
-exports.getAddDestinationsPage = (request, response, next) => {
+exports.getAddDestinationPage = (request, response, next) => {
     try {
-        response.status(200).render("add-destinations")
+        response.status(200).render("add-destination")
 
 
     } catch (error) {
@@ -84,9 +84,35 @@ exports.getAddDestinationsPage = (request, response, next) => {
         })
     }
 }
-exports.getAddToursPage = (request, response, next) => {
+exports.getAddTourPage = (request, response, next) => {
     try {
-        response.status(200).render("add-tours")
+        response.status(200).render("add-tour")
+
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: " fail",
+
+        })
+    }
+}
+exports.getAddRestaurantPage = (request, response, next) => {
+    try {
+        response.status(200).render("add-restaurant")
+
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: " fail",
+
+        })
+    }
+}
+exports.getAddHotelPage = (request, response, next) => {
+    try {
+        response.status(200).render("add-hotel")
 
 
     } catch (error) {
