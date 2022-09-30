@@ -76,7 +76,7 @@ block content
                                     a(href='invoice.html')
                                         i.fa-print(aria-hidden='true')
                                         | Invoice
-                                li.active
+                                li
                                     a(href='javascript:void(0)')
                                         i.ti-calendar(aria-hidden='true')
                                         | My Booking 
@@ -90,7 +90,7 @@ block content
                                             a(href='booking-2.html')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Booking 2
-                                li
+                                li.active
                                     a(href='javascript:void(0)')
                                         i.fa.fa-cog(aria-hidden='true')
                                         | Settings 
@@ -121,163 +121,84 @@ block content
                     .row.mrg-0.mrg-top-20
                         .tr-single-box
                             .tr-single-header
-                                h3.dashboard-title My Booking
+                                h3.dashboard-title Basic Settings
                             .tr-single-body
-                                // row
-                                .row.mrg-bot-15
-                                    .col-md-4.col-sm-7
-                                        input.form-control.height-50(type='text' value='' placeholder='Search by listing name')
-                                    .col-md-6.col-sm-5
-                                        input.btn.theme-btn.height-50.width-150(type='submit' value='Search')
-                                // row
-                                .row
-                                    // Single booking
-                                    .col-md-12
-                                        .dasboard-prop-listing
-                                            .blog_listing_image.book_image
-                                                a(href='http://themezhub.com/')
-                                                    img.img-responsive(src='assets/img/hotel/hotel-1.jpg' alt='')
-                                            .prop-info
-                                                h4.listing_title_book
-                                                    | Hotel Green Resort vally, Shimla
-                                                .user_dashboard_listed
-                                                    strong Period:
-                                                    |   10-12-2018 
-                                                    strong to
-                                                    |  19-12-2018
-                                                .user_dashboard_listed
-                                                    strong Night:
-                                                    |   7th
-                                                .user_dashboard_listed
-                                                    strong Invoice No: 
-                                                    |  BA0324 254 875 4158
-                                                .user_dashboard_listed
-                                                    strong Adults:  
-                                                    |  4th
-                                                .user_dashboard_listed
-                                                    strong Children:  
-                                                    |  2th
-                                            .info-container_booking
-                                                span.booking-success Confirmed
-                                                a.booking-detail(href='invoice.html') View Detail
-                                                span.booking-cancel Cancel Booking
-                                    // Single booking
-                                    .col-md-12
-                                        .dasboard-prop-listing
-                                            .blog_listing_image.book_image
-                                                a(href='http://themezhub.com/')
-                                                    img.img-responsive(src='assets/img/hotel/hotel-1.jpg' alt='')
-                                            .prop-info
-                                                h4.listing_title_book
-                                                    | Hotel Green Resort vally, Shimla
-                                                .user_dashboard_listed
-                                                    strong Period:
-                                                    |   10-12-2018 
-                                                    strong to
-                                                    |  19-12-2018
-                                                .user_dashboard_listed
-                                                    strong Night:
-                                                    |   7th
-                                                .user_dashboard_listed
-                                                    strong Invoice No: 
-                                                    span.invoice_list_id -
-                                                .user_dashboard_listed
-                                                    strong Adults:  
-                                                    |  4th
-                                                .user_dashboard_listed
-                                                    strong Children:  
-                                                    |  2th
-                                            .info-container_booking
-                                                span.booking-pending Request Pending
-                                                span.booking-cancel Cancel Booking Request
-                                    // Single booking
-                                    .col-md-12
-                                        .dasboard-prop-listing
-                                            .blog_listing_image.book_image
-                                                a(href='http://themezhub.com/')
-                                                    img.img-responsive(src='assets/img/hotel/hotel-1.jpg' alt='')
-                                            .prop-info
-                                                h4.listing_title_book
-                                                    | Hotel Green Resort vally, Shimla
-                                                .user_dashboard_listed
-                                                    strong Period:
-                                                    |   10-12-2018 
-                                                    strong to
-                                                    |  19-12-2018
-                                                .user_dashboard_listed
-                                                    strong Night:
-                                                    |   7th
-                                                .user_dashboard_listed
-                                                    strong Invoice No: 
-                                                    |  BA0324 254 875 4157
-                                                .user_dashboard_listed
-                                                    strong Adults:  
-                                                    |  4th
-                                                .user_dashboard_listed
-                                                    strong Children:  
-                                                    |  2th
-                                            .info-container_booking
-                                                span.booking-success Confirmed
-                                                a.booking-detail(href='invoice.html') View Detail
-                                                span.booking-cancel Cancel Booking
-                                    // Single booking
-                                    .col-md-12
-                                        .dasboard-prop-listing
-                                            .blog_listing_image.book_image
-                                                a(href='http://themezhub.com/')
-                                                    img.img-responsive(src='assets/img/hotel/hotel-1.jpg' alt='')
-                                            .prop-info
-                                                h4.listing_title_book
-                                                    | Hotel Green Resort vally, Shimla
-                                                .user_dashboard_listed
-                                                    strong Period:
-                                                    |   10-12-2018 
-                                                    strong to
-                                                    |  19-12-2018
-                                                .user_dashboard_listed
-                                                    strong Night:
-                                                    |   7th
-                                                .user_dashboard_listed
-                                                    strong Invoice No: 
-                                                    span.invoice_list_id -
-                                                .user_dashboard_listed
-                                                    strong Adults:  
-                                                    |  4th
-                                                .user_dashboard_listed
-                                                    strong Children:  
-                                                    |  2th
-                                            .info-container_booking
-                                                span.booking-pending Request Pending
-                                                span.booking-cancel Cancel Booking Request
-                                    // Single booking
-                                    .col-md-12
-                                        .dasboard-prop-listing
-                                            .blog_listing_image.book_image
-                                                a(href='http://themezhub.com/')
-                                                    img.img-responsive(src='assets/img/hotel/hotel-1.jpg' alt='')
-                                            .prop-info
-                                                h4.listing_title_book
-                                                    | Hotel Green Resort vally, Shimla
-                                                .user_dashboard_listed
-                                                    strong Period:
-                                                    |   10-12-2018 
-                                                    strong to
-                                                    |  19-12-2018
-                                                .user_dashboard_listed
-                                                    strong Night:
-                                                    |   7th
-                                                .user_dashboard_listed
-                                                    strong Invoice No: 
-                                                    |  BA0324 254 875 4157
-                                                .user_dashboard_listed
-                                                    strong Adults:  
-                                                    |  4th
-                                                .user_dashboard_listed
-                                                    strong Children:  
-                                                    |  2th
-                                            .info-container_booking
-                                                span.booking-success Confirmed
-                                                a.booking-detail(href='invoice.html') View Detail
-                                                span.booking-cancel Cancel Booking
+                                form.form-horizontal(method='post')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Name:
+                                        .col-md-10.col-sm-9
+                                            input.form-control(type='text' value='Travel Stock - Responsive Tour & Travel Website')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 URL:
+                                        .col-md-10.col-sm-9
+                                            input.form-control(type='text' value='https://www.listing-hub.com/')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Title:
+                                        .col-md-10.col-sm-9
+                                            input.form-control(type='text' value='' travel='' stock='' search='' engine='' friendly='')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Keyword:
+                                        .col-md-10.col-sm-9
+                                            input.form-control(type='text' value='Travel, tour, Business..')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Description:
+                                        .col-md-10.col-sm-9
+                                            input.form-control(type='text' value='' travel='' stock='' search='' engine='' friendly='')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Contact email:
+                                        .col-md-10.col-sm-9
+                                            input.form-control(type='text' value='support@travelstock.com')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Enable Mobile Site:
+                                        .col-md-10.col-sm-9
+                                        .sl-box
+                                            select.form-control
+                                                option Yes
+                                                option No
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Main Content:
+                                        .col-md-10.col-sm-9
+                                            textarea.form-control.textarea.height-100(placeholder='Description')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Submission Terms:
+                                        .col-md-10.col-sm-9
+                                            textarea.form-control.textarea.height-100(placeholder='Description')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Google Analytics Code:
+                                        .col-md-10.col-sm-9
+                                            textarea.form-control.height-100
+                                    .form-group
+                                        label.col-md-2.col-sm-3 HTTP Character Set:
+                                        .col-md-10.col-sm-9
+                                            .sl-box
+                                                select.form-control.wide
+                                                    option#CHARSET-0(value='ASMO-708') Arabic (ASMO 708) - ASMO-708
+                                                    option#CHARSET-1(value='DOS-720') Arabic (DOS) - DOS-720
+                                                    option#CHARSET-2(value='iso-8859-6') Arabic (ISO) - iso-8859-6
+                                                    option#CHARSET-3(value='x-mac-arabic') Arabic (Mac) - x-mac-arabic
+                                                    option#CHARSET-4(value='windows-1256') Arabic (Windows) - windows-1256
+                                                    option#CHARSET-5(value='ibm775') Baltic (DOS) - ibm775
+                                                    option#CHARSET-6(value='iso-8859-4') Baltic (ISO) - iso-8859-4
+                                                    option#CHARSET-7(value='windows-1257') Baltic (Windows) - windows-1257
+                                                    option#CHARSET-8(value='ibm852') Central European (DOS) - ibm852
+                                                    option#CHARSET-9(value='iso-8859-2') Central European (ISO) - iso-8859-2
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Upload Logo:
+                                        .col-md-10.col-sm-9
+                                            label.btn-bs-file.btn
+                                                | Browse
+                                                input(type='file')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Upload Favicon:
+                                        .col-md-10.col-sm-9
+                                            label.btn-bs-file.btn
+                                                | Browse
+                                                input(type='file')
+                                    .form-group
+                                        .col-md-12.col-sm-12.text-center
+                                            button.btn.theme-btn(type='submit') Save &amp; Update
+
     block content_contact 
-            include _contact
+        include _contact
+//- block content_footer 
+//-     include _footer

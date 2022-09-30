@@ -1,528 +1,202 @@
-doctype html
-head
-  meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Tour &amp; Travel Bootstrap Template
-  // Plugins CSS
-  link(rel='stylesheet' href='assets/plugins/css/plugins.css')
-  // Custom style
-  link(href='assets/css/style.css' rel='stylesheet')
-  link(href='assets/css/responsiveness.css' rel='stylesheet')
-  link#jssDefault(rel='stylesheet' href='assets/css/skins/default.css')
-// ======================= Start Navigation =====================
-nav.navbar.navbar-default.navbar-mobile.navbar-fixed.light.bootsnav
-  .container
-    // Start Logo Header Navigation
-    .navbar-header
-      button.navbar-toggle(type='button' data-toggle='collapse' data-target='#navbar-menu')
-        i.fa.fa-bars
-      a.navbar-brand(href='index-2.html')
-        img.logo.logo-display(src='assets/img/logo.png' alt='')
-        img.logo.logo-scrolled(src='assets/img/logo.png' alt='')
-    // End Logo Header Navigation
-    // Collect the nav links, forms, and other content for toggling
-    #navbar-menu.collapse.navbar-collapse
-      ul.nav.navbar-nav.navbar-left(data-in='fadeInDown' data-out='fadeOutUp')
-        li.dropdown
-          a.dropdown-toggle(href='#' data-toggle='dropdown') Home
-          ul.dropdown-menu.animated.fadeOutUp
-            li
-              a(href='index-2.html') Home 1
-            li
-              a(href='home-2.html') Home 2
-            li
-              a(href='home-3.html') Home 3
-            li
-              a(href='home-4.html') Home 4
-            li
-              a(href='home-5.html') Home 5
-        li.dropdown.megamenu-fw
-          a.dropdown-toggle(href='#' data-toggle='dropdown') Brows
-          ul.dropdown-menu.megamenu-content(role='menu')
-            li
-              .row
-                .col-menu.col-md-3
-                  h6.title Destinations
-                  .content
-                    ul.menu-col
-                      li
-                        a(href='destination-grid.html') Destination Grid
-                      li
-                        a(href='destination-list.html') Destination List
-                      li
-                        a(href='destination-grid-sidebar.html') Destination Grid Sidebar
-                      li
-                        a(href='destination-list-sidebar.html') Destination List Sidebar
-                      li
-                        a(href='destination-detail.html') Destination Detail
-                // end col-3
-                .col-menu.col-md-3
-                  h6.title Tours
-                  .content
-                    ul.menu-col
-                      li
-                        a(href='tour-grid.html') Tour Grid
-                      li
-                        a(href='tour-list.html') Tour List
-                      li
-                        a(href='tour-grid-sidebar.html') Tour Grid Sidebar
-                      li
-                        a(href='tour-list-sidebar.html') tour List Sidebar
-                      li
-                        a(href='tour-detail.html') Tour Detail
-                // end col-3
-                .col-menu.col-md-3
-                  h6.title Hotels
-                  .content
-                    ul.menu-col
-                      li
-                        a(href='hotel-grid.html') Hotel Grid
-                      li
-                        a(href='hotel-list.html') Hotel List
-                      li
-                        a(href='hotel-grid-sidebar.html') Hotel Grid Sidebar
-                      li
-                        a(href='hotel-list-sidebar.html') Hotel List Sidebar
-                      li
-                        a(href='hotel-detail.html') Hotel Detail
-                .col-menu.col-md-3
-                  h6.title Restaurants
-                  .content
-                    ul.menu-col
-                      li
-                        a(href='restaurant-grid.html') Restaurant Grid
-                      li
-                        a(href='restaurant-list.html') Restaurant List
-                      li
-                        a(href='restaurant-grid-sidebar.html') Restaurant Grid Sidebar
-                      li
-                        a(href='restaurant-list-sidebar.html') Restaurant List Sidebar
-                      li
-                        a(href='restaurant-detail.html') Restaurant Detail
-                // end col-3
-              // end row
-        li
-          a(href='hire-guider.html') Find Guide
-        li.dropdown
-          a.dropdown-toggle(href='#' data-toggle='dropdown') Extra
-          ul.dropdown-menu.animated.fadeOutUp
-            li
-              a(href='cart.html') Add To Cart
-            li
-              a(href='payment-methode.html') Paayment Methode
-            li
-              a(href='success-page.html') Success Page
-            li
-              a(href='coming-soon.html') Coming Soon
-            li
-              a(href='about-us.html') About Us
-            li
-              a(href='pricing.html') Pricing
-            li
-              a(href='services.html') Services
-            li.dropdown
-              a(href='#') View More
-              ul.dropdown-menu
-                li
-                  a(href='blog.html') Blog
-                li
-                  a(href='faqs.html') FAQs
-                li
-                  a(href='login.html') LogIn
-                li
-                  a(href='signup.html') SignUp
-                li
-                  a(href='contact.html') Contact
-                li
-                  a(href='icons.html') icons
-                li
-                  a(href='404.html') 404
-        li
-          a(href='dashboard.html') Dashboard
-      ul.nav.navbar-nav.navbar-right
-        li.dropdown.dash-link
-          a.dropdown-toggle(href='#')
-            img.img-responsive.avatar(src='assets/img/user-3.jpg' alt='')
-            | Hi, Daniel
-          ul.dropdown-menu.left-nav
-            li
-              a(href='dashboard.html') Dashboard
-            li
-              a(href='http://themezhub.com/') My Profile
-            li
-              a(href='login.html') Log Out
-    // /.navbar-collapse
-// ======================= End Navigation =====================
-// ======================= Start basic-settings =====================
-section.dashboard.gray-bg.padd-0.mrg-top-50
-  .container-fluid
-    .row
-      .col-lg-2.col-md-2.col-sm-3.dashboard-bg
-        // /. NAV TOP
-        nav.navbar.navbar-side
-          // Start Logo Header Navigation
-          .navbar-header
-            button.navbar-toggle(type='button' data-toggle='collapse' data-target='#dashboard-menu')
-              i.fa.fa-bars
-          #dashboard-menu.collapse.sidebar-collapse
-            .profile-wrapper
-              .profile-wrapper-thumb
-                img.img-responsive.img-circle(src='assets/img/user-3.jpg' alt='')
-                span.dashboard-user-status.bg-success
-              h4 Duke Daniel
-            ul#main-menu.nav
-              li
-                a(href='dashboard.html')
-                  i.fa.fa-dashboard(aria-hidden='true')
-                  | Dashboard
-              li
-                a(href='messages.html')
-                  i.ti-email(aria-hidden='true')
-                  | Messages
-              li
-                a(href='javascript:void(0)')
-                  i.fa.fa-clone(aria-hidden='true')
-                  | Manage Listing 
-                  span.fa.arrow
-                ul.nav.nav-second-level
-                  li
-                    a(href='manage-hotels.html')
-                      i.fa.fa-circle-o-notch(aria-hidden='true')
-                      | Manage Hotels
-                  li
-                    a(href='manage-tours.html')
-                      i.fa.fa-circle-o-notch(aria-hidden='true')
-                      | Manage Tours
-                  li
-                    a(href='manage-destinations.html')
-                      i.fa.fa-circle-o-notch(aria-hidden='true')
-                      | Manage Destinations
-                  li
-                    a(href='manage-restaurants.html')
-                      i.fa.fa-circle-o-notch(aria-hidden='true')
-                      | Manage Restaurants
-              li
-                a(href='javascript:void(0)')
-                  i.ti-location-pin(aria-hidden='true')
-                  | Add Listings 
-                  span.fa.arrow
-                ul.nav.nav-second-level
-                  li
-                    a(href='http://themezhub.com/')
-                      i.fa.fa-circle-o-notch(aria-hidden='true')
-                      | Add Hotels
-                  li
-                    a(href='add-tours.html')
-                      i.fa.fa-circle-o-notch(aria-hidden='true')
-                      | Add Tours
-                  li
-                    a(href='add-destinations.html')
-                      i.fa.fa-circle-o-notch(aria-hidden='true')
-                      | Add Destinations
-                  li
-                    a(href='add-restaurants.html')
-                      i.fa.fa-circle-o-notch(aria-hidden='true')
-                      | Add Restaurants
-              li
-                a(href='invoice.html')
-                  i.fa-print(aria-hidden='true')
-                  | Invoice
-              li
-                a(href='javascript:void(0)')
-                  i.ti-calendar(aria-hidden='true')
-                  | My Booking 
-                  span.fa.arrow
-                ul.nav.nav-second-level
-                  li
-                    a(href='booking-1.html')
-                      i.fa.fa-circle-o-notch(aria-hidden='true')
-                      | Booking 1
-                  li
-                    a(href='booking-2.html')
-                      i.fa.fa-circle-o-notch(aria-hidden='true')
-                      | Booking 2
-              li.active
-                a(href='javascript:void(0)')
-                  i.fa.fa-cog(aria-hidden='true')
-                  | Settings 
-                  span.fa.arrow
-                ul.nav.nav-second-level
-                  li
-                    a(href='basic-settings.html')
-                      i.fa.fa-circle-o-notch(aria-hidden='true')
-                      | Basic Settings
-                  li
-                    a(href='site-settings.html')
-                      i.fa.fa-circle-o-notch(aria-hidden='true')
-                      | Site Settings
-              li
-                a(href='my-profile.html')
-                  i.ti-user(aria-hidden='true')
-                  | My Profile
-              li
-                a(href='add-payment-methode.html')
-                  i.ti-credit-card(aria-hidden='true')
-                  | Add Payment Methode
-              li.log-off
-                a(href='login.html')
-                  i.fa.fa-power-off(aria-hidden='true')
-                  | Logout
-        // /. NAV SIDE
-      .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
-        .row.mrg-0.mrg-top-20
-          .tr-single-box
-            .tr-single-header
-              h3.dashboard-title Basic Settings
-            .tr-single-body
-              form.form-horizontal(method='post')
-                .form-group
-                  label.col-md-2.col-sm-3 Name:
-                  .col-md-10.col-sm-9
-                    input.form-control(type='text' value='Travel Stock - Responsive Tour & Travel Website')
-                .form-group
-                  label.col-md-2.col-sm-3 URL:
-                  .col-md-10.col-sm-9
-                    input.form-control(type='text' value='https://www.listing-hub.com/')
-                .form-group
-                  label.col-md-2.col-sm-3 Title:
-                  .col-md-10.col-sm-9
-                    input.form-control(type='text' value='' travel='' stock='' search='' engine='' friendly='')
-                .form-group
-                  label.col-md-2.col-sm-3 Keyword:
-                  .col-md-10.col-sm-9
-                    input.form-control(type='text' value='Travel, tour, Business..')
-                .form-group
-                  label.col-md-2.col-sm-3 Description:
-                  .col-md-10.col-sm-9
-                    input.form-control(type='text' value='' travel='' stock='' search='' engine='' friendly='')
-                .form-group
-                  label.col-md-2.col-sm-3 Contact email:
-                  .col-md-10.col-sm-9
-                    input.form-control(type='text' value='support@travelstock.com')
-                .form-group
-                  label.col-md-2.col-sm-3 Enable Mobile Site:
-                  .col-md-10.col-sm-9
-                    .sl-box
-                      select.form-control
-                        option Yes
-                        option No
-                .form-group
-                  label.col-md-2.col-sm-3 Main Content:
-                  .col-md-10.col-sm-9
-                    textarea.form-control.textarea.height-100(placeholder='Description')
-                .form-group
-                  label.col-md-2.col-sm-3 Submission Terms:
-                  .col-md-10.col-sm-9
-                    textarea.form-control.textarea.height-100(placeholder='Description')
-                .form-group
-                  label.col-md-2.col-sm-3 Google Analytics Code:
-                  .col-md-10.col-sm-9
-                    textarea.form-control.height-100
-                .form-group
-                  label.col-md-2.col-sm-3 HTTP Character Set:
-                  .col-md-10.col-sm-9
-                    .sl-box
-                      select.form-control.wide
-                        option#CHARSET-0(value='ASMO-708') Arabic (ASMO 708) - ASMO-708
-                        option#CHARSET-1(value='DOS-720') Arabic (DOS) - DOS-720
-                        option#CHARSET-2(value='iso-8859-6') Arabic (ISO) - iso-8859-6
-                        option#CHARSET-3(value='x-mac-arabic') Arabic (Mac) - x-mac-arabic
-                        option#CHARSET-4(value='windows-1256') Arabic (Windows) - windows-1256
-                        option#CHARSET-5(value='ibm775') Baltic (DOS) - ibm775
-                        option#CHARSET-6(value='iso-8859-4') Baltic (ISO) - iso-8859-4
-                        option#CHARSET-7(value='windows-1257') Baltic (Windows) - windows-1257
-                        option#CHARSET-8(value='ibm852') Central European (DOS) - ibm852
-                        option#CHARSET-9(value='iso-8859-2') Central European (ISO) - iso-8859-2
-                .form-group
-                  label.col-md-2.col-sm-3 Upload Logo:
-                  .col-md-10.col-sm-9
-                    label.btn-bs-file.btn
-                      | Browse
-                      input(type='file')
-                .form-group
-                  label.col-md-2.col-sm-3 Upload Favicon:
-                  .col-md-10.col-sm-9
-                    label.btn-bs-file.btn
-                      | Browse
-                      input(type='file')
-                .form-group
-                  .col-md-12.col-sm-12.text-center
-                    button.btn.theme-btn(type='submit') Save &amp; Update
-// ======================= End  basic-settings =====================
-// ============== Before Footer ======================
-section.before-footer.bt-1.bb-1
-  .container-fluid.padd-0.full-width
-    .col-md-2.col-sm-2.br-1.mbb-1
-      .data-flex
-        h4 Contact Us!
-    .col-md-3.col-sm-3.br-1.mbb-1
-      .data-flex.text-center
-        | 53 Boulevard Victor Hugo 44200 Nantes, France
-    .col-md-3.col-sm-3.br-1.mbb-1
-      .data-flex.text-center
-        span.d-block.mrg-bot-0 06 52 52 20 30
-        a.theme-cl(href='#')
-          strong hello@gmail.com
-    .col-md-4.col-sm-4.padd-0
-      .data-flex.padd-0
-        ul.social-share
-          li
-            a(href='#')
-              i.fa.fa-facebook.theme-cl
-          li
-            a(href='#')
-              i.fa.fa-google-plus.theme-cl
-          li
-            a(href='#')
-              i.fa.fa-twitter.theme-cl
-          li
-            a(href='#')
-              i.fa.fa-linkedin.theme-cl
-// =================== Before Footer ======================
-// ================= footer start =========================
-footer.footer.dark-bg
-  .container
-    // Row Start
-    .row
-      .col-md-8.col-sm-8
-        .row
-          .col-md-4.col-sm-4
-            h4 Featured Destinations
-            ul
-              li
-                a(href='destination-grid.html') Destination Grid
-              li
-                a(href='destination-list.html') Destination List
-              li
-                a(href='destination-grid-sidebar.html') Destination Grid Sidebar
-              li
-                a(href='destination-list-sidebar.html') Destination List Sidebar
-              li
-                a(href='destination-detail.html') Destination Detail
-              li
-                a(href='restaurant-grid.html') Restaurant Grid
-          .col-md-4.col-sm-4
-            h4 Featured Tours
-            ul
-              li
-                a(href='tour-grid.html') Tour Grid
-              li
-                a(href='tour-list.html') Tour List
-              li
-                a(href='tour-grid-sidebar.html') Tour Grid Sidebar
-              li
-                a(href='tour-list-sidebar.html') tour List Sidebar
-              li
-                a(href='tour-detail.html') Tour Detail
-              li
-                a(href='http://themezhub.com/') Restaurant Grid
-          .col-md-4.col-sm-4
-            h4 Featured Hotels
-            ul
-              li
-                a(href='hotel-grid.html') Hotel Grid
-              li
-                a(href='hotel-list.html') Hotel List
-              li
-                a(href='hotel-grid-sidebar.html') Hotel Grid Sidebar
-              li
-                a(href='hotel-list-sidebar.html') Hotel List Sidebar
-              li
-                a(href='hotel-detail.html') Hotel Detail
-              li
-                a(href='restaurant-detail.html') Restaurant Detail
-      .col-md-4.col-sm-4
-        h4 Subscribe Now
-        // Newsletter
-        .input-group
-          input.form-control(type='text' placeholder='Enter Email')
-          span.input-group-btn
-            button.btn.btn-default(type='button')
-              i.fa.fa-location-arrow.font-20
-        // Social Box
-        .f-social-box
-          ul
-            li
-              a(href='#')
-                i.fa.fa-facebook.facebook-cl
-            li
-              a(href='#')
-                i.fa.fa-google.google-plus-cl
-            li
-              a(href='#')
-                i.fa.fa-twitter.twitter-cl
-            li
-              a(href='#')
-                i.fa.fa-pinterest.pinterest-cl
-            li
-              a(href='#')
-                i.fa.fa-instagram.instagram-cl
-        // App Links
-        .f-app-box
-          ul
-            li
-              a(href='#')
-                i.fa.fa-apple
-                | App Store
-            li
-              a(href='#')
-                i.fa.fa-android
-                | Play Store
-    // Row Start
-    .row
-      .col-md-12
-        .copyright.text-center
-          p
-            a(target='_balnk' href='https://www.templatespoint.net') Templates Point
-// Switcher
-button.w3-button.w3-teal.w3-xlarge.w3-right(onclick='openRightMenu()')
-  i.spin.theme-cl.fa.fa-cog(aria-hidden='true')
-#rightMenu.w3-sidebar.w3-bar-block.w3-card-2.w3-animate-right(style='display:none;right:0;')
-  button.w3-bar-item.w3-button.w3-large.theme-bg(onclick='closeRightMenu()') Close &times;
-  ul#styleOptions(title='switch styling')
-    li
-      a.cl-box.cl-default(href='javascript: void(0)' data-theme='skins/default')
-    li
-      a.cl-box.cl-red(href='javascript: void(0)' data-theme='skins/red')
-    li
-      a.cl-box.cl-green(href='javascript: void(0)' data-theme='skins/green')
-    li
-      a.cl-box.cl-blue(href='javascript: void(0)' data-theme='skins/blue')
-    li
-      a.cl-box.cl-pink(href='javascript: void(0)' data-theme='skins/pink')
-    li
-      a.cl-box.cl-purple(href='javascript: void(0)' data-theme='skins/purple')
-// /Switcher
-// =================== START JAVASCRIPT ==================
-script(src='assets/plugins/js/jquery.min.js')
-script(src='assets/plugins/js/bootstrap.min.js')
-script(src='assets/plugins/js/viewportchecker.js')
-script(src='assets/plugins/js/bootsnav.js')
-script(src='assets/plugins/js/slick.min.js')
-script(src='assets/plugins/js/jquery.nice-select.min.js')
-script(src='assets/plugins/js/jquery.fancybox.min.js')
-script(src='assets/plugins/js/jquery.downCount.js')
-script(src='assets/plugins/js/freshslider.1.0.0.js')
-script(src='assets/plugins/js/moment.min.js')
-script(src='assets/plugins/js/daterangepicker.js')
-script(src='assets/plugins/js/wysihtml5-0.3.0.js')
-script(src='assets/plugins/js/bootstrap-wysihtml5.js')
-// Dashboard Js
-script(src='assets/plugins/js/jquery.slimscroll.min.js')
-script(src='assets/plugins/js/jquery.metisMenu.js')
-script(src='assets/plugins/js/jquery.easing.min.js')
-// Custom Js
-script(src='assets/js/custom.js')
-script(src='assets/js/jQuery.style.switcher.js')
-script.
-  function openRightMenu() {
-  document.getElementById("rightMenu").style.display = "block";
-  }
-  function closeRightMenu() {
-  document.getElementById("rightMenu").style.display = "none";
-  }
-script(type='text/javascript').
-  $(document).ready(function() {
-  $('#styleOptions').styleSwitcher();
-  });
+extends base
+
+block navigation_content 
+    include _navigation
+block content 
+    section.dashboard.gray-bg.padd-0.mrg-top-50
+        .container-fluid
+            .row
+                .col-lg-2.col-md-2.col-sm-3.dashboard-bg
+                    // /. NAV TOP
+                    nav.navbar.navbar-side
+                        // Start Logo Header Navigation
+                        .navbar-header
+                            button.navbar-toggle(type='button' data-toggle='collapse' data-target='#dashboard-menu')
+                                i.fa.fa-bars
+                        #dashboard-menu.collapse.sidebar-collapse
+                            .profile-wrapper
+                                .profile-wrapper-thumb
+                                    img.img-responsive.img-circle(src='assets/img/user-3.jpg' alt='')
+                                    span.dashboard-user-status.bg-success
+                                h4 Duke Daniel
+                            ul#main-menu.nav
+                                li
+                                    a(href='dashboard.html')
+                                        i.fa.fa-dashboard(aria-hidden='true')
+                                        | Dashboard
+                                li
+                                    a(href='messages.html')
+                                        i.ti-email(aria-hidden='true')
+                                        | Messages
+                                li
+                                    a(href='javascript:void(0)')
+                                        i.fa.fa-clone(aria-hidden='true')
+                                        | Manage Listing 
+                                        span.fa.arrow
+                                    ul.nav.nav-second-level
+                                        li
+                                            a(href='manage-hotels.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Manage Hotels
+                                        li
+                                            a(href='manage-tours.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Manage Tours
+                                        li
+                                            a(href='manage-destinations.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Manage Destinations
+                                        li
+                                            a(href='manage-restaurants.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Manage Restaurants
+                                li
+                                    a(href='javascript:void(0)')
+                                        i.ti-location-pin(aria-hidden='true')
+                                        | Add Listings 
+                                        span.fa.arrow
+                                    ul.nav.nav-second-level
+                                        li
+                                            a(href='http://themezhub.com/')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Add Hotels
+                                        li
+                                            a(href='add-tours.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Add Tours
+                                        li
+                                            a(href='add-destinations.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Add Destinations
+                                        li
+                                            a(href='add-restaurants.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Add Restaurants
+                                li
+                                    a(href='invoice.html')
+                                        i.fa-print(aria-hidden='true')
+                                        | Invoice
+                                li
+                                    a(href='javascript:void(0)')
+                                        i.ti-calendar(aria-hidden='true')
+                                        | My Booking 
+                                        span.fa.arrow
+                                    ul.nav.nav-second-level
+                                        li
+                                            a(href='booking-1.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Booking 1
+                                        li
+                                            a(href='booking-2.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Booking 2
+                                li.active
+                                    a(href='javascript:void(0)')
+                                        i.fa.fa-cog(aria-hidden='true')
+                                        | Settings 
+                                        span.fa.arrow
+                                    ul.nav.nav-second-level
+                                        li
+                                            a(href='basic-settings.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Basic Settings
+                                        li
+                                            a(href='site-settings.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Site Settings
+                                li
+                                    a(href='my-profile.html')
+                                        i.ti-user(aria-hidden='true')
+                                        | My Profile
+                                li
+                                    a(href='add-payment-methode.html')
+                                        i.ti-credit-card(aria-hidden='true')
+                                        | Add Payment Methode
+                                li.log-off
+                                    a(href='login.html')
+                                        i.fa.fa-power-off(aria-hidden='true')
+                                        | Logout
+                    // /. NAV SIDE
+                .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
+                    .row.mrg-0.mrg-top-20
+                        .tr-single-box
+                            .tr-single-header
+                                h3.dashboard-title Basic Settings
+                            .tr-single-body
+                                form.form-horizontal(method='post')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Name:
+                                        .col-md-10.col-sm-9
+                                            input.form-control(type='text' value='Travel Stock - Responsive Tour & Travel Website')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 URL:
+                                        .col-md-10.col-sm-9
+                                            input.form-control(type='text' value='https://www.listing-hub.com/')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Title:
+                                        .col-md-10.col-sm-9
+                                            input.form-control(type='text' value='' travel='' stock='' search='' engine='' friendly='')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Keyword:
+                                        .col-md-10.col-sm-9
+                                            input.form-control(type='text' value='Travel, tour, Business..')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Description:
+                                        .col-md-10.col-sm-9
+                                            input.form-control(type='text' value='' travel='' stock='' search='' engine='' friendly='')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Contact email:
+                                        .col-md-10.col-sm-9
+                                            input.form-control(type='text' value='support@travelstock.com')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Enable Mobile Site:
+                                        .col-md-10.col-sm-9
+                                        .sl-box
+                                            select.form-control
+                                                option Yes
+                                                option No
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Main Content:
+                                        .col-md-10.col-sm-9
+                                            textarea.form-control.textarea.height-100(placeholder='Description')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Submission Terms:
+                                        .col-md-10.col-sm-9
+                                            textarea.form-control.textarea.height-100(placeholder='Description')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Google Analytics Code:
+                                        .col-md-10.col-sm-9
+                                            textarea.form-control.height-100
+                                    .form-group
+                                        label.col-md-2.col-sm-3 HTTP Character Set:
+                                        .col-md-10.col-sm-9
+                                            .sl-box
+                                                select.form-control.wide
+                                                    option#CHARSET-0(value='ASMO-708') Arabic (ASMO 708) - ASMO-708
+                                                    option#CHARSET-1(value='DOS-720') Arabic (DOS) - DOS-720
+                                                    option#CHARSET-2(value='iso-8859-6') Arabic (ISO) - iso-8859-6
+                                                    option#CHARSET-3(value='x-mac-arabic') Arabic (Mac) - x-mac-arabic
+                                                    option#CHARSET-4(value='windows-1256') Arabic (Windows) - windows-1256
+                                                    option#CHARSET-5(value='ibm775') Baltic (DOS) - ibm775
+                                                    option#CHARSET-6(value='iso-8859-4') Baltic (ISO) - iso-8859-4
+                                                    option#CHARSET-7(value='windows-1257') Baltic (Windows) - windows-1257
+                                                    option#CHARSET-8(value='ibm852') Central European (DOS) - ibm852
+                                                    option#CHARSET-9(value='iso-8859-2') Central European (ISO) - iso-8859-2
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Upload Logo:
+                                        .col-md-10.col-sm-9
+                                            label.btn-bs-file.btn
+                                                | Browse
+                                                input(type='file')
+                                    .form-group
+                                        label.col-md-2.col-sm-3 Upload Favicon:
+                                        .col-md-10.col-sm-9
+                                            label.btn-bs-file.btn
+                                                | Browse
+                                                input(type='file')
+                                    .form-group
+                                        .col-md-12.col-sm-12.text-center
+                                            button.btn.theme-btn(type='submit') Save &amp; Update
+
+    block content_contact 
+        include _contact
