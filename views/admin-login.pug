@@ -1,83 +1,23 @@
-doctype html
-head
-  meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Tour &amp; Travel Bootstrap Template
-  link(rel='shortcut icon' type='image.png' href='/assets/img/favicon.png')
+extends base
 
-  // Plugins CSS
-  link(rel='stylesheet' href='/assets/plugins/css/plugins.css')
-  // Custom style
-  link(href='/assets/css/style.css' rel='stylesheet')
-  link(href='/assets/css/responsiveness.css' rel='stylesheet')
-  link#jssDefault(rel='stylesheet' href='/assets/css/skins/default.css')
-body.theme-bg.log-screen(style='background-image:url(/assets/img/banner-log.png)')
-  section.log-wrapper
-    .container
-      .col-md-6.col-md-push-6
-        h3.log-title Corporate LogIn
-        form.form
-          .form-group
-            label(for='inputEmail') User Name
-            input#inputEmail.form-control(type='email' placeholder='User Name' required='')
-          .form-group
-            label(for='inputPassword') Password
-            input#inputPassword.form-control(type='password' placeholder='*******' required='')
-          .form-group
-            .row
-              .col-md-6.col-sm-6
-                button.btn.btn-dark(type='submit') Login
-              .col-md-6.col-sm-6
-                p
-                  | Forgot Password? 
-                  a(href='#') Click Here
-  // Switcher
-  button.w3-button.w3-teal.w3-xlarge.w3-right(onclick='openRightMenu()')
-    i.spin.theme-cl.fa.fa-cog(aria-hidden='true')
-  #rightMenu.w3-sidebar.w3-bar-block.w3-card-2.w3-animate-right(style='display:none;right:0;')
-    button.w3-bar-item.w3-button.w3-large.theme-bg(onclick='closeRightMenu()') Close &times;
-    ul#styleOptions(title='switch styling')
-      li
-        a.cl-box.cl-default(href='javascript: void(0)' data-theme='skins/default')
-      li
-        a.cl-box.cl-red(href='javascript: void(0)' data-theme='skins/red')
-      li
-        a.cl-box.cl-green(href='javascript: void(0)' data-theme='skins/green')
-      li
-        a.cl-box.cl-blue(href='javascript: void(0)' data-theme='skins/blue')
-      li
-        a.cl-box.cl-pink(href='javascript: void(0)' data-theme='skins/pink')
-      li
-        a.cl-box.cl-purple(href='javascript: void(0)' data-theme='skins/purple')
-// /Switcher
-// =================== START JAVASCRIPT ==================
-script(src='/assets/plugins/js/jquery.min.js')
-script(src='/assets/plugins/js/bootstrap.min.js')
-script(src='/assets/plugins/js/viewportchecker.js')
-script(src='/assets/plugins/js/bootsnav.js')
-script(src='/assets/plugins/js/slick.min.js')
-script(src='/assets/plugins/js/jquery.nice-select.min.js')
-script(src='/assets/plugins/js/jquery.fancybox.min.js')
-script(src='/assets/plugins/js/jquery.downCount.js')
-script(src='/assets/plugins/js/freshslider.1.0.0.js')
-script(src='/assets/plugins/js/moment.min.js')
-script(src='/assets/plugins/js/daterangepicker.js')
-script(src='/assets/plugins/js/wysihtml5-0.3.0.js')
-script(src='/assets/plugins/js/bootstrap-wysihtml5.js')
-// Dashboard Js
-script(src='/assets/plugins/js/jquery.slimscroll.min.js')
-script(src='/assets/plugins/js/jquery.metisMenu.js')
-script(src='/assets/plugins/js/jquery.easing.min.js')
-script(src='/assets/js/jQuery.style.switcher.js')
-script.
-  function openRightMenu() {
-  document.getElementById("rightMenu").style.display = "block";
-  }
-  function closeRightMenu() {
-  document.getElementById("rightMenu").style.display = "none";
-  }
-script(type='text/javascript').
-  $(document).ready(function() {
-  $('#styleOptions').styleSwitcher();
-  });
+block content 
+    body.theme-bg.log-screen(style='background-image:url(/assets/img/banner-log.png)')
+        section.log-wrapper
+            .container
+                .col-md-6.col-md-push-6
+                    h3.log-title Corporate LogIn
+                    form.form
+                        .form-group
+                            label(for='inputEmail') User Name
+                            input#inputEmail.form-control(type='email' placeholder='User Name' required='')
+                        .form-group
+                            label(for='inputPassword') Password
+                            input#inputPassword.form-control(type='password' placeholder='*******' required='')
+                        .form-group
+                            .row
+                                .col-md-6.col-sm-6
+                                    button.btn.btn-dark(type='submit') Login
+                                .col-md-6.col-sm-6
+                                    p
+                                        | Forgot Password? 
+                                        a(href='#') Click Here
