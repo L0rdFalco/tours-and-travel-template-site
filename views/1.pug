@@ -3,36 +3,438 @@ extends base
 block navigation_content 
     include _navigation
 block content 
-  body.theme-bg.log-screen(style='background-image:url(/assets/img/banner-log.png)')
-
-  section.log-wrapper
-    .container
-      .col-md-6.col-md-push-6
-        h3.log-title Corporate signup
-        form.form
-          .form-group
-            .row
-              .col-md-6.col-sm-6
-                label(for='inputEmail') Full Name
-                input#inputEmail.form-control(type='name' placeholder='Full Name' required='')
-              .col-md-6.col-sm-6
-                label(for='inputEmail') Email
-                input#inputEmail.form-control(type='email' placeholder='Email' required='')
-            .row
-              .col-md-6.col-sm-6
-                label(for='inputEmail') User Name
-                input#inputEmail.form-control(type='text' placeholder='User Name' required='')
-              .col-md-6.col-sm-6
-                label(for='inputEmail') Password
-                input#inputEmail.form-control(type='password' placeholder='*******' required='')
-          .form-group
-            .row
-              .col-md-6.col-sm-6
-                button.btn.btn-dark(type='submit') SignUp
-              .col-md-6.col-sm-6
+    .page-title.image-title(style='background-image:url(assets/img/restaurant.jpg);')
+        .container
+            .page-title-wrap
+                h2 Restaurant List
                 p
-                  | Already Have Account? 
-                  a(href='#') LogIn Here
+                    a.theme-cl(href='#') Home
+                    |  | 
+                    span Restaurant List
+    // ======================= End Page Title =====================
+    // =========== Start All Restaurent In List View ===================
+    section.gray-bg
+        .container
+            // Row
+            .row.mrg-0
+                .tr-single-box.short-box
+                    .col-sm-3.hidden-xs.align-self-center
+                        h4 Shorty By
+                    .col-sm-9.text-right
+                        .btn-group.mr-lg-2
+                            button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                | Short By
+                            .dropdown-menu.pull-right.animated.flipInX
+                                a(href='#') Accending
+                                a(href='#') Decending
+                                a(href='#') By Date
+                        .btn-group
+                            a.btn.btn-default.tooltips(href='restaurant-grid.html')
+                                i.ti-flix.ti-layout-grid2
+                        .btn-group
+                            a.btn.btn-default.tooltips(href='restaurant-list.html')
+                                i.ti-flix.ti-view-list-alt
+            // /Row
+            .row
+                // Single Restaurent List
+                .col-lg-6.col-md-6
+                    article.restaurent-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .restaurent-box-image
+                                    a(href='restaurant-detail.html')
+                                        img.img-responsive.restaurent-box-img(src='assets/img/res/res-1.jpg' alt='')
+                                    a.list-like.left(href='#')
+                                        i.ti-heart
+                                    h4.restaurent-place
+                                        a(href='#') Austrailia
+                                    span.featured-tour
+                                        i.fa.fa-star
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -10%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='restaurant-detail.html') The Dairy Balcony
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $150
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-success
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-success.font-bold Good
+                                                    | 1162 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 1780
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Single Restaurent List
+                .col-lg-6.col-md-6
+                    article.restaurent-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .restaurent-box-image
+                                    a(href='restaurant-detail.html')
+                                        img.img-responsive.restaurent-box-img(src='assets/img/res/res-2.jpg' alt='')
+                                    a.list-like.left(href='#')
+                                        i.ti-heart
+                                    h4.restaurent-place
+                                        a(href='#') Switzerland
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -15%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='restaurant-detail.html') Fire and Ice Soss
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $230
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-warning
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-warning.font-bold fair
+                                                    | 1023 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 2482
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Single Restaurent List
+                .col-lg-6.col-md-6
+                    article.restaurent-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .restaurent-box-image
+                                    a(href='restaurant-detail.html')
+                                        img.img-responsive.restaurent-box-img(src='assets/img/res/res-3.jpg' alt='')
+                                    a.list-like.left(href='#')
+                                        i.ti-heart
+                                    h4.restaurent-place
+                                        a(href='#') Singapore
+                                    span.featured-tour
+                                        i.fa.fa-star
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -15%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='restaurant-detail.html') Fluorescence Chilly Soss
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $360
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-danger
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-danger.font-bold poor
+                                                    | 236 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 1820
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Single Restaurent List
+                .col-lg-6.col-md-6
+                    article.restaurent-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .restaurent-box-image
+                                    a(href='restaurant-detail.html')
+                                        img.img-responsive.restaurent-box-img(src='assets/img/res/res-4.jpg' alt='')
+                                    a.list-like.left(href='#')
+                                        i.ti-heart
+                                    h4.restaurent-place
+                                        a(href='#') Qatar
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -12%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='restaurant-detail.html') The Dwarf Pond
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $540
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-info
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-info.font-bold superb
+                                                    | 1122 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 1325
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Single Restaurent List
+                .col-lg-6.col-md-6
+                    article.restaurent-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .restaurent-box-image
+                                    a(href='restaurant-detail.html')
+                                        img.img-responsive.restaurent-box-img(src='assets/img/res/res-5.jpg' alt='')
+                                    a.list-like.left(href='#')
+                                        i.ti-heart
+                                    h4.restaurent-place
+                                        a(href='#') Hong Kong
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -12%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='restaurant-detail.html') The Eastern Lily
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $370
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-info
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-info.font-bold superb
+                                                    | 850 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 2514
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Single Restaurent List
+                .col-lg-6.col-md-6
+                    article.restaurent-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .restaurent-box-image
+                                    a(href='restaurant-detail.html')
+                                        img.img-responsive.restaurent-box-img(src='assets/img/res/res-6.jpg' alt='')
+                                    a.list-like.left(href='#')
+                                        i.ti-heart
+                                    h4.restaurent-place
+                                        a(href='#') United Kingdom
+                                    span.featured-tour
+                                        i.fa.fa-star
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -22%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='restaurant-detail.html') The Chili Shack
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $524
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-warning
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-warning.font-bold Good
+                                                    | 682 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 1780
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Single Restaurent List
+                .col-lg-6.col-md-6
+                    article.restaurent-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .restaurent-box-image
+                                    a(href='restaurant-detail.html')
+                                        img.img-responsive.restaurent-box-img(src='assets/img/res/res-7.jpg' alt='')
+                                    a.list-like.left(href='#')
+                                        i.ti-heart
+                                    h4.restaurent-place
+                                        a(href='#') Qatar
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -14%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='restaurant-detail.html') The Dairy Balcony
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $364
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-info
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-info.font-bold superb
+                                                    | 1250 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 4200
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Single Restaurent List
+                .col-lg-6.col-md-6
+                    article.restaurent-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .restaurent-box-image
+                                    a(href='restaurant-detail.html')
+                                        img.img-responsive.restaurent-box-img(src='assets/img/res/res-8.jpg' alt='')
+                                    a.list-like.left(href='#')
+                                        i.ti-heart
+                                    h4.restaurent-place
+                                        a(href='#') United States
+                                    span.featured-tour
+                                        i.fa.fa-star
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -10%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='restaurant-detail.html') The Holy Flower
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $580
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-success
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-success.font-bold Good
+                                                    | 1062 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 2478
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+            .row
+                ul.pagination
+                    li.page-item
+                        a.page-link(href='#' aria-label='Previous')
+                            span.ti-arrow-left
+                            span.sr-only Previous
+                    li.page-item
+                        a.page-link(href='#') 1
+                    li.page-item
+                        a.page-link(href='#') 2
+                    li.page-item.active
+                        a.page-link(href='#') 3
+                    li.page-item
+                        a.page-link(href='#') 4
+                    li.page-item
+                        a.page-link(href='#') 5
+                    li.page-item
+                        a.page-link(href='#' aria-label='Next')
+                            span.ti-arrow-right
+                            span.sr-only Next
+    block content_contact 
+        include _contact
 
-//- block content_footer 
-//-     include _footer
+
+block content_footer 
+    include _footer
