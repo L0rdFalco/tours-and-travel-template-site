@@ -3,56 +3,447 @@ extends base
 block navigation_content 
     include _navigation
 block content 
-  body.coming-soon.theme-bg
-    section.soon-wrapper
-      .container
-        .col-md-7.content
-          .row.mrg-bot-15.text-center
-            a(href='index-2.html')
-              img.img-responsive(src='assets/img/favicon.png' alt='')
-            h5.cl-yellow.font-16 Drop your eamil We will advice when we will be online!
-          .row.coming-counter.mrg-bott-30
-            .col-md-3.col-sm-3.hour-sec
-              ul.countdown.purple
-                li.day
-                  span.days 00
-                  p.day_ref.theme-cl days
-            .col-md-3.col-sm-3.days-sec
-              ul.countdown
-                li.hour
-                  span.hours 00
-                  p.hours_ref.theme-cl days
-            .col-md-3.col-sm-3.minut-sec
-              ul.countdown.yellow
-                li.minut
-                  span.minutes 00
-                  p.minutes_ref.theme-cl minutes
-            .col-md-3.col-sm-3.minut-sec
-              ul.countdown.yellow
-                li.second
-                  span.seconds 00
-                  p.seconds_ref.theme-cl seconds
-          .row.mrg-top-30
-            .col-md-12
-              h5.font-16.cl-white Subscribe to get notified!
-              form.wow-form.mrg-top-10
-                input(type='text' placeholder='Enter your Email Address..')
-                button.btn.btn-wow.theme-btn(type='submit' name='submit' value='Search')  Find Tour 
-          .row
-            .col-md-12
-              ul.coming-social
-                li
-                  a.theme-cl(href='#')
-                    i.fa.fa-facebook
-                li
-                  a.theme-cl(href='#')
-                    i.fa.fa-twitter
-                li
-                  a.theme-cl(href='#')
-                    i.fa.fa-google-plus
-                li
-                  a.theme-cl(href='#')
-                    i.fa.fa-instagram
- 
+    .page-title.image-title(style='background-image:url(assets/img/hotel.jpg);')
+        .container
+            .page-title-wrap
+                h2 Hotel List
+                p
+                    a.theme-cl(href='#') Home
+                    |  | 
+                    span Hotel List
+    // ======================= End Page Title =====================
+    // =========== Start All Hotel In Grid View ===================
+    section.gray-bg
+        .container
+            // Row
+            .row.mrg-0
+                .tr-single-box.short-box
+                    .col-sm-3.hidden-xs.align-self-center
+                        h4 Shorty By
+                    .col-sm-9.text-right
+                        .btn-group.mr-lg-2
+                            button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                | Short By
+                            .dropdown-menu.pull-right.animated.flipInX
+                                a(href='#') Accending
+                                a(href='#') Decending
+                                a(href='#') By Date
+                        .btn-group
+                            a.btn.btn-default.tooltips(href='hotel-grid.html')
+                                i.ti-flix.ti-layout-grid2
+                        .btn-group
+                            a.btn.btn-default.tooltips(href='hotel-list.html')
+                                i.ti-flix.ti-view-list-alt
+            // /Row
+            .row
+                // Singl hotel List
+                .col-lg-6.col-md-6
+                    article.hotel-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .hotel-box-image
+                                    a(href='hotel-detail.html')
+                                        img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-1.jpg' alt='')
+                                    .entry-bookmark
+                                        a(href='#')
+                                            i.ti-bookmark
+                                    h4.hotel-place
+                                        a(href='#') Netherlands
+                                    span.featured-tour
+                                        i.fa.fa-star
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -12%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='hotel-detail.html') Antique Resort
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $254
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-warning
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-warning.font-bold fair
+                                                    | 1050 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 782
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Singl hotel List
+                .col-lg-6.col-md-6
+                    article.hotel-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .hotel-box-image
+                                    a(href='hotel-detail.html')
+                                        img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-2.jpg' alt='')
+                                    .entry-bookmark
+                                        a(href='#')
+                                            i.ti-bookmark
+                                    h4.hotel-place
+                                        a(href='#') Saudi Arabia
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -13%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='hotel-detail.html') Iceberg Resort
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $220
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-success
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-success.font-bold Good
+                                                    | 1062 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 1782
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Singl hotel List
+                .col-lg-6.col-md-6
+                    article.hotel-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .hotel-box-image
+                                    a(href='hotel-detail.html')
+                                        img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-3.jpg' alt='')
+                                    .entry-bookmark
+                                        a(href='#')
+                                            i.ti-bookmark
+                                    h4.hotel-place
+                                        a(href='#') United States
+                                    span.featured-tour
+                                        i.fa.fa-star
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -10%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='hotel-detail.html') Vision Motel
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $424
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-info
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-info.font-bold superb
+                                                    | 1362 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 7254
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Singl hotel List
+                .col-lg-6.col-md-6
+                    article.hotel-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .hotel-box-image
+                                    a(href='hotel-detail.html')
+                                        img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-4.jpg' alt='')
+                                    .entry-bookmark
+                                        a(href='#')
+                                            i.ti-bookmark
+                                    h4.hotel-place
+                                        a(href='#') San Marino
+                                    span.featured-tour
+                                        i.fa.fa-star
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -12%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='hotel-detail.html') Monsoon Motel
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $324
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-danger
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-danger.font-bold poor
+                                                    | 1240 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 2412
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Singl hotel List
+                .col-lg-6.col-md-6
+                    article.hotel-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .hotel-box-image
+                                    a(href='hotel-detail.html')
+                                        img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-5.jpg' alt='')
+                                    .entry-bookmark
+                                        a(href='#')
+                                            i.ti-bookmark
+                                    h4.hotel-place
+                                        a(href='#') Switzerland
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -20%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='hotel-detail.html') Comfort Motel
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $324
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-success
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-success.font-bold Good
+                                                    | 1300 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 2541
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Singl hotel List
+                .col-lg-6.col-md-6
+                    article.hotel-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .hotel-box-image
+                                    a(href='hotel-detail.html')
+                                        img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-6.jpg' alt='')
+                                    .entry-bookmark
+                                        a(href='#')
+                                            i.ti-bookmark
+                                    h4.hotel-place
+                                        a(href='#') Singapore
+                                    span.featured-tour
+                                        i.fa.fa-star
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -11%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='hotel-detail.html') Farmhouse Hotel
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $234
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-info
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-info.font-bold superb
+                                                    | 2541 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 3215
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Singl hotel List
+                .col-lg-6.col-md-6
+                    article.hotel-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .hotel-box-image
+                                    a(href='hotel-detail.html')
+                                        img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-7.jpg' alt='')
+                                    .entry-bookmark
+                                        a(href='#')
+                                            i.ti-bookmark
+                                    h4.hotel-place
+                                        a(href='#') United Kingdom
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -12%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='hotel-detail.html') Ivory House Hotel
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $324
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-warning
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-warning.font-bold fair
+                                                    | 1110 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 2540
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+                // Singl hotel List
+                .col-lg-6.col-md-6
+                    article.hotel-box.list-style
+                        .row
+                            .col-md-5.col-sm-5
+                                .hotel-box-image
+                                    a(href='hotel-detail.html')
+                                        img.img-responsive.hotel-box-img(src='assets/img/hotel/hotel-8.jpg' alt='')
+                                    .entry-bookmark
+                                        a(href='#')
+                                            i.ti-bookmark
+                                    h4.hotel-place
+                                        a(href='#') Qatar
+                                    span.featured-tour
+                                        i.fa.fa-star
+                            .col-md-7.col-sm-7
+                                .inner-box
+                                    .discount-flick -10%
+                                    .box-inner-ellipsis
+                                        div(style='margin: 0px; padding: 0px; border: 0px;')
+                                            h3.entry-title
+                                                a(href='hotel-detail.html') Prophecy Motel
+                                            .entry-content
+                                                p
+                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
+                                                span.price
+                                                    | From 
+                                                    strong.theme-cl $224
+                                                    |  /per person
+                                    .entry-meta
+                                        .meta-item.meta-author
+                                            .hotel-review.entry-location
+                                                span.review-status.bg-success
+                                                    i.ti-check
+                                                h6
+                                                    span.cl-success.font-bold Good
+                                                    | 1200 Review
+                                        .meta-item.meta-comment.fl-right
+                                            .view-box
+                                                .fl-right
+                                                    span
+                                                        i.ti-eye.padd-r-5
+                                                        | 1258
+                                        .meta-item.meta-rating.fl-right
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star
+                                            i.fa.fa-star-half
+            .row
+                ul.pagination
+                    li.page-item
+                        a.page-link(href='#' aria-label='Previous')
+                            span.ti-arrow-left
+                            span.sr-only Previous
+                    li.page-item
+                        a.page-link(href='#') 1
+                    li.page-item
+                        a.page-link(href='#') 2
+                    li.page-item.active
+                        a.page-link(href='#') 3
+                    li.page-item
+                        a.page-link(href='#') 4
+                    li.page-item
+                        a.page-link(href='#') 5
+                    li.page-item
+                        a.page-link(href='#' aria-label='Next')
+                            span.ti-arrow-right
+                            span.sr-only Next
+    block content_contact 
+        include _contact
+
 //- block content_footer 
 //-     include _footer
