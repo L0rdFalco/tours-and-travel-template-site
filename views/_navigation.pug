@@ -4,7 +4,7 @@ nav.navbar.navbar-default.navbar-mobile.navbar-fixed.light.bootsnav
     .navbar-header
       button.navbar-toggle(type='button' data-toggle='collapse' data-target='#navbar-menu')
         i.fa.fa-bars
-      a.navbar-brand(href='index-2.html')
+      a.navbar-brand(href='/')
         img.logo.logo-display(src='assets/img/logo.png' alt='')
         img.logo.logo-scrolled(src='assets/img/logo.png' alt='')
     // End Logo Header Navigation
@@ -12,18 +12,10 @@ nav.navbar.navbar-default.navbar-mobile.navbar-fixed.light.bootsnav
     #navbar-menu.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-left(data-in='fadeInDown' data-out='fadeOutUp')
         li.dropdown
-          a.dropdown-toggle(href='#' data-toggle='dropdown') Home
+          a.dropdown-toggle(href='/' data-toggle='dropdown') Home
           ul.dropdown-menu.animated.fadeOutUp
-            li
-              a(href='index-2.html') Home 1
-            li
-              a(href='home-2.html') Home 2
-            li
-              a(href='home-3.html') Home 3
-            li
-              a(href='home-4.html') Home 4
-            li
-              a(href='home-5.html') Home 5
+            //- li
+            //-   a(href='/') Home
         li.dropdown.megamenu-fw
           a.dropdown-toggle(href='#' data-toggle='dropdown') Brows
           ul.dropdown-menu.megamenu-content(role='menu')
@@ -34,106 +26,103 @@ nav.navbar.navbar-default.navbar-mobile.navbar-fixed.light.bootsnav
                   .content
                     ul.menu-col
                       li
-                        a(href='destination-grid.html') Destination Grid
+                        a(href='/destination-grid') Destination Grid
                       li
-                        a(href='destination-list.html') Destination List
+                        a(href='/destination-list') Destination List
                       li
-                        a(href='destination-grid-sidebar.html') Destination Grid Sidebar
+                        a(href='/destination-grid-sidebar') Destination Grid Sidebar
                       li
-                        a(href='destination-list-sidebar.html') Destination List Sidebar
+                        a(href='/destination-list-sidebar') Destination List Sidebar
                       li
-                        a(href='destination-detail.html') Destination Detail
+                        a(href='/destination-detail') Destination Detail
                 // end col-3
                 .col-menu.col-md-3
                   h6.title Tours
                   .content
                     ul.menu-col
                       li
-                        a(href='tour-grid.html') Tour Grid
+                        a(href='/tours-grid') Tour Grid
                       li
-                        a(href='tour-list.html') Tour List
+                        a(href='/tours-list') Tour List
                       li
-                        a(href='tour-grid-sidebar.html') Tour Grid Sidebar
+                        a(href='/tours-grid-sidebar') Tour Grid Sidebar
                       li
-                        a(href='tour-list-sidebar.html') tour List Sidebar
+                        a(href='/tours-list-sidebar') tour List Sidebar
                       li
-                        a(href='tour-detail.html') Tour Detail
+                        a(href='/tour-detail') Tour Detail
                 // end col-3
                 .col-menu.col-md-3
                   h6.title Hotels
                   .content
                     ul.menu-col
                       li
-                        a(href='hotel-grid.html') Hotel Grid
+                        a(href='/hotel-grid') Hotel Grid
                       li
-                        a(href='hotel-list.html') Hotel List
+                        a(href='/hotel-list') Hotel List
                       li
-                        a(href='hotel-grid-sidebar.html') Hotel Grid Sidebar
+                        a(href='/hotel-grid-sidebar') Hotel Grid Sidebar
                       li
-                        a(href='hotel-list-sidebar.html') Hotel List Sidebar
+                        a(href='/hotel-list-sidebar') Hotel List Sidebar
                       li
-                        a(href='hotel-detail.html') Hotel Detail
+                        a(href='/hotel-detail') Hotel Detail
                 .col-menu.col-md-3
                   h6.title Restaurants
                   .content
                     ul.menu-col
                       li
-                        a(href='restaurant-grid.html') Restaurant Grid
+                        a(href='/restaurant-grid') Restaurant Grid
                       li
-                        a(href='restaurant-list.html') Restaurant List
+                        a(href='/restaurant-list') Restaurant List
                       li
-                        a(href='restaurant-grid-sidebar.html') Restaurant Grid Sidebar
+                        a(href='/restaurant-grid-sidebar') Restaurant Grid Sidebar
                       li
-                        a(href='restaurant-list-sidebar.html') Restaurant List Sidebar
+                        a(href='/restaurant-list-sidebar') Restaurant List Sidebar
                       li
-                        a(href='restaurant-detail.html') Restaurant Detail
+                        a(href='/restaurant-detail') Restaurant Detail
                 // end col-3
               // end row
         li
-          a(href='hire-guider.html') Find Guide
+          a(href='hire-guide') Find Guide
         li.dropdown
           a.dropdown-toggle(href='#' data-toggle='dropdown') Extra
           ul.dropdown-menu.animated.fadeOutUp
+
             li
-              a(href='cart.html') Add To Cart
+              a(href='/success-page') Success Page
             li
-              a(href='payment-methode.html') Paayment Methode
+              a(href='/coming-soon') Coming Soon
             li
-              a(href='success-page.html') Success Page
+              a(href='/about-us') About Us
             li
-              a(href='coming-soon.html') Coming Soon
+              a(href='/pricing') Pricing
             li
-              a(href='about-us.html') About Us
+              a(href='/cart') Cart
             li
-              a(href='pricing.html') Pricing
-            li
-              a(href='services.html') Services
+              a(href='services') Services
             li.dropdown
               a(href='#') View More
               ul.dropdown-menu
                 li
-                  a(href='blog.html') Blog
+                  a(href='/blog') Blog
                 li
-                  a(href='faqs.html') FAQs
+                  a(href='/faqs') FAQs
                 li
-                  a(href='login.html') LogIn
+                  a(href='/login') LogIn
                 li
-                  a(href='signup.html') SignUp
+                  a(href='/signup') SignUp
                 li
-                  a(href='contact.html') Contact
+                  a(href='/contact') Contact
                 li
-                  a(href='icons.html') icons
-                li
-                  a(href='404.html') 404
+                  a(href='/404') 404
         li
-          a(href='dashboard.html') Dashboard
+          a(href='/dashboard') Dashboard
       ul.nav.navbar-nav.navbar-right
         li.br-right
           a(href='javascript:void(0)' data-toggle='modal' data-target='#signin')
             i.login-icon.ti-user
             | Login
         li.sign-up
-          a.btn-signup.red-btn(href='tour-grid-sidebar.html')
+          a.btn-signup.red-btn(href='/tours-grid-sidebar')
             span.ti-briefcase
-            | Booking Toor
+            | Search Tours
     // /.navbar-collapse

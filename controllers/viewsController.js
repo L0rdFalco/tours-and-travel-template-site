@@ -58,6 +58,21 @@ exports.get404Page = (request, response, next) => {
         })
     }
 }
+
+exports.getCartPage = (request, response, next) => {
+    try {
+
+        response.status(200).render("cart")
+
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: " fail",
+
+        })
+    }
+}
 exports.getAboutUsPage = (request, response, next) => {
     try {
         response.status(200).render("about-us")
