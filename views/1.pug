@@ -3,154 +3,36 @@ extends base
 block navigation_content 
     include _navigation
 block content 
-    section.dashboard.gray-bg.padd-0.mrg-top-50
-        .container-fluid
+  body.theme-bg.log-screen(style='background-image:url(/assets/img/banner-log.png)')
+
+  section.log-wrapper
+    .container
+      .col-md-6.col-md-push-6
+        h3.log-title Corporate signup
+        form.form
+          .form-group
             .row
-                .col-lg-2.col-md-2.col-sm-3.dashboard-bg
-                    // /. NAV TOP
-                    nav.navbar.navbar-side
-                        // Start Logo Header Navigation
-                        .navbar-header
-                            button.navbar-toggle(type='button' data-toggle='collapse' data-target='#dashboard-menu')
-                                i.fa.fa-bars
-                        #dashboard-menu.collapse.sidebar-collapse
-                            .profile-wrapper
-                                .profile-wrapper-thumb
-                                    img.img-responsive.img-circle(src='assets/img/user-3.jpg' alt='')
-                                    span.dashboard-user-status.bg-success
-                                h4 Duke Daniel
-                            ul#main-menu.nav
-                                li
-                                    a(href='dashboard.html')
-                                        i.fa.fa-dashboard(aria-hidden='true')
-                                        | Dashboard
-                                li
-                                    a(href='messages.html')
-                                        i.ti-email(aria-hidden='true')
-                                        | Messages
-                                li
-                                    a(href='javascript:void(0)')
-                                        i.fa.fa-clone(aria-hidden='true')
-                                        | Manage Listing 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='manage-hotels.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Hotels
-                                        li
-                                            a(href='manage-tours.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Tours
-                                        li
-                                            a(href='manage-destinations.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Destinations
-                                        li
-                                            a(href='manage-restaurants.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Restaurants
-                                li
-                                    a(href='javascript:void(0)')
-                                        i.ti-location-pin(aria-hidden='true')
-                                        | Add Listings 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='http://themezhub.com/')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Hotels
-                                        li
-                                            a(href='add-tours.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Tours
-                                        li
-                                            a(href='add-destinations.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Destinations
-                                        li
-                                            a(href='add-restaurants.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Restaurants
-                                li
-                                    a(href='invoice.html')
-                                        i.fa-print(aria-hidden='true')
-                                        | Invoice
-                                li
-                                    a(href='javascript:void(0)')
-                                        i.ti-calendar(aria-hidden='true')
-                                        | My Booking 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='booking-1.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Booking 1
-                                        li
-                                            a(href='booking-2.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Booking 2
-                                li.active
-                                    a(href='javascript:void(0)')
-                                        i.fa.fa-cog(aria-hidden='true')
-                                        | Settings 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='basic-settings.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Basic Settings
-                                        li
-                                            a(href='site-settings.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Site Settings
-                                li
-                                    a(href='my-profile.html')
-                                        i.ti-user(aria-hidden='true')
-                                        | My Profile
-                                li
-                                    a(href='add-payment-methode.html')
-                                        i.ti-credit-card(aria-hidden='true')
-                                        | Add Payment Methode
-                                li.log-off
-                                    a(href='login.html')
-                                        i.fa.fa-power-off(aria-hidden='true')
-                                        | Logout
-                    // /. NAV SIDE
-                .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
-                    .row.mrg-0.mrg-top-20
-                        .tr-single-box
-                            .tr-single-header
-                                h3.dashboard-title Site Settings
-                            .tr-single-body
-                                form.form-horizontal(method='post')
-                                    .form-group
-                                        label.col-md-2.col-sm-3 PayPal account:
-                                        .col-md-10.col-sm-9
-                                            input.form-control(type='text' value='listinghub@paypal.com')
-                                    .form-group
-                                        label.col-md-2.col-sm-3 Define currency:
-                                        .col-md-10.col-sm-9
-                                            .fl-box
-                                                select.form-control.wide
-                                                    option $ - US Dollar
-                                                    option $ - Canadian Dollar
-                                                    option $ - Australian Dollar
-                                                    option &euro; - Euro
-                                                    option &pound; - Pound Sterling
-                                                    option &yen; - Japanese Yen
-                                    .form-group
-                                        label.col-md-2.col-sm-3 Define currency:
-                                        .col-md-10.col-sm-9
-                                            .fl-box
-                                                select.form-control.wide
-                                                    option Yes
-                                                    option No
-                                    .form-group
-                                        .col-md-12.col-sm-12.text-center
-                                            button.btn.theme-btn(type='submit') Save &amp; Update
-    //- block content_contact 
-    //-     include _contact
+              .col-md-6.col-sm-6
+                label(for='inputEmail') Full Name
+                input#inputEmail.form-control(type='name' placeholder='Full Name' required='')
+              .col-md-6.col-sm-6
+                label(for='inputEmail') Email
+                input#inputEmail.form-control(type='email' placeholder='Email' required='')
+            .row
+              .col-md-6.col-sm-6
+                label(for='inputEmail') User Name
+                input#inputEmail.form-control(type='text' placeholder='User Name' required='')
+              .col-md-6.col-sm-6
+                label(for='inputEmail') Password
+                input#inputEmail.form-control(type='password' placeholder='*******' required='')
+          .form-group
+            .row
+              .col-md-6.col-sm-6
+                button.btn.btn-dark(type='submit') SignUp
+              .col-md-6.col-sm-6
+                p
+                  | Already Have Account? 
+                  a(href='#') LogIn Here
 
 //- block content_footer 
 //-     include _footer
