@@ -1,7 +1,7 @@
 paypal.Buttons({
     // Order is created on the server and the order id is returned
     createOrder: async (data, actions) => {
-        return fetch("http://127.0.0.1:3000/api/v1/orders", {
+        return fetch("http://127.0.0.1:3000/orders", {
             method: "post",
             // use the "body" param to optionally pass additional order information
             // like product ids or amount
@@ -17,7 +17,7 @@ paypal.Buttons({
     // Finalize the transaction on the server after payer approval
     onApprove: async (data, actions) => {
         console.log(data.orderID);
-        return fetch(`http://127.0.0.1:3000/api/v1/orders/${data.orderID}/capture`, {
+        return fetch(`http://127.0.0.1:3000/orders/${data.orderID}/capture`, {
             method: "post",
         })
             .then((response) => response.json())
