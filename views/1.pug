@@ -28,7 +28,7 @@ block content
                                     a(href='messages.html')
                                         i.ti-email(aria-hidden='true')
                                         | Messages
-                                li
+                                li.active
                                     a(href='javascript:void(0)')
                                         i.fa.fa-clone(aria-hidden='true')
                                         | Manage Listing 
@@ -83,7 +83,7 @@ block content
                                         span.fa.arrow
                                     ul.nav.nav-second-level
                                         li
-                                            a(href='booking-2.html')
+                                            a(href='booking-1.html')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Booking 1
                                         li
@@ -104,7 +104,7 @@ block content
                                             a(href='site-settings.html')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Site Settings
-                                li.active
+                                li
                                     a(href='my-profile.html')
                                         i.ti-user(aria-hidden='true')
                                         | My Profile
@@ -121,66 +121,299 @@ block content
                     .row.mrg-0.mrg-top-20
                         .tr-single-box
                             .tr-single-header
-                                h3.dashboard-title My Profile
+                                h3.dashboard-title Manage Tours
                             .tr-single-body
                                 .row
-                                    // col-md-4
-                                    .col-md-4
-                                        p
-                                            label First Name
-                                            input#firstname.form-control(type='text' value='Shaurya' name='firstname')
-                                        p
-                                            label Last Name
-                                            input#secondname.form-control(type='text' value='Preet' name='firstname')
-                                        p
-                                            label Email
-                                            input#useremail.form-control(type='text' value='danielraj@gmail.com' name='useremail')
-                                        p
-                                            label About Me
-                                            textarea#about_me.form-control(name='about_me')
-                                        p
-                                            label I live in
-                                            input#live_in.form-control(type='text' value='' name='live_in')
-                                        p
-                                            label I speak
-                                            input#i_speak.form-control(type='text' value='' name='i_speak')
-                                        p
-                                            label Payment Info/Hidden Field
-                                            textarea#payment_info.form-control(name='payment_info' cols='70' rows='3')
-                                    // /col-md-4
-                                    // col-md-4
-                                    .col-md-4
-                                        p
-                                            label Phone
-                                            input#userphone.form-control(type='text' value='' name='userphone')
-                                        p
-                                            label city
-                                            input#usermobile.form-control(type='text' value='' name='usermobile')
-                                        p
-                                            label Skype
-                                            input#userskype.form-control(type='text' value='' name='userskype')
-                                        p
-                                            label Facebook Url
-                                            input#userfacebook.form-control(type='text' value='' name='userfacebook')
-                                        p
-                                            label Twitter Url
-                                            input#usertwitter.form-control(type='text' value='' name='usertwitter')
-                                        p
-                                            label Linkedin Url
-                                            input#userlinkedin.form-control(type='text' value='' name='userlinkedin')
-                                        p
-                                            label Pinterest Url
-                                            input#userpinterest.form-control(type='text' height='100' value='' name='userpinterest')
-                                    // /col-md-4
-                                    // col-md-4
-                                    .col-md-4
-                                        #profile-div.feature-media-upload
-                                            img#profile-image.img-responsive(src='assets/img/user-3.jpg' alt='user image')
-                                            #upload-container
-                                                #aaiu-upload-container(style='position: relative;')
-                                                    button#aaiu-uploader.btn.theme-btn.full-width(type='file') Upload Image
-                                                span.upload_explain * recommended size: minimum 550px 
-                                    // /col-md-4
+                                    // Single Tour
+                                    .col-md-4.col-sm-6
+                                        article.tour-box.style-1
+                                            .tour-box-image
+                                                figure
+                                                    a(href='tour-detail.html')
+                                                        img.img-responsive.listing-box-img(src='assets/img/tour/tour-4.jpg' alt='')
+                                                        .list-overlay
+                                                    .entry-bookmark
+                                                        a(href='#')
+                                                            i.ti-bookmark
+                                                    .tour-time
+                                                        i.ti.ti-car
+                                                        span 22h
+                                                    h4.destination-place
+                                                        a(href='#') New York, Sean Pavone
+                                                    span.featured-tour
+                                                        i.fa.fa-star
+                                                    a.list-like.left(href='#')
+                                                        i.ti-heart
+                                            .entry-meta
+                                                .meta-item.meta-author
+                                                    .coauthors
+                                                        span.vcard.author
+                                                            span.fn
+                                                                a(href='#')
+                                                                    img.avatar.avatar-24(alt='' src='assets/img/user-4.jpg' height='24' width='24')
+                                                                    | Lisa Scholfield
+                                                .meta-item.meta-comment.fl-right
+                                                    i.ti-comment-alt
+                                                    span 18
+                                                .meta-item.meta-rating.fl-right
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star-half
+                                            .inner-box
+                                                .box-inner-ellipsis
+                                                    h4.entry-title
+                                                        a(href='#') New York
+                                                    .price-box
+                                                        .tour-price.fl-right
+                                                            i.ti.ti-user
+                                                            span.theme-cl.f-bold $240
+                                    // Single Tour
+                                    .col-md-4.col-sm-6
+                                        article.tour-box.style-1
+                                            .tour-box-image
+                                                figure
+                                                    a(href='tour-detail.html')
+                                                        img.img-responsive.listing-box-img(src='assets/img/tour/tour-5.jpg' alt='')
+                                                        .list-overlay
+                                                    .entry-bookmark
+                                                        a(href='#')
+                                                            i.ti-bookmark
+                                                    .tour-time
+                                                        i.ti.ti-car
+                                                        span 17h
+                                                    h4.destination-place
+                                                        a(href='#') Dubai, United Arab Emirates
+                                                    span.featured-tour
+                                                        i.fa.fa-star
+                                                    a.list-like.left(href='#')
+                                                        i.ti-heart
+                                            .entry-meta
+                                                .meta-item.meta-author
+                                                    .coauthors
+                                                        span.vcard.author
+                                                            span.fn
+                                                                a(href='#')
+                                                                    img.avatar.avatar-24(alt='' src='assets/img/user-5.jpg' height='24' width='24')
+                                                                    | Lisa Scholfield
+                                                .meta-item.meta-comment.fl-right
+                                                    i.ti-comment-alt
+                                                    span 15
+                                                .meta-item.meta-rating.fl-right
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star-half
+                                            .inner-box
+                                                .box-inner-ellipsis
+                                                    h4.entry-title
+                                                        a(href='#') Saudi Arabia
+                                                    .price-box
+                                                        .tour-price.fl-right
+                                                            i.ti.ti-user
+                                                            span.theme-cl.f-bold $117
+                                    // Single Tour
+                                    .col-md-4.col-sm-6
+                                        article.tour-box.style-1
+                                            .tour-box-image
+                                                figure
+                                                    a(href='tour-detail.html')
+                                                        img.img-responsive.listing-box-img(src='assets/img/tour/tour-6.jpg' alt='')
+                                                        .list-overlay
+                                                    .entry-bookmark
+                                                        a(href='#')
+                                                            i.ti-bookmark
+                                                    .tour-time
+                                                        i.ti.ti-car
+                                                        span 1 day
+                                                    h4.destination-place
+                                                        a(href='#') Paris, France. neirfy
+                                                    span.featured-tour
+                                                        i.fa.fa-star
+                                                    a.list-like.left(href='#')
+                                                        i.ti-heart
+                                            .entry-meta
+                                                .meta-item.meta-author
+                                                    .coauthors
+                                                        span.vcard.author
+                                                            span.fn
+                                                                a(href='#')
+                                                                    img.avatar.avatar-24(alt='' src='assets/img/user-6.jpg' height='24' width='24')
+                                                                    | Lisa Scholfield
+                                                .meta-item.meta-comment.fl-right
+                                                    i.ti-comment-alt
+                                                    span 22
+                                                .meta-item.meta-rating.fl-right
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star-half
+                                            .inner-box
+                                                .box-inner-ellipsis
+                                                    h4.entry-title
+                                                        a(href='#') Singapore
+                                                    .price-box
+                                                        .tour-price.fl-right
+                                                            i.ti.ti-user
+                                                            span.theme-cl.f-bold $310
+                                    // Single Tour
+                                    .col-md-4.col-sm-6
+                                        article.tour-box.style-1
+                                            .tour-box-image
+                                                figure
+                                                    a(href='tour-detail.html')
+                                                        img.img-responsive.listing-box-img(src='assets/img/tour/tour-2.jpg' alt='')
+                                                        .list-overlay
+                                                    .entry-bookmark
+                                                        a(href='#')
+                                                            i.ti-bookmark
+                                                    .tour-time
+                                                        i.ti.ti-car
+                                                        span 70h
+                                                    h4.destination-place
+                                                        a(href='#') London, England. AndreaAstes
+                                                    span.featured-tour
+                                                        i.fa.fa-star
+                                                    a.list-like.left(href='#')
+                                                        i.ti-heart
+                                            .entry-meta
+                                                .meta-item.meta-author
+                                                    .coauthors
+                                                        span.vcard.author
+                                                            span.fn
+                                                                a(href='#')
+                                                                    img.avatar.avatar-24(alt='' src='assets/img/user-7.jpg' height='24' width='24')
+                                                                    | Lisa Scholfield
+                                                .meta-item.meta-comment.fl-right
+                                                    i.ti-comment-alt
+                                                    span 15
+                                                .meta-item.meta-rating.fl-right
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star-half
+                                            .inner-box
+                                                .box-inner-ellipsis
+                                                    h4.entry-title
+                                                        a(href='#') United Kingdom
+                                                    .price-box
+                                                        .tour-price.fl-right
+                                                            i.ti.ti-user
+                                                            span.theme-cl.f-bold $217
+                                    // Single Tour
+                                    .col-md-4.col-sm-6
+                                        article.tour-box.style-1
+                                            .tour-box-image
+                                                figure
+                                                    a(href='tour-detail.html')
+                                                        img.img-responsive.listing-box-img(src='assets/img/tour/tour-7.jpg' alt='')
+                                                        .list-overlay
+                                                    .entry-bookmark
+                                                        a(href='#')
+                                                            i.ti-bookmark
+                                                    .tour-time
+                                                        i.ti.ti-car
+                                                        span 2 days
+                                                    h4.destination-place
+                                                        a(href='#') Bangkok, Thailand. thitivong
+                                                    span.featured-tour
+                                                        i.fa.fa-star
+                                                    a.list-like.left(href='#')
+                                                        i.ti-heart
+                                            .entry-meta
+                                                .meta-item.meta-author
+                                                    .coauthors
+                                                        span.vcard.author
+                                                            span.fn
+                                                                a(href='#')
+                                                                    img.avatar.avatar-24(alt='' src='assets/img/user-8.jpg' height='24' width='24')
+                                                                    | Lisa Scholfield
+                                                .meta-item.meta-comment.fl-right
+                                                    i.ti-comment-alt
+                                                    span 20
+                                                .meta-item.meta-rating.fl-right
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star-half
+                                            .inner-box
+                                                .box-inner-ellipsis
+                                                    h4.entry-title
+                                                        a(href='#') Hong Kong
+                                                    .price-box
+                                                        .tour-price.fl-right
+                                                            i.ti.ti-user
+                                                            span.theme-cl.f-bold $177
+                                    // Single Tour
+                                    .col-md-4.col-sm-6
+                                        article.tour-box.style-1
+                                            .tour-box-image
+                                                figure
+                                                    a(href='tour-detail.html')
+                                                        img.img-responsive.listing-box-img(src='assets/img/tour/tour-8.jpg' alt='')
+                                                        .list-overlay
+                                                    .entry-bookmark
+                                                        a(href='#')
+                                                            i.ti-bookmark
+                                                    .tour-time
+                                                        i.ti.ti-car
+                                                        span 12h
+                                                    h4.destination-place
+                                                        a(href='#') Grand Canyon National Park
+                                                    span.featured-tour
+                                                        i.fa.fa-star
+                                                    a.list-like.left(href='#')
+                                                        i.ti-heart
+                                            .entry-meta
+                                                .meta-item.meta-author
+                                                    .coauthors
+                                                        span.vcard.author
+                                                            span.fn
+                                                                a(href='#')
+                                                                    img.avatar.avatar-24(alt='' src='assets/img/user-1.jpg' height='24' width='24')
+                                                                    | Lisa Scholfield
+                                                .meta-item.meta-comment.fl-right
+                                                    i.ti-comment-alt
+                                                    span 13
+                                                .meta-item.meta-rating.fl-right
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star
+                                                    i.fa.fa-star-half
+                                            .inner-box
+                                                .box-inner-ellipsis
+                                                    h4.entry-title
+                                                        a(href='#') India
+                                                    .price-box
+                                                        .tour-price.fl-right
+                                                            i.ti.ti-user
+                                                            span.theme-cl.f-bold $110
+                                .row
+                                    ul.pagination
+                                        li.page-item
+                                            a.page-link(href='#' aria-label='Previous')
+                                                span.ti-arrow-left
+                                                span.sr-only Previous
+                                        li.page-item
+                                            a.page-link(href='#') 1
+                                        li.page-item
+                                            a.page-link(href='#') 2
+                                        li.page-item.active
+                                            a.page-link(href='#') 3
+                                        li.page-item
+                                            a.page-link(href='#') 4
+                                        li.page-item
+                                            a.page-link(href='#') 5
+                                        li.page-item
+                                            a.page-link(href='#' aria-label='Next')
+                                                span.ti-arrow-right
+                                                span.sr-only Next
     block content_contact 
         include _contact
 
