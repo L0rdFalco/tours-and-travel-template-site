@@ -28,7 +28,7 @@ block content
                                     a(href='messages.html')
                                         i.ti-email(aria-hidden='true')
                                         | Messages
-                                li.active
+                                li
                                     a(href='javascript:void(0)')
                                         i.fa.fa-clone(aria-hidden='true')
                                         | Manage Listing 
@@ -72,7 +72,7 @@ block content
                                             a(href='add-restaurants.html')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Add Restaurants
-                                li
+                                li.active
                                     a(href='invoice.html')
                                         i.fa-print(aria-hidden='true')
                                         | Invoice
@@ -121,269 +121,89 @@ block content
                     .row.mrg-0.mrg-top-20
                         .tr-single-box
                             .tr-single-header
-                                h3.dashboard-title Manage Hotels
+                                h3.dashboard-title View Invoice
                             .tr-single-body
-                                .row
-                                    // Single Hotel
-                                    .col-md-4.col-sm-6
-                                        article.hotel-box.style-1
-                                            .hotel-box-image
-                                                figure
-                                                    a(href='hotel-detail.html')
-                                                        img.img-responsive.listing-box-img(src='assets/img/hotel/hotel-4.jpg' alt='')
-                                                        .list-overlay
-                                                        .read_more
-                                                            span Read more
-                                                    .discount-flick -12%
-                                                    h4.hotel-place
-                                                        a(href='#') Qatar
-                                            .entry-meta
-                                                .meta-item.meta-rating
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                                .meta-item.meta-comment.fl-right
-                                                    span.real-price.padd-l-10 From $580/Person
-                                            .hotel-detail-box
-                                                .hotel-ellipsis
-                                                    h4.hotel-name
-                                                        a(href='hotel-detail.html') Vision Motel
-                                                    p Proin mi nisi, ultrices eget dictum a, volutpat at risus. Aliquam elementum.
-                                            .hotel-inner.inner-box
-                                                .box-inner-ellipsis
-                                                    .hotel-review.entry-location
-                                                        span.review-status.bg-success
-                                                            i.ti-check
-                                                        h6
-                                                            span.cl-success.font-bold Good
-                                                            | 1587 Review
-                                                    .view-box
-                                                        .fl-right
-                                                            span
-                                                                i.ti-eye.padd-r-5
-                                                                | 658
-                                    // Single Hotel
-                                    .col-md-4.col-sm-6
-                                        article.hotel-box.style-1
-                                            .hotel-box-image
-                                                figure
-                                                    a(href='hotel-detail.html')
-                                                        img.img-responsive.listing-box-img(src='assets/img/hotel/hotel-5.jpg' alt='')
-                                                        .list-overlay
-                                                        .read_more
-                                                            span Read more
-                                                    .discount-flick -20%
-                                                    h4.hotel-place
-                                                        a(href='#') Singapore
-                                            .entry-meta
-                                                .meta-item.meta-rating
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                                .meta-item.meta-comment.fl-right
-                                                    span.real-price.padd-l-10 From $910/Person
-                                            .hotel-detail-box
-                                                .hotel-ellipsis
-                                                    h4.hotel-name
-                                                        a(href='hotel-detail.html') Monsoon Motel
-                                                    p Proin mi nisi, ultrices eget dictum a, volutpat at risus. Aliquam elementum.
-                                            .hotel-inner.inner-box
-                                                .box-inner-ellipsis
-                                                    .hotel-review.entry-location
-                                                        span.review-status.bg-danger
-                                                            i.ti-check
-                                                        h6
-                                                            span.cl-danger.font-bold Poor
-                                                            | 870 Review
-                                                    .view-box
-                                                        .fl-right
-                                                            span
-                                                                i.ti-eye.padd-r-5
-                                                                | 540
-                                    // Single Hotel
-                                    .col-md-4.col-sm-6
-                                        article.hotel-box.style-1
-                                            .hotel-box-image
-                                                figure
-                                                    a(href='hotel-detail.html')
-                                                        img.img-responsive.listing-box-img(src='assets/img/hotel/hotel-6.jpg' alt='')
-                                                        .list-overlay
-                                                        .read_more
-                                                            span Read more
-                                                    .discount-flick -15%
-                                                    h4.hotel-place
-                                                        a(href='#') Switzerland
-                                            .entry-meta
-                                                .meta-item.meta-rating
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                                .meta-item.meta-comment.fl-right
-                                                    span.real-price.padd-l-10 From $640/Person
-                                            .hotel-detail-box
-                                                .hotel-ellipsis
-                                                    h4.hotel-name
-                                                        a(href='hotel-detail.html') Comfort Motel
-                                                    p Proin mi nisi, ultrices eget dictum a, volutpat at risus. Aliquam elementum.
-                                            .hotel-inner.inner-box
-                                                .box-inner-ellipsis
-                                                    .hotel-review.entry-location
-                                                        span.review-status.bg-warning
-                                                            i.ti-check
-                                                        h6
-                                                            span.cl-warning.font-bold Fair
-                                                            | 1422 Review
-                                                    .view-box
-                                                        .fl-right
-                                                            span
-                                                                i.ti-eye.padd-r-5
-                                                                | 782
-                                    // Single Hotel
-                                    .col-md-4.col-sm-6
-                                        article.hotel-box.style-1
-                                            .hotel-box-image
-                                                figure
-                                                    a(href='hotel-detail.html')
-                                                        img.img-responsive.listing-box-img(src='assets/img/hotel/hotel-7.jpg' alt='')
-                                                        .list-overlay
-                                                        .read_more
-                                                            span Read more
-                                                    .discount-flick -14%
-                                                    h4.hotel-place
-                                                        a(href='#') San Marino
-                                            .entry-meta
-                                                .meta-item.meta-rating
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                                .meta-item.meta-comment.fl-right
-                                                    span.real-price.padd-l-10 From $810/Person
-                                            .hotel-detail-box
-                                                .hotel-ellipsis
-                                                    h4.hotel-name
-                                                        a(href='hotel-detail.html') Farmhouse Hotel
-                                                    p Proin mi nisi, ultrices eget dictum a, volutpat at risus. Aliquam elementum.
-                                            .hotel-inner.inner-box
-                                                .box-inner-ellipsis
-                                                    .hotel-review.entry-location
-                                                        span.review-status.bg-info
-                                                            i.ti-check
-                                                        h6
-                                                            span.cl-info.font-bold Superb
-                                                            | 1024 Review
-                                                    .view-box
-                                                        .fl-right
-                                                            span
-                                                                i.ti-eye.padd-r-5
-                                                                | 568
-                                    // Single Hotel
-                                    .col-md-4.col-sm-6
-                                        article.hotel-box.style-1
-                                            .hotel-box-image
-                                                figure
-                                                    a(href='hotel-detail.html')
-                                                        img.img-responsive.listing-box-img(src='assets/img/hotel/hotel-8.jpg' alt='')
-                                                        .list-overlay
-                                                        .read_more
-                                                            span Read more
-                                                    .discount-flick -10%
-                                                    h4.hotel-place
-                                                        a(href='#') United States
-                                            .entry-meta
-                                                .meta-item.meta-rating
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                                .meta-item.meta-comment.fl-right
-                                                    span.real-price.padd-l-10 From $510/Person
-                                            .hotel-detail-box
-                                                .hotel-ellipsis
-                                                    h4.hotel-name
-                                                        a(href='hotel-detail.html') Ivory House Hotel
-                                                    p Proin mi nisi, ultrices eget dictum a, volutpat at risus. Aliquam elementum.
-                                            .hotel-inner.inner-box
-                                                .box-inner-ellipsis
-                                                    .hotel-review.entry-location
-                                                        span.review-status.bg-success
-                                                            i.ti-check
-                                                        h6
-                                                            span.cl-success.font-bold Good
-                                                            | 256 Review
-                                                    .view-box
-                                                        .fl-right
-                                                            span
-                                                                i.ti-eye.padd-r-5
-                                                                | 652
-                                    // Single Hotel
-                                    .col-md-4.col-sm-6
-                                        article.hotel-box.style-1
-                                            .hotel-box-image
-                                                figure
-                                                    a(href='hotel-detail.html')
-                                                        img.img-responsive.listing-box-img(src='assets/img/hotel/hotel-9.jpg' alt='')
-                                                        .list-overlay
-                                                        .read_more
-                                                            span Read more
-                                                    .discount-flick -07%
-                                                    h4.hotel-place
-                                                        a(href='#') Saudi Arabia
-                                            .entry-meta
-                                                .meta-item.meta-rating
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                                .meta-item.meta-comment.fl-right
-                                                    span.real-price.padd-l-10 From $570/Person
-                                            .hotel-detail-box
-                                                .hotel-ellipsis
-                                                    h4.hotel-name
-                                                        a(href='hotel-detail.html') Prophecy Motel
-                                                    p Proin mi nisi, ultrices eget dictum a, volutpat at risus. Aliquam elementum.
-                                            .hotel-inner.inner-box
-                                                .box-inner-ellipsis
-                                                    .hotel-review.entry-location
-                                                        span.review-status.bg-info
-                                                            i.ti-check
-                                                        h6
-                                                            span.cl-info.font-bold Superb
-                                                            | 1252 Review
-                                                    .view-box
-                                                        .fl-right
-                                                            span
-                                                                i.ti-eye.padd-r-5
-                                                                | 582
-                                .row
-                                    ul.pagination
-                                        li.page-item
-                                            a.page-link(href='#' aria-label='Previous')
-                                                span.ti-arrow-left
-                                                span.sr-only Previous
-                                        li.page-item
-                                            a.page-link(href='#') 1
-                                        li.page-item
-                                            a.page-link(href='#') 2
-                                        li.page-item.active
-                                            a.page-link(href='#') 3
-                                        li.page-item
-                                            a.page-link(href='#') 4
-                                        li.page-item
-                                            a.page-link(href='#') 5
-                                        li.page-item
-                                            a.page-link(href='#' aria-label='Next')
-                                                span.ti-arrow-right
-                                                span.sr-only Next
+                                .detail-wrapper.padd-top-30.padd-bot-30
+                                    .row.text-center
+                                        .col-md-12
+                                            a.btn.theme-btn(href='javascript:window.print()') Print this invoice
+                                    .row.mrg-0
+                                        .col-md-6
+                                            #logo
+                                                img.img-responsive(src='assets/img/logo.png' alt='')
+                                        .col-md-6
+                                            p#invoice-info
+                                                strong Order:
+                                                |  #7075872 
+                                                br
+                                                strong Issued:
+                                                |  17/10/2017 
+                                                br
+                                                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Due 7 days from date of issue
+                                    .row.mrg-0.detail-invoice
+                                        .col-md-12
+                                            h2 INVOICE
+                                        .col-md-12
+                                            .row
+                                                .col-lg-7.col-md-7.col-sm-7
+                                                    h4 Supplier: 
+                                                    h5 Glovia Ltd
+                                                    p
+                                                        | info@glovia.com
+                                                        br
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;+91-587-936-5876
+                                                        br
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;780/77 , Lane Here, Chandigarh,
+                                                        br
+                                                        |  India
+                                                .col-lg-5.col-md-5.col-sm-5
+                                                    h4 Client Contact :
+                                                    h5 Saurav Singh
+                                                    p
+                                                        | sauravmail87@gmail.com
+                                                        br
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;+91-587-936-5876
+                                                        br
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;780/77 , Gurudwara Chauk, Allahabad,
+                                                        br
+                                                        |  India
+                                        hr
+                                        .col-12.col-md-12
+                                            strong ITEM DESCRIPTION &amp; DETAILS :
+                                        hr
+                                        .col-lg-12.col-md-12.col-sm-12
+                                            .invoice-table
+                                                .table-responsive
+                                                    table.table.table-striped.table-bordered
+                                                        thead
+                                                            tr
+                                                                th S. No.
+                                                                th Project
+                                                                th Time
+                                                                th Team
+                                                                th Sub Total
+                                                        tbody
+                                                            tr
+                                                                td 1
+                                                                td Front End Design
+                                                                td 1 Month
+                                                                td 5000 USD
+                                                                td 5000 USD
+                                                            tr
+                                                                td 2
+                                                                td Software Development
+                                                                td 2Month
+                                                                td 5000 USD
+                                                                td 10000 USD
+                                                hr
+                                                div
+                                                    h5 Total : 700 USD 
+                                                hr
+                                                div
+                                                    h5 Taxes : 220 USD ( 20 % on Total Bill ) 
+                                                hr
+                                                div
+                                                    h4 Bill Amount : 920 USD 
     block content_contact 
         include _contact
 
