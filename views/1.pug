@@ -3,431 +3,538 @@ extends base
 block navigation_content 
     include _navigation
 block content 
-    .page-title.image-title(style='background-image:url(assets/img/banner.jpg);')
+    section.page-title-banner(style='background-image:url(assets/img/banner.jpg);')
         .container
-            .page-title-wrap
-                h2 Hire Guide
-                p
-                    a.theme-cl(href='#') Home
-                    |  | 
-                    span Hire Guide
-    // ======================= End Page Title =====================
-    // =========== Hire Guider ===================
-    section.gray-bg
-        .container
-            // Row
-            .row.mrg-0
-                .tr-single-box.short-box
-                    .col-xs-4.align-self-center
-                        h4 Shorty By
-                    .col-xs-8.text-right
-                        .btn-group.mr-lg-2
-                            button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                                | Most Recent
-                            .dropdown-menu.pull-right.animated.flipInX
-                                a(href='#') Recent
-                                a(href='#') Most Popular
-                                a(href='#') Most Ratting
-            // /Row
-            // Start all guider
             .row
-                // Single Guide
-                .col-lg-4.col-md-6.col-sm-6
-                    .guide-container
-                        .guide-container-box
-                            .fguide-thumb
-                                img.img-responsive.img-circle(src='assets/img/user-1.jpg' alt='')
-                                p.padd-15.text-center
-                                    i.fa.fa-star.cl-warning
-                                    | 4.7/
-                                    span 5
-                            .fguide-detail
-                                h4 Adam Dicluver
-                                ul.extra-service
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-user
-                                                .icon-box-text
-                                                    strong experience
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;5 Year
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-timer
-                                                .icon-box-text
-                                                    strong Hire
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;10,000
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-eye
-                                                .icon-box-text
-                                                    strong View
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;16,000
-                        .guide-container-links
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | View Profile
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | Send Message
-                // Single Guide
-                .col-lg-4.col-md-6.col-sm-6
-                    .guide-container
-                        .guide-container-box
-                            .fguide-thumb
-                                img.img-responsive.img-circle(src='assets/img/user-2.jpg' alt='')
-                                p.padd-15.text-center
-                                    i.fa.fa-star.cl-warning
-                                    | 4.7/
-                                    span 5
-                            .fguide-detail
-                                h4 Adam Dicluver
-                                ul.extra-service
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-user
-                                                .icon-box-text
-                                                    strong experience
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;5 Year
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-timer
-                                                .icon-box-text
-                                                    strong Hire
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;10,000
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-eye
-                                                .icon-box-text
-                                                    strong View
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;16,000
-                        .guide-container-links
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | View Profile
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | Send Message
-                // Single Guide
-                .col-lg-4.col-md-6.col-sm-6
-                    .guide-container
-                        .guide-container-box
-                            .fguide-thumb
-                                img.img-responsive.img-circle(src='assets/img/user-3.jpg' alt='')
-                                p.padd-15.text-center
-                                    i.fa.fa-star.cl-warning
-                                    | 4.7/
-                                    span 5
-                            .fguide-detail
-                                h4 Adam Dicluver
-                                ul.extra-service
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-user
-                                                .icon-box-text
-                                                    strong experience
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;5 Year
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-timer
-                                                .icon-box-text
-                                                    strong Hire
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;10,000
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-eye
-                                                .icon-box-text
-                                                    strong View
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;16,000
-                        .guide-container-links
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | View Profile
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | Send Message
-                // Single Guide
-                .col-lg-4.col-md-6.col-sm-6
-                    .guide-container
-                        .guide-container-box
-                            .fguide-thumb
-                                img.img-responsive.img-circle(src='assets/img/user-4.jpg' alt='')
-                                p.padd-15.text-center
-                                    i.fa.fa-star.cl-warning
-                                    | 4.7/
-                                    span 5
-                            .fguide-detail
-                                h4 Adam Dicluver
-                                ul.extra-service
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-user
-                                                .icon-box-text
-                                                    strong experience
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;5 Year
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-timer
-                                                .icon-box-text
-                                                    strong Hire
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;10,000
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-eye
-                                                .icon-box-text
-                                                    strong View
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;16,000
-                        .guide-container-links
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | View Profile
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | Send Message
-                // Single Guide
-                .col-lg-4.col-md-6.col-sm-6
-                    .guide-container
-                        .guide-container-box
-                            .fguide-thumb
-                                img.img-responsive.img-circle(src='assets/img/user-5.jpg' alt='')
-                                p.padd-15.text-center
-                                    i.fa.fa-star.cl-warning
-                                    | 4.7/
-                                    span 5
-                            .fguide-detail
-                                h4 Adam Dicluver
-                                ul.extra-service
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-user
-                                                .icon-box-text
-                                                    strong experience
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;5 Year
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-timer
-                                                .icon-box-text
-                                                    strong Hire
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;10,000
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-eye
-                                                .icon-box-text
-                                                    strong View
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;16,000
-                        .guide-container-links
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | View Profile
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | Send Message
-                // Single Guide
-                .col-lg-4.col-md-6.col-sm-6
-                    .guide-container
-                        .guide-container-box
-                            .fguide-thumb
-                                img.img-responsive.img-circle(src='assets/img/user-6.jpg' alt='')
-                                p.padd-15.text-center
-                                    i.fa.fa-star.cl-warning
-                                    | 4.7/
-                                    span 5
-                            .fguide-detail
-                                h4 Adam Dicluver
-                                ul.extra-service
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-user
-                                                .icon-box-text
-                                                    strong experience
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;5 Year
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-timer
-                                                .icon-box-text
-                                                    strong Hire
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;10,000
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-eye
-                                                .icon-box-text
-                                                    strong View
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;16,000
-                        .guide-container-links
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | View Profile
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | Send Message
-                // Single Guide
-                .col-lg-4.col-md-6.col-sm-6
-                    .guide-container
-                        .guide-container-box
-                            .fguide-thumb
-                                img.img-responsive.img-circle(src='assets/img/user-7.jpg' alt='')
-                                p.padd-15.text-center
-                                    i.fa.fa-star.cl-warning
-                                    | 4.7/
-                                    span 5
-                            .fguide-detail
-                                h4 Adam Dicluver
-                                ul.extra-service
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-user
-                                                .icon-box-text
-                                                    strong experience
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;5 Year
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-timer
-                                                .icon-box-text
-                                                    strong Hire
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;10,000
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-eye
-                                                .icon-box-text
-                                                    strong View
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;16,000
-                        .guide-container-links
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | View Profile
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | Send Message
-                // Single Guide
-                .col-lg-4.col-md-6.col-sm-6
-                    .guide-container
-                        .guide-container-box
-                            .fguide-thumb
-                                img.img-responsive.img-circle(src='assets/img/user-8.jpg' alt='')
-                                p.padd-15.text-center
-                                    i.fa.fa-star.cl-warning
-                                    | 4.7/
-                                    span 5
-                            .fguide-detail
-                                h4 Adam Dicluver
-                                ul.extra-service
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-user
-                                                .icon-box-text
-                                                    strong experience
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;5 Year
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-timer
-                                                .icon-box-text
-                                                    strong Hire
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;10,000
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-eye
-                                                .icon-box-text
-                                                    strong View
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;16,000
-                        .guide-container-links
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | View Profile
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | Send Message
-                // Single Guide
-                .col-lg-4.col-md-6.col-sm-6
-                    .guide-container
-                        .guide-container-box
-                            .fguide-thumb
-                                img.img-responsive.img-circle(src='assets/img/user-1.jpg' alt='')
-                                p.padd-15.text-center
-                                    i.fa.fa-star.cl-warning
-                                    | 4.7/
-                                    span 5
-                            .fguide-detail
-                                h4 Adam Dicluver
-                                ul.extra-service
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-user
-                                                .icon-box-text
-                                                    strong experience
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;5 Year
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-timer
-                                                .icon-box-text
-                                                    strong Hire
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;10,000
-                                    li
-                                        .icon-box-icon-block
-                                            a(href='#')
-                                                .icon-box-round
-                                                    i.ti-eye
-                                                .icon-box-text
-                                                    strong View
-                                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;16,000
-                        .guide-container-links
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | View Profile
-                            a.btn.btn-default(href='guide-detail.html')
-                                i.ti-user.mrg-r-5
-                                | Send Message
-            // Start all guider
+                .tr-list-detail
+                    .tr-list-thumb
+                        img.img-responsive.img-circle(src='assets/img/user-5.jpg' alt='')
+                    .tr-list-info
+                        h4 Daniel Duke Warm
+                        p Austrailia
+    // ======================= End Banner =====================
+    // ======================= Guide Detail =====================
+    section.tr-single-detail.gray-bg
+        .container
+            .row
+                .col-md-8.col-sm-8
+                    // Guide Detail
+                    .row
+                        .tr-single-box
+                            .tr-single-header
+                                h4
+                                    i.ti-user
+                                    | Guide
+                            .tr-single-body
+                                .guider-box-detail
+                                    .guider-box-thumb
+                                        img.img-responsive.img-circle(src='assets/img/user-5.jpg' alt='')
+                                    .guider-box-detail-content
+                                        h4
+                                            | Daniel Duke Warm
+                                            sup.theme-cl Guide
+                                        p
+                                            | 4 year Experience
+                                            span.guider-status.bg-success Online
+                                        a.btn.btn-info(href='#') View Detail
+                                        a.btn.btn-default(href='#') Message
+                                    .pr-table
+                                        ul
+                                            li
+                                                strong Tour type:
+                                                span.t-type.bg-danger Extraordinary
+                                                span.t-type.bg-warning Food
+                                                span.t-type.bg-success Travel
+                                            li
+                                                strong Activity Lavel:
+                                                | Minimal
+                                            li
+                                                strong Language:
+                                                | English, French
+                                            li
+                                                strong Location:
+                                                | Canada
+                                            li
+                                                strong
+                    // Ratting
+                    .row
+                        .tr-single-box
+                            .tr-single-header
+                                h4
+                                    i.fa.fa-star-o
+                                    | Ratting
+                            .tr-single-body
+                                .row
+                                    .col-sm-4
+                                        #review_summary
+                                            strong 8.5
+                                            em.cl-success Superb
+                                            small Based on 4 reviews
+                                    .col-sm-8
+                                        .row
+                                            .col-lg-10.col-9
+                                                .progress
+                                                    .progress-bar.progress-bar-success(role='progressbar' style='width: 98%' aria-valuenow='98' aria-valuemin='0' aria-valuemax='100')
+                                            .col-lg-2.col-3
+                                                small
+                                                    strong 5 stars
+                                        // /row
+                                        .row
+                                            .col-lg-10.col-9
+                                                .progress
+                                                    .progress-bar.progress-bar-warning(role='progressbar' style='width: 90%' aria-valuenow='90' aria-valuemin='0' aria-valuemax='100')
+                                            .col-lg-2.col-3
+                                                small
+                                                    strong 4 stars
+                                        // /row
+                                        .row
+                                            .col-lg-10.col-9
+                                                .progress
+                                                    .progress-bar.progress-bar-primary(role='progressbar' style='width: 60%' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
+                                            .col-lg-2.col-3
+                                                small
+                                                    strong 3 stars
+                                        // /row
+                                        .row
+                                            .col-lg-10.col-9
+                                                .progress
+                                                    .progress-bar.progress-bar-danger(role='progressbar' style='width: 20%' aria-valuenow='20' aria-valuemin='0' aria-valuemax='100')
+                                            .col-lg-2.col-3
+                                                small
+                                                    strong 2 stars
+                                        // /row
+                                        .row
+                                            .col-lg-10.col-9
+                                                .progress
+                                                    .progress-bar(role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100')
+                                            .col-lg-2.col-3
+                                                small
+                                                    strong 1 stars
+                                        // /row
+                                        // Description
+                                        .row
+                                            .tr-single-box
+                                                .tr-single-header
+                                                    h4
+                                                        i.ti-files
+                                                        | Description
+                                                .tr-single-body
+                                                    p
+                                                        | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus..
+                                                    p
+                                                        | Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam.
+                                        // Extra features
+                                        .row
+                                            .tr-single-box
+                                                .tr-single-header
+                                                    h4
+                                                        i.ti-thumb-up
+                                                        | Extra Features
+                                                .tr-single-body
+                                                    ul.simple-features-list
+                                                        li Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                                                        li Minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+                                                        li
+                                                            | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
+                                                        li
+                                                            | Pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes.
+                                                        li Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                                                        li Minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+                                                        li
+                                                            | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
+                                                        li
+                                                            | Pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes.
+                                        // Review
+                                        .row
+                                            .tr-single-box
+                                                .tr-single-header(data-toggle='collapse' data-target='#review-pannel' aria-expanded='true')
+                                                    h4
+                                                        i.ti-write
+                                                        | All Review
+                                                        i.ti-menu.fl-right
+                                                #review-pannel.tr-single-body.collapse(aria-expanded='false')
+                                                    // Single Review
+                                                    .review-box
+                                                        .review-thumb
+                                                            img.img-responsive.img-circle(src='assets/img/user-1.jpg' alt='')
+                                                        .review-box-content
+                                                            .reviewer-rate
+                                                                p
+                                                                    i.fa.fa-star.cl-warning
+                                                                    | 4.7/
+                                                                    span 5
+                                                            .review-user-info
+                                                                h4 Daniel Dicoss
+                                                                p
+                                                                    | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                            .review-lc.text-right
+                                                                a(href='#')
+                                                                    i.ti-heart
+                                                                    | 87
+                                                                a(href='#')
+                                                                    i.ti-comment
+                                                                    | 52
+                                                    // Single Review
+                                                    .review-box
+                                                        .review-thumb
+                                                            img.img-responsive.img-circle(src='assets/img/user-2.jpg' alt='')
+                                                        .review-box-content
+                                                            .reviewer-rate
+                                                                p
+                                                                    i.fa.fa-star.cl-warning
+                                                                    | 4.4/
+                                                                    span 5
+                                                            .review-user-info
+                                                                h4 Archita Singh
+                                                                p
+                                                                    | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                            .review-lc.text-right
+                                                                a(href='#')
+                                                                    i.ti-heart
+                                                                    | 65
+                                                                a(href='#')
+                                                                    i.ti-comment
+                                                                    | 78
+                                                    // Single Review
+                                                    .review-box
+                                                        .review-thumb
+                                                            img.img-responsive.img-circle(src='assets/img/user-3.jpg' alt='')
+                                                        .review-box-content
+                                                            .reviewer-rate
+                                                                p
+                                                                    i.fa.fa-star.cl-warning
+                                                                    | 5.0/
+                                                                    span 5
+                                                            .review-user-info
+                                                                h4 Devesh Patri
+                                                                p
+                                                                    | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                            .review-lc.text-right
+                                                                a(href='#')
+                                                                    i.ti-heart
+                                                                    | 110
+                                                                a(href='#')
+                                                                    i.ti-comment
+                                                                    | 47
+                                                    // Single Review
+                                                    .review-box
+                                                        .review-thumb
+                                                            img.img-responsive.img-circle(src='assets/img/user-4.jpg' alt='')
+                                                        .review-box-content
+                                                            .reviewer-rate
+                                                                p
+                                                                    i.fa.fa-star.cl-warning
+                                                                    | 4.9/
+                                                                    span 5
+                                                            .review-user-info
+                                                                h4 Ruchi Sethi
+                                                                p
+                                                                    | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                            .review-lc.text-right
+                                                                a(href='#')
+                                                                    i.ti-heart
+                                                                    | 120
+                                                                a(href='#')
+                                                                    i.ti-comment
+                                                                    | 36
+                                                    // Single Review
+                                                    .review-box
+                                                        .review-thumb
+                                                            img.img-responsive.img-circle(src='assets/img/user-5.jpg' alt='')
+                                                        .review-box-content
+                                                            .reviewer-rate
+                                                                p
+                                                                    i.fa.fa-star.cl-warning
+                                                                    | 4.8/
+                                                                    span 5
+                                                            .review-user-info
+                                                                h4 Duke Divalkis
+                                                                p
+                                                                    | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                            .review-lc.text-right
+                                                                a(href='#')
+                                                                    i.ti-heart
+                                                                    | 80
+                                                                a(href='#')
+                                                                    i.ti-comment
+                                                                    | 70
+                                                    // Single Review
+                                                    .review-box
+                                                        .review-thumb
+                                                            img.img-responsive.img-circle(src='assets/img/user-6.jpg' alt='')
+                                                        .review-box-content
+                                                            .reviewer-rate
+                                                                p
+                                                                    i.fa.fa-star.cl-warning
+                                                                    | 4.7/
+                                                                    span 5
+                                                            .review-user-info
+                                                                h4 Shilka Rai
+                                                                p
+                                                                    | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                            .review-lc.text-right
+                                                                a(href='#')
+                                                                    i.ti-heart
+                                                                    | 120
+                                                                a(href='#')
+                                                                    i.ti-comment
+                                                                    | 140
+                // Sidebar Start
+                .col-md-4.col-sm-4
+                    // Tourist Overview
+                    .tr-single-box
+                        .tr-single-header
+                            h4
+                                | Daniel Duke Warm
+                                sup.cl-success Tour Guide
+                        .tr-single-body
+                            ul.extra-service.half
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-user
+                                            .icon-box-text
+                                                | 10k Rehire
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-timer
+                                            .icon-box-text
+                                                | 3 Year Exp.
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-eye
+                                            .icon-box-text
+                                                | 785 View
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-share
+                                            .icon-box-text
+                                                | 110 Share
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-comment-alt
+                                            .icon-box-text
+                                                | 22 comments
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-heart
+                                            .icon-box-text
+                                                | 20 Likes
+                    // overview & booking Form
+                    .tr-single-box
+                        .tr-single-header
+                            .entry-meta
+                                .meta-item.meta-comment.fl-right
+                                    .view-box
+                                        .fl-right
+                                            h4.font-20
+                                                span.theme-cl.font-20 $
+                                                | 216
+                                                sub /Per Day
+                                .meta-item.meta-author
+                                    .hotel-review.entry-location
+                                        span.review-status.bg-success
+                                            i.ti-check
+                                        h6
+                                            span.cl-success.font-bold Good
+                                            | 1362 Review
+                        .tr-single-body
+                            form.book-form
+                                .row
+                                    .col-xs-12
+                                        .form-group
+                                            label Check In
+                                            input#checkin.form-control(type='text' name='checkin' value='Check in')
+                                    .col-xs-12
+                                        .form-group
+                                            label Check Out
+                                            input#checkout.form-control(type='text' name='checkout' value='Check out')
+                                .row
+                                    .col-xs-6
+                                        .form-group
+                                            label Adult
+                                            input.form-control(type='number' name='adult' value='1')
+                                    .col-xs-6
+                                        .form-group
+                                            label Children
+                                            input.form-control(type='number' name='children' value='0')
+                                .row
+                                    .col-xs-6
+                                        .form-group
+                                            label Room
+                                            .sl-side
+                                                select.wide.form-control
+                                                    option(data-display='Room') 1
+                                                    option(value='1') 2
+                                                    option(value='2') 3
+                                                    option(value='3') 4
+                                                    option(value='4') 5
+                                                    option(value='4') 5
+                                    .col-xs-6
+                                        .form-group
+                                            label Night
+                                            .sl-side
+                                                select.wide.form-control
+                                                    option(data-display='Night') 1
+                                                    option(value='1') 2
+                                                    option(value='2') 3
+                                                    option(value='3') 4
+                                                    option(value='4') 5
+                                                    option(value='4') 5
+                                .row
+                                    .col-xs-12
+                                        button.btn.btn-default.full-width.text-left(type='button' data-toggle='collapse' data-target='#extra-service')
+                                            | Choose Extra Amenities
+                                            i.ti-settings.fl-right.mrg-top-5
+                                        #extra-service.collapse
+                                            .extra-features
+                                                ul.extra-service.half
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#1(type='checkbox')
+                                                            label(for='1')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Satellite TV
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#2(type='checkbox')
+                                                            label(for='2')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Coffeemaker
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#3(type='checkbox')
+                                                            label(for='3')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Luxury Bedding
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#4(type='checkbox')
+                                                            label(for='4')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Swimming Pool
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#5(type='checkbox')
+                                                            label(for='5')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Free Parking
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#6(type='checkbox')
+                                                            label(for='6')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Free Wifi
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#7(type='checkbox')
+                                                            label(for='7')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Pets Allow
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#8(type='checkbox')
+                                                            label(for='8')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Elevator
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#9(type='checkbox')
+                                                            label(for='9')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Spa/Sauna
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#11(type='checkbox')
+                                                            label(for='11')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Security cameras
+                                .row
+                                    .col-xs-12.mrg-top-15
+                                        a.btn.btn-arrow.theme-btn.full-width(href='#') Book now
+                    // Share this
+                    .tr-single-box
+                        .tr-single-header
+                            h4 Share this
+                        .tr-single-body
+                            ul.extra-service.half
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-facebook
+                                            .icon-box-text
+                                                | Facebook
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-google-plus
+                                            .icon-box-text
+                                                | Google plus
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-twitter
+                                            .icon-box-text
+                                                | Twitter
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-linkedin
+                                            .icon-box-text
+                                                | LinkedIn
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-instagram
+                                            .icon-box-text
+                                                | Instagram
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-pinterest
+                                            .icon-box-text
+                                                | Pinterest
+                    // Share this
+                    .tr-single-box
+                        .tr-single-header
+                            h4 Share this
+                        .tr-single-body
+                            .single-side-slide
+                                // Single Guide
+                                .guides-container
+                                    .guides-box
+                                        .guides-img-box
+                                            img.img-responsive(src='assets/img/user-1.jpg' alt='')
+                                        .guider-detail
+                                            h4 Suryansh Vighul
+                                            h5.theme-cl.font-bold $42/Hour
+                                    a.btn.theme-btn.full-width(href='guide-detail.html') Book Now
+                                // Single Guide
+                                .guides-container
+                                    .guides-box
+                                        .guides-img-box
+                                            img.img-responsive(src='assets/img/user-2.jpg' alt='')
+                                        .guider-detail
+                                            h4 Richita Setthy
+                                            h5.theme-cl.font-bold $32/Hour
+                                    a.btn.theme-btn.full-width(href='guide-detail.html') Book Now
+                                // Single Guide
+                                .guides-container
+                                    .guides-box
+                                        .guides-img-box
+                                            img.img-responsive(src='assets/img/user-3.jpg' alt='')
+                                        .guider-detail
+                                            h4 Adam Survinia
+                                            h5.theme-cl.font-bold $47/Hour
+                                    a.btn.theme-btn.full-width(href='guide-detail.html') Book Now
+            // /col-md-4
     block content_contact 
         include _contact
 
