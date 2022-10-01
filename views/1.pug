@@ -3,286 +3,186 @@ extends base
 block navigation_content 
     include _navigation
 block content 
-    .page-title.image-title(style='background-image:url(assets/img/banner.jpg);')
-        .container
-            .page-title-wrap
-                h2 FAQs
-                p
-                    a.theme-cl(href='#') Home
-                    |  | 
-                    span FAQs
-    // ======================= End Page Title =====================
-    // =========== Start All Hotel In Grid View ===================
-    section.gray-bg
-        .container
+    section.dashboard.gray-bg.padd-0.mrg-top-50
+        .container-fluid
             .row
-                .simple-tab-style
-                    // Nav tabs
-                    ul.nav.nav-tabs(role='tablist')
-                        li.active(role='presentation')
-                            a(href='#User' aria-controls='home' role='tab' data-toggle='tab')
-                                i.ti-user
-                                | User
-                        li(role='presentation')
-                            a(href='#Author' aria-controls='author' role='tab' data-toggle='tab')
-                                i.ti-star
-                                | Author
-                        li(role='presentation')
-                            a(href='#Employee' aria-controls='employee' role='tab' data-toggle='tab')
-                                i.ti-user
-                                | Employee
-                        li(role='presentation')
-                            a(href='#Support' aria-controls='support' role='tab' data-toggle='tab')
-                                i.ti-help
-                                | Support
-                        li(role='presentation')
-                            a(href='#Suggestion' aria-controls='Suggestion' role='tab' data-toggle='tab')
-                                i.ti-face-sad
-                                | Suggestion
-                    // Tab panes
-                    .tab-content
-                        // user
-                        #User.tab-pane.fade.in.active(role='tabpanel')
-                            .simple-accordion
-                                #accordion.panel-group(role='tablist' aria-multiselectable='true')
-                                    .panel.panel-default
-                                        #title1.panel-heading(role='tab')
-                                            h4.panel-title
-                                                a(role='button' data-toggle='collapse' data-parent='#accordion' href='#col1' aria-expanded='true' aria-controls='col1')
-                                                    | Why Travelizm Services?
-                                        #col1.panel-collapse.collapse.in(role='tabpanel' aria-labelledby='title1')
-                                            .panel-body
-                                                p
-                                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                                p
-                                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                    .panel.panel-default
-                                        #title2.panel-heading(role='tab')
-                                            h4.panel-title
-                                                a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion' href='#col2' aria-expanded='false' aria-controls='col2')
-                                                    | Benifits of Travelizm Services
-                                        #col2.panel-collapse.collapse(role='tabpanel' aria-labelledby='title2')
-                                            .panel-body
-                                                p
-                                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                                p
-                                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                    .panel.panel-default
-                                        #title3.panel-heading(role='tab')
-                                            h4.panel-title
-                                                a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion' href='#col3' aria-expanded='false' aria-controls='col3')
-                                                    | What is Travelizm?
-                                        #col3.panel-collapse.collapse(role='tabpanel' aria-labelledby='title3')
-                                            .panel-body
-                                                p
-                                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                                p
-                                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                    .panel.panel-default
-                                        #title4.panel-heading(role='tab')
-                                            h4.panel-title
-                                                a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion' href='#col4' aria-expanded='false' aria-controls='col4')
-                                                    | What People Syaing About travelizm
-                                        #col4.panel-collapse.collapse(role='tabpanel' aria-labelledby='title4')
-                                            .panel-body
-                                                p
-                                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                                p
-                                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                        // Author
-                        #Author.tab-pane.fade(role='tabpanel')
-                            #accordion1.panel-group(role='tablist' aria-multiselectable='true')
-                                .panel.panel-default
-                                    #title21.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a(role='button' data-toggle='collapse' data-parent='#accordion1' href='#col21' aria-expanded='true' aria-controls='col21')
-                                                | Why Travelizm Services?
-                                    #col21.panel-collapse.collapse.in(role='tabpanel' aria-labelledby='title21')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                .panel.panel-default
-                                    #title22.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion1' href='#col22' aria-expanded='false' aria-controls='col22')
-                                                | Benifits of Travelizm Services
-                                    #col22.panel-collapse.collapse(role='tabpanel' aria-labelledby='title22')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                .panel.panel-default
-                                    #title23.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion1' href='#col23' aria-expanded='false' aria-controls='col23')
-                                                | What is Travelizm?
-                                    #col23.panel-collapse.collapse(role='tabpanel' aria-labelledby='title23')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                .panel.panel-default
-                                    #title24.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion1' href='#col24' aria-expanded='false' aria-controls='col24')
-                                                | What People Syaing About travelizm
-                                    #col24.panel-collapse.collapse(role='tabpanel' aria-labelledby='title24')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                        // /Author
-                        // Employee
-                        #Employee.tab-pane.fade(role='tabpanel')
-                            #accordion2.panel-group(role='tablist' aria-multiselectable='true')
-                                .panel.panel-default
-                                    #title31.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a(role='button' data-toggle='collapse' data-parent='#accordion2' href='#col31' aria-expanded='true' aria-controls='col31')
-                                                | Why Travelizm Services?
-                                    #col31.panel-collapse.collapse.in(role='tabpanel' aria-labelledby='title31')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                .panel.panel-default
-                                    #title32.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion2' href='#col32' aria-expanded='false' aria-controls='col32')
-                                                | Benifits of Travelizm Services
-                                    #col32.panel-collapse.collapse(role='tabpanel' aria-labelledby='title32')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                .panel.panel-default
-                                    #title33.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion2' href='#col33' aria-expanded='false' aria-controls='col33')
-                                                | What is Travelizm?
-                                    #col33.panel-collapse.collapse(role='tabpanel' aria-labelledby='title33')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                .panel.panel-default
-                                    #title34.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion2' href='#col34' aria-expanded='false' aria-controls='col34')
-                                                | What People Syaing About travelizm
-                                    #col34.panel-collapse.collapse(role='tabpanel' aria-labelledby='title34')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                        // /Employee
-                        // Support
-                        #Support.tab-pane.fade(role='tabpanel')
-                            #accordion3.panel-group(role='tablist' aria-multiselectable='true')
-                                .panel.panel-default
-                                    #title41.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a(role='button' data-toggle='collapse' data-parent='#accordion3' href='#col41' aria-expanded='true' aria-controls='col41')
-                                                | Why Travelizm Services?
-                                    #col41.panel-collapse.collapse.in(role='tabpanel' aria-labelledby='title41')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                .panel.panel-default
-                                    #title42.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion3' href='#col42' aria-expanded='false' aria-controls='col42')
-                                                | Benifits of Travelizm Services
-                                    #col42.panel-collapse.collapse(role='tabpanel' aria-labelledby='title42')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                .panel.panel-default
-                                    #title43.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion3' href='#col43' aria-expanded='false' aria-controls='col43')
-                                                | What is Travelizm?
-                                    #col43.panel-collapse.collapse(role='tabpanel' aria-labelledby='title43')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                .panel.panel-default
-                                    #title44.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion3' href='#col44' aria-expanded='false' aria-controls='col44')
-                                                | What People Syaing About travelizm
-                                    #col44.panel-collapse.collapse(role='tabpanel' aria-labelledby='title44')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                        // /Support
-                        // Suggestion
-                        #Suggestion.tab-pane.fade(role='tabpanel')
-                            #accordion4.panel-group(role='tablist' aria-multiselectable='true')
-                                .panel.panel-default
-                                    #title51.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a(role='button' data-toggle='collapse' data-parent='#accordion4' href='#col51' aria-expanded='true' aria-controls='col51')
-                                                | Why Travelizm Services?
-                                    #col51.panel-collapse.collapse.in(role='tabpanel' aria-labelledby='title1')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                .panel.panel-default
-                                    #title52.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion4' href='#col52' aria-expanded='false' aria-controls='col52')
-                                                | Benifits of Travelizm Services
-                                    #col52.panel-collapse.collapse(role='tabpanel' aria-labelledby='title52')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                .panel.panel-default
-                                    #title53.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion4' href='#col53' aria-expanded='false' aria-controls='col53')
-                                                | What is Travelizm?
-                                    #col53.panel-collapse.collapse(role='tabpanel' aria-labelledby='title53')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                .panel.panel-default
-                                    #title54.panel-heading(role='tab')
-                                        h4.panel-title
-                                            a.collapsed(role='button' data-toggle='collapse' data-parent='#accordion4' href='#col54' aria-expanded='false' aria-controls='col54')
-                                                | What People Syaing About travelizm
-                                    #col54.panel-collapse.collapse(role='tabpanel' aria-labelledby='title54')
-                                        .panel-body
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
-                                            p
-                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.
+                .col-lg-2.col-md-2.col-sm-3.dashboard-bg
+                    // /. NAV TOP
+                    nav.navbar.navbar-side
+                        // Start Logo Header Navigation
+                        .navbar-header
+                            button.navbar-toggle(type='button' data-toggle='collapse' data-target='#dashboard-menu')
+                                i.fa.fa-bars
+                        #dashboard-menu.collapse.sidebar-collapse
+                            .profile-wrapper
+                                .profile-wrapper-thumb
+                                    img.img-responsive.img-circle(src='assets/img/user-3.jpg' alt='')
+                                    span.dashboard-user-status.bg-success
+                                h4 Duke Daniel
+                            ul#main-menu.nav
+                                li
+                                    a(href='dashboard.html')
+                                        i.fa.fa-dashboard(aria-hidden='true')
+                                        | Dashboard
+                                li
+                                    a(href='messages.html')
+                                        i.ti-email(aria-hidden='true')
+                                        | Messages
+                                li
+                                    a(href='javascript:void(0)')
+                                        i.fa.fa-clone(aria-hidden='true')
+                                        | Manage Listing 
+                                        span.fa.arrow
+                                    ul.nav.nav-second-level
+                                        li
+                                            a(href='manage-hotels.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Manage Hotels
+                                        li
+                                            a(href='manage-tours.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Manage Tours
+                                        li
+                                            a(href='manage-destinations.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Manage Destinations
+                                        li
+                                            a(href='manage-restaurants.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Manage Restaurants
+                                li
+                                    a(href='javascript:void(0)')
+                                        i.ti-location-pin(aria-hidden='true')
+                                        | Add Listings 
+                                        span.fa.arrow
+                                    ul.nav.nav-second-level
+                                        li
+                                            a(href='http://themezhub.com/')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Add Hotels
+                                        li
+                                            a(href='add-tours.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Add Tours
+                                        li
+                                            a(href='add-destinations.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Add Destinations
+                                        li
+                                            a(href='add-restaurants.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Add Restaurants
+                                li
+                                    a(href='invoice.html')
+                                        i.fa-print(aria-hidden='true')
+                                        | Invoice
+                                li
+                                    a(href='javascript:void(0)')
+                                        i.ti-calendar(aria-hidden='true')
+                                        | My Booking 
+                                        span.fa.arrow
+                                    ul.nav.nav-second-level
+                                        li
+                                            a(href='booking-2.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Booking 1
+                                        li
+                                            a(href='booking-2.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Booking 2
+                                li
+                                    a(href='javascript:void(0)')
+                                        i.fa.fa-cog(aria-hidden='true')
+                                        | Settings 
+                                        span.fa.arrow
+                                    ul.nav.nav-second-level
+                                        li
+                                            a(href='basic-settings.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Basic Settings
+                                        li
+                                            a(href='site-settings.html')
+                                                i.fa.fa-circle-o-notch(aria-hidden='true')
+                                                | Site Settings
+                                li.active
+                                    a(href='my-profile.html')
+                                        i.ti-user(aria-hidden='true')
+                                        | My Profile
+                                li
+                                    a(href='add-payment-methode.html')
+                                        i.ti-credit-card(aria-hidden='true')
+                                        | Add Payment Methode
+                                li.log-off
+                                    a(href='login.html')
+                                        i.fa.fa-power-off(aria-hidden='true')
+                                        | Logout
+                    // /. NAV SIDE
+                .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
+                    .row.mrg-0.mrg-top-20
+                        .tr-single-box
+                            .tr-single-header
+                                h3.dashboard-title My Profile
+                            .tr-single-body
+                                .row
+                                    // col-md-4
+                                    .col-md-4
+                                        p
+                                            label First Name
+                                            input#firstname.form-control(type='text' value='Shaurya' name='firstname')
+                                        p
+                                            label Last Name
+                                            input#secondname.form-control(type='text' value='Preet' name='firstname')
+                                        p
+                                            label Email
+                                            input#useremail.form-control(type='text' value='danielraj@gmail.com' name='useremail')
+                                        p
+                                            label About Me
+                                            textarea#about_me.form-control(name='about_me')
+                                        p
+                                            label I live in
+                                            input#live_in.form-control(type='text' value='' name='live_in')
+                                        p
+                                            label I speak
+                                            input#i_speak.form-control(type='text' value='' name='i_speak')
+                                        p
+                                            label Payment Info/Hidden Field
+                                            textarea#payment_info.form-control(name='payment_info' cols='70' rows='3')
+                                    // /col-md-4
+                                    // col-md-4
+                                    .col-md-4
+                                        p
+                                            label Phone
+                                            input#userphone.form-control(type='text' value='' name='userphone')
+                                        p
+                                            label city
+                                            input#usermobile.form-control(type='text' value='' name='usermobile')
+                                        p
+                                            label Skype
+                                            input#userskype.form-control(type='text' value='' name='userskype')
+                                        p
+                                            label Facebook Url
+                                            input#userfacebook.form-control(type='text' value='' name='userfacebook')
+                                        p
+                                            label Twitter Url
+                                            input#usertwitter.form-control(type='text' value='' name='usertwitter')
+                                        p
+                                            label Linkedin Url
+                                            input#userlinkedin.form-control(type='text' value='' name='userlinkedin')
+                                        p
+                                            label Pinterest Url
+                                            input#userpinterest.form-control(type='text' height='100' value='' name='userpinterest')
+                                    // /col-md-4
+                                    // col-md-4
+                                    .col-md-4
+                                        #profile-div.feature-media-upload
+                                            img#profile-image.img-responsive(src='assets/img/user-3.jpg' alt='user image')
+                                            #upload-container
+                                                #aaiu-upload-container(style='position: relative;')
+                                                    button#aaiu-uploader.btn.theme-btn.full-width(type='file') Upload Image
+                                                span.upload_explain * recommended size: minimum 550px 
+                                    // /col-md-4
     block content_contact 
         include _contact
-
 
 //- block content_footer 
 //-     include _footer
