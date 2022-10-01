@@ -3,510 +3,743 @@ extends base
 block navigation_content 
     include _navigation
 block content 
-    .page-title.image-title(style='background-image:url(assets/img/destination.jpg);')
-        .container
-            .page-title-wrap
-                h2 Destination Grid Sidebar
-                p
-                    a.theme-cl(href='#') Home
-                    |  | 
-                    span Destination Grid Sidebar
-    // ======================= End Page Title =====================
-    // =========== Start All Hotel In Grid View ===================
-    section.gray-bg
+    section.page-title-banner(style='background-image:url(assets/img/banner.jpg);')
         .container
             .row
-                // Filter Sidebar
+                .tr-list-detail
+                    .tr-list-thumb
+                        img.img-responsive.img-circle(src='assets/img/user-2.jpg' alt='')
+                    .tr-list-info
+                        h4 Adam G. Gilworm
+                        p Canada Tour
+    // ======================= End Banner =====================
+    // ======================= Start Detail Header =====================
+    section.profile-header-nav.padd-0.bb-1
+        .container
+            .row
+                .col-md-8.col-sm-8
+                    .tab(role='tabpanel')
+                        // Nav tabs
+                        ul.nav.nav-tabs(role='tablist')
+                            li.active(role='presentation')
+                                a(href='#Overview' aria-controls='home' role='tab' data-toggle='tab')
+                                    i.ti-user
+                                    | Overview
+                            li(role='presentation')
+                                a(href='#Features' aria-controls='profile' role='tab' data-toggle='tab')
+                                    i.ti-settings
+                                    | Features
+                            li(role='presentation')
+                                a(href='#Review' aria-controls='messages' role='tab' data-toggle='tab')
+                                    i.ti-thumb-up
+                                    | Review
+                            li(role='presentation')
+                                a(href='#Photos' aria-controls='messages' role='tab' data-toggle='tab')
+                                    i.ti-gallery
+                                    | Photos
+                        // Tab panes
+                .col-md-4.col-sm-4
+                    .fl-right
+                        button.btn.theme-btn(type='button')
+                            span.fa.fa-paper-plane.mrg-r-10
+                            | Send Message
+    // ======================= End Detail Header =====================
+    // ======================= Start Detail =====================
+    section.tr-single-detail.gray-bg
+        .container
+            .row
+                .col-md-8.col-sm-12
+                    .tab-content.tabs
+                        #Overview.tab-pane.fade.in.active(role='tabpanel')
+                            // Overview
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.fa.fa-star-o
+                                            | Overview
+                                    .tr-single-body
+                                        .row
+                                            .col-md-6.col-sm-6
+                                                .list-thumb-box
+                                                    img.img-responsive(src='assets/img/destination/des-6.jpg' alt='')
+                                                    a.list-like.left(href='#')
+                                                        i.ti-heart
+                                                    h5
+                                                        | 4.8/
+                                                        sub.theme-cl 5
+                                            .col-md-6.col-sm-6
+                                                .list-overview-detail
+                                                    h5 Bali, Indonesia
+                                                    ul.extra-service
+                                                        li
+                                                            .icon-box-icon-block
+                                                                a(href='#')
+                                                                    .icon-box-round
+                                                                        i.ti-location-pin
+                                                                    .icon-box-text
+                                                                        | Istanbul, Turkey, Newyork, 052 458
+                                                        li
+                                                            .icon-box-icon-block
+                                                                a(href='#')
+                                                                    .icon-box-round
+                                                                        i.ti-email
+                                                                    .icon-box-text
+                                                                        | destination@gmail.com
+                                                        li
+                                                            .icon-box-icon-block
+                                                                a(href='#')
+                                                                    .icon-box-round
+                                                                        i.ti-headphone-alt
+                                                                    .icon-box-text
+                                                                        | 125 458 75849
+                                                        li
+                                                            .icon-box-icon-block
+                                                                a(href='#')
+                                                                    .icon-box-round
+                                                                        i.ti-share
+                                                                    .icon-box-text
+                                                                        | 110 Share
+                                                        li
+                                                            .icon-box-icon-block
+                                                                a(href='#')
+                                                                    .icon-box-round
+                                                                        i.ti-comment-alt
+                                                                    .icon-box-text
+                                                                        | 22 comments
+                            // Overview
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.fa.fa-star-o
+                                            | Ratting
+                                    .tr-single-body
+                                        .row
+                                            .col-sm-4
+                                                #review_summary
+                                                    strong 8.5
+                                                    em.cl-success Superb
+                                                    small Based on 4 reviews
+                                            .col-sm-8
+                                                .row
+                                                    .col-lg-10.col-9
+                                                        .progress
+                                                            .progress-bar.progress-bar-success(role='progressbar' style='width: 98%' aria-valuenow='98' aria-valuemin='0' aria-valuemax='100')
+                                                    .col-lg-2.col-3
+                                                        small
+                                                            strong 5 stars
+                                                // /row
+                                                .row
+                                                    .col-lg-10.col-9
+                                                        .progress
+                                                            .progress-bar.progress-bar-warning(role='progressbar' style='width: 90%' aria-valuenow='90' aria-valuemin='0' aria-valuemax='100')
+                                                    .col-lg-2.col-3
+                                                        small
+                                                            strong 4 stars
+                                                // /row
+                                                .row
+                                                    .col-lg-10.col-9
+                                                        .progress
+                                                            .progress-bar.progress-bar-primary(role='progressbar' style='width: 60%' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
+                                                    .col-lg-2.col-3
+                                                        small
+                                                            strong 3 stars
+                                                // /row
+                                                .row
+                                                    .col-lg-10.col-9
+                                                        .progress
+                                                            .progress-bar.progress-bar-danger(role='progressbar' style='width: 20%' aria-valuenow='20' aria-valuemin='0' aria-valuemax='100')
+                                                    .col-lg-2.col-3
+                                                        small
+                                                            strong 2 stars
+                                                // /row
+                                                .row
+                                                    .col-lg-10.col-9
+                                                        .progress
+                                                            .progress-bar(role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100')
+                                                    .col-lg-2.col-3
+                                                        small
+                                                            strong 1 stars
+                                                // /row
+                                                // Description
+                                                .row
+                                                    .tr-single-box
+                                                        .tr-single-header
+                                                            h4
+                                                                i.ti-files
+                                                                | Description
+                                                        .tr-single-body
+                                                            p
+                                                                | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus..
+                                                            p
+                                                                | Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+                                                            p
+                                                                | Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam.
+                                                // Amenities
+                                                .row
+                                                    .tr-single-box
+                                                        .tr-single-header
+                                                            h4
+                                                                i.ti-crown
+                                                                | Amenities
+                                                        .tr-single-body
+                                                            ul.amenities.third
+                                                                li Satellite TV
+                                                                li Coffeemaker
+                                                                li Hair Dryer
+                                                                li Swimming Pool
+                                                                li Room Service
+                                                                li Luxury Bedding
+                                                                li Good Showers
+                                                                li Free Parking
+                                                                li Free Wifi
+                                                                li Bath towel
+                                                                li Free Coffee
+                                                                li Pets Allow
+                                                                li Hot Water
+                                                                li Attached garage 
+                                                                li Elevator
+                                                                li Spa/Sauna
+                                                                li Indoor pool 
+                                                                li Security cameras 
+                                                // Location
+                                                .row
+                                                    .tr-single-box
+                                                        .tr-single-header
+                                                            h4
+                                                                i.ti-map-alt
+                                                                | Location
+                                                        .tr-single-body
+                                                            #singleMap.height-350(data-latitude='40.712776' data-longitude='-74.005974' data-maptitle='Our Location')
+                        // ============ Features ===================
+                        #Features.tab-pane.fade.in(role='tabpanel')
+                            // About Features
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.ti-files
+                                            | About Features
+                                    .tr-single-body
+                                        p
+                                            | Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+                            // Extra features
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.ti-thumb-up
+                                            | Extra Features
+                                    .tr-single-body
+                                        ul.simple-features-list
+                                            li Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                                            li Minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+                                            li
+                                                | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
+                                            li
+                                                | Pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes.
+                                            li Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                                            li Minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+                                            li
+                                                | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
+                                            li
+                                                | Pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes.
+                        // ============ Review ===================
+                        #Review.tab-pane.fade.in(role='tabpanel')
+                            // Review
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.ti-write
+                                            | All Review
+                                    .tr-single-body
+                                        // Single Review
+                                        .review-box
+                                            .review-thumb
+                                                img.img-responsive.img-circle(src='assets/img/user-1.jpg' alt='')
+                                            .review-box-content
+                                                .reviewer-rate
+                                                    p
+                                                        i.fa.fa-star.cl-warning
+                                                        | 4.7/
+                                                        span 5
+                                                .review-user-info
+                                                    h4 Daniel Dicoss
+                                                    p
+                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                .review-lc.text-right
+                                                    a(href='#')
+                                                        i.ti-heart
+                                                        | 87
+                                                    a(href='#')
+                                                        i.ti-comment
+                                                        | 52
+                                        // Single Review
+                                        .review-box
+                                            .review-thumb
+                                                img.img-responsive.img-circle(src='assets/img/user-2.jpg' alt='')
+                                            .review-box-content
+                                                .reviewer-rate
+                                                    p
+                                                        i.fa.fa-star.cl-warning
+                                                        | 4.4/
+                                                        span 5
+                                                .review-user-info
+                                                    h4 Archita Singh
+                                                    p
+                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                .review-lc.text-right
+                                                    a(href='#')
+                                                        i.ti-heart
+                                                        | 65
+                                                    a(href='#')
+                                                        i.ti-comment
+                                                        | 78
+                                        // Single Review
+                                        .review-box
+                                            .review-thumb
+                                                img.img-responsive.img-circle(src='assets/img/user-3.jpg' alt='')
+                                            .review-box-content
+                                                .reviewer-rate
+                                                    p
+                                                        i.fa.fa-star.cl-warning
+                                                        | 5.0/
+                                                        span 5
+                                                .review-user-info
+                                                    h4 Devesh Patri
+                                                    p
+                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                .review-lc.text-right
+                                                    a(href='#')
+                                                        i.ti-heart
+                                                        | 110
+                                                    a(href='#')
+                                                        i.ti-comment
+                                                        | 47
+                                        // Single Review
+                                        .review-box
+                                            .review-thumb
+                                                img.img-responsive.img-circle(src='assets/img/user-4.jpg' alt='')
+                                            .review-box-content
+                                                .reviewer-rate
+                                                    p
+                                                        i.fa.fa-star.cl-warning
+                                                        | 4.9/
+                                                        span 5
+                                                .review-user-info
+                                                    h4 Ruchi Sethi
+                                                    p
+                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                .review-lc.text-right
+                                                    a(href='#')
+                                                        i.ti-heart
+                                                        | 120
+                                                    a(href='#')
+                                                        i.ti-comment
+                                                        | 36
+                                        // Single Review
+                                        .review-box
+                                            .review-thumb
+                                                img.img-responsive.img-circle(src='assets/img/user-5.jpg' alt='')
+                                            .review-box-content
+                                                .reviewer-rate
+                                                    p
+                                                        i.fa.fa-star.cl-warning
+                                                        | 4.8/
+                                                        span 5
+                                                .review-user-info
+                                                    h4 Duke Divalkis
+                                                    p
+                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                .review-lc.text-right
+                                                    a(href='#')
+                                                        i.ti-heart
+                                                        | 80
+                                                    a(href='#')
+                                                        i.ti-comment
+                                                        | 70
+                                        // Single Review
+                                        .review-box
+                                            .review-thumb
+                                                img.img-responsive.img-circle(src='assets/img/user-6.jpg' alt='')
+                                            .review-box-content
+                                                .reviewer-rate
+                                                    p
+                                                        i.fa.fa-star.cl-warning
+                                                        | 4.7/
+                                                        span 5
+                                                .review-user-info
+                                                    h4 Shilka Rai
+                                                    p
+                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                .review-lc.text-right
+                                                    a(href='#')
+                                                        i.ti-heart
+                                                        | 120
+                                                    a(href='#')
+                                                        i.ti-comment
+                                                        | 140
+                        // ============ Photos ===================
+                        #Photos.tab-pane.fade.in(role='tabpanel')
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.ti-gallery
+                                            | All Gallery
+                                    .tr-single-body
+                                        ul.gallery-list
+                                            li
+                                                a(data-fancybox='gallery' href='assets/img/destination/des-1.jpg')
+                                                    img.img-responsive(src='assets/img/destination/des-1.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='assets/img/destination/des-2.jpg')
+                                                    img.img-responsive(src='assets/img/destination/des-2.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='assets/img/destination/des-3.jpg')
+                                                    img.img-responsive(src='assets/img/destination/des-3.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='assets/img/destination/des-4.jpg')
+                                                    img.img-responsive(src='assets/img/destination/des-4.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='assets/img/destination/des-5.jpg')
+                                                    img.img-responsive(src='assets/img/destination/des-5.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='assets/img/destination/des-6.jpg')
+                                                    img.img-responsive(src='assets/img/destination/des-6.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='assets/img/destination/des-7.jpg')
+                                                    img.img-responsive(src='assets/img/destination/des-7.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='assets/img/destination/des-8.jpg')
+                                                    img.img-responsive(src='assets/img/destination/des-8.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='assets/img/destination/des-9.jpg')
+                                                    img.img-responsive(src='assets/img/destination/des-9.jpg' alt='')
+                // Sidebar Start
                 .col-md-4.col-sm-12
+                    // Tourist Overview
                     .tr-single-box
                         .tr-single-header
-                            h4 Filter
-                            span.pull-right.clickables(data-toggle='collapse' data-target='#filter')
-                                i.ti-align-left
-                        #filter.collapse.in
-                            // Input Box Search
-                            .tr-single-body
-                                .sidebar-input
-                                    input.form-control(type='text' placeholder='Type Keyword..')
-                                .sidebar-input
-                                    input.form-control(type='text' placeholder='Destination..')
-                                .sidebar-input
-                                    input.form-control(type='text' placeholder='Location..')
-                            // Range Slider
-                            .tr-inner-single-box
-                                .tr-single-header
-                                    h4 Distance In Km.
-                                .tr-single-body
-                                    form(method='post')
-                                        #price-range
-                            // Distance
-                            .tr-inner-single-box
-                                .tr-single-header
-                                    h4 By Distance
-                                .tr-single-body
-                                    ul.side-list-check
-                                        li
-                                            span.custom-checkbox
-                                                input#144(type='checkbox')
-                                                label(for='144')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 10Km To 100Km
-                                            span.pull-right 102
-                                        li
-                                            span.custom-checkbox
-                                                input#133(type='checkbox')
-                                                label(for='133')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 100Km To 500Km
-                                            span.pull-right 110
-                                        li
-                                            span.custom-checkbox
-                                                input#122(type='checkbox')
-                                                label(for='122')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 150Km To 700Km
-                                            span.pull-right 56
-                                        li
-                                            span.custom-checkbox
-                                                input#111(type='checkbox')
-                                                label(for='111')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 700Km To 1000Km
-                                            span.pull-right 18
-                                        li
-                                            span.custom-checkbox
-                                                input#161(type='checkbox')
-                                                label(for='161')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 10000Km To 50000Km
-                                            span.pull-right 75
-                            // Start Rating
-                            .tr-inner-single-box
-                                .tr-single-header
-                                    h4 Start Rating
-                                .tr-single-body
-                                    ul.side-list-check
-                                        li
-                                            span.custom-checkbox
-                                                input#11(type='checkbox')
-                                                label(for='11')
-                                            .search-rating
-                                                i.fa.fa-star.enable
+                            h4
+                                | Bali, Indonesia
+                                sup.cl-success NewYork
+                        .tr-single-body
+                            ul.extra-service.half
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-user
+                                            .icon-box-text
+                                                | $120/person
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-timer
+                                            .icon-box-text
+                                                | May - July
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-eye
+                                            .icon-box-text
+                                                | 785 View
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-share
+                                            .icon-box-text
+                                                | 110 Share
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-comment-alt
+                                            .icon-box-text
+                                                | 22 comments
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-heart
+                                            .icon-box-text
+                                                | 20 Likes
+                    // overview & booking Form
+                    .tr-single-box
+                        .tr-single-header
+                            .entry-meta
+                                .meta-item.meta-comment.fl-right
+                                    .view-box
+                                        .fl-right
+                                            h4.font-20
+                                                span.theme-cl.font-20 $
+                                                | 216
+                                                sub /Per Persion
+                                .meta-item.meta-author
+                                    .hotel-review.entry-location
+                                        span.review-status.bg-success
+                                            i.ti-check
+                                        h6
+                                            span.cl-success.font-bold Good
+                                            | 1362 Review
+                        .tr-single-body
+                            form.book-form
+                                .row
+                                    .col-xs-12
+                                        .form-group
+                                            label Check In
+                                            input#checkin.form-control(type='text' name='checkin' value='Check in')
+                                    .col-xs-12
+                                        .form-group
+                                            label Check Out
+                                            input#checkout.form-control(type='text' name='checkout' value='Check out')
+                                .row
+                                    .col-xs-6
+                                        .form-group
+                                            label Adult
+                                            input.form-control(type='number' name='adult' value='1')
+                                    .col-xs-6
+                                        .form-group
+                                            label Children
+                                            input.form-control(type='number' name='children' value='0')
+                                .row
+                                    .col-xs-6
+                                        .form-group
+                                            label Room
+                                            .sl-side
+                                                select.wide.form-control
+                                                    option(data-display='Room') 1
+                                                    option(value='1') 2
+                                                    option(value='2') 3
+                                                    option(value='3') 4
+                                                    option(value='4') 5
+                                                    option(value='4') 5
+                                    .col-xs-6
+                                        .form-group
+                                            label Night
+                                            .sl-side
+                                                select.wide.form-control
+                                                    option(data-display='Night') 1
+                                                    option(value='1') 2
+                                                    option(value='2') 3
+                                                    option(value='3') 4
+                                                    option(value='4') 5
+                                                    option(value='4') 5
+                                .row
+                                    .col-xs-12
+                                        button.btn.btn-default.full-width.text-left(type='button' data-toggle='collapse' data-target='#extra-service')
+                                            | Choose Extra Amenities
+                                            i.ti-settings.fl-right.mrg-top-5
+                                        #extra-service.collapse
+                                            .extra-features
+                                                ul.extra-service.half
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#1(type='checkbox')
+                                                            label(for='1')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Satellite TV
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#2(type='checkbox')
+                                                            label(for='2')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Coffeemaker
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#3(type='checkbox')
+                                                            label(for='3')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Luxury Bedding
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#4(type='checkbox')
+                                                            label(for='4')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Swimming Pool
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#5(type='checkbox')
+                                                            label(for='5')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Free Parking
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#6(type='checkbox')
+                                                            label(for='6')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Free Wifi
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#7(type='checkbox')
+                                                            label(for='7')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Pets Allow
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#8(type='checkbox')
+                                                            label(for='8')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Elevator
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#9(type='checkbox')
+                                                            label(for='9')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Spa/Sauna
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#11(type='checkbox')
+                                                            label(for='11')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Security cameras
+                                .row
+                                    .col-xs-12.mrg-top-15
+                                        a.btn.btn-arrow.theme-btn.full-width(href='#') Book now
+                    // Share this
+                    .tr-single-box
+                        .tr-single-header
+                            h4 Share this
+                        .tr-single-body
+                            ul.extra-service.half
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-facebook
+                                            .icon-box-text
+                                                | Facebook
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-google-plus
+                                            .icon-box-text
+                                                | Google plus
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-twitter
+                                            .icon-box-text
+                                                | Twitter
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-linkedin
+                                            .icon-box-text
+                                                | LinkedIn
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-instagram
+                                            .icon-box-text
+                                                | Instagram
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-pinterest
+                                            .icon-box-text
+                                                | Pinterest
+                    // Share this
+                    .tr-single-box
+                        .tr-single-header
+                            h4 Similar Item
+                        .tr-single-body
+                            .single-side-slide
+                                // Single Destination
+                                .col-md-4.col-sm-6
+                                    article.destination-box.style-1
+                                        .destination-box-image
+                                            figure
+                                                a(href='destination-detail.html')
+                                                    img.img-responsive.listing-box-img(src='assets/img/destination/des-1.jpg' alt='')
+                                                    .list-overlay
+                                                .discount-flick -12%
+                                                h4.destination-place
+                                                    a(href='destination-detail.html') Bali, Indonesia
+                                                a.list-like.left(href='#')
+                                                    i.ti-heart
+                                        .entry-meta
+                                            .meta-item.meta-rating
                                                 i.fa.fa-star
                                                 i.fa.fa-star
                                                 i.fa.fa-star
                                                 i.fa.fa-star
-                                            span.pull-right 102
-                                        li
-                                            span.custom-checkbox
-                                                input#12(type='checkbox')
-                                                label(for='12')
-                                            .search-rating
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
+                                                i.fa.fa-star-half
+                                            .meta-item.meta-comment.fl-right
+                                                span.text-through $2887
+                                                span.real-price.padd-l-10.font-bold $2782
+                                        .inner-box
+                                            .box-inner-ellipsis
+                                                h4.entry-location
+                                                    a(href='destination-detail.html') New York, US
+                                                .price-box
+                                                    .destination-price.fl-right
+                                                        a(href='#')
+                                                            i.theme-cl.ti-arrow-right
+                                // Single Destination
+                                .col-md-4.col-sm-6
+                                    article.destination-box.style-1
+                                        .destination-box-image
+                                            figure
+                                                a(href='destination-detail.html')
+                                                    img.img-responsive.listing-box-img(src='assets/img/destination/des-2.jpg' alt='')
+                                                    .list-overlay
+                                                .discount-flick -12%
+                                                h4.destination-place
+                                                    a(href='destination-detail.html') Grand Canyon National Park
+                                                a.list-like.left(href='#')
+                                                    i.ti-heart
+                                        .entry-meta
+                                            .meta-item.meta-rating
                                                 i.fa.fa-star
                                                 i.fa.fa-star
                                                 i.fa.fa-star
-                                            span.pull-right 110
-                                        li
-                                            span.custom-checkbox
-                                                input#13(type='checkbox')
-                                                label(for='13')
-                                            .search-rating
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
+                                                i.fa.fa-star
+                                                i.fa.fa-star-half
+                                            .meta-item.meta-comment.fl-right
+                                                span.text-through $2587
+                                                span.real-price.padd-l-10.font-bold $1282
+                                        .inner-box
+                                            .box-inner-ellipsis
+                                                h4.entry-location
+                                                    a(href='destination-detail.html') Hong Kong
+                                                .price-box
+                                                    .destination-price.fl-right
+                                                        a(href='#')
+                                                            i.theme-cl.ti-arrow-right
+                                // Single Destination
+                                .col-md-4.col-sm-6
+                                    article.destination-box.style-1
+                                        .destination-box-image
+                                            figure
+                                                a(href='destination-detail.html')
+                                                    img.img-responsive.listing-box-img(src='assets/img/destination/des-3.jpg' alt='')
+                                                    .list-overlay
+                                                .discount-flick -12%
+                                                h4.destination-place
+                                                    a(href='destination-detail.html') Prague, Czech Republic
+                                                a.list-like.left(href='#')
+                                                    i.ti-heart
+                                        .entry-meta
+                                            .meta-item.meta-rating
                                                 i.fa.fa-star
                                                 i.fa.fa-star
-                                            span.pull-right 56
-                                        li
-                                            span.custom-checkbox
-                                                input#14(type='checkbox')
-                                                label(for='14')
-                                            .search-rating
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
                                                 i.fa.fa-star
-                                            span.pull-right 18
-                                        li
-                                            span.custom-checkbox
-                                                input#15(type='checkbox')
-                                                label(for='15')
-                                            .search-rating
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                            span.pull-right 75
-                            // Tour Type
-                            .tr-inner-single-box
-                                .tr-single-header
-                                    h4 Tour Type
-                                .tr-single-body
-                                    ul.side-list-check
-                                        li
-                                            span.custom-checkbox
-                                                input#a(type='checkbox')
-                                                label(for='a')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Food &amp; Cooking Tours
-                                            span.pull-right 36
-                                        li
-                                            span.custom-checkbox
-                                                input#b(type='checkbox')
-                                                label(for='b')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Sightseeing Tours
-                                            span.pull-right 75
-                                        li
-                                            span.custom-checkbox
-                                                input#c(type='checkbox')
-                                                label(for='c')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Museums &amp; Art
-                                            span.pull-right 69
-                                        li
-                                            span.custom-checkbox
-                                                input#d(type='checkbox')
-                                                label(for='d')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Extraordinary Tours
-                                            span.pull-right 20
-                                        li
-                                            span.custom-checkbox
-                                                input#e(type='checkbox')
-                                                label(for='e')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;History &amp; Architecture
-                                            span.pull-right 45
-                                        li
-                                            span.custom-checkbox
-                                                input#f(type='checkbox')
-                                                label(for='f')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Trips out of town
-                                            span.pull-right 45
-                            // Animinities
-                            .tr-inner-single-box
-                                .tr-single-header
-                                    h4 Animinities
-                                .tr-single-body
-                                    ul.side-list-check
-                                        li
-                                            span.custom-checkbox
-                                                input#a1(type='checkbox')
-                                                label(for='a1')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;With guide
-                                            span.pull-right 36
-                                        li
-                                            span.custom-checkbox
-                                                input#b2(type='checkbox')
-                                                label(for='b2')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Breakfast
-                                            span.pull-right 75
-                                        li
-                                            span.custom-checkbox
-                                                input#c3(type='checkbox')
-                                                label(for='c3')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Musician
-                                            span.pull-right 69
-                                        li
-                                            span.custom-checkbox
-                                                input#d4(type='checkbox')
-                                                label(for='d4')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Hot Water
-                                            span.pull-right 20
-                                        li
-                                            span.custom-checkbox
-                                                input#e5(type='checkbox')
-                                                label(for='e5')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;High Difinition TV
-                                            span.pull-right 45
-                // All Item
-                .col-md-8.col-sm-12
-                    // Row
-                    .row.mrg-0
-                        .tr-single-box.short-box
-                            .col-sm-3.hidden-xs.align-self-center
-                                h4 Shorty By
-                            .col-sm-9.text-right
-                                .btn-group.mr-lg-2
-                                    button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                                        | Short By
-                                    .dropdown-menu.pull-right.animated.flipInX
-                                        a(href='#') Accending
-                                        a(href='#') Decending
-                                        a(href='#') By Date
-                                .btn-group
-                                    a.btn.btn-default.tooltips(href='destination-grid-sidebar.html')
-                                        i.ti-flix.ti-layout-grid2
-                                .btn-group
-                                    a.btn.btn-default.tooltips(href='destination-list-sidebar.html')
-                                        i.ti-flix.ti-view-list-alt
-                    // /Row
-                    // Row
-                    .row
-                        // Single Destination
-                        .col-md-6.col-sm-6
-                            article.destination-box.style-1
-                                .destination-box-image
-                                    figure
-                                        a(href='destination-detail.html')
-                                            img.img-responsive.listing-box-img(src='assets/img/destination/des-1.jpg' alt='')
-                                            .list-overlay
-                                        .discount-flick -12%
-                                        h4.destination-place
-                                            a(href='destination-detail.html') Bali, Indonesia
-                                        a.list-like.left(href='#')
-                                            i.ti-heart
-                                .entry-meta
-                                    .meta-item.meta-rating
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star-half
-                                    .meta-item.meta-comment.fl-right
-                                        span.text-through $2887
-                                        span.real-price.padd-l-10.font-bold $2782
-                                .inner-box
-                                    .box-inner-ellipsis
-                                        h4.entry-location
-                                            a(href='destination-detail.html') New York, US
-                                        .price-box
-                                            .destination-price.fl-right
-                                                a(href='#')
-                                                    i.theme-cl.ti-arrow-right
-                        // Single Destination
-                        .col-md-6.col-sm-6
-                            article.destination-box.style-1
-                                .destination-box-image
-                                    figure
-                                        a(href='destination-detail.html')
-                                            img.img-responsive.listing-box-img(src='assets/img/destination/des-2.jpg' alt='')
-                                            .list-overlay
-                                        .discount-flick -12%
-                                        h4.destination-place
-                                            a(href='destination-detail.html') Grand Canyon National Park
-                                        a.list-like.left(href='#')
-                                            i.ti-heart
-                                .entry-meta
-                                    .meta-item.meta-rating
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star-half
-                                    .meta-item.meta-comment.fl-right
-                                        span.text-through $2587
-                                        span.real-price.padd-l-10.font-bold $1282
-                                .inner-box
-                                    .box-inner-ellipsis
-                                        h4.entry-location
-                                            a(href='destination-detail.html') Hong Kong
-                                        .price-box
-                                            .destination-price.fl-right
-                                                a(href='#')
-                                                    i.theme-cl.ti-arrow-right
-                        // Single Destination
-                        .col-md-6.col-sm-6
-                            article.destination-box.style-1
-                                .destination-box-image
-                                    figure
-                                        a(href='destination-detail.html')
-                                            img.img-responsive.listing-box-img(src='assets/img/destination/des-3.jpg' alt='')
-                                            .list-overlay
-                                        .discount-flick -12%
-                                        h4.destination-place
-                                            a(href='destination-detail.html') Prague, Czech Republic
-                                        a.list-like.left(href='#')
-                                            i.ti-heart
-                                .entry-meta
-                                    .meta-item.meta-rating
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star-half
-                                    .meta-item.meta-comment.fl-right
-                                        span.text-through $2569
-                                        span.real-price.padd-l-10.font-bold $2547
-                                .inner-box
-                                    .box-inner-ellipsis
-                                        h4.entry-location
-                                            a(href='destination-detail.html') Netherlands
-                                        .price-box
-                                            .destination-price.fl-right
-                                                a(href='#')
-                                                    i.theme-cl.ti-arrow-right
-                        // Single Destination
-                        .col-md-6.col-sm-6
-                            article.destination-box.style-1
-                                .destination-box-image
-                                    figure
-                                        a(href='destination-detail.html')
-                                            img.img-responsive.listing-box-img(src='assets/img/destination/des-4.jpg' alt='')
-                                            .list-overlay
-                                        .discount-flick -12%
-                                        h4.destination-place
-                                            a(href='destination-detail.html') Marrakech, Morroco
-                                        a.list-like.left(href='#')
-                                            i.ti-heart
-                                .entry-meta
-                                    .meta-item.meta-rating
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star-half
-                                    .meta-item.meta-comment.fl-right
-                                        span.text-through $1856
-                                        span.real-price.padd-l-10.font-bold $1750
-                                .inner-box
-                                    .box-inner-ellipsis
-                                        h4.entry-location
-                                            a(href='destination-detail.html') Saudi Arabia
-                                        .price-box
-                                            .destination-price.fl-right
-                                                a(href='#')
-                                                    i.theme-cl.ti-arrow-right
-                        // Single Destination
-                        .col-md-6.col-sm-6
-                            article.destination-box.style-1
-                                .destination-box-image
-                                    figure
-                                        a(href='destination-detail.html')
-                                            img.img-responsive.listing-box-img(src='assets/img/destination/des-5.jpg' alt='')
-                                            .list-overlay
-                                        .discount-flick -12%
-                                        h4.destination-place
-                                            a(href='destination-detail.html') New York City, New York
-                                        a.list-like.left(href='#')
-                                            i.ti-heart
-                                .entry-meta
-                                    .meta-item.meta-rating
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star-half
-                                    .meta-item.meta-comment.fl-right
-                                        span.text-through $4525
-                                        span.real-price.padd-l-10.font-bold $4258
-                                .inner-box
-                                    .box-inner-ellipsis
-                                        h4.entry-location
-                                            a(href='destination-detail.html') Switzerland
-                                        .price-box
-                                            .destination-price.fl-right
-                                                a(href='#')
-                                                    i.theme-cl.ti-arrow-right
-                        // Single Destination
-                        .col-md-6.col-sm-6
-                            article.destination-box.style-1
-                                .destination-box-image
-                                    figure
-                                        a(href='destination-detail.html')
-                                            img.img-responsive.listing-box-img(src='assets/img/destination/des-6.jpg' alt='')
-                                            .list-overlay
-                                        .discount-flick -12%
-                                        h4.destination-place
-                                            a(href='destination-detail.html') Halifax, Nova Scotia 
-                                        a.list-like.left(href='#')
-                                            i.ti-heart
-                                .entry-meta
-                                    .meta-item.meta-rating
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star-half
-                                    .meta-item.meta-comment.fl-right
-                                        span.text-through $7802
-                                        span.real-price.padd-l-10.font-bold $7581
-                                .inner-box
-                                    .box-inner-ellipsis
-                                        h4.entry-location
-                                            a(href='destination-detail.html') Singapore
-                                        .price-box
-                                            .destination-price.fl-right
-                                                a(href='#')
-                                                    i.theme-cl.ti-arrow-right
-                        // Single Destination
-                        .col-md-6.col-sm-6
-                            article.destination-box.style-1
-                                .destination-box-image
-                                    figure
-                                        a(href='destination-detail.html')
-                                            img.img-responsive.listing-box-img(src='assets/img/destination/des-7.jpg' alt='')
-                                            .list-overlay
-                                        .discount-flick -12%
-                                        h4.destination-place
-                                            a(href='destination-detail.html') San Jose, Costa Rica
-                                        a.list-like.left(href='#')
-                                            i.ti-heart
-                                .entry-meta
-                                    .meta-item.meta-rating
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star-half
-                                    .meta-item.meta-comment.fl-right
-                                        span.text-through $2300
-                                        span.real-price.padd-l-10.font-bold $2250
-                                .inner-box
-                                    .box-inner-ellipsis
-                                        h4.entry-location
-                                            a(href='destination-detail.html') New York, US
-                                        .price-box
-                                            .destination-price.fl-right
-                                                a(href='#')
-                                                    i.theme-cl.ti-arrow-right
-                        // Single Destination
-                        .col-md-6.col-sm-6
-                            article.destination-box.style-1
-                                .destination-box-image
-                                    figure
-                                        a(href='destination-detail.html')
-                                            img.img-responsive.listing-box-img(src='assets/img/destination/des-8.jpg' alt='')
-                                            .list-overlay
-                                        .discount-flick -12%
-                                        h4.destination-place
-                                            a(href='destination-detail.html') Casablanca, Morocco
-                                        a.list-like.left(href='#')
-                                            i.ti-heart
-                                .entry-meta
-                                    .meta-item.meta-rating
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star
-                                        i.fa.fa-star-half
-                                    .meta-item.meta-comment.fl-right
-                                        span.text-through $2650
-                                        span.real-price.padd-l-10.font-bold $2563
-                                .inner-box
-                                    .box-inner-ellipsis
-                                        h4.entry-location
-                                            a(href='destination-detail.html') Casablanca
-                                        .price-box
-                                            .destination-price.fl-right
-                                                a(href='#')
-                                                    i.theme-cl.ti-arrow-right
-                    // /Row
-                    .row
-                        ul.pagination
-                            li.page-item
-                                a.page-link(href='#' aria-label='Previous')
-                                    span.ti-arrow-left
-                                    span.sr-only Previous
-                            li.page-item
-                                a.page-link(href='#') 1
-                            li.page-item
-                                a.page-link(href='#') 2
-                            li.page-item.active
-                                a.page-link(href='#') 3
-                            li.page-item
-                                a.page-link(href='#') 4
-                            li.page-item
-                                a.page-link(href='#') 5
-                            li.page-item
-                                a.page-link(href='#' aria-label='Next')
-                                    span.ti-arrow-right
-                                    span.sr-only Next
+                                                i.fa.fa-star
+                                                i.fa.fa-star-half
+                                            .meta-item.meta-comment.fl-right
+                                                span.text-through $2569
+                                                span.real-price.padd-l-10.font-bold $2547
+                                        .inner-box
+                                            .box-inner-ellipsis
+                                                h4.entry-location
+                                                    a(href='destination-detail.html') Netherlands
+                                                .price-box
+                                                    .destination-price.fl-right
+                                                        a(href='#')
+                                                            i.theme-cl.ti-arrow-right
+                // /col-md-4
     block content_contact 
         include _contact
 //- block content_footer 
