@@ -3,207 +3,620 @@ extends base
 block navigation_content 
     include _navigation
 block content 
-    section.dashboard.gray-bg.padd-0.mrg-top-50
-        .container-fluid
+    section.page-title-banner(style='background-image:url(/assets/img/banner.jpg);')
+        .container
             .row
-                .col-lg-2.col-md-2.col-sm-3.dashboard-bg
-                    // /. NAV TOP
-                    nav.navbar.navbar-side
-                        // Start Logo Header Navigation
-                        .navbar-header
-                            button.navbar-toggle(type='button' data-toggle='collapse' data-target='#dashboard-menu')
-                                i.fa.fa-bars
-                        #dashboard-menu.collapse.sidebar-collapse
-                            .profile-wrapper
-                                .profile-wrapper-thumb
-                                    img.img-responsive.img-circle(src='assets/img/user-3.jpg' alt='')
-                                    span.dashboard-user-status.bg-success
-                                h4 Duke Daniel
-                            ul#main-menu.nav
-                                li
-                                    a(href='dashboard.html')
-                                        i.fa.fa-dashboard(aria-hidden='true')
-                                        | Dashboard
-                                li
-                                    a(href='messages.html')
-                                        i.ti-email(aria-hidden='true')
-                                        | Messages
-                                li
-                                    a(href='javascript:void(0)')
-                                        i.fa.fa-clone(aria-hidden='true')
-                                        | Manage Listing 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='manage-hotels.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Hotels
-                                        li
-                                            a(href='manage-tours.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Tours
-                                        li
-                                            a(href='manage-destinations.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Destinations
-                                        li
-                                            a(href='manage-restaurants.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Restaurants
-                                li
-                                    a(href='javascript:void(0)')
-                                        i.ti-location-pin(aria-hidden='true')
-                                        | Add Listings 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='http://themezhub.com/')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Hotels
-                                        li
-                                            a(href='add-tours.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Tours
-                                        li
-                                            a(href='add-destinations.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Destinations
-                                        li
-                                            a(href='add-restaurants.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Restaurants
-                                li.active
-                                    a(href='invoice.html')
-                                        i.fa-print(aria-hidden='true')
-                                        | Invoice
-                                li
-                                    a(href='javascript:void(0)')
-                                        i.ti-calendar(aria-hidden='true')
-                                        | My Booking 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='booking-1.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Booking 1
-                                        li
-                                            a(href='booking-2.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Booking 2
-                                li
-                                    a(href='javascript:void(0)')
-                                        i.fa.fa-cog(aria-hidden='true')
-                                        | Settings 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='basic-settings.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Basic Settings
-                                        li
-                                            a(href='site-settings.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Site Settings
-                                li
-                                    a(href='my-profile.html')
-                                        i.ti-user(aria-hidden='true')
-                                        | My Profile
-                                li
-                                    a(href='add-payment-methode.html')
-                                        i.ti-credit-card(aria-hidden='true')
-                                        | Add Payment Methode
-                                li.log-off
-                                    a(href='login.html')
-                                        i.fa.fa-power-off(aria-hidden='true')
-                                        | Logout
-                    // /. NAV SIDE
-                .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
-                    .row.mrg-0.mrg-top-20
-                        .tr-single-box
-                            .tr-single-header
-                                h3.dashboard-title View Invoice
-                            .tr-single-body
-                                .detail-wrapper.padd-top-30.padd-bot-30
-                                    .row.text-center
-                                        .col-md-12
-                                            a.btn.theme-btn(href='javascript:window.print()') Print this invoice
-                                    .row.mrg-0
-                                        .col-md-6
-                                            #logo
-                                                img.img-responsive(src='assets/img/logo.png' alt='')
-                                        .col-md-6
-                                            p#invoice-info
-                                                strong Order:
-                                                |  #7075872 
-                                                br
-                                                strong Issued:
-                                                |  17/10/2017 
-                                                br
-                                                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Due 7 days from date of issue
-                                    .row.mrg-0.detail-invoice
-                                        .col-md-12
-                                            h2 INVOICE
-                                        .col-md-12
-                                            .row
-                                                .col-lg-7.col-md-7.col-sm-7
-                                                    h4 Supplier: 
-                                                    h5 Glovia Ltd
+                .tr-list-detail
+                    .tr-list-thumb
+                        img.img-responsive.img-circle(src='/assets/img/user-2.jpg' alt='')
+                    .tr-list-info
+                        h4 Adam G. Gilworm
+                        p Canada Tour
+    // ======================= End Banner =====================
+    section.profile-header-nav.padd-0.bb-1
+        .container
+            .row
+                .col-md-8.col-sm-8
+                    .tab(role='tabpanel')
+                        // Nav tabs
+                        ul.nav.nav-tabs(role='tablist')
+                            li.active(role='presentation')
+                                a(href='#Overview' aria-controls='home' role='tab' data-toggle='tab')
+                                    i.ti-user
+                                    | Overview
+                            li(role='presentation')
+                                a(href='#Features' aria-controls='profile' role='tab' data-toggle='tab')
+                                    i.ti-settings
+                                    | Features
+                            li(role='presentation')
+                                a(href='#Review' aria-controls='messages' role='tab' data-toggle='tab')
+                                    i.ti-thumb-up
+                                    | Review
+                            li(role='presentation')
+                                a(href='#Photos' aria-controls='messages' role='tab' data-toggle='tab')
+                                    i.ti-gallery
+                                    | Photos
+                        // Tab panes
+                .col-md-4.col-sm-4
+                    .fl-right
+                        button.btn.theme-btn(type='button')
+                            span.fa.fa-paper-plane.mrg-r-10
+                            | Send Message
+    // ============== Tour Detail ======================
+    section.tr-single-detail.gray-bg
+        .container
+            .row
+                .col-md-8.col-sm-12
+                    .tab-content.tabs
+                        #Overview.tab-pane.fade.in.active(role='tabpanel')
+                            // Overview
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.fa.fa-star-o
+                                            | Overview
+                                    .tr-single-body
+                                        .row
+                                            .col-md-4.col-sm-6
+                                                .listing-features
+                                                    .listing-features-box
+                                                        .listing-features-thumb
+                                                            img.img-responsive(src='/assets/img/muscle.png' alt='')
+                                                        .listing-features-detail
+                                                            h4 Gym &amp; Fitness
+                                            .col-md-4.col-sm-6
+                                                .listing-features
+                                                    .listing-features-box
+                                                        .listing-features-thumb
+                                                            img.img-responsive(src='/assets/img/wifi.png' alt='')
+                                                        .listing-features-detail
+                                                            h4 Free Wifi
+                                            .col-md-4.col-sm-6
+                                                .listing-features
+                                                    .listing-features-box
+                                                        .listing-features-thumb
+                                                            img.img-responsive(src='/assets/img/spa-waters.png' alt='')
+                                                        .listing-features-detail
+                                                            h4 Free Spa
+                                            .col-md-4.col-sm-6
+                                                .listing-features
+                                                    .listing-features-box
+                                                        .listing-features-thumb
+                                                            img.img-responsive(src='/assets/img/tea.png' alt='')
+                                                        .listing-features-detail
+                                                            h4 Restaurent
+                                            .col-md-4.col-sm-6
+                                                .listing-features
+                                                    .listing-features-box
+                                                        .listing-features-thumb
+                                                            img.img-responsive(src='/assets/img/parking.png' alt='')
+                                                        .listing-features-detail
+                                                            h4 Parking On Site
+                                            .col-md-4.col-sm-6
+                                                .listing-features
+                                                    .listing-features-box
+                                                        .listing-features-thumb
+                                                            img.img-responsive(src='/assets/img/poker.png' alt='')
+                                                        .listing-features-detail
+                                                            h4 Casino
+                            // Description
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.ti-files
+                                            | Description
+                                    .tr-single-body
+                                        p
+                                            | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus..
+                                        p
+                                            | Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+                                        p
+                                            | Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam.
+                            // Amenities
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.ti-crown
+                                            | Amenities
+                                    .tr-single-body
+                                        ul.amenities.third
+                                            li Satellite TV
+                                            li Coffeemaker
+                                            li Hair Dryer
+                                            li Swimming Pool
+                                            li Room Service
+                                            li Luxury Bedding
+                                            li Good Showers
+                                            li Free Parking
+                                            li Free Wifi
+                                            li Bath towel
+                                            li Free Coffee
+                                            li Pets Allow
+                                            li Hot Water
+                                            li Attached garage 
+                                            li Elevator
+                                            li Spa/Sauna
+                                            li Indoor pool 
+                                            li Security cameras 
+                            // Guider
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.ti-user
+                                            | Guide
+                                    .tr-single-body
+                                        .guider-box-detail
+                                            .guider-box-thumb
+                                                img.img-responsive.img-circle(src='/assets/img/user-6.jpg' alt='')
+                                            .guider-box-detail-content
+                                                h4
+                                                    | Shilka Niharika
+                                                    sup.theme-cl Guide
+                                                p
+                                                    | 4 year Experience
+                                                    span.guider-status.bg-success Online
+                                                a.btn.btn-info(href='#') View Detail
+                                                a.btn.btn-default(href='#') Message
+                                            .pr-table
+                                                ul
+                                                    li
+                                                        strong Tour type:
+                                                        span.t-type.bg-danger Extraordinary
+                                                        span.t-type.bg-warning Food
+                                                        span.t-type.bg-success Travel
+                                                    li
+                                                        strong Activity Lavel:
+                                                        | Minimal
+                                                    li
+                                                        strong Language:
+                                                        | English, French
+                                                    li
+                                                        strong Location:
+                                                        | Canada
+                                                    li
+                                                        strong
+                            // Location
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.ti-map-alt
+                                            | Location
+                                    .tr-single-body
+                                        #singleMap.height-350(data-latitude='40.712776' data-longitude='-74.005974' data-maptitle='Our Location')
+                        // ============ Features ===================
+                        #Features.tab-pane.fade.in(role='tabpanel')
+                            // About Features
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.ti-files
+                                            | About Features
+                                    .tr-single-body
+                                        p
+                                            | Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+                            // Extra features
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.ti-thumb-up
+                                            | Extra Features
+                                    .tr-single-body
+                                        ul.simple-features-list
+                                            li Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                                            li Minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+                                            li
+                                                | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
+                                            li
+                                                | Pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes.
+                                            li Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                                            li Minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+                                            li
+                                                | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
+                                            li
+                                                | Pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes.
+                        // ============ Review ===================
+                        #Review.tab-pane.fade.in(role='tabpanel')
+                            // Review
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.ti-write
+                                            | All Review
+                                    .tr-single-body
+                                        // Single Review
+                                        .review-box
+                                            .review-thumb
+                                                img.img-responsive.img-circle(src='/assets/img/user-1.jpg' alt='')
+                                            .review-box-content
+                                                .reviewer-rate
                                                     p
-                                                        | info@glovia.com
-                                                        br
-                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;+91-587-936-5876
-                                                        br
-                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;780/77 , Lane Here, Chandigarh,
-                                                        br
-                                                        |  India
-                                                .col-lg-5.col-md-5.col-sm-5
-                                                    h4 Client Contact :
-                                                    h5 Saurav Singh
+                                                        i.fa.fa-star.cl-warning
+                                                        | 4.7/
+                                                        span 5
+                                                .review-user-info
+                                                    h4 Daniel Dicoss
                                                     p
-                                                        | sauravmail87@gmail.com
-                                                        br
-                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;+91-587-936-5876
-                                                        br
-                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;780/77 , Gurudwara Chauk, Allahabad,
-                                                        br
-                                                        |  India
-                                        hr
-                                        .col-12.col-md-12
-                                            strong ITEM DESCRIPTION &amp; DETAILS :
-                                        hr
-                                        .col-lg-12.col-md-12.col-sm-12
-                                            .invoice-table
-                                                .table-responsive
-                                                    table.table.table-striped.table-bordered
-                                                        thead
-                                                            tr
-                                                                th S. No.
-                                                                th Project
-                                                                th Time
-                                                                th Team
-                                                                th Sub Total
-                                                        tbody
-                                                            tr
-                                                                td 1
-                                                                td Front End Design
-                                                                td 1 Month
-                                                                td 5000 USD
-                                                                td 5000 USD
-                                                            tr
-                                                                td 2
-                                                                td Software Development
-                                                                td 2Month
-                                                                td 5000 USD
-                                                                td 10000 USD
-                                                hr
-                                                div
-                                                    h5 Total : 700 USD 
-                                                hr
-                                                div
-                                                    h5 Taxes : 220 USD ( 20 % on Total Bill ) 
-                                                hr
-                                                div
-                                                    h4 Bill Amount : 920 USD 
+                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                .review-lc.text-right
+                                                    a(href='#')
+                                                        i.ti-heart
+                                                        | 87
+                                                    a(href='#')
+                                                        i.ti-comment
+                                                        | 52
+                                        // Single Review
+                                        .review-box
+                                            .review-thumb
+                                                img.img-responsive.img-circle(src='/assets/img/user-2.jpg' alt='')
+                                            .review-box-content
+                                                .reviewer-rate
+                                                    p
+                                                        i.fa.fa-star.cl-warning
+                                                        | 4.4/
+                                                        span 5
+                                                .review-user-info
+                                                    h4 Archita Singh
+                                                    p
+                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                .review-lc.text-right
+                                                    a(href='#')
+                                                        i.ti-heart
+                                                        | 65
+                                                    a(href='#')
+                                                        i.ti-comment
+                                                        | 78
+                                        // Single Review
+                                        .review-box
+                                            .review-thumb
+                                                img.img-responsive.img-circle(src='/assets/img/user-3.jpg' alt='')
+                                            .review-box-content
+                                                .reviewer-rate
+                                                    p
+                                                        i.fa.fa-star.cl-warning
+                                                        | 5.0/
+                                                        span 5
+                                                .review-user-info
+                                                    h4 Devesh Patri
+                                                    p
+                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                .review-lc.text-right
+                                                    a(href='#')
+                                                        i.ti-heart
+                                                        | 110
+                                                    a(href='#')
+                                                        i.ti-comment
+                                                        | 47
+                                        // Single Review
+                                        .review-box
+                                            .review-thumb
+                                                img.img-responsive.img-circle(src='/assets/img/user-4.jpg' alt='')
+                                            .review-box-content
+                                                .reviewer-rate
+                                                    p
+                                                        i.fa.fa-star.cl-warning
+                                                        | 4.9/
+                                                        span 5
+                                                .review-user-info
+                                                    h4 Ruchi Sethi
+                                                    p
+                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                .review-lc.text-right
+                                                    a(href='#')
+                                                        i.ti-heart
+                                                        | 120
+                                                    a(href='#')
+                                                        i.ti-comment
+                                                        | 36
+                                        // Single Review
+                                        .review-box
+                                            .review-thumb
+                                                img.img-responsive.img-circle(src='/assets/img/user-5.jpg' alt='')
+                                            .review-box-content
+                                                .reviewer-rate
+                                                    p
+                                                        i.fa.fa-star.cl-warning
+                                                        | 4.8/
+                                                        span 5
+                                                .review-user-info
+                                                    h4 Duke Divalkis
+                                                    p
+                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                .review-lc.text-right
+                                                    a(href='#')
+                                                        i.ti-heart
+                                                        | 80
+                                                    a(href='#')
+                                                        i.ti-comment
+                                                        | 70
+                                        // Single Review
+                                        .review-box
+                                            .review-thumb
+                                                img.img-responsive.img-circle(src='/assets/img/user-6.jpg' alt='')
+                                            .review-box-content
+                                                .reviewer-rate
+                                                    p
+                                                        i.fa.fa-star.cl-warning
+                                                        | 4.7/
+                                                        span 5
+                                                .review-user-info
+                                                    h4 Shilka Rai
+                                                    p
+                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
+                                                .review-lc.text-right
+                                                    a(href='#')
+                                                        i.ti-heart
+                                                        | 120
+                                                    a(href='#')
+                                                        i.ti-comment
+                                                        | 140
+                        // ============ Photos ===================
+                        #Photos.tab-pane.fade.in(role='tabpanel')
+                            .row
+                                .tr-single-box
+                                    .tr-single-header
+                                        h4
+                                            i.ti-gallery
+                                            | All Gallery
+                                    .tr-single-body
+                                        ul.gallery-list
+                                            li
+                                                a(data-fancybox='gallery' href='/assets/img/destination/des-1.jpg')
+                                                    img.img-responsive(src='/assets/img/destination/des-1.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='/assets/img/destination/des-2.jpg')
+                                                    img.img-responsive(src='/assets/img/destination/des-2.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='/assets/img/destination/des-3.jpg')
+                                                    img.img-responsive(src='/assets/img/destination/des-3.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='/assets/img/destination/des-4.jpg')
+                                                    img.img-responsive(src='/assets/img/destination/des-4.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='/assets/img/destination/des-5.jpg')
+                                                    img.img-responsive(src='/assets/img/destination/des-5.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='/assets/img/destination/des-6.jpg')
+                                                    img.img-responsive(src='/assets/img/destination/des-6.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='/assets/img/destination/des-7.jpg')
+                                                    img.img-responsive(src='/assets/img/destination/des-7.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='/assets/img/destination/des-8.jpg')
+                                                    img.img-responsive(src='/assets/img/destination/des-8.jpg' alt='')
+                                            li
+                                                a(data-fancybox='gallery' href='/assets/img/destination/des-9.jpg')
+                                                    img.img-responsive(src='/assets/img/destination/des-9.jpg' alt='')
+                // Sidebar Start
+                .col-md-4.col-sm-12
+                    // Tourist Overview
+                    .tr-single-box
+                        .tr-single-header
+                            h4
+                                | Adam G. Gilworm
+                                sup.cl-success Canada Tour
+                        .tr-single-body
+                            ul.extra-service.half
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-user
+                                            .icon-box-text
+                                                | 5 Person
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-timer
+                                            .icon-box-text
+                                                | For 7 Days
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-eye
+                                            .icon-box-text
+                                                | 785 View
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-share
+                                            .icon-box-text
+                                                | 110 Share
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-comment-alt
+                                            .icon-box-text
+                                                | 22 comments
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.ti-heart
+                                            .icon-box-text
+                                                | 20 Likes
+                    // overview & booking Form
+                    .tr-single-box
+                        .tr-single-header
+                            .entry-meta
+                                .meta-item.meta-comment.fl-right
+                                    .view-box
+                                        .fl-right
+                                            h4.font-20
+                                                span.theme-cl.font-20 $
+                                                | 216
+                                                sub /Per Persion
+                                .meta-item.meta-author
+                                    .hotel-review.entry-location
+                                        span.review-status.bg-success
+                                            i.ti-check
+                                        h6
+                                            span.cl-success.font-bold Good
+                                            | 1362 Review
+                        .tr-single-body
+                            form.book-form
+                                .row
+                                    .col-xs-12
+                                        .form-group
+                                            label Check In
+                                            input#checkin.form-control(type='text' name='checkin' value='Check in')
+                                    .col-xs-12
+                                        .form-group
+                                            label Check Out
+                                            input#checkout.form-control(type='text' name='checkout' value='Check out')
+                                .row
+                                    .col-xs-6
+                                        .form-group
+                                            label Adult
+                                            input.form-control(type='number' name='adult' value='1')
+                                    .col-xs-6
+                                        .form-group
+                                            label Children
+                                            input.form-control(type='number' name='children' value='0')
+                                .row
+                                    .col-xs-6
+                                        .form-group
+                                            label Room
+                                            .sl-side
+                                                select.wide.form-control
+                                                    option(data-display='Room') 1
+                                                    option(value='1') 2
+                                                    option(value='2') 3
+                                                    option(value='3') 4
+                                                    option(value='4') 5
+                                                    option(value='4') 5
+                                    .col-xs-6
+                                        .form-group
+                                            label Night
+                                            .sl-side
+                                                select.wide.form-control
+                                                    option(data-display='Night') 1
+                                                    option(value='1') 2
+                                                    option(value='2') 3
+                                                    option(value='3') 4
+                                                    option(value='4') 5
+                                                    option(value='4') 5
+                                .row
+                                    .col-xs-12
+                                        button.btn.btn-default.full-width.text-left(type='button' data-toggle='collapse' data-target='#extra-service')
+                                            | Choose Extra Amenities
+                                            i.ti-settings.fl-right.mrg-top-5
+                                        #extra-service.collapse
+                                            .extra-features
+                                                ul.extra-service.half
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#1(type='checkbox')
+                                                            label(for='1')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Satellite TV
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#2(type='checkbox')
+                                                            label(for='2')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Coffeemaker
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#3(type='checkbox')
+                                                            label(for='3')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Luxury Bedding
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#4(type='checkbox')
+                                                            label(for='4')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Swimming Pool
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#5(type='checkbox')
+                                                            label(for='5')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Free Parking
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#6(type='checkbox')
+                                                            label(for='6')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Free Wifi
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#7(type='checkbox')
+                                                            label(for='7')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Pets Allow
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#8(type='checkbox')
+                                                            label(for='8')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Elevator
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#9(type='checkbox')
+                                                            label(for='9')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Spa/Sauna
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#11(type='checkbox')
+                                                            label(for='11')
+                                                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Security cameras
+                                .row
+                                    .col-xs-12.mrg-top-15
+                                        a#bookbtn.btn.btn-arrow.theme-btn.full-width(onclick="window.open('http://127.0.0.1:3000/get-orderpage', '_blank');") Book now
+
+                    // Share this
+                    .tr-single-box
+                        .tr-single-header
+                            h4 Share this
+                        .tr-single-body
+                            ul.extra-service.half
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-facebook
+                                            .icon-box-text
+                                                | Facebook
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-google-plus
+                                            .icon-box-text
+                                                | Google plus
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-twitter
+                                            .icon-box-text
+                                                | Twitter
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-linkedin
+                                            .icon-box-text
+                                                | LinkedIn
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-instagram
+                                            .icon-box-text
+                                                | Instagram
+                                li
+                                    .icon-box-icon-block
+                                        a(href='#')
+                                            .icon-box-round
+                                                i.fa.fa-pinterest
+                                            .icon-box-text
+                                                | Pinterest
     block content_contact 
         include _contact
 
