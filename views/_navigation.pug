@@ -14,71 +14,38 @@ nav.navbar.navbar-default.navbar-mobile.navbar-fixed.light.bootsnav
         li.dropdown
           a.dropdown-toggle(href='/' data-toggle='dropdown') Home
           ul.dropdown-menu.animated.fadeOutUp
-            //- li
-            //-   a(href='/') Home
+
         li.dropdown.megamenu-fw
-          a.dropdown-toggle(href='#' data-toggle='dropdown') Brows
+          a.dropdown-toggle(href='#' data-toggle='dropdown') Browse
           ul.dropdown-menu.megamenu-content(role='menu')
             li
               .row
                 .col-menu.col-md-3
-                  h6.title Destinations
                   .content
                     ul.menu-col
                       li
-                        a(href='/destination-grid') Destination Grid
-                      li
-                        a(href='/destination-list') Destination List
-                      li
-                        a(href='/destination-grid-sidebar') Destination Grid Sidebar
-                      li
-                        a(href='/destination-list-sidebar') Destination List Sidebar
-                      li
-                        a(href='/destination-detail') Destination Detail
+                        a(href='/destination-grid') Destinations
+
                 // end col-3
                 .col-menu.col-md-3
-                  h6.title Tours
                   .content
                     ul.menu-col
                       li
-                        a(href='/tours-grid') Tour Grid
-                      li
-                        a(href='/tours-list') Tour List
-                      li
-                        a(href='/tours-grid-sidebar') Tour Grid Sidebar
-                      li
-                        a(href='/tours-list-sidebar') tour List Sidebar
-                      li
-                        a(href='/tour-detail') Tour Detail
+                        a(href='/tours-grid') Tours
+
                 // end col-3
                 .col-menu.col-md-3
-                  h6.title Hotels
                   .content
                     ul.menu-col
                       li
-                        a(href='/hotel-grid') Hotel Grid
-                      li
-                        a(href='/hotel-list') Hotel List
-                      li
-                        a(href='/hotel-grid-sidebar') Hotel Grid Sidebar
-                      li
-                        a(href='/hotel-list-sidebar') Hotel List Sidebar
-                      li
-                        a(href='/hotel-detail') Hotel Detail
+                        a(href='/hotel-grid') Hotels
+
                 .col-menu.col-md-3
-                  h6.title Restaurants
                   .content
                     ul.menu-col
                       li
-                        a(href='/restaurant-grid') Restaurant Grid
-                      li
-                        a(href='/restaurant-list') Restaurant List
-                      li
-                        a(href='/restaurant-grid-sidebar') Restaurant Grid Sidebar
-                      li
-                        a(href='/restaurant-list-sidebar') Restaurant List Sidebar
-                      li
-                        a(href='/restaurant-detail') Restaurant Detail
+                        a(href='/restaurant-grid') Restaurants
+
                 // end col-3
               // end row
         li
@@ -88,10 +55,6 @@ nav.navbar.navbar-default.navbar-mobile.navbar-fixed.light.bootsnav
           ul.dropdown-menu.animated.fadeOutUp
 
             li
-              a(href='/success-page') Success Page
-            li
-              a(href='/coming-soon') Coming Soon
-            li
               a(href='/about-us') About Us
             li
               a(href='/pricing') Pricing
@@ -99,21 +62,9 @@ nav.navbar.navbar-default.navbar-mobile.navbar-fixed.light.bootsnav
               a(href='/cart') Cart
             li
               a(href='services') Services
-            li.dropdown
-              a(href='#') View More
-              ul.dropdown-menu
-                li
-                  a(href='/blog') Blog
-                li
-                  a(href='/faqs') FAQs
-                li
-                  a(href='/login') LogIn
-                li
-                  a(href='/signup') SignUp
-                li
-                  a(href='/contact') Contact
-                li
-                  a(href='/404') 404
+            li
+              a(href='/contact') Contact
+
         li
           a(href='/dashboard') Dashboard
       ul.nav.navbar-nav.navbar-right
@@ -125,4 +76,3 @@ nav.navbar.navbar-default.navbar-mobile.navbar-fixed.light.bootsnav
           a.btn-signup.red-btn(href='/tours-grid-sidebar')
             span.ti-briefcase
             | Search Tours
-    // /.navbar-collapse
