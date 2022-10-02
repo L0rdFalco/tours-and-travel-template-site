@@ -21,11 +21,11 @@ block content
                                 h4 Duke Daniel
                             ul#main-menu.nav
                                 li
-                                    a(href='dashboard.html')
+                                    a(href='/dashboard')
                                         i.fa.fa-dashboard(aria-hidden='true')
                                         | Dashboard
                                 li
-                                    a(href='messages.html')
+                                    a(href='/messages')
                                         i.ti-email(aria-hidden='true')
                                         | Messages
                                 li.active
@@ -35,19 +35,19 @@ block content
                                         span.fa.arrow
                                     ul.nav.nav-second-level
                                         li
-                                            a(href='manage-hotels.html')
+                                            a(href='/manage-hotels')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Manage Hotels
                                         li
-                                            a(href='manage-tours.html')
+                                            a(href='/manage-tours')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Manage Tours
                                         li
-                                            a(href='manage-destinations.html')
+                                            a(href='/manage-destinations')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Manage Destinations
                                         li
-                                            a(href='manage-restaurants.html')
+                                            a(href='/manage-restaurants')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Manage Restaurants
                                 li
@@ -57,23 +57,23 @@ block content
                                         span.fa.arrow
                                     ul.nav.nav-second-level
                                         li
-                                            a(href='http://themezhub.com/')
+                                            a(href='add-hotel')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Add Hotels
                                         li
-                                            a(href='add-tours.html')
+                                            a(href='add-tour')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Add Tours
                                         li
-                                            a(href='add-destinations.html')
+                                            a(href='add-destination')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Add Destinations
                                         li
-                                            a(href='add-restaurants.html')
+                                            a(href='add-restaurant')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Add Restaurants
                                 li
-                                    a(href='invoice.html')
+                                    a(href='invoice')
                                         i.fa-print(aria-hidden='true')
                                         | Invoice
                                 li
@@ -83,13 +83,9 @@ block content
                                         span.fa.arrow
                                     ul.nav.nav-second-level
                                         li
-                                            a(href='booking-1.html')
+                                            a(href='bookings')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Booking 1
-                                        li
-                                            a(href='booking-2.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Booking 2
+                                                | Bookings
                                 li
                                     a(href='javascript:void(0)')
                                         i.fa.fa-cog(aria-hidden='true')
@@ -97,23 +93,19 @@ block content
                                         span.fa.arrow
                                     ul.nav.nav-second-level
                                         li
-                                            a(href='basic-settings.html')
+                                            a(href='basic-settings')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Basic Settings
                                         li
-                                            a(href='site-settings.html')
+                                            a(href='site-settings')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Site Settings
                                 li
-                                    a(href='my-profile.html')
+                                    a(href='my-profile')
                                         i.ti-user(aria-hidden='true')
                                         | My Profile
-                                li
-                                    a(href='add-payment-methode.html')
-                                        i.ti-credit-card(aria-hidden='true')
-                                        | Add Payment Methode
                                 li.log-off
-                                    a(href='login.html')
+                                    a(href='login')
                                         i.fa.fa-power-off(aria-hidden='true')
                                         | Logout
                     // /. NAV SIDE
@@ -129,12 +121,12 @@ block content
                                         article.destination-box.style-1
                                             .destination-box-image
                                                 figure
-                                                    a(href='destination-detail.html')
+                                                    a(href='/destination-detail')
                                                         img.img-responsive.listing-box-img(src='assets/img/destination/des-4.jpg' alt='')
                                                         .list-overlay
                                                     .discount-flick -12%
                                                     h4.destination-place
-                                                        a(href='destination-detail.html') Marrakech, Morroco
+                                                        a(href='/destination-detail') Marrakech, Morroco
                                                     a.list-like.left(href='#')
                                                         i.ti-heart
                                             .entry-meta
@@ -150,7 +142,7 @@ block content
                                             .inner-box
                                                 .box-inner-ellipsis
                                                     h4.entry-location
-                                                        a(href='destination-detail.html') Saudi Arabia
+                                                        a(href='/destination-detail') Saudi Arabia
                                                     .price-box
                                                         .destination-price.fl-right
                                                             a(href='#')
@@ -160,12 +152,12 @@ block content
                                         article.destination-box.style-1
                                             .destination-box-image
                                                 figure
-                                                    a(href='destination-detail.html')
+                                                    a(href='/destination-detail')
                                                         img.img-responsive.listing-box-img(src='assets/img/destination/des-5.jpg' alt='')
                                                         .list-overlay
                                                     .discount-flick -12%
                                                     h4.destination-place
-                                                        a(href='destination-detail.html') New York City, New York
+                                                        a(href='/destination-detail') New York City, New York
                                                     a.list-like.left(href='#')
                                                         i.ti-heart
                                             .entry-meta
@@ -181,7 +173,7 @@ block content
                                             .inner-box
                                                 .box-inner-ellipsis
                                                     h4.entry-location
-                                                        a(href='destination-detail.html') Switzerland
+                                                        a(href='/destination-detail') Switzerland
                                                     .price-box
                                                         .destination-price.fl-right
                                                             a(href='#')
@@ -191,12 +183,12 @@ block content
                                         article.destination-box.style-1
                                             .destination-box-image
                                                 figure
-                                                    a(href='destination-detail.html')
+                                                    a(href='/destination-detail')
                                                         img.img-responsive.listing-box-img(src='assets/img/destination/des-6.jpg' alt='')
                                                         .list-overlay
                                                     .discount-flick -12%
                                                     h4.destination-place
-                                                        a(href='destination-detail.html') Halifax, Nova Scotia 
+                                                        a(href='/destination-detail') Halifax, Nova Scotia 
                                                     a.list-like.left(href='#')
                                                         i.ti-heart
                                             .entry-meta
@@ -212,7 +204,7 @@ block content
                                             .inner-box
                                                 .box-inner-ellipsis
                                                     h4.entry-location
-                                                        a(href='destination-detail.html') Singapore
+                                                        a(href='/destination-detail') Singapore
                                                     .price-box
                                                         .destination-price.fl-right
                                                             a(href='#')
@@ -222,12 +214,12 @@ block content
                                         article.destination-box.style-1
                                             .destination-box-image
                                                 figure
-                                                    a(href='destination-detail.html')
+                                                    a(href='/destination-detail')
                                                         img.img-responsive.listing-box-img(src='assets/img/destination/des-7.jpg' alt='')
                                                         .list-overlay
                                                     .discount-flick -12%
                                                     h4.destination-place
-                                                        a(href='destination-detail.html') San Jose, Costa Rica
+                                                        a(href='/destination-detail') San Jose, Costa Rica
                                                     a.list-like.left(href='#')
                                                         i.ti-heart
                                             .entry-meta
@@ -243,7 +235,7 @@ block content
                                             .inner-box
                                                 .box-inner-ellipsis
                                                     h4.entry-location
-                                                        a(href='destination-detail.html') New York, US
+                                                        a(href='/destination-detail') New York, US
                                                     .price-box
                                                         .destination-price.fl-right
                                                             a(href='#')
@@ -253,12 +245,12 @@ block content
                                         article.destination-box.style-1
                                             .destination-box-image
                                                 figure
-                                                    a(href='destination-detail.html')
+                                                    a(href='/destination-detail')
                                                         img.img-responsive.listing-box-img(src='assets/img/destination/des-8.jpg' alt='')
                                                         .list-overlay
                                                     .discount-flick -12%
                                                     h4.destination-place
-                                                        a(href='destination-detail.html') Casablanca, Morocco
+                                                        a(href='/destination-detail') Casablanca, Morocco
                                                     a.list-like.left(href='#')
                                                         i.ti-heart
                                             .entry-meta
@@ -274,7 +266,7 @@ block content
                                             .inner-box
                                                 .box-inner-ellipsis
                                                     h4.entry-location
-                                                        a(href='destination-detail.html') Casablanca
+                                                        a(href='/destination-detail') Casablanca
                                                     .price-box
                                                         .destination-price.fl-right
                                                             a(href='#')
@@ -284,12 +276,12 @@ block content
                                         article.destination-box.style-1
                                             .destination-box-image
                                                 figure
-                                                    a(href='destination-detail.html')
+                                                    a(href='/destination-detail')
                                                         img.img-responsive.listing-box-img(src='assets/img/destination/des-9.jpg' alt='')
                                                         .list-overlay
                                                     .discount-flick -12%
                                                     h4.destination-place
-                                                        a(href='destination-detail.html') London, United Kingdom
+                                                        a(href='/destination-detail') London, United Kingdom
                                                     a.list-like.left(href='#')
                                                         i.ti-heart
                                             .entry-meta
@@ -305,7 +297,7 @@ block content
                                             .inner-box
                                                 .box-inner-ellipsis
                                                     h4.entry-location
-                                                        a(href='destination-detail.html') United Kingdom
+                                                        a(href='/destination-detail') United Kingdom
                                                     .price-box
                                                         .destination-price.fl-right
                                                             a(href='#')
@@ -333,5 +325,5 @@ block content
     block content_contact 
         include _contact
 
-//- block content_footer 
-//-     include _footer
+block content_footer 
+    include _footer

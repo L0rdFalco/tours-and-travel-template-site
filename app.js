@@ -7,7 +7,6 @@ const xss = require("xss-clean")
 const path = require("path")
 const hpp = require("hpp")
 const cookieParser = require("cookie-parser")
-const cors = require("cors")
 
 const ViewsRouter = require("./routers/viewsRouter.js")
 const BookingsRouter = require("./routers/bookingsRouter.js")
@@ -84,11 +83,10 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }))
 
 
 app.use((request, response, next) => {
-    console.log("custom middleware");
+    console.log("my custom middleware", request.originalUrl);
     request.reqTime = Date.now()
     next()
 })
-
 
 
 app.use("/", ViewsRouter)

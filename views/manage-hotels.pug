@@ -21,11 +21,11 @@ block content
                                 h4 Duke Daniel
                             ul#main-menu.nav
                                 li
-                                    a(href='dashboard.html')
+                                    a(href='/dashboard')
                                         i.fa.fa-dashboard(aria-hidden='true')
                                         | Dashboard
                                 li
-                                    a(href='messages.html')
+                                    a(href='/messages')
                                         i.ti-email(aria-hidden='true')
                                         | Messages
                                 li.active
@@ -35,19 +35,19 @@ block content
                                         span.fa.arrow
                                     ul.nav.nav-second-level
                                         li
-                                            a(href='manage-hotels.html')
+                                            a(href='/manage-hotels')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Manage Hotels
                                         li
-                                            a(href='manage-tours.html')
+                                            a(href='/manage-tours')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Manage Tours
                                         li
-                                            a(href='manage-destinations.html')
+                                            a(href='/manage-destinations')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Manage Destinations
                                         li
-                                            a(href='manage-restaurants.html')
+                                            a(href='/manage-restaurants')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Manage Restaurants
                                 li
@@ -57,23 +57,23 @@ block content
                                         span.fa.arrow
                                     ul.nav.nav-second-level
                                         li
-                                            a(href='http://themezhub.com/')
+                                            a(href='/add-hotel')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Add Hotels
                                         li
-                                            a(href='add-tours.html')
+                                            a(href='/add-tour')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Add Tours
                                         li
-                                            a(href='add-destinations.html')
+                                            a(href='/add-destination')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Add Destinations
                                         li
-                                            a(href='add-restaurants.html')
+                                            a(href='/add-restaurant')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Add Restaurants
                                 li
-                                    a(href='invoice.html')
+                                    a(href='/invoice')
                                         i.fa-print(aria-hidden='true')
                                         | Invoice
                                 li
@@ -83,13 +83,9 @@ block content
                                         span.fa.arrow
                                     ul.nav.nav-second-level
                                         li
-                                            a(href='booking-1.html')
+                                            a(href='bookings')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Booking 1
-                                        li
-                                            a(href='booking-2.html')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Booking 2
+                                                | Bookings
                                 li
                                     a(href='javascript:void(0)')
                                         i.fa.fa-cog(aria-hidden='true')
@@ -97,23 +93,19 @@ block content
                                         span.fa.arrow
                                     ul.nav.nav-second-level
                                         li
-                                            a(href='basic-settings.html')
+                                            a(href='/basic-settings')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Basic Settings
                                         li
-                                            a(href='site-settings.html')
+                                            a(href='/site-settings')
                                                 i.fa.fa-circle-o-notch(aria-hidden='true')
                                                 | Site Settings
                                 li
-                                    a(href='my-profile.html')
+                                    a(href='my-profile')
                                         i.ti-user(aria-hidden='true')
                                         | My Profile
-                                li
-                                    a(href='add-payment-methode.html')
-                                        i.ti-credit-card(aria-hidden='true')
-                                        | Add Payment Methode
                                 li.log-off
-                                    a(href='login.html')
+                                    a(href='/login')
                                         i.fa.fa-power-off(aria-hidden='true')
                                         | Logout
                     // /. NAV SIDE
@@ -129,7 +121,7 @@ block content
                                         article.hotel-box.style-1
                                             .hotel-box-image
                                                 figure
-                                                    a(href='hotel-detail.html')
+                                                    a(href='/hotel-detail')
                                                         img.img-responsive.listing-box-img(src='assets/img/hotel/hotel-4.jpg' alt='')
                                                         .list-overlay
                                                         .read_more
@@ -149,7 +141,7 @@ block content
                                             .hotel-detail-box
                                                 .hotel-ellipsis
                                                     h4.hotel-name
-                                                        a(href='hotel-detail.html') Vision Motel
+                                                        a(href='/hotel-detail') Vision Motel
                                                     p Proin mi nisi, ultrices eget dictum a, volutpat at risus. Aliquam elementum.
                                             .hotel-inner.inner-box
                                                 .box-inner-ellipsis
@@ -169,7 +161,7 @@ block content
                                         article.hotel-box.style-1
                                             .hotel-box-image
                                                 figure
-                                                    a(href='hotel-detail.html')
+                                                    a(href='/hotel-detail')
                                                         img.img-responsive.listing-box-img(src='assets/img/hotel/hotel-5.jpg' alt='')
                                                         .list-overlay
                                                         .read_more
@@ -189,7 +181,7 @@ block content
                                             .hotel-detail-box
                                                 .hotel-ellipsis
                                                     h4.hotel-name
-                                                        a(href='hotel-detail.html') Monsoon Motel
+                                                        a(href='/hotel-detail') Monsoon Motel
                                                     p Proin mi nisi, ultrices eget dictum a, volutpat at risus. Aliquam elementum.
                                             .hotel-inner.inner-box
                                                 .box-inner-ellipsis
@@ -209,7 +201,7 @@ block content
                                         article.hotel-box.style-1
                                             .hotel-box-image
                                                 figure
-                                                    a(href='hotel-detail.html')
+                                                    a(href='/hotel-detail')
                                                         img.img-responsive.listing-box-img(src='assets/img/hotel/hotel-6.jpg' alt='')
                                                         .list-overlay
                                                         .read_more
@@ -229,7 +221,7 @@ block content
                                             .hotel-detail-box
                                                 .hotel-ellipsis
                                                     h4.hotel-name
-                                                        a(href='hotel-detail.html') Comfort Motel
+                                                        a(href='/hotel-detail') Comfort Motel
                                                     p Proin mi nisi, ultrices eget dictum a, volutpat at risus. Aliquam elementum.
                                             .hotel-inner.inner-box
                                                 .box-inner-ellipsis
@@ -249,7 +241,7 @@ block content
                                         article.hotel-box.style-1
                                             .hotel-box-image
                                                 figure
-                                                    a(href='hotel-detail.html')
+                                                    a(href='/hotel-detail')
                                                         img.img-responsive.listing-box-img(src='assets/img/hotel/hotel-7.jpg' alt='')
                                                         .list-overlay
                                                         .read_more
@@ -269,7 +261,7 @@ block content
                                             .hotel-detail-box
                                                 .hotel-ellipsis
                                                     h4.hotel-name
-                                                        a(href='hotel-detail.html') Farmhouse Hotel
+                                                        a(href='/hotel-detail') Farmhouse Hotel
                                                     p Proin mi nisi, ultrices eget dictum a, volutpat at risus. Aliquam elementum.
                                             .hotel-inner.inner-box
                                                 .box-inner-ellipsis
@@ -289,7 +281,7 @@ block content
                                         article.hotel-box.style-1
                                             .hotel-box-image
                                                 figure
-                                                    a(href='hotel-detail.html')
+                                                    a(href='/hotel-detail')
                                                         img.img-responsive.listing-box-img(src='assets/img/hotel/hotel-8.jpg' alt='')
                                                         .list-overlay
                                                         .read_more
@@ -309,7 +301,7 @@ block content
                                             .hotel-detail-box
                                                 .hotel-ellipsis
                                                     h4.hotel-name
-                                                        a(href='hotel-detail.html') Ivory House Hotel
+                                                        a(href='/hotel-detail') Ivory House Hotel
                                                     p Proin mi nisi, ultrices eget dictum a, volutpat at risus. Aliquam elementum.
                                             .hotel-inner.inner-box
                                                 .box-inner-ellipsis
@@ -329,7 +321,7 @@ block content
                                         article.hotel-box.style-1
                                             .hotel-box-image
                                                 figure
-                                                    a(href='hotel-detail.html')
+                                                    a(href='/hotel-detail')
                                                         img.img-responsive.listing-box-img(src='assets/img/hotel/hotel-9.jpg' alt='')
                                                         .list-overlay
                                                         .read_more
@@ -349,7 +341,7 @@ block content
                                             .hotel-detail-box
                                                 .hotel-ellipsis
                                                     h4.hotel-name
-                                                        a(href='hotel-detail.html') Prophecy Motel
+                                                        a(href='/hotel-detail') Prophecy Motel
                                                     p Proin mi nisi, ultrices eget dictum a, volutpat at risus. Aliquam elementum.
                                             .hotel-inner.inner-box
                                                 .box-inner-ellipsis

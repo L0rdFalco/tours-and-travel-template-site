@@ -19,8 +19,6 @@ exports.getTestPage = (request, response, next) => {
 exports.getHomePage = (request, response, next) => {
     try {
         response.status(200).render("home")
-
-
     } catch (error) {
 
         response.status(400).json({
