@@ -3,188 +3,628 @@ extends base
 block navigation_content 
     include _navigation
 block content 
-    .page-title.image-title(style='background-image:url(assets/img/banner.jpg);')
+    .page-title.image-title(style='background-image:url(assets/img/tour.jpg);')
       .container
         .page-title-wrap
-          h2 Add To cart
+          h2 Tour Grid
           | &#x9;&#x9;&#x9;&#x9;
           p
             a.theme-cl(href='#') Home
             |  | 
-            span Add To cart
+            span Tour Grid
     // ======================= End Page Title =====================
-    // ======================= Start Checkout =====================
-    section.cart.gray-bg
+    // =========== Start All Tour In Grid View ===================
+    section.gray-bg
       .container
-        .row
-          .col-md-8.col-sm-8
-            .tg-cartproductdetail.table-responsive
-              table.table(cellspacing='0')
-                thead
-                  tr
-                    th.product-name Name
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    th.product-quantity Quantity
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    th.product-price Price
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    th.product-remove &nbsp;
+        // Row
+        .row.mrg-0
+          .tr-single-box.short-box
+            .col-sm-3.hidden-xs.align-self-center
+              h4 Shorty By
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            .col-sm-9.text-right
+              .btn-group.mr-lg-2
+                button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Short By
                 | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                tbody
-                  tr.cart_item
-                    td
-                      .tg-tourname
-                        figure
-                          a(href='#')
-                            img.img-responsive(src='assets/img/tt-1.png', alt='')
-                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                        .tg-populartourcontent
-                          .tg-populartourtitle
-                            h3
-                              a(href='#') DJI Phantom 3
-                          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                          span
-                            | 1 x 
-                            span.Price-amount.amount
-                              span.Price-currencySymbol $
-                              | 499
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    td.product-quantity
-                      .form-group
-                        .quantity
-                          input.form-control(type='number', value='1')
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    td
-                      span.Price-amount.amount
-                        span.Price-currencySymbol $
-                        | 499
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    td.product-remove
-                      a.remove(href='#')
-                        i.icon-trash-can
+                .dropdown-menu.pull-right.animated.flipInX
+                  a(href='#') Accending
                   | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  a(href='#') Decending
                   | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                  tr.cart_item
-                    td
-                      .tg-tourname
-                        figure
-                          a(href='#')
-                            img.img-responsive(src='assets/img/tt-2.png', alt='')
-                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                        .tg-populartourcontent
-                          .tg-populartourtitle
-                            h3
-                              a(href='#') DJI Phantom 3
-                          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                          span
-                            | 1 x 
-                            span.Price-amount.amount
-                              span.Price-currencySymbol $
-                              | 499
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    td.product-quantity
-                      .form-group
-                        .quantity
-                          input.form-control(type='number', value='1')
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    td
-                      span.Price-amount.amount
-                        span.Price-currencySymbol $
-                        | 499
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    td.product-remove
-                      a.remove(href='#')
-                        i.icon-trash-can
-                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                  tr.woocommerce-cart-form__cart-item.cart_item
-                    td
-                      .tg-tourname
-                        figure
-                          a(href='#')
-                            img.img-responsive(src='assets/img/tt-3.png', alt='')
-                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                        .tg-populartourcontent
-                          .tg-populartourtitle
-                            h3
-                              a(href='#') Davidoff Cool Water
-                          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                          span
-                            | 1 x 
-                            span.Price-amount.amount
-                              span.Price-currencySymbol $
-                              | 1,300
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    td.product-quantity
-                      .form-group
-                        .quantity
-                          input.form-control(type='number', value='1')
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    td
-                      span.Price-amount.amount
-                        span.Price-currencySymbol $
-                        | 1,300
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    td.product-remove
-                      a.remove(href='#', <i='')
-              // Coupon Code
-              .col-md-12
-                .row
-                  .col-sm-6
-                    .input-group
-                      input.form-control(type='text', placeholder='Search…')
-                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                      span.input-group-btn
-                        button.btn.btn-default(type='button') Apply Coupon
-                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                  .col-sm-6
-                    a.btn.btn-arrow.theme-btn(type='button', href='#') Update Cart
-              // End Coupon Code
-          // Sidebar
-          .col-md-4.col-sm-4
-            .tr-single-box
-              .tr-single-header
-                h4
-                  | Total
-                  span.fl-right $1170
+                  a(href='#') By Date
               | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-              .tr-single-body
-                .booking-price-detail.side-list.no-border
-                  ul
-                    li
-                      | From
-                      strong.pull-right 25 Jan 2019
+              .btn-group
+                a.btn.btn-default.tooltips(href='tour-grid.html')
+                  i.ti-flix.ti-layout-grid2
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .btn-group
+                a.btn.btn-default.tooltips(href='tour-list.html')
+                  i.ti-flix.ti-view-list-alt
+        // /Row
+        .row
+          // Single Tour
+          .col-md-4.col-sm-6
+            article.tour-box.style-1
+              // Single Tour
+              .tour-box-image
+                figure
+                  a(href='tour-detail.html')
+                    img.img-responsive.listing-box-img(src='assets/img/tour/tour-1.jpg', alt='')
                     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    li
-                      | To
-                      strong.pull-right 28 Jan 2019
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    li
-                      | Adults
-                      strong.pull-right 5
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    li
-                      | Children
-                      strong.pull-right 3
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    li
-                      | Guide
-                      strong.pull-right Richa Alitics
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    li
-                      | Hotel
-                      strong.pull-right Resort valley
+                    .list-overlay
                   | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                  a.btn.btn-success.full-width(href='payment-methode.html') Proceed now
+                  .entry-bookmark
+                    a(href='#')
+                      i.ti-bookmark
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .tour-time
+                    i.ti.ti-car
+                    span 25h
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  h4.destination-place
+                    a(href='#') Istanbul, Turkey
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  span.featured-tour
+                    i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  a.list-like.left(href='#')
+                    i.ti-heart
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .entry-meta
+                .meta-item.meta-author
+                  .coauthors
+                    span.vcard.author
+                      span.fn
+                        a(href='#')
+                          img.avatar.avatar-24(alt='', src='assets/img/user-1.jpg', height='24', width='24')
+                          | Lisa Scholfield
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-comment.fl-right
+                  i.ti-comment-alt
+                  span 25
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-rating.fl-right
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star-half
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .inner-box
+                .box-inner-ellipsis
+                  h4.entry-title
+                    a(href='#') Netherlands
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .price-box
+                    .tour-price.fl-right
+                      i.ti.ti-user
+                      span.theme-cl.f-bold $187
+          // Single Tour
+          .col-md-4.col-sm-6
+            article.tour-box.style-1
+              .tour-box-image
+                figure
+                  a(href='tour-detail.html')
+                    img.img-responsive.listing-box-img(src='assets/img/tour/tour-2.jpg', alt='')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    .list-overlay
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .entry-bookmark
+                    a(href='#')
+                      i.ti-bookmark
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .tour-time
+                    i.ti.ti-car
+                    span 2 days
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  h4.destination-place
+                    a(href='#') Kuala Lumpur, Malaysia
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  span.featured-tour
+                    i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  a.list-like.left(href='#')
+                    i.ti-heart
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .entry-meta
+                .meta-item.meta-author
+                  .coauthors
+                    span.vcard.author
+                      span.fn
+                        a(href='#')
+                          img.avatar.avatar-24(alt='', src='assets/img/user-2.jpg', height='24', width='24')
+                          | Lisa Scholfield
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-comment.fl-right
+                  i.ti-comment-alt
+                  span 26
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-rating.fl-right
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star-half
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .inner-box
+                .box-inner-ellipsis
+                  h4.entry-title
+                    a(href='#') Austrailia
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .price-box
+                    .tour-price.fl-right
+                      i.ti.ti-user
+                      span.theme-cl.f-bold $130
+          // Single Tour
+          .col-md-4.col-sm-6
+            article.tour-box.style-1
+              .tour-box-image
+                figure
+                  a(href='tour-detail.html')
+                    img.img-responsive.listing-box-img(src='assets/img/tour/tour-3.jpg', alt='')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    .list-overlay
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .entry-bookmark
+                    a(href='#')
+                      i.ti-bookmark
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .tour-time
+                    i.ti.ti-car
+                    span 21h
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  h4.destination-place
+                    a(href='#') Singapore. platongkoh
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  span.featured-tour
+                    i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  a.list-like.left(href='#')
+                    i.ti-heart
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .entry-meta
+                .meta-item.meta-author
+                  .coauthors
+                    span.vcard.author
+                      span.fn
+                        a(href='#')
+                          img.avatar.avatar-24(alt='', src='assets/img/user-3.jpg', height='24', width='24')
+                          | Lisa Scholfield
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-comment.fl-right
+                  i.ti-comment-alt
+                  span 17
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-rating.fl-right
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star-half
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .inner-box
+                .box-inner-ellipsis
+                  h4.entry-title
+                    a(href='#') United States
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .price-box
+                    .tour-price.fl-right
+                      i.ti.ti-user
+                      span.theme-cl.f-bold $215
+          // Single Tour
+          .col-md-4.col-sm-6
+            article.tour-box.style-1
+              .tour-box-image
+                figure
+                  a(href='tour-detail.html')
+                    img.img-responsive.listing-box-img(src='assets/img/tour/tour-4.jpg', alt='')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    .list-overlay
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .entry-bookmark
+                    a(href='#')
+                      i.ti-bookmark
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .tour-time
+                    i.ti.ti-car
+                    span 22h
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  h4.destination-place
+                    a(href='#') New York, Sean Pavone
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  span.featured-tour
+                    i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  a.list-like.left(href='#')
+                    i.ti-heart
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .entry-meta
+                .meta-item.meta-author
+                  .coauthors
+                    span.vcard.author
+                      span.fn
+                        a(href='#')
+                          img.avatar.avatar-24(alt='', src='assets/img/user-4.jpg', height='24', width='24')
+                          | Lisa Scholfield
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-comment.fl-right
+                  i.ti-comment-alt
+                  span 18
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-rating.fl-right
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star-half
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .inner-box
+                .box-inner-ellipsis
+                  h4.entry-title
+                    a(href='#') New York
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .price-box
+                    .tour-price.fl-right
+                      i.ti.ti-user
+                      span.theme-cl.f-bold $240
+          // Single Tour
+          .col-md-4.col-sm-6
+            article.tour-box.style-1
+              .tour-box-image
+                figure
+                  a(href='tour-detail.html')
+                    img.img-responsive.listing-box-img(src='assets/img/tour/tour-5.jpg', alt='')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    .list-overlay
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .entry-bookmark
+                    a(href='#')
+                      i.ti-bookmark
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .tour-time
+                    i.ti.ti-car
+                    span 17h
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  h4.destination-place
+                    a(href='#') Dubai, United Arab Emirates
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  span.featured-tour
+                    i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  a.list-like.left(href='#')
+                    i.ti-heart
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .entry-meta
+                .meta-item.meta-author
+                  .coauthors
+                    span.vcard.author
+                      span.fn
+                        a(href='#')
+                          img.avatar.avatar-24(alt='', src='assets/img/user-5.jpg', height='24', width='24')
+                          | Lisa Scholfield
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-comment.fl-right
+                  i.ti-comment-alt
+                  span 15
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-rating.fl-right
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star-half
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .inner-box
+                .box-inner-ellipsis
+                  h4.entry-title
+                    a(href='#') Saudi Arabia
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .price-box
+                    .tour-price.fl-right
+                      i.ti.ti-user
+                      span.theme-cl.f-bold $117
+          // Single Tour
+          .col-md-4.col-sm-6
+            article.tour-box.style-1
+              .tour-box-image
+                figure
+                  a(href='tour-detail.html')
+                    img.img-responsive.listing-box-img(src='assets/img/tour/tour-6.jpg', alt='')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    .list-overlay
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .entry-bookmark
+                    a(href='#')
+                      i.ti-bookmark
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .tour-time
+                    i.ti.ti-car
+                    span 1 day
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  h4.destination-place
+                    a(href='#') Paris, France. neirfy
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  span.featured-tour
+                    i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  a.list-like.left(href='#')
+                    i.ti-heart
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .entry-meta
+                .meta-item.meta-author
+                  .coauthors
+                    span.vcard.author
+                      span.fn
+                        a(href='#')
+                          img.avatar.avatar-24(alt='', src='assets/img/user-6.jpg', height='24', width='24')
+                          | Lisa Scholfield
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-comment.fl-right
+                  i.ti-comment-alt
+                  span 22
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-rating.fl-right
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star-half
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .inner-box
+                .box-inner-ellipsis
+                  h4.entry-title
+                    a(href='#') Singapore
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .price-box
+                    .tour-price.fl-right
+                      i.ti.ti-user
+                      span.theme-cl.f-bold $310
+          // Single Tour
+          .col-md-4.col-sm-6
+            article.tour-box.style-1
+              .tour-box-image
+                figure
+                  a(href='tour-detail.html')
+                    img.img-responsive.listing-box-img(src='assets/img/tour/tour-2.jpg', alt='')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    .list-overlay
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .entry-bookmark
+                    a(href='#')
+                      i.ti-bookmark
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .tour-time
+                    i.ti.ti-car
+                    span 70h
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  h4.destination-place
+                    a(href='#') London, England. AndreaAstes
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  span.featured-tour
+                    i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  a.list-like.left(href='#')
+                    i.ti-heart
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .entry-meta
+                .meta-item.meta-author
+                  .coauthors
+                    span.vcard.author
+                      span.fn
+                        a(href='#')
+                          img.avatar.avatar-24(alt='', src='assets/img/user-7.jpg', height='24', width='24')
+                          | Lisa Scholfield
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-comment.fl-right
+                  i.ti-comment-alt
+                  span 15
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-rating.fl-right
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star-half
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .inner-box
+                .box-inner-ellipsis
+                  h4.entry-title
+                    a(href='#') United Kingdom
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .price-box
+                    .tour-price.fl-right
+                      i.ti.ti-user
+                      span.theme-cl.f-bold $217
+          // Single Tour
+          .col-md-4.col-sm-6
+            article.tour-box.style-1
+              .tour-box-image
+                figure
+                  a(href='tour-detail.html')
+                    img.img-responsive.listing-box-img(src='assets/img/tour/tour-7.jpg', alt='')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    .list-overlay
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .entry-bookmark
+                    a(href='#')
+                      i.ti-bookmark
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .tour-time
+                    i.ti.ti-car
+                    span 2 days
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  h4.destination-place
+                    a(href='#') Bangkok, Thailand. thitivong
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  span.featured-tour
+                    i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  a.list-like.left(href='#')
+                    i.ti-heart
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .entry-meta
+                .meta-item.meta-author
+                  .coauthors
+                    span.vcard.author
+                      span.fn
+                        a(href='#')
+                          img.avatar.avatar-24(alt='', src='assets/img/user-8.jpg', height='24', width='24')
+                          | Lisa Scholfield
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-comment.fl-right
+                  i.ti-comment-alt
+                  span 20
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-rating.fl-right
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star-half
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .inner-box
+                .box-inner-ellipsis
+                  h4.entry-title
+                    a(href='#') Hong Kong
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .price-box
+                    .tour-price.fl-right
+                      i.ti.ti-user
+                      span.theme-cl.f-bold $177
+          // Single Tour
+          .col-md-4.col-sm-6
+            article.tour-box.style-1
+              .tour-box-image
+                figure
+                  a(href='tour-detail.html')
+                    img.img-responsive.listing-box-img(src='assets/img/tour/tour-8.jpg', alt='')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    .list-overlay
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .entry-bookmark
+                    a(href='#')
+                      i.ti-bookmark
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .tour-time
+                    i.ti.ti-car
+                    span 12h
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  h4.destination-place
+                    a(href='#') Grand Canyon National Park
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  span.featured-tour
+                    i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  a.list-like.left(href='#')
+                    i.ti-heart
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .entry-meta
+                .meta-item.meta-author
+                  .coauthors
+                    span.vcard.author
+                      span.fn
+                        a(href='#')
+                          img.avatar.avatar-24(alt='', src='assets/img/user-1.jpg', height='24', width='24')
+                          | Lisa Scholfield
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-comment.fl-right
+                  i.ti-comment-alt
+                  span 13
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .meta-item.meta-rating.fl-right
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  i.fa.fa-star-half
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .inner-box
+                .box-inner-ellipsis
+                  h4.entry-title
+                    a(href='#') India
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .price-box
+                    .tour-price.fl-right
+                      i.ti.ti-user
+                      span.theme-cl.f-bold $110
+        | &#x9;&#x9;&#x9;&#x9;
+        | &#x9;&#x9;&#x9;&#x9;
+        .row
+          ul.pagination
+            li.page-item
+              a.page-link(href='#', aria-label='Previous')
+                span.ti-arrow-left
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                span.sr-only Previous
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            li.page-item
+              a.page-link(href='#') 1
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            li.page-item
+              a.page-link(href='#') 2
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            li.page-item.active
+              a.page-link(href='#') 3
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            li.page-item
+              a.page-link(href='#') 4
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            li.page-item
+              a.page-link(href='#') 5
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            li.page-item
+              a.page-link(href='#', aria-label='Next')
+                span.ti-arrow-right
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                span.sr-only Next
     block content_contact 
         include _contact
 

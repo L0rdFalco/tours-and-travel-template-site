@@ -3,7 +3,7 @@ const viewsController = require("../controllers/viewsController.js")
 const authController = require("../controllers/authController.js")
 const ViewsRouter = express.Router()
 
-ViewsRouter.route("/").get(viewsController.getAllToursGridPage)
+ViewsRouter.route("/").get(viewsController.getHomePage)
 ViewsRouter.route("/1").get(viewsController.getTestPage)
 ViewsRouter.route("/cart").get(viewsController.getCartPage)
 ViewsRouter.route("/get-orderpage").get(viewsController.getOrderPage)

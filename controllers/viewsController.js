@@ -16,7 +16,19 @@ exports.getTestPage = (request, response, next) => {
     }
 }
 
+exports.getHomePage = (request, response, next) => {
+    try {
+        response.status(200).render("home")
 
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: " fail",
+
+        })
+    }
+}
 
 exports.getOrderPage = (request, response, next) => {
     try {
@@ -606,6 +618,7 @@ exports.getAllToursGridSidebarPage = (request, response, next) => {
         })
     }
 }
+
 exports.getAllToursGridPage = (request, response, next) => {
     try {
         response.status(200).render("all-tours-grid")
