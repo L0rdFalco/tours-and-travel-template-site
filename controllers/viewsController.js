@@ -2,6 +2,9 @@ const usersModel = require("../models/usersModel.js")
 const reviewsModel = require("../models/reviewsModel.js")
 const bookingsModel = require("../models/bookingsModel.js")
 const toursModel = require("../models/toursModel.js")
+const destinationModel = require("../models/destinationModel.js")
+const hotelsModel = require("../models/hotelsModel.js")
+const restaurantModel = require("../models/restaurantModel.js")
 
 
 exports.getTestPage = (request, response, next) => {
