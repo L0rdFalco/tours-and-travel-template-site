@@ -1,5 +1,26 @@
 extends base
 
+mixin sortBy(gridRoute, listRoute)
+    .tr-single-box.short-box
+        .col-sm-3.hidden-xs.align-self-center
+            h4 sort by
+        .col-sm-9.text-right
+            .btn-group.mr-lg-2
+                button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                    | sort by
+                .dropdown-menu.pull-right.animated.flipInX
+                    a(href='#') Ascending
+                    a(href='#') Descending
+                    a(href='#') Date
+            .btn-group
+                a.btn.btn-default.tooltips(href=gridRoute, listRoute)
+                    i.ti-flix.ti-layout-grid2
+            .btn-group
+                a.btn.btn-default.tooltips(href=listRoute)
+                    i.ti-flix.ti-view-list-alt
+
+
+
 block navigation_content 
     include _navigation
 block content 
@@ -17,24 +38,7 @@ block content
         .container
             // Row
             .row.mrg-0
-                .tr-single-box.short-box
-                    .col-sm-3.hidden-xs.align-self-center
-                        h4 Shorty By
-                    .col-sm-9.text-right
-                        .btn-group.mr-lg-2
-                            button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                                | Short By
-                            .dropdown-menu.pull-right.animated.flipInX
-                                a(href='#') Accending
-                                a(href='#') Decending
-                                a(href='#') By Date
-                        .btn-group
-                            a.btn.btn-default.tooltips(href='/destination-grid')
-                                i.ti-flix.ti-layout-grid2
-                        .btn-group
-                            a.btn.btn-default.tooltips(href='/destination-list')
-                                i.ti-flix.ti-view-list-alt
-            // /Row
+                +sortBy('destination-grid', 'destination-list')
             .row
                 // Single Destination
                 .col-md-4.col-sm-6

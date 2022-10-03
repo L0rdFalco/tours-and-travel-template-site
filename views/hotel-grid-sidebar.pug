@@ -1,5 +1,26 @@
 extends base
 
+mixin sortBy(gridRoute, listRoute)
+    .tr-single-box.short-box
+        .col-sm-3.hidden-xs.align-self-center
+            h4 sort by
+        .col-sm-9.text-right
+            .btn-group.mr-lg-2
+                button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                    | sort by
+                .dropdown-menu.pull-right.animated.flipInX
+                    a(href='#') Ascending
+                    a(href='#') Descending
+                    a(href='#') Date
+            .btn-group
+                a.btn.btn-default.tooltips(href=gridRoute, listRoute)
+                    i.ti-flix.ti-layout-grid2
+            .btn-group
+                a.btn.btn-default.tooltips(href=listRoute)
+                    i.ti-flix.ti-view-list-alt
+
+
+
 block navigation_content 
     include _navigation
 block content 
@@ -18,223 +39,13 @@ block content
             .row
                 // Filter Sidebar
                 .col-md-4.col-sm-12
-                    .tr-single-box
-                        .tr-single-header
-                            h4 Filter
-                            span.pull-right.clickables(data-toggle='collapse' data-target='#filter')
-                                i.ti-align-left
-                        #filter.collapse.in
-                            // Input Box Search
-                            .tr-single-body
-                                .sidebar-input
-                                    input.form-control(type='text' placeholder='Type Keyword..')
-                                .sidebar-input
-                                    input.form-control(type='text' placeholder='Destination..')
-                                .sidebar-input
-                                    input.form-control(type='text' placeholder='Location..')
-                            // Range Slider
-                            .tr-inner-single-box
-                                .tr-single-header
-                                    h4 Distance In Km.
-                                .tr-single-body
-                                    form(method='post')
-                                        #price-range
-                            // Distance
-                            .tr-inner-single-box
-                                .tr-single-header
-                                    h4 By Distance
-                                .tr-single-body
-                                    ul.side-list-check
-                                        li
-                                            span.custom-checkbox
-                                                input#144(type='checkbox')
-                                                label(for='144')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 10Km To 100Km
-                                            span.pull-right 102
-                                        li
-                                            span.custom-checkbox
-                                                input#133(type='checkbox')
-                                                label(for='133')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 100Km To 500Km
-                                            span.pull-right 110
-                                        li
-                                            span.custom-checkbox
-                                                input#122(type='checkbox')
-                                                label(for='122')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 150Km To 700Km
-                                            span.pull-right 56
-                                        li
-                                            span.custom-checkbox
-                                                input#111(type='checkbox')
-                                                label(for='111')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 700Km To 1000Km
-                                            span.pull-right 18
-                                        li
-                                            span.custom-checkbox
-                                                input#161(type='checkbox')
-                                                label(for='161')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Between 10000Km To 50000Km
-                                            span.pull-right 75
-                            // Start Rating
-                            .tr-inner-single-box
-                                .tr-single-header
-                                    h4 Start Rating
-                                .tr-single-body
-                                    ul.side-list-check
-                                        li
-                                            span.custom-checkbox
-                                                input#11(type='checkbox')
-                                                label(for='11')
-                                            .search-rating
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                            span.pull-right 102
-                                        li
-                                            span.custom-checkbox
-                                                input#12(type='checkbox')
-                                                label(for='12')
-                                            .search-rating
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                            span.pull-right 110
-                                        li
-                                            span.custom-checkbox
-                                                input#13(type='checkbox')
-                                                label(for='13')
-                                            .search-rating
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                            span.pull-right 56
-                                        li
-                                            span.custom-checkbox
-                                                input#14(type='checkbox')
-                                                label(for='14')
-                                            .search-rating
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star
-                                            span.pull-right 18
-                                        li
-                                            span.custom-checkbox
-                                                input#15(type='checkbox')
-                                                label(for='15')
-                                            .search-rating
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                                i.fa.fa-star.enable
-                                            span.pull-right 75
-                            // Tour Type
-                            .tr-inner-single-box
-                                .tr-single-header
-                                    h4 Tour Type
-                                .tr-single-body
-                                    ul.side-list-check
-                                        li
-                                            span.custom-checkbox
-                                                input#a(type='checkbox')
-                                                label(for='a')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Food &amp; Cooking Tours
-                                            span.pull-right 36
-                                        li
-                                            span.custom-checkbox
-                                                input#b(type='checkbox')
-                                                label(for='b')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Sightseeing Tours
-                                            span.pull-right 75
-                                        li
-                                            span.custom-checkbox
-                                                input#c(type='checkbox')
-                                                label(for='c')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Museums &amp; Art
-                                            span.pull-right 69
-                                        li
-                                            span.custom-checkbox
-                                                input#d(type='checkbox')
-                                                label(for='d')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Extraordinary Tours
-                                            span.pull-right 20
-                                        li
-                                            span.custom-checkbox
-                                                input#e(type='checkbox')
-                                                label(for='e')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;History &amp; Architecture
-                                            span.pull-right 45
-                                        li
-                                            span.custom-checkbox
-                                                input#f(type='checkbox')
-                                                label(for='f')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Trips out of town
-                                            span.pull-right 45
-                            // Animinities
-                            .tr-inner-single-box
-                                .tr-single-header
-                                    h4 Animinities
-                                .tr-single-body
-                                    ul.side-list-check
-                                        li
-                                            span.custom-checkbox
-                                                input#a1(type='checkbox')
-                                                label(for='a1')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;With guide
-                                            span.pull-right 36
-                                        li
-                                            span.custom-checkbox
-                                                input#b2(type='checkbox')
-                                                label(for='b2')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Breakfast
-                                            span.pull-right 75
-                                        li
-                                            span.custom-checkbox
-                                                input#c3(type='checkbox')
-                                                label(for='c3')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Musician
-                                            span.pull-right 69
-                                        li
-                                            span.custom-checkbox
-                                                input#d4(type='checkbox')
-                                                label(for='d4')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Hot Water
-                                            span.pull-right 20
-                                        li
-                                            span.custom-checkbox
-                                                input#e5(type='checkbox')
-                                                label(for='e5')
-                                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;High Difinition TV
-                                            span.pull-right 45
+                    include _sidebar
                 // All Item
                 .col-md-8.col-sm-12
                     // Row
                     .row.mrg-0
-                        .tr-single-box.short-box
-                            .col-sm-3.hidden-xs.align-self-center
-                                h4 Shorty By
-                            .col-sm-9.text-right
-                                .btn-group.mr-lg-2
-                                    button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                                        | Short By
-                                    .dropdown-menu.pull-right.animated.flipInX
-                                        a(href='#') Accending
-                                        a(href='#') Decending
-                                        a(href='#') By Date
-                                .btn-group
-                                    a.btn.btn-default.tooltips(href='/hotel-grid-sidebar')
-                                        i.ti-flix.ti-layout-grid2
-                                .btn-group
-                                    a.btn.btn-default.tooltips(href='/hotel-list-sidebar')
-                                        i.ti-flix.ti-view-list-alt
+                        +sortBy('/hotel-grid-sidebar','/hotel-list-sidebar')
+
                     // /Row
                     // Row
                     .row
