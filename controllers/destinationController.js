@@ -1,0 +1,1 @@
+const destinationModel = require("../models/destinationModel.js")

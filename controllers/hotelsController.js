@@ -1,0 +1,1 @@
+const hotelsModel = require("../models/hotelsModel.js")

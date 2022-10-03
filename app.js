@@ -14,6 +14,9 @@ const ReviewsRouter = require("./routers/reviewsRouter.js")
 const ToursRouter = require("./routers/toursRouter.js")
 const UsersRouter = require("./routers/usersRouter.js")
 const PaymentRouter = require("./routers/paymentRouter.js")
+const DestinationRouter = require("./routers/destinationRouter.js")
+const RestaurantRouter = require("./routers/restaurantRouter.js")
+const HotelsRouter = require("./routers/hotelsRouter.js")
 
 const app = express()
 //set up pug templating engine
@@ -91,10 +94,14 @@ app.use((request, response, next) => {
 
 app.use("/", ViewsRouter)
 app.use("/orders", PaymentRouter)
+
 app.use("/api/v1/booking", BookingsRouter)
 app.use("/api/v1/reviews", ReviewsRouter)
 app.use("/api/v1/tours", ToursRouter)
 app.use("/api/v1/users", UsersRouter)
+app.use("/api/v1/destination", DestinationRouter)
+app.use("/api/v1/hotels", HotelsRouter)
+app.use("/api/v1/restaurants", RestaurantRouter)
 
 
 //this handles unknown routes
