@@ -1,25 +1,6 @@
 extends base
 
-mixin sortBy(gridRoute, listRoute)
-    .tr-single-box.short-box
-        .col-sm-3.hidden-xs.align-self-center
-            h4 sort by
-        .col-sm-9.text-right
-            .btn-group.mr-lg-2
-                button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                    | sort by
-                .dropdown-menu.pull-right.animated.flipInX
-                    a(href='#') Ascending
-                    a(href='#') Descending
-                    a(href='#') Date
-            .btn-group
-                a.btn.btn-default.tooltips(href=gridRoute, listRoute)
-                    i.ti-flix.ti-layout-grid2
-            .btn-group
-                a.btn.btn-default.tooltips(href=listRoute)
-                    i.ti-flix.ti-view-list-alt
-
-
+include _sortby
 
 block navigation_content 
     include _navigation
@@ -37,7 +18,7 @@ block content
     section.gray-bg
         .container
             .row.mrg-0
-                +sortBy('/restaurant-grid','/restaurant-list')
+                +sortByRow('/restaurant-grid','/restaurant-list')
             .row
                 // Single Restaurant
                 .col-md-4.col-sm-6
