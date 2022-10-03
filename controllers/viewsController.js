@@ -9,7 +9,7 @@ const restaurantModel = require("../models/restaurantModel.js")
 
 exports.getTestPage = (request, response, next) => {
     try {
-        response.status(200).render("1")
+        response.status(200).render("test")
 
     } catch (error) {
         response.status(400).json({
