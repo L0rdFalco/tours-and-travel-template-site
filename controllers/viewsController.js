@@ -19,8 +19,11 @@ exports.getTestPage = (request, response, next) => {
     }
 }
 
-exports.getHomePage = (request, response, next) => {
+exports.getHomePage = async (request, response, next) => {
     try {
+        const tourDocs = await toursModel.find()
+        console.log(tourDocs.length);
+
         response.status(200).render("home")
     } catch (error) {
 
