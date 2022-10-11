@@ -610,9 +610,34 @@ exports.getSuccessPage = (request, response, next) => {
     }
 }
 
-exports.getAllToursGridSidebarPage = (request, response, next) => {
+exports.getAllToursGridSidebarPage = async (request, response, next) => {
     try {
-        response.status(200).render("all-tours-grid-sidebar")
+        const alltours = await toursModel.find().select("name duration difficulty slug ratingsAverage ratingsQuantity summary price startLocation difficulty")
+
+        response.status(200).render("all-tours-grid-sidebar",
+            {
+                tours: alltours
+            }
+        )
+
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: "getAllToursGridSidebarPage fail",
+
+        })
+    }
+}
+
+exports.getAllToursGridPage = async (request, response, next) => {
+    try {
+        const alltours = await toursModel.find().select("name duration difficulty slug ratingsAverage ratingsQuantity summary price startLocation difficulty")
+
+        response.status(200).render("all-tours-grid",
+            {
+                tours: alltours
+            })
 
 
     } catch (error) {
@@ -623,10 +648,15 @@ exports.getAllToursGridSidebarPage = (request, response, next) => {
         })
     }
 }
-
-exports.getAllToursGridPage = (request, response, next) => {
+exports.getAllToursListSidebarPage = async (request, response, next) => {
     try {
-        response.status(200).render("all-tours-grid")
+        const alltours = await toursModel.find().select("name duration difficulty slug ratingsAverage ratingsQuantity summary price startLocation difficulty")
+
+        response.status(200).render("all-tours-list-sidebar",
+            {
+                tours: alltours
+            }
+        )
 
 
     } catch (error) {
@@ -637,22 +667,14 @@ exports.getAllToursGridPage = (request, response, next) => {
         })
     }
 }
-exports.getAllToursListSidebarPage = (request, response, next) => {
+exports.getAllToursListPage = async (request, response, next) => {
     try {
-        response.status(200).render("all-tours-list-sidebar")
+        const alltours = await toursModel.find().select("name duration difficulty slug ratingsAverage ratingsQuantity summary price startLocation difficulty")
 
-
-    } catch (error) {
-
-        response.status(400).json({
-            status: " fail",
-
-        })
-    }
-}
-exports.getAllToursListPage = (request, response, next) => {
-    try {
-        response.status(200).render("all-tours-list")
+        response.status(200).render("all-tours-list",
+            {
+                tours: alltours
+            })
 
 
     } catch (error) {

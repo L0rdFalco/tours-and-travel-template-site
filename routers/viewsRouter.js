@@ -56,13 +56,12 @@ ViewsRouter.route("/restaurant-grid").get(viewsController.getRestaurantGridPage)
 ViewsRouter.route("/restaurant-list-sidebar").get(viewsController.getRestaurantListSidebarPage)
 ViewsRouter.route("/restaurant-list").get(viewsController.getRestaurantListPage)
 
-ViewsRouter.route("tour/:slug").get(viewsController.getSingleTourDetailPage)
+ViewsRouter.route("/tour/:slug").get(viewsController.getSingleTourDetailPage)
 ViewsRouter.route("/tours-grid-sidebar").get(viewsController.getAllToursGridSidebarPage)
 ViewsRouter.route("/tours-grid").get(viewsController.getAllToursGridPage)
 ViewsRouter.route("/tours-list-sidebar").get(viewsController.getAllToursListSidebarPage)
 ViewsRouter.route("/tours-list").get(viewsController.getAllToursListPage)
 
-ViewsRouter.route("/tour/:slug").get(viewsController.getSingleTourDetailPage)
 
 // ViewsRouter.route("/forgotpassword").get(viewsController.getForgotPasswordPage)
 // ViewsRouter.route("/my-dashboard").get(authController.protect, authController.isLoggedIn, viewsController.getDashboardPage)

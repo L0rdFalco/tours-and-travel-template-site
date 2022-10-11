@@ -8,401 +8,60 @@ block navigation_content
     include _navigation
 block content 
     .page-title.image-title(style='background-image:url(assets/img/tour.jpg);')
-        .container
-            .page-title-wrap
-                h2 Tour list
-                p
-                    a.theme-cl(href='#') Home
-                    |  | 
-                    span Tour list
+        include _tourBanner
     section.gray-bg
         .container
             // Row
             .row.mrg-0
                 +sortByRow('tours-grid', 'tours-list')
             .row
-                // Single Tour List
-                .col-lg-6.col-md-6
-                    article.tour-box.list-style
-                        .row
-                            .col-md-5.col-sm-5
-                                .tour-box-image
-                                    a(href='/tour-detail')
-                                        img.img-responsive.tour-box-img(src='assets/img/tour/tour-8.jpg' alt='')
-                                    .entry-bookmark
-                                        a(href='#')
-                                            i.ti-bookmark
-                                    .tour-time
-                                        i.ti.ti-car
-                                        span 17h
-                            .col-md-7.col-sm-7
-                                .inner-box
-                                    .discount-flick -22%
-                                    .box-inner-ellipsis
-                                        div(style='margin: 0px; padding: 0px; border: 0px;')
-                                            h3.entry-title
-                                                a(href='/tour-detail') Istanbul, Luciano Mortula
-                                            .entry-content
-                                                p
-                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
-                                                span.price
-                                                    | From 
-                                                    strong.theme-cl $224
-                                                    |  /per person
-                                    .entry-meta
-                                        .meta-item.meta-author
-                                            .coauthors
-                                                span.vcard.author
-                                                    span.fn
-                                                        a(href='#')
-                                                            img.avatar.avatar-24(alt='' src='assets/img/user-1.jpg' height='24' width='24')
-                                                            | Lisa Scholfield
-                                        .meta-item.meta-comment.fl-right
-                                            i.ti-comment-alt
-                                            span 10
-                                        .meta-item.meta-rating.fl-right
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star-half
-                // Single Tour List
-                .col-lg-6.col-md-6
-                    article.tour-box.list-style
-                        .row
-                            .col-md-5.col-sm-5
-                                .tour-box-image
-                                    a(href='/tour-detail')
-                                        img.img-responsive.tour-box-img(src='assets/img/tour/tour-7.jpg' alt='')
-                                    .entry-bookmark
-                                        a(href='#')
-                                            i.ti-bookmark
-                                    .tour-time
-                                        i.ti.ti-car
-                                        span 2h
-                            .col-md-7.col-sm-7
-                                .inner-box
-                                    .discount-flick -20%
-                                    .box-inner-ellipsis
-                                        div(style='margin: 0px; padding: 0px; border: 0px;')
-                                            h3.entry-title
-                                                a(href='/tour-detail') Kuala Lumpur, Malaysia
-                                            .entry-content
-                                                p
-                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
-                                                span.price
-                                                    | From 
-                                                    strong.theme-cl $221
-                                                    |  /per person
-                                    .entry-meta
-                                        .meta-item.meta-author
-                                            .coauthors
-                                                span.vcard.author
-                                                    span.fn
-                                                        a(href='#')
-                                                            img.avatar.avatar-24(alt='' src='assets/img/user-2.jpg' height='24' width='24')
-                                                            | Lisa Scholfield
-                                        .meta-item.meta-comment.fl-right
-                                            i.ti-comment-alt
-                                            span 16
-                                        .meta-item.meta-rating.fl-right
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star-half
-                // Single Tour List
-                .col-lg-6.col-md-6
-                    article.tour-box.list-style
-                        .row
-                            .col-md-5.col-sm-5
-                                .tour-box-image
-                                    a(href='/tour-detail')
-                                        img.img-responsive.tour-box-img(src='assets/img/tour/tour-6.jpg' alt='')
-                                    .entry-bookmark
-                                        a(href='#')
-                                            i.ti-bookmark
-                                    .tour-time
-                                        i.ti.ti-car
-                                        span 12h
-                            .col-md-7.col-sm-7
-                                .inner-box
-                                    .discount-flick -13%
-                                    .box-inner-ellipsis
-                                        div(style='margin: 0px; padding: 0px; border: 0px;')
-                                            h3.entry-title
-                                                a(href='/tour-detail') Singapore. platongkoh
-                                            .entry-content
-                                                p
-                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
-                                                span.price
-                                                    | From 
-                                                    strong.theme-cl $134
-                                                    |  /per person
-                                    .entry-meta
-                                        .meta-item.meta-author
-                                            .coauthors
-                                                span.vcard.author
-                                                    span.fn
-                                                        a(href='#')
-                                                            img.avatar.avatar-24(alt='' src='assets/img/user-3.jpg' height='24' width='24')
-                                                            | Lisa Scholfield
-                                        .meta-item.meta-comment.fl-right
-                                            i.ti-comment-alt
-                                            span 16
-                                        .meta-item.meta-rating.fl-right
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star-half
-                // Single Tour List
-                .col-lg-6.col-md-6
-                    article.tour-box.list-style
-                        .row
-                            .col-md-5.col-sm-5
-                                .tour-box-image
-                                    a(href='/tour-detail')
-                                        img.img-responsive.tour-box-img(src='assets/img/tour/tour-5.jpg' alt='')
-                                    .entry-bookmark
-                                        a(href='#')
-                                            i.ti-bookmark
-                                    .tour-time
-                                        i.ti.ti-car
-                                        span 17h
-                            .col-md-7.col-sm-7
-                                .inner-box
-                                    .discount-flick -32%
-                                    .box-inner-ellipsis
-                                        div(style='margin: 0px; padding: 0px; border: 0px;')
-                                            h3.entry-title
-                                                a(href='/tour-detail') Dubai, United Arab Emirates
-                                            .entry-content
-                                                p
-                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
-                                                span.price
-                                                    | From 
-                                                    strong.theme-cl $524
-                                                    |  /per person
-                                    .entry-meta
-                                        .meta-item.meta-author
-                                            .coauthors
-                                                span.vcard.author
-                                                    span.fn
-                                                        a(href='#')
-                                                            img.avatar.avatar-24(alt='' src='assets/img/user-4.jpg' height='24' width='24')
-                                                            | Lisa Scholfield
-                                        .meta-item.meta-comment.fl-right
-                                            i.ti-comment-alt
-                                            span 19
-                                        .meta-item.meta-rating.fl-right
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star-half
-                // Single Tour List
-                .col-lg-6.col-md-6
-                    article.tour-box.list-style
-                        .row
-                            .col-md-5.col-sm-5
-                                .tour-box-image
-                                    a(href='/tour-detail')
-                                        img.img-responsive.tour-box-img(src='assets/img/tour/tour-4.jpg' alt='')
-                                    .entry-bookmark
-                                        a(href='#')
-                                            i.ti-bookmark
-                                    .tour-time
-                                        i.ti.ti-car
-                                        span 2 days
-                            .col-md-7.col-sm-7
-                                .inner-box
-                                    .discount-flick -15%
-                                    .box-inner-ellipsis
-                                        div(style='margin: 0px; padding: 0px; border: 0px;')
-                                            h3.entry-title
-                                                a(href='/tour-detail') Paris, France. neirfy
-                                            .entry-content
-                                                p
-                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
-                                                span.price
-                                                    | From 
-                                                    strong.theme-cl $987
-                                                    |  /per person
-                                    .entry-meta
-                                        .meta-item.meta-author
-                                            .coauthors
-                                                span.vcard.author
-                                                    span.fn
-                                                        a(href='#')
-                                                            img.avatar.avatar-24(alt='' src='assets/img/user-5.jpg' height='24' width='24')
-                                                            | Lisa Scholfield
-                                        .meta-item.meta-comment.fl-right
-                                            i.ti-comment-alt
-                                            span 17
-                                        .meta-item.meta-rating.fl-right
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star-half
-                // Single Tour List
-                .col-lg-6.col-md-6
-                    article.tour-box.list-style
-                        .row
-                            .col-md-5.col-sm-5
-                                .tour-box-image
-                                    a(href='/tour-detail')
-                                        img.img-responsive.tour-box-img(src='assets/img/tour/tour-3.jpg' alt='')
-                                    .entry-bookmark
-                                        a(href='#')
-                                            i.ti-bookmark
-                                    .tour-time
-                                        i.ti.ti-car
-                                        span 3 days
-                            .col-md-7.col-sm-7
-                                .inner-box
-                                    .discount-flick -12%
-                                    .box-inner-ellipsis
-                                        div(style='margin: 0px; padding: 0px; border: 0px;')
-                                            h3.entry-title
-                                                a(href='/tour-detail') London, England. AndreaAstes
-                                            .entry-content
-                                                p
-                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
-                                                span.price
-                                                    | From 
-                                                    strong.theme-cl $184
-                                                    |  /per person
-                                    .entry-meta
-                                        .meta-item.meta-author
-                                            .coauthors
-                                                span.vcard.author
-                                                    span.fn
-                                                        a(href='#')
-                                                            img.avatar.avatar-24(alt='' src='assets/img/user-6.jpg' height='24' width='24')
-                                                            | Lisa Scholfield
-                                        .meta-item.meta-comment.fl-right
-                                            i.ti-comment-alt
-                                            span 23
-                                        .meta-item.meta-rating.fl-right
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star-half
-                // Single Tour List
-                .col-lg-6.col-md-6
-                    article.tour-box.list-style
-                        .row
-                            .col-md-5.col-sm-5
-                                .tour-box-image
-                                    a(href='/tour-detail')
-                                        img.img-responsive.tour-box-img(src='assets/img/tour/tour-2.jpg' alt='')
-                                    .entry-bookmark
-                                        a(href='#')
-                                            i.ti-bookmark
-                                    .tour-time
-                                        i.ti.ti-car
-                                        span 10h
-                            .col-md-7.col-sm-7
-                                .inner-box
-                                    .discount-flick -12%
-                                    .box-inner-ellipsis
-                                        div(style='margin: 0px; padding: 0px; border: 0px;')
-                                            h3.entry-title
-                                                a(href='/tour-detail') Bangkok, Thailand. thitivong
-                                            .entry-content
-                                                p
-                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
-                                                span.price
-                                                    | From 
-                                                    strong.theme-cl $654
-                                                    |  /per person
-                                    .entry-meta
-                                        .meta-item.meta-author
-                                            .coauthors
-                                                span.vcard.author
-                                                    span.fn
-                                                        a(href='#')
-                                                            img.avatar.avatar-24(alt='' src='assets/img/user-7.jpg' height='24' width='24')
-                                                            | Lisa Scholfield
-                                        .meta-item.meta-comment.fl-right
-                                            i.ti-comment-alt
-                                            span 13
-                                        .meta-item.meta-rating.fl-right
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star-half
-                // Single Tour List
-                .col-lg-6.col-md-6
-                    article.tour-box.list-style
-                        .row
-                            .col-md-5.col-sm-5
-                                .tour-box-image
-                                    a(href='/tour-detail')
-                                        img.img-responsive.tour-box-img(src='assets/img/tour/tour-1.jpg' alt='')
-                                    .entry-bookmark
-                                        a(href='#')
-                                            i.ti-bookmark
-                                    .tour-time
-                                        i.ti.ti-car
-                                        span 1 day
-                            .col-md-7.col-sm-7
-                                .inner-box
-                                    .discount-flick -20%
-                                    .box-inner-ellipsis
-                                        div(style='margin: 0px; padding: 0px; border: 0px;')
-                                            h3.entry-title
-                                                a(href='/tour-detail') New York, New York
-                                            .entry-content
-                                                p
-                                                    | Post A Job To Tell Us About Your Project. We&apos;ll Quickly Match You With The Right Freelancers.
-                                                span.price
-                                                    | From 
-                                                    strong.theme-cl $270
-                                                    |  /per person
-                                    .entry-meta
-                                        .meta-item.meta-author
-                                            .coauthors
-                                                span.vcard.author
-                                                    span.fn
-                                                        a(href='#')
-                                                            img.avatar.avatar-24(alt='' src='assets/img/user-8.jpg' height='24' width='24')
-                                                            | Lisa Scholfield
-                                        .meta-item.meta-comment.fl-right
-                                            i.ti-comment-alt
-                                            span 19
-                                        .meta-item.meta-rating.fl-right
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star
-                                            i.fa.fa-star-half
-            .row
-                ul.pagination
-                    li.page-item
-                        a.page-link(href='#' aria-label='Previous')
-                            span.ti-arrow-left
-                            span.sr-only Previous
-                    li.page-item
-                        a.page-link(href='#') 1
-                    li.page-item
-                        a.page-link(href='#') 2
-                    li.page-item.active
-                        a.page-link(href='#') 3
-                    li.page-item
-                        a.page-link(href='#') 4
-                    li.page-item
-                        a.page-link(href='#') 5
-                    li.page-item
-                        a.page-link(href='#' aria-label='Next')
-                            span.ti-arrow-right
-                            span.sr-only Next
+                each tour,i in tours
+                    .col-lg-6.col-md-6
+                        article.tour-box.list-style
+                            .row
+                                .col-md-5.col-sm-5
+                                    .tour-box-image
+                                        a(href=`/tour/${tour.slug}`)
+                                            img.img-responsive.tour-box-img(src=`assets/img/tour/tour-${i+1}.jpg` alt='')
+                                        .entry-bookmark
+                                            a(href='#')
+                                                i.ti-bookmark
+                                        .tour-time
+                                            i.ti.ti-car
+                                            span 17h
+                                .col-md-7.col-sm-7
+                                    .inner-box
+                                        .discount-flick -22%
+                                        .box-inner-ellipsis
+                                            div(style='margin: 0px; padding: 0px; border: 0px;')
+                                                h3.entry-title
+                                                    a(href=`/tour/${tour.slug}`)= tour.name
+                                                .entry-content
+                                                    p= tour.summary
+                                                    span.price
+                                                        | From 
+                                                        strong.theme-cl= `${tour.price} per person`
+                                        .entry-meta
+                                            .meta-item.meta-author
+                                                .coauthors
+                                                    span.vcard.author
+                                                        span.fn
+                                                            a(href='#')
+                                                                img.avatar.avatar-24(alt='' src=`assets/img/user-${i+1}.jpg` height='24' width='24')
+                                                                = `difficulty: ${tour. difficulty}`
+                                            .meta-item.meta-comment.fl-right
+                                                i.ti-comment-alt
+                                                span= tour.ratingsQuantity
+                                            .meta-item.meta-rating.fl-right
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star-half
+            
+            include _pagination
 
     block content_contact 
         include _contact
-//- block content_footer 
-//-     include _footer
+block content_footer 
+    include _footer

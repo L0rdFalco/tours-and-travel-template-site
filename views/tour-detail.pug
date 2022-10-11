@@ -171,9 +171,8 @@ block content
                                                         | English, French
                                                     li
                                                         strong Location:
-                                                        | Canada
-                                                    li
-                                                        strong
+                                                        = `${tour.startLocation.description}`
+
                             // Location
                             .row
                                 .tr-single-box
@@ -292,9 +291,8 @@ block content
                     // Tourist Overview
                     .tr-single-box
                         .tr-single-header
-                            h4
-                                | Adam G. Gilworm
-                                sup.cl-success Canada Tour
+                            h4= `${tour.guides[0].name}`
+                                sup.cl-success= `${tour.startLocation.description} tour`
                         .tr-single-body
                             ul.extra-service.half
                                 li
@@ -308,21 +306,21 @@ block content
                                         a(href='#')
                                             .icon-box-round
                                                 i.ti-timer
-                                            .icon-box-text= `for ${tour.duration} days`
+                                            .icon-box-text= `for ${tour.duration} hours`
                                 li
                                     .icon-box-icon-block
                                         a(href='#')
                                             .icon-box-round
                                                 i.ti-eye
                                             .icon-box-text
-                                                | 785 View
+                                                | 785 Views
                                 li
                                     .icon-box-icon-block
                                         a(href='#')
                                             .icon-box-round
                                                 i.ti-share
                                             .icon-box-text
-                                                | 110 Share
+                                                | 110 Shares
                                 li
                                     .icon-box-icon-block
                                         a(href='#')
@@ -344,16 +342,14 @@ block content
                                     .view-box
                                         .fl-right
                                             h4.font-20
-                                                span.theme-cl.font-20 $
-                                                | 216
-                                                sub /Per Persion
+                                                span.theme-cl.font-20= `$${tour.price} per person`
                                 .meta-item.meta-author
                                     .hotel-review.entry-location
                                         span.review-status.bg-success
                                             i.ti-check
                                         h6
                                             span.cl-success.font-bold Good
-                                            | 1362 Review
+                                            =`${tour.ratingsQuantity} reviews`
                         .tr-single-body
                             form.book-form
                                 .row
@@ -510,5 +506,5 @@ block content
     block content_contact 
         include _contact
 
-//- block content_footer 
-//-     include _footer
+block content_footer 
+    include _footer
