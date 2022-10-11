@@ -22,9 +22,10 @@ exports.getTestPage = (request, response, next) => {
 exports.getHomePage = async (request, response, next) => {
     try {
         const tourDocs = await toursModel.find()
-        console.log(tourDocs.length);
+        response.status(200).render("home", {
+            tours: tourDocs
 
-        response.status(200).render("home")
+        })
     } catch (error) {
 
         response.status(400).json({
@@ -662,10 +663,14 @@ exports.getAllToursListPage = (request, response, next) => {
         })
     }
 }
-exports.getSingleTourDetailPage = (request, response, next) => {
+exports.getSingleTourDetailPage = async (request, response, next) => {
     try {
 
-        response.status(200).render("tour-detail")
+        let singleTour = await toursModel.find({ slug: request.params.slug }).populate("reviews")
+
+        response.status(200).render("tour-detail", {
+            tour: singleTour[0]
+        })
 
 
     } catch (error) {

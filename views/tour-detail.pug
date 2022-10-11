@@ -10,8 +10,8 @@ block content
                     .tr-list-thumb
                         img.img-responsive.img-circle(src='/assets/img/user-2.jpg' alt='')
                     .tr-list-info
-                        h4 Adam G. Gilworm
-                        p Canada Tour
+                        h4= tour.name
+                        p= `${tour.startLocation.description} tour`
     // ======================= End Banner =====================
     section.profile-header-nav.padd-0.bb-1
         .container
@@ -31,7 +31,7 @@ block content
                             li(role='presentation')
                                 a(href='#Review' aria-controls='messages' role='tab' data-toggle='tab')
                                     i.ti-thumb-up
-                                    | Review
+                                    | Reviews
                             li(role='presentation')
                                 a(href='#Photos' aria-controls='messages' role='tab' data-toggle='tab')
                                     i.ti-gallery
@@ -108,12 +108,8 @@ block content
                                             i.ti-files
                                             | Description
                                     .tr-single-body
-                                        p
-                                            | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus..
-                                        p
-                                            | Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
-                                        p
-                                            | Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam.
+                                        p= tour.description.replace(/\./g, matchedStr => `${matchedStr}`)
+
                             // Amenities
                             .row
                                 .tr-single-box
@@ -153,8 +149,7 @@ block content
                                             .guider-box-thumb
                                                 img.img-responsive.img-circle(src='/assets/img/user-6.jpg' alt='')
                                             .guider-box-detail-content
-                                                h4
-                                                    | Shilka Niharika
+                                                h4= tour.guides[0].name
                                                     sup.theme-cl Guide
                                                 p
                                                     | 4 year Experience
@@ -229,134 +224,32 @@ block content
                                     .tr-single-header
                                         h4
                                             i.ti-write
-                                            | All Review
+                                            | All Reviews
                                     .tr-single-body
                                         // Single Review
-                                        .review-box
-                                            .review-thumb
-                                                img.img-responsive.img-circle(src='/assets/img/user-1.jpg' alt='')
-                                            .review-box-content
-                                                .reviewer-rate
-                                                    p
-                                                        i.fa.fa-star.cl-warning
-                                                        | 4.7/
-                                                        span 5
-                                                .review-user-info
-                                                    h4 Daniel Dicoss
-                                                    p
-                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
-                                                .review-lc.text-right
-                                                    a(href='#')
-                                                        i.ti-heart
-                                                        | 87
-                                                    a(href='#')
-                                                        i.ti-comment
-                                                        | 52
-                                        // Single Review
-                                        .review-box
-                                            .review-thumb
-                                                img.img-responsive.img-circle(src='/assets/img/user-2.jpg' alt='')
-                                            .review-box-content
-                                                .reviewer-rate
-                                                    p
-                                                        i.fa.fa-star.cl-warning
-                                                        | 4.4/
-                                                        span 5
-                                                .review-user-info
-                                                    h4 Archita Singh
-                                                    p
-                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
-                                                .review-lc.text-right
-                                                    a(href='#')
-                                                        i.ti-heart
-                                                        | 65
-                                                    a(href='#')
-                                                        i.ti-comment
-                                                        | 78
-                                        // Single Review
-                                        .review-box
-                                            .review-thumb
-                                                img.img-responsive.img-circle(src='/assets/img/user-3.jpg' alt='')
-                                            .review-box-content
-                                                .reviewer-rate
-                                                    p
-                                                        i.fa.fa-star.cl-warning
-                                                        | 5.0/
-                                                        span 5
-                                                .review-user-info
-                                                    h4 Devesh Patri
-                                                    p
-                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
-                                                .review-lc.text-right
-                                                    a(href='#')
-                                                        i.ti-heart
-                                                        | 110
-                                                    a(href='#')
-                                                        i.ti-comment
-                                                        | 47
-                                        // Single Review
-                                        .review-box
-                                            .review-thumb
-                                                img.img-responsive.img-circle(src='/assets/img/user-4.jpg' alt='')
-                                            .review-box-content
-                                                .reviewer-rate
-                                                    p
-                                                        i.fa.fa-star.cl-warning
-                                                        | 4.9/
-                                                        span 5
-                                                .review-user-info
-                                                    h4 Ruchi Sethi
-                                                    p
-                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
-                                                .review-lc.text-right
-                                                    a(href='#')
-                                                        i.ti-heart
-                                                        | 120
-                                                    a(href='#')
-                                                        i.ti-comment
-                                                        | 36
-                                        // Single Review
-                                        .review-box
-                                            .review-thumb
-                                                img.img-responsive.img-circle(src='/assets/img/user-5.jpg' alt='')
-                                            .review-box-content
-                                                .reviewer-rate
-                                                    p
-                                                        i.fa.fa-star.cl-warning
-                                                        | 4.8/
-                                                        span 5
-                                                .review-user-info
-                                                    h4 Duke Divalkis
-                                                    p
-                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
-                                                .review-lc.text-right
-                                                    a(href='#')
-                                                        i.ti-heart
-                                                        | 80
-                                                    a(href='#')
-                                                        i.ti-comment
-                                                        | 70
-                                        // Single Review
-                                        .review-box
-                                            .review-thumb
-                                                img.img-responsive.img-circle(src='/assets/img/user-6.jpg' alt='')
-                                            .review-box-content
-                                                .reviewer-rate
-                                                    p
-                                                        i.fa.fa-star.cl-warning
-                                                        | 4.7/
-                                                        span 5
-                                                .review-user-info
-                                                    h4 Shilka Rai
-                                                    p
-                                                        | Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus
-                                                .review-lc.text-right
-                                                    a(href='#')
-                                                        i.ti-heart
-                                                        | 120
-                                                    a(href='#')
-                                                        i.ti-comment
-                                                        | 140
+                                        each review,i in tour.reviews
+                                            .review-box
+                                                .review-thumb
+                                                    img.img-responsive.img-circle(src=`/assets/img/user-${i+1}.jpg` alt='')
+                                                .review-box-content
+                                                    .reviewer-rate
+                                                        p
+                                                            i.fa.fa-star.cl-warning= review.rating
+                                                            span of 5
+                                                    .review-user-info
+                                                        if(review.user)
+                                                            h4= review.user.name
+                                                        else 
+                                                            H4 anonymous    
+                                                        p= review.review
+                                                    .review-lc.text-right
+                                                        a(href='#')
+                                                            i.ti-heart
+                                                            | 87
+                                                        a(href='#')
+                                                            i.ti-comment
+                                                            | 52
+
                         // ============ Photos ===================
                         #Photos.tab-pane.fade.in(role='tabpanel')
                             .row
@@ -409,15 +302,13 @@ block content
                                         a(href='#')
                                             .icon-box-round
                                                 i.ti-user
-                                            .icon-box-text
-                                                | 5 Person
+                                            .icon-box-text= `${tour.maxGroupSize} people`
                                 li
                                     .icon-box-icon-block
                                         a(href='#')
                                             .icon-box-round
                                                 i.ti-timer
-                                            .icon-box-text
-                                                | For 7 Days
+                                            .icon-box-text= `for ${tour.duration} days`
                                 li
                                     .icon-box-icon-block
                                         a(href='#')
@@ -437,8 +328,7 @@ block content
                                         a(href='#')
                                             .icon-box-round
                                                 i.ti-comment-alt
-                                            .icon-box-text
-                                                | 22 comments
+                                            .icon-box-text= `${tour.reviews.length} reviews`
                                 li
                                     .icon-box-icon-block
                                         a(href='#')

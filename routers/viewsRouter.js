@@ -56,7 +56,7 @@ ViewsRouter.route("/restaurant-grid").get(viewsController.getRestaurantGridPage)
 ViewsRouter.route("/restaurant-list-sidebar").get(viewsController.getRestaurantListSidebarPage)
 ViewsRouter.route("/restaurant-list").get(viewsController.getRestaurantListPage)
 
-ViewsRouter.route("/tour-detail").get(viewsController.getSingleTourDetailPage)
+ViewsRouter.route("tour/:slug").get(viewsController.getSingleTourDetailPage)
 ViewsRouter.route("/tours-grid-sidebar").get(viewsController.getAllToursGridSidebarPage)
 ViewsRouter.route("/tours-grid").get(viewsController.getAllToursGridPage)
 ViewsRouter.route("/tours-list-sidebar").get(viewsController.getAllToursListSidebarPage)
