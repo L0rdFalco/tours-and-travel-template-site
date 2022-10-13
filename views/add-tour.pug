@@ -118,7 +118,8 @@ block content
                                     ul#progressbar
                                         li.active Basic Information
                                         li Available Amenities
-                                        li Proceed Payment
+                                        li overview
+                                        li success page
                                     // fieldsets
                                     fieldset
                                         .text-center
@@ -192,7 +193,7 @@ block content
                                             .col-xs-12
                                                 label Hotel Information
                                                 textarea.form-control.height-120(placeholder='About Hotel')
-                                        input.next.action-button(type='button' name='next' value='Next')
+                                        input.next.action-button(type='button' name='next' value='Next' id='next1')
                                     fieldset
                                         h2.fs-title Available Amenities
                                         h3.fs-subtitle Your presence on the social network
@@ -290,7 +291,15 @@ block content
                                                             label(for='18')
                                                         | Security cameras
                                         input.previous.action-button(type='button' name='previous' value='Previous')
-                                        input.next.action-button(type='button' name='next' value='Next')
+                                        input.next.action-button(type='button' name='next' value='Next' id="next2")
+                                    fieldset
+                                        .row
+                                            .col-md-12.text-center
+                                                p
+                                                    strong Hi Daniel
+                                                    | , this is the tour overview:
+                                        input.previous.action-button(type='button' name='previous' value='Previous')
+                                        input.next.action-button(type='button' name='submit' value='submit' id="submit")
                                     fieldset
                                         .row
                                             .col-md-12.text-center
@@ -298,6 +307,6 @@ block content
                                                 h3.cl-success Congratulations!
                                                 p
                                                     strong Hi Daniel
-                                                    | , You Listing has been submitted successfully
+                                                    | , Your tour listing has been submitted successfully            
     block content_contact 
         include _contact
