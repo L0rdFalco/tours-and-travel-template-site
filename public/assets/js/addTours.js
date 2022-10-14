@@ -1,14 +1,20 @@
-const next1Btn = document.getElementById("next1")
-const next2Btn = document.getElementById("next2")
-
-if (next1Btn) {
-    next1Btn.addEventListener("click", function (e) {
-        console.log("next1 clicked");
-    })
-}
-
-if (next2Btn) {
-    next2Btn.addEventListener("click", function (e) {
-        console.log("next2 clicked");
-    })
-}
+const next1El = document.getElementById("next1")
+const next2El = document.getElementById("next2")
+const errorEl = document.getElementById("error")
+const datepicker1Value = document.getElementById("datepicker1").textContent
+const datepicker2Value = document.getElementById("datepicker2").textContent
+const datepicker3Value = document.getElementById("datepicker3").textContent
+const datepicker4Value = document.getElementById("datepicker4").textContent
+const location1Value = document.getElementById("location1").textContent
+const location2Value = document.getElementById("location2").textContent
+const location3Value = document.getElementById("location3").textContent
+const location4Value = document.getElementById("location4").textContent
+const guideValue = document.getElementById("guide").textContent
+const ratingValue = document.getElementById("rating").textContent
+const priceValue = document.getElementById("price").textContent
+const durationValue = document.getElementById("duration").textContent
+const groupsizeValue = document.getElementById("groupsize").textContent
+const fetured_imageValue = document.getElementById("featured-image").textContent
+const galleryValue = document.getElementById("gallery").textContent
+const summaryValue = document.getElementById("summary").textContent
+const descriptionValue = document.getElementById("description").textContent

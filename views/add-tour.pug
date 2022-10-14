@@ -127,72 +127,93 @@ block content
                                             h3.fs-subtitle This is step 1
                                         .row
                                             .col-xs-6
-                                                label Hotel Name
-                                                input.form-control(type='text' placeholder='Green Valley')
+                                                label Tour Name
+                                                input.form-control(type='text' value="test123" placeholder='Galaxy cruiser tour')
+
                                             .col-xs-6
-                                                label Upload Logo
+                                                label Upload itenerary
                                                 .cf-input
                                                     label.custom-file
-                                                        input#file.custom-file-input(type='file')
+                                                        input#file1.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
-                                                label Ratting
+                                                label(for='datepicker1') pick first start date
+                                                input#datepicker1.datepicker_input.form-control.border-2(type='text',value="test123" required='', placeholder='DD/MM/YYYY')
+                                            .col-xs-6
+                                                label(for='datepicker1') pick second start date
+                                                input#datepicker2.datepicker_input.form-control.border-2(type='text', value="test123" required='', placeholder='DD/MM/YYYY')
+                                            .col-xs-6
+                                                label(for='datepicker1') pick third start date
+                                                input#datepicker3.datepicker_input.form-control.border-2(type='text', value="test123" required='', placeholder='DD/MM/YYYY')
+                                            .col-xs-6
+                                                label(for='datepicker1') pick fourth start date
+                                                input#datepicker4.datepicker_input.form-control.border-2(type='text', value="test123" required='', placeholder='DD/MM/YYYY')
+                                            .col-xs-6
+                                                label add first location
+                                                input#location1.form-control(type='text' value="test123" placeholder='lat, long')
+                                            .col-xs-6
+                                                label add second location
+                                                input#location2.form-control(type='text' value="test123" placeholder='lat, long')
+                                            .col-xs-6
+                                                label add third location
+                                                input#location3.form-control(type='text' value="test123" placeholder='lat, long')
+                                            .col-xs-6
+                                                label add fourth location
+                                                input#location4.form-control(type='text' value="test123" placeholder='lat, long')                                               
+                                            .col-xs-6
+                                                label choose start location
+                                                input#location0.form-control(type='text' value="test123" placeholder='lat, long')
+                                            .col-xs-6
+                                                label choose guide
                                                 .sl-box
-                                                    select.form-control.wide
-                                                        option Hotel ratting
-                                                        option Normal
-                                                        option 3 Start
-                                                        option 4 Start
-                                                        option 5 Start
-                                                        option 7 Startg
+                                                    select#guide.form-control.wide
+                                                        option self-guided
+                                                        option guide name 1
+                                                        option guide name 2
+                                                        option guide name 3
+                                                        option guide name 4
+                                                        option guide name 5
                                             .col-xs-6
-                                                label Charge/Night
-                                                input.form-control(type='text' placeholder='$220')
+                                                label choose difficulty
+                                                .sl-box
+                                                    select#rating.form-control.wide
+                                                        option not rated
+                                                        option easy
+                                                        option medium
+                                                        option difficult
+
+                                                
                                             .col-xs-6
-                                                label Phone
-                                                input.form-control(type='text' placeholder='+91 254 875 8457')
+                                                label price/person
+                                                input#price.form-control(type='text' value="test123" placeholder='$555')
                                             .col-xs-6
-                                                label Landline
-                                                input.form-control(type='text' placeholder='172 025 458')
+                                                label duration
+                                                input#duration.form-control(type='text' value="test123" placeholder='5 hours')
                                             .col-xs-6
-                                                label Email
-                                                input.form-control(type='text' placeholder='yourht@gmail.com')
+                                                label maximum group size
+                                                input#groupsize.form-control(type='text' value="test123" placeholder='12')
+
+
                                             .col-xs-6
-                                                label Fax
-                                                input.form-control(type='text' placeholder='fax')
-                                            .col-xs-6
-                                                label Address
-                                                input.form-control(type='text' placeholder='#548, Near Big Market')
-                                            .col-xs-6
-                                                label City
-                                                input.form-control(type='text' placeholder='city')
-                                            .col-xs-6
-                                                label State
-                                                input.form-control(type='text' placeholder='state')
-                                            .col-xs-6
-                                                label Country
-                                                input.form-control(type='text' placeholder='country')
-                                            .col-xs-6
-                                                label Owner Name
-                                                input.form-control(type='text' placeholder='Daniel Duke')
-                                            .col-xs-6
-                                                label Owner Contact
-                                                input.form-control(type='text' placeholder='987 584 5847')
-                                            .col-xs-6
-                                                label Featured Iamge
+                                                label Tour banner Image
                                                 .cf-input
                                                     label.custom-file
                                                         input#featured-image.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
-                                                label Upload Gallery
+                                                label Upload tour image gallery
                                                 .cf-input
                                                     label.custom-file
                                                         input#gallery.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-12
-                                                label Hotel Information
-                                                textarea.form-control.height-120(placeholder='About Hotel')
+                                                label tour summary
+                                                textarea#summary.form-control.height-120(value="test123" placeholder='simple one liner description')
+                                            .col-xs-12
+                                                label tour description
+                                                textarea#description.form-control.height-120(value="test123" placeholder='long description about tour')
+                                                h2#error.fs-title ALL FIELDS ARE REQUIRED
+
                                         input.next.action-button(type='button' name='next' value='Next' id='next1')
                                     fieldset
                                         h2.fs-title Available Amenities
@@ -247,7 +268,7 @@ block content
                                                         | Free Wifi
                                                     li
                                                         span.custom-checkbox
-                                                            input#0(type='checkbox')
+                                                            input#10(type='checkbox')
                                                             label(for='0')
                                                         | Bath towel
                                                     li
@@ -259,7 +280,7 @@ block content
                                                         span.custom-checkbox
                                                             input#12(type='checkbox')
                                                             label(for='12')
-                                                        | Pets Allow
+                                                        | Pets Allowed
                                                     li
                                                         span.custom-checkbox
                                                             input#13(type='checkbox')
@@ -295,7 +316,9 @@ block content
                                     fieldset
                                         .row
                                             .col-md-12.text-center
-                                                p
+                                                p#heading
+                                                |
+                                                p#tourSummary
                                                     strong Hi Daniel
                                                     | , this is the tour overview:
                                         input.previous.action-button(type='button' name='previous' value='Previous')

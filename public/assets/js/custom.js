@@ -17,6 +17,8 @@
 * 11. METIS MENU
 * 12. Add Listing Process
 **************************************/
+const tourInfo = {};
+const amenitiesInfo = {};
 (function ($) {
 	"use strict";
 
@@ -160,12 +162,79 @@
 	/*---------- Add Listing Process ------*/
 	$(function () {
 
+
 		//jQuery time
 		var current_fs, next_fs, previous_fs; //fieldsets
 		var left, opacity, scale; //fieldset properties which we will animate
 		var animating; //flag to prevent quick multi-click glitches
 
-		$(".next").click(function () {
+		$("#next1").click(function () {
+
+
+			const errorEl = document.getElementById("error")
+			const datepicker1Value = document.getElementById("datepicker1").value.trim()
+			const datepicker2Value = document.getElementById("datepicker2").value.trim()
+			const datepicker3Value = document.getElementById("datepicker3").value.trim()
+			const datepicker4Value = document.getElementById("datepicker4").value.trim()
+			const location1Value = document.getElementById("location1").value.trim()
+			const location2Value = document.getElementById("location2").value.trim()
+			const location3Value = document.getElementById("location3").value.trim()
+			const location4Value = document.getElementById("location4").value.trim()
+			const guideValue = document.getElementById("guide").value.trim()
+			const ratingValue = document.getElementById("rating").value.trim()
+			const priceValue = document.getElementById("price").value.trim()
+			const durationValue = document.getElementById("duration").value.trim()
+			const groupsizeValue = document.getElementById("groupsize").value.trim()
+			const summaryValue = document.getElementById("summary").value.trim()
+			const descriptionValue = document.getElementById("description").value.trim()
+			// const featured_imageValue = document.getElementById("featured-image").value.trim()
+			// const galleryValue = document.getElementById("gallery").value.trim()
+
+
+			if (
+				!datepicker1Value.length ||
+				!datepicker2Value.length ||
+				!datepicker3Value.length ||
+				!datepicker4Value.length ||
+				!location1Value.length ||
+				!location2Value.length ||
+				!location3Value.length ||
+				!location4Value.length ||
+				!guideValue.length ||
+				!ratingValue.length ||
+				!priceValue.length ||
+				!durationValue.length ||
+				!groupsizeValue.length ||
+				!summaryValue.length ||
+				!descriptionValue.length
+			) {
+
+				errorEl.style.opacity = 1
+				setTimeout(() => {
+					errorEl.style.opacity = 0
+
+				}, 5000)
+				return
+			}
+
+
+
+			tourInfo['dp1'] = datepicker1Value
+			tourInfo['dp2'] = datepicker2Value
+			tourInfo['dp3'] = datepicker3Value
+			tourInfo['dp4'] = datepicker4Value
+			tourInfo['loc1'] = location1Value
+			tourInfo['loc2'] = location2Value
+			tourInfo['loc3'] = location3Value
+			tourInfo['loc4'] = location4Value
+			tourInfo['guide'] = guideValue
+			tourInfo['rating'] = ratingValue
+			tourInfo['price'] = priceValue
+			tourInfo['duration'] = durationValue
+			tourInfo['groupsize'] = groupsizeValue
+			tourInfo['summary'] = summaryValue
+			tourInfo['description'] = descriptionValue
+
 			if (animating) return false;
 			animating = true;
 
@@ -199,6 +268,102 @@
 				easing: 'easeInOutBack'
 			});
 		});
+
+		$("#next2").click(function () {
+			const input1El = document.getElementById("1")
+			const input2El = document.getElementById("2")
+			const input3El = document.getElementById("3")
+			const input4El = document.getElementById("4")
+			const input5El = document.getElementById("5")
+			const input6El = document.getElementById("6")
+			const input7El = document.getElementById("7")
+			const input8El = document.getElementById("8")
+			const input9El = document.getElementById("9")
+			const input10El = document.getElementById("10")
+			const input11El = document.getElementById("11")
+			const input12El = document.getElementById("12")
+			const input13El = document.getElementById("13")
+			const input14El = document.getElementById("14")
+			const input15El = document.getElementById("15")
+			const input16El = document.getElementById("16")
+			const input17El = document.getElementById("17")
+			const input18El = document.getElementById("18")
+
+			if (input1El.checked) amenitiesInfo["1"] = "satellite tv"
+			if (input2El.checked) amenitiesInfo["2"] = "coffee maker"
+			if (input3El.checked) amenitiesInfo["3"] = "hair dryer"
+			if (input4El.checked) amenitiesInfo["4"] = "swimming pool"
+			if (input5El.checked) amenitiesInfo["5"] = "room service"
+			if (input6El.checked) amenitiesInfo["6"] = "luxury bedding"
+			if (input7El.checked) amenitiesInfo["7"] = "good showers"
+			if (input8El.checked) amenitiesInfo["8"] = "free parking"
+			if (input9El.checked) amenitiesInfo["9"] = "free wifi"
+			if (input10El.checked) amenitiesInfo["10"] = "bath towels"
+			if (input11El.checked) amenitiesInfo["11"] = "free coffee"
+			if (input12El.checked) amenitiesInfo["12"] = "pets friendly"
+			if (input13El.checked) amenitiesInfo["13"] = "running hot water"
+			if (input14El.checked) amenitiesInfo["14"] = "attached garage"
+			if (input15El.checked) amenitiesInfo["15"] = "elevator"
+			if (input16El.checked) amenitiesInfo["16"] = "spa/sauna"
+			if (input17El.checked) amenitiesInfo["17"] = "indoor pool"
+			if (input18El.checked) amenitiesInfo["18"] = "secuirty cameras"
+
+			let summaryText = ""
+			const headingEl = document.getElementById("heading")
+			const tourSummaryEl = document.getElementById("tourSummary")
+			headingEl.textContent = "Hi man, this is your tour summary: "
+
+			summaryText = "<b>tour details:<b><br>"
+			for (const key in tourInfo) {
+				summaryText += `<br><b>${key}<b> : ${tourInfo["" + key]}<br>`
+			}
+
+			summaryText += "<b><br><br>included amenities:<b><br>"
+
+			for (const key in amenitiesInfo) {
+				summaryText += `<br><b>*<b> ${amenitiesInfo["" + key]}<br>`
+			}
+
+
+			tourSummaryEl.innerHTML = summaryText
+
+
+
+
+			if (animating) return false;
+			animating = true;
+
+			current_fs = $(this).parent();
+			next_fs = $(this).parent().next();
+
+			//activate next step on progressbar using the index of next_fs
+			$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+			//show the next fieldset
+			next_fs.show();
+			//hide the current fieldset with style
+			current_fs.animate({ opacity: 0 }, {
+				step: function (now, mx) {
+					//as the opacity of current_fs reduces to 0 - stored in "now"
+					//1. scale current_fs down to 80%
+					scale = 1 - (1 - now) * 0.2;
+					//2. bring next_fs from the right(50%)
+					left = (now * 50) + "%";
+					//3. increase opacity of next_fs to 1 as it moves in
+					opacity = 1 - now;
+					current_fs.css({ 'transform': 'scale(' + scale + ')' });
+					next_fs.css({ 'left': left, 'opacity': opacity });
+				},
+				duration: 800,
+				complete: function () {
+					current_fs.hide();
+					animating = false;
+				},
+				//this comes from the custom easing plugin
+				easing: 'easeInOutBack'
+			});
+		});
+
 
 		$(".previous").click(function () {
 			if (animating) return false;
@@ -235,7 +400,7 @@
 			});
 		});
 
-		$(".submit").click(function () {
+		$("#submit").click(function () {
 			console.log("clicked!");
 			return false;
 		})
@@ -244,3 +409,4 @@
 
 
 })(jQuery);
+
