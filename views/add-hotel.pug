@@ -1,0 +1,220 @@
+extends base
+
+block content 
+    section.dashboard.gray-bg.padd-0.mrg-top-50
+        .container-fluid
+            .row
+                .col-lg-2.col-md-2.col-sm-3.dashboard-bg
+                    // /. NAV TOP
+                    nav.navbar.navbar-side
+                        // Start Logo Header Navigation
+                        .navbar-header
+                            button.navbar-toggle(type='button' data-toggle='collapse' data-target='#dashboard-menu')
+                                i.fa.fa-bars
+                    include _dashboard_sidebar
+                    // /. NAV SIDE
+                .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
+                    .row.mrg-0.mrg-top-20
+                        .tr-single-box
+                            .tr-single-header
+                                h3.dashboard-title Add hotels
+                            .tr-single-body
+                                form#msform
+                                    // progressbar
+                                    ul#progressbar
+                                        li.active Basic Information
+                                        li Available Amenities
+                                        li overview
+                                        li success page
+                                    // fieldsets
+                                    fieldset
+                                        .text-center
+                                            h2.fs-title Basic Information
+                                            h3.fs-subtitle This is step 1
+                                        .row
+                                            .col-xs-6
+                                                label hotel Name
+                                                input.form-control(type='text' value="test123" placeholder='Galaxy cruiser hotel')
+
+                                            .col-xs-6
+                                                label Ratting
+                                                .sl-box
+                                                    select.form-control.wide
+                                                        option Hotel ratting
+                                                        option Normal
+                                                        option 3 Start
+                                                        option 4 Start
+                                                        option 5 Start
+                                                        option 7 Startg
+                                            .col-xs-6
+                                                label Charge/Night
+                                                input.form-control(type='text' placeholder='$220')
+                                            .col-xs-6
+                                                label Phone
+                                                input.form-control(type='text' placeholder='+91 254 875 8457')
+                                            .col-xs-6
+                                                label Landline
+                                                input.form-control(type='text' placeholder='172 025 458')
+                                            .col-xs-6
+                                                label Email
+                                                input.form-control(type='text' placeholder='yourht@gmail.com')
+                                            .col-xs-6
+                                                label Fax
+                                                input.form-control(type='text' placeholder='fax')
+                                            .col-xs-6
+                                                label Address
+                                                input.form-control(type='text' placeholder='#548, Near Big Market')
+                                            .col-xs-6
+                                                label City
+                                                input.form-control(type='text' placeholder='city')
+                                            .col-xs-6
+                                                label State
+                                                input.form-control(type='text' placeholder='state')
+                                            .col-xs-6
+                                                label Country
+                                                input.form-control(type='text' placeholder='country')
+                                            .col-xs-6
+                                                label Owner Name
+                                                input.form-control(type='text' placeholder='Daniel Duke')
+                                            .col-xs-6
+                                                label Owner Contact
+                                                input.form-control(type='text' placeholder='987 584 5847')
+                                            .col-xs-6
+                                                label hotel banner Image
+                                                .cf-input
+                                                    label.custom-file
+                                                        input#featured-image.custom-file-input(type='file')
+                                                        span.custom-file-control
+                                            .col-xs-6
+                                                label Upload hotel image gallery
+                                                .cf-input
+                                                    label.custom-file
+                                                        input#gallery.custom-file-input(type='file')
+                                                        span.custom-file-control
+                                            .col-xs-12
+                                                label hotel summary
+                                                textarea#summary.form-control.height-120(value="test123" placeholder='simple one liner description')
+                                            .col-xs-12
+                                                label hotel description
+                                                textarea#description.form-control.height-120(value="test123" placeholder='long description about hotel')
+                                                h2#error.fs-title ALL FIELDS ARE REQUIRED
+
+                                        input.next.action-button(type='button' name='next' value='Next' id='next1')
+                                    fieldset
+                                        h2.fs-title Available Amenities
+                                        h3.fs-subtitle Your presence on the social network
+                                        .row
+                                            .col-md-12
+                                                ul.add-amenities
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#1(type='checkbox')
+                                                            label(for='1')
+                                                        | Satellite TV
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#2(type='checkbox')
+                                                            label(for='2')
+                                                        | Coffeemaker
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#3(type='checkbox')
+                                                            label(for='3')
+                                                        | Hair Dryer
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#4(type='checkbox')
+                                                            label(for='4')
+                                                        | Swimming Pool
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#5(type='checkbox')
+                                                            label(for='5')
+                                                        | Room Service
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#6(type='checkbox')
+                                                            label(for='6')
+                                                        | Luxury Bedding
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#7(type='checkbox')
+                                                            label(for='7')
+                                                        | Good Showers
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#8(type='checkbox')
+                                                            label(for='8')
+                                                        | Free Parking
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#9(type='checkbox')
+                                                            label(for='9')
+                                                        | Free Wifi
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#10(type='checkbox')
+                                                            label(for='0')
+                                                        | Bath towel
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#11(type='checkbox')
+                                                            label(for='11')
+                                                        | Free Coffee
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#12(type='checkbox')
+                                                            label(for='12')
+                                                        | Pets Allowed
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#13(type='checkbox')
+                                                            label(for='13')
+                                                        | Hot Water
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#14(type='checkbox')
+                                                            label(for='14')
+                                                        | Attached garage
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#15(type='checkbox')
+                                                            label(for='15')
+                                                        | Elevator
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#16(type='checkbox')
+                                                            label(for='16')
+                                                        | Spa/Sauna
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#17(type='checkbox')
+                                                            label(for='17')
+                                                        | Indoor pool
+                                                    li
+                                                        span.custom-checkbox
+                                                            input#18(type='checkbox')
+                                                            label(for='18')
+                                                        | Security cameras
+                                        input.previous.action-button(type='button' name='previous' value='Previous' id="previous1")
+                                        input.next.action-button(type='button' name='next' value='Next' id="next2")
+                                    fieldset
+                                        .row
+                                            .col-md-12.text-center
+                                                p#heading
+                                                |
+                                                p#hotelSummary
+                                                    strong Hi Daniel
+                                                    | , this is the hotel overview:
+                                        input.previous.action-button(type='button' name='previous' value='Previous' id="previous2")
+                                        input.next.action-button(type='button' name='submit' value='submit' id="submit1")
+                                    fieldset
+                                        .row
+                                            .col-md-12.text-center
+                                                i.ti-thumb-up.cl-success.font-50
+                                                h3.cl-success Congratulations!
+                                                p
+                                                    strong Hi Daniel
+                                                    | , Your hotel listing has been submitted successfully            
+    block content_contact 
+        include _contact
