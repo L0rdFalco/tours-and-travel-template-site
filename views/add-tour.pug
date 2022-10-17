@@ -114,10 +114,10 @@ block content
                                                         span.custom-file-control
                                             .col-xs-12
                                                 label tour summary
-                                                textarea#summary.form-control.height-120(value="test123" placeholder='simple one liner description')
+                                                textarea#tr_summary.form-control.height-120(value="test123" placeholder='simple one liner description')
                                             .col-xs-12
                                                 label tour description
-                                                textarea#description.form-control.height-120(value="test123" placeholder='long description about tour')
+                                                textarea#tr_description.form-control.height-120(value="test123" placeholder='long description about tour')
                                                 h2#error.fs-title ALL FIELDS ARE REQUIRED
 
                                         input.next.action-button(type='button' name='next' value='Next' id='tour_next1')
@@ -222,9 +222,9 @@ block content
                                     fieldset
                                         .row
                                             .col-md-12.text-center
-                                                p#heading
+                                                p#tour_heading
                                                 |
-                                                p#tourSummary
+                                                p#tour_summary
                                                     strong Hi Daniel
                                                     | , this is the tour overview:
                                         input.previous.action-button(type='button' name='tour_previous2' value='Previous' id="tour_previous2")

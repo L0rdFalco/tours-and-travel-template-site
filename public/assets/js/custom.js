@@ -18,7 +18,16 @@
 * 12. Add Listing Process
 **************************************/
 const tourInfo = {};
-const amenitiesInfo = {};
+const tourAmenitiesInfo = {};
+
+const hotelInfo = {};
+const hotelAmenitiesInfo = {};
+
+const restaurantInfo = {};
+const restaurantAmenitiesInfo = {};
+
+const destinatioInfo = {};
+const destinatioAmenitiesInfo = {};
 
 (function ($) {
 	"use strict";
@@ -184,10 +193,9 @@ const amenitiesInfo = {};
 			const priceValue = document.getElementById("price").value.trim()
 			const durationValue = document.getElementById("duration").value.trim()
 			const groupsizeValue = document.getElementById("groupsize").value.trim()
-			const summaryValue = document.getElementById("summary").value.trim()
-			const descriptionValue = document.getElementById("description").value.trim()
-			// const featured_imageValue = document.getElementById("featured-image").value.trim()
-			// const galleryValue = document.getElementById("gallery").value.trim()
+			const summaryValue = document.getElementById("tr_summary").value.trim()
+			const descriptionValue = document.getElementById("tr_description").value.trim()
+
 
 
 			if (
@@ -288,29 +296,29 @@ const amenitiesInfo = {};
 			const input17El = document.getElementById("17")
 			const input18El = document.getElementById("18")
 
-			if (input1El.checked) amenitiesInfo["1"] = "satellite tv"
-			if (input2El.checked) amenitiesInfo["2"] = "coffee maker"
-			if (input3El.checked) amenitiesInfo["3"] = "hair dryer"
-			if (input4El.checked) amenitiesInfo["4"] = "swimming pool"
-			if (input5El.checked) amenitiesInfo["5"] = "room service"
-			if (input6El.checked) amenitiesInfo["6"] = "luxury bedding"
-			if (input7El.checked) amenitiesInfo["7"] = "good showers"
-			if (input8El.checked) amenitiesInfo["8"] = "free parking"
-			if (input9El.checked) amenitiesInfo["9"] = "free wifi"
-			if (input10El.checked) amenitiesInfo["10"] = "bath towels"
-			if (input11El.checked) amenitiesInfo["11"] = "free coffee"
-			if (input12El.checked) amenitiesInfo["12"] = "pets friendly"
-			if (input13El.checked) amenitiesInfo["13"] = "running hot water"
-			if (input14El.checked) amenitiesInfo["14"] = "attached garage"
-			if (input15El.checked) amenitiesInfo["15"] = "elevator"
-			if (input16El.checked) amenitiesInfo["16"] = "spa/sauna"
-			if (input17El.checked) amenitiesInfo["17"] = "indoor pool"
-			if (input18El.checked) amenitiesInfo["18"] = "secuirty cameras"
+			if (input1El.checked) tourAmenitiesInfo["1"] = "satellite tv"
+			if (input2El.checked) tourAmenitiesInfo["2"] = "coffee maker"
+			if (input3El.checked) tourAmenitiesInfo["3"] = "hair dryer"
+			if (input4El.checked) tourAmenitiesInfo["4"] = "swimming pool"
+			if (input5El.checked) tourAmenitiesInfo["5"] = "room service"
+			if (input6El.checked) tourAmenitiesInfo["6"] = "luxury bedding"
+			if (input7El.checked) tourAmenitiesInfo["7"] = "good showers"
+			if (input8El.checked) tourAmenitiesInfo["8"] = "free parking"
+			if (input9El.checked) tourAmenitiesInfo["9"] = "free wifi"
+			if (input10El.checked) tourAmenitiesInfo["10"] = "bath towels"
+			if (input11El.checked) tourAmenitiesInfo["11"] = "free coffee"
+			if (input12El.checked) tourAmenitiesInfo["12"] = "pets friendly"
+			if (input13El.checked) tourAmenitiesInfo["13"] = "running hot water"
+			if (input14El.checked) tourAmenitiesInfo["14"] = "attached garage"
+			if (input15El.checked) tourAmenitiesInfo["15"] = "elevator"
+			if (input16El.checked) tourAmenitiesInfo["16"] = "spa/sauna"
+			if (input17El.checked) tourAmenitiesInfo["17"] = "indoor pool"
+			if (input18El.checked) tourAmenitiesInfo["18"] = "security cameras"
 
 			let summaryText = ""
-			const headingEl = document.getElementById("heading")
-			const tourSummaryEl = document.getElementById("tourSummary")
-			headingEl.textContent = "Hi man, this is your tour summary: "
+			const tour_headingEl = document.getElementById("tour_heading")
+			const tourSummaryEl = document.getElementById("tour_summary")
+			tour_headingEl.textContent = "Hi man, this is your tour summary: "
 
 			summaryText = "<b>tour details:<b><br>"
 			for (const key in tourInfo) {
@@ -319,8 +327,8 @@ const amenitiesInfo = {};
 
 			summaryText += "<b><br><br>included amenities:<b><br>"
 
-			for (const key in amenitiesInfo) {
-				summaryText += `<br><b>*<b> ${amenitiesInfo["" + key]}<br>`
+			for (const key in tourAmenitiesInfo) {
+				summaryText += `<br><b>*<b> ${tourAmenitiesInfo["" + key]}<br>`
 			}
 
 
@@ -433,7 +441,7 @@ const amenitiesInfo = {};
 		$("#tour_submit").click(function () {
 			//hit the add tours endpoint here 
 			console.log(tourInfo);
-			console.log(amenitiesInfo);
+			console.log(tourAmenitiesInfo);
 			console.log("register tour!");
 
 			if (animating) return false;
@@ -473,6 +481,62 @@ const amenitiesInfo = {};
 		})
 
 		$("#hotel_next1").click(function () {
+			const errorEl = document.getElementById("error")
+			const hotelNameValue = document.getElementById("hotel_name").value.trim()
+			const hotelPriceValue = document.getElementById("hotel_price").value.trim()
+			const hotelPhoneValue = document.getElementById("hotel_phone").value.trim()
+			const hotelLlValue = document.getElementById("hotel_ll").value.trim()
+			const hotelEmailValue = document.getElementById("hotel_email").value.trim()
+			const hotelFaxValue = document.getElementById("hotel_fax").value.trim()
+			const hotelAddressValue = document.getElementById("hotel_address").value.trim()
+			const hotelCityValue = document.getElementById("hotel_city").value.trim()
+			const hotelStateValue = document.getElementById("hotel_state").value.trim()
+			const hotelCountryValue = document.getElementById("hotel_country").value.trim()
+			const hotelOwnerValue = document.getElementById("hotel_owner").value.trim()
+			const hotelContactValue = document.getElementById("hotel_contact").value.trim()
+			const hotelSummaryValue = document.getElementById("hl_summary").value.trim()
+			const hotelDescriptionValue = document.getElementById("hl_description").value.trim()
+
+			if (
+
+				!hotelNameValue ||
+				!hotelPriceValue ||
+				!hotelPhoneValue ||
+				!hotelLlValue ||
+				!hotelEmailValue ||
+				!hotelFaxValue ||
+				!hotelAddressValue ||
+				!hotelCityValue ||
+				!hotelStateValue ||
+				!hotelCountryValue ||
+				!hotelOwnerValue ||
+				!hotelContactValue ||
+				!hotelSummaryValue ||
+				!hotelDescriptionValue
+			) {
+
+				errorEl.style.opacity = 1
+				setTimeout(() => {
+					errorEl.style.opacity = 0
+
+				}, 5000)
+				return
+			}
+
+			hotelInfo["name"] = hotelNameValue
+			hotelInfo["price4"] = hotelPriceValue
+			hotelInfo["phone"] = hotelPhoneValue
+			hotelInfo["ll"] = hotelLlValue
+			hotelInfo["email"] = hotelEmailValue
+			hotelInfo["fax"] = hotelFaxValue
+			hotelInfo["address"] = hotelAddressValue
+			hotelInfo["city"] = hotelCityValue
+			hotelInfo["state"] = hotelStateValue
+			hotelInfo["country"] = hotelCountryValue
+			hotelInfo["owner"] = hotelOwnerValue
+			hotelInfo["contact"] = hotelContactValue
+			hotelInfo["summary"] = hotelSummaryValue
+			hotelInfo["description"] = hotelDescriptionValue
 
 
 
@@ -512,7 +576,62 @@ const amenitiesInfo = {};
 		})
 
 		$("#hotel_next2").click(function () {
+			const input1El = document.getElementById("1")
+			const input2El = document.getElementById("2")
+			const input3El = document.getElementById("3")
+			const input4El = document.getElementById("4")
+			const input5El = document.getElementById("5")
+			const input6El = document.getElementById("6")
+			const input7El = document.getElementById("7")
+			const input8El = document.getElementById("8")
+			const input9El = document.getElementById("9")
+			const input10El = document.getElementById("10")
+			const input11El = document.getElementById("11")
+			const input12El = document.getElementById("12")
+			const input13El = document.getElementById("13")
+			const input14El = document.getElementById("14")
+			const input15El = document.getElementById("15")
+			const input16El = document.getElementById("16")
+			const input17El = document.getElementById("17")
+			const input18El = document.getElementById("18")
 
+			if (input1El.checked) hotelAmenitiesInfo["1"] = "satellite tv"
+			if (input2El.checked) hotelAmenitiesInfo["2"] = "coffee maker"
+			if (input3El.checked) hotelAmenitiesInfo["3"] = "hair dryer"
+			if (input4El.checked) hotelAmenitiesInfo["4"] = "swimming pool"
+			if (input5El.checked) hotelAmenitiesInfo["5"] = "room service"
+			if (input6El.checked) hotelAmenitiesInfo["6"] = "luxury bedding"
+			if (input7El.checked) hotelAmenitiesInfo["7"] = "good showers"
+			if (input8El.checked) hotelAmenitiesInfo["8"] = "free parking"
+			if (input9El.checked) hotelAmenitiesInfo["9"] = "free wifi"
+			if (input10El.checked) hotelAmenitiesInfo["10"] = "bath towels"
+			if (input11El.checked) hotelAmenitiesInfo["11"] = "free coffee"
+			if (input12El.checked) hotelAmenitiesInfo["12"] = "pets friendly"
+			if (input13El.checked) hotelAmenitiesInfo["13"] = "running hot water"
+			if (input14El.checked) hotelAmenitiesInfo["14"] = "attached garage"
+			if (input15El.checked) hotelAmenitiesInfo["15"] = "elevator"
+			if (input16El.checked) hotelAmenitiesInfo["16"] = "spa/sauna"
+			if (input17El.checked) hotelAmenitiesInfo["17"] = "indoor pool"
+			if (input18El.checked) hotelAmenitiesInfo["18"] = "secuirty cameras"
+
+			let summaryText = ""
+			const hotelheadingEl = document.getElementById("hotel_heading")
+			const hotelSummaryEl = document.getElementById("hotel_summary")
+			hotelheadingEl.textContent = "Hi man, this is your hotel summary: "
+
+			summaryText = "<b>hotel details:<b><br>"
+			for (const key in hotelInfo) {
+				summaryText += `<br><b>${key}<b> : ${hotelInfo["" + key]}<br>`
+			}
+
+			summaryText += "<b><br><br>included amenities:<b><br>"
+
+			for (const key in hotelAmenitiesInfo) {
+				summaryText += `<br><b>*<b> ${hotelAmenitiesInfo["" + key]}<br>`
+			}
+
+
+			hotelSummaryEl.innerHTML = summaryText
 
 			if (animating) return false;
 			animating = true;
@@ -622,6 +741,9 @@ const amenitiesInfo = {};
 
 		$("#hotel_submit").click(function () {
 
+			//hit the add hotel endpoint here 
+			console.log(hotelInfo);
+			console.log(hotelAmenitiesInfo);
 			console.log("register hotel!");
 
 			if (animating) return false;
@@ -656,6 +778,24 @@ const amenitiesInfo = {};
 				//this comes from the custom easing plugin
 				easing: 'easeInOutBack'
 			});
+		})
+
+		$("#restaurant_next1").click(function () {
+
+		})
+
+		$("#restaurant_next2").click(function () {
+
+		})
+
+		$("#restaurant_previous1").click(function () {
+
+		})
+		$("#restaurant_previous2").click(function () {
+
+		})
+		$("#restaurant_submit").click(function () {
+
 		})
 	});
 
