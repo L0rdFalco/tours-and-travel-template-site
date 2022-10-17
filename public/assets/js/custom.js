@@ -26,8 +26,8 @@ const hotelAmenitiesInfo = {};
 const restaurantInfo = {};
 const restaurantAmenitiesInfo = {};
 
-const destinatioInfo = {};
-const destinatioAmenitiesInfo = {};
+const destinationInfo = {};
+const destinationAmenitiesInfo = {};
 
 (function ($) {
 	"use strict";
@@ -781,20 +781,582 @@ const destinatioAmenitiesInfo = {};
 		})
 
 		$("#restaurant_next1").click(function () {
+			const errorEl = document.getElementById("error")
+			const restaurantNameValue = document.getElementById("restaurant_name").value.trim()
+			const restaurantPriceValue = document.getElementById("restaurant_price").value.trim()
+			const restaurantPhoneValue = document.getElementById("restaurant_phone").value.trim()
+			const restaurantLlValue = document.getElementById("restaurant_ll").value.trim()
+			const restaurantEmailValue = document.getElementById("restaurant_email").value.trim()
+			const restaurantFaxValue = document.getElementById("restaurant_fax").value.trim()
+			const restaurantAddressValue = document.getElementById("restaurant_address").value.trim()
+			const restaurantCityValue = document.getElementById("restaurant_city").value.trim()
+			const restaurantStateValue = document.getElementById("restaurant_state").value.trim()
+			const restaurantCountryValue = document.getElementById("restaurant_country").value.trim()
+			const restaurantOwnerValue = document.getElementById("restaurant_owner").value.trim()
+			const restaurantContactValue = document.getElementById("restaurant_contact").value.trim()
+			const restaurantSummaryValue = document.getElementById("rt_summary").value.trim()
+			const restaurantDescriptionValue = document.getElementById("rt_description").value.trim()
 
+			if (
+				!restaurantNameValue ||
+				!restaurantPriceValue ||
+				!restaurantPhoneValue ||
+				!restaurantLlValue ||
+				!restaurantEmailValue ||
+				!restaurantFaxValue ||
+				!restaurantAddressValue ||
+				!restaurantCityValue ||
+				!restaurantStateValue ||
+				!restaurantCountryValue ||
+				!restaurantOwnerValue ||
+				!restaurantContactValue ||
+				!restaurantSummaryValue ||
+				!restaurantDescriptionValue
+			) {
+
+				errorEl.style.opacity = 1
+				setTimeout(() => {
+					errorEl.style.opacity = 0
+
+				}, 5000)
+				return
+			}
+
+			restaurantInfo["name"] = restaurantNameValue
+			restaurantInfo["price4"] = restaurantPriceValue
+			restaurantInfo["phone"] = restaurantPhoneValue
+			restaurantInfo["ll"] = restaurantLlValue
+			restaurantInfo["email"] = restaurantEmailValue
+			restaurantInfo["fax"] = restaurantFaxValue
+			restaurantInfo["address"] = restaurantAddressValue
+			restaurantInfo["city"] = restaurantCityValue
+			restaurantInfo["state"] = restaurantStateValue
+			restaurantInfo["country"] = restaurantCountryValue
+			restaurantInfo["owner"] = restaurantOwnerValue
+			restaurantInfo["contact"] = restaurantContactValue
+			restaurantInfo["summary"] = restaurantSummaryValue
+			restaurantInfo["description"] = restaurantDescriptionValue
+
+
+			if (animating) return false;
+			animating = true;
+
+			current_fs = $(this).parent();
+			next_fs = $(this).parent().next();
+
+			//activate next step on progressbar using the index of next_fs
+			$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+			//show the next fieldset
+			next_fs.show();
+			//hide the current fieldset with style
+			current_fs.animate({ opacity: 0 }, {
+				step: function (now, mx) {
+					//as the opacity of current_fs reduces to 0 - stored in "now"
+					//1. scale current_fs down to 80%
+					scale = 1 - (1 - now) * 0.2;
+					//2. bring next_fs from the right(50%)
+					left = (now * 50) + "%";
+					//3. increase opacity of next_fs to 1 as it moves in
+					opacity = 1 - now;
+					current_fs.css({ 'transform': 'scale(' + scale + ')' });
+					next_fs.css({ 'left': left, 'opacity': opacity });
+				},
+				duration: 800,
+				complete: function () {
+					current_fs.hide();
+					animating = false;
+				},
+				//this comes from the custom easing plugin
+				easing: 'easeInOutBack'
+			});
 		})
 
 		$("#restaurant_next2").click(function () {
+			const input1El = document.getElementById("1")
+			const input2El = document.getElementById("2")
+			const input3El = document.getElementById("3")
+			const input4El = document.getElementById("4")
+			const input5El = document.getElementById("5")
+			const input6El = document.getElementById("6")
+			const input7El = document.getElementById("7")
+			const input8El = document.getElementById("8")
+			const input9El = document.getElementById("9")
+			const input10El = document.getElementById("10")
+			const input11El = document.getElementById("11")
+			const input12El = document.getElementById("12")
+			const input13El = document.getElementById("13")
+			const input14El = document.getElementById("14")
+			const input15El = document.getElementById("15")
+			const input16El = document.getElementById("16")
+			const input17El = document.getElementById("17")
+			const input18El = document.getElementById("18")
+
+			if (input1El.checked) restaurantAmenitiesInfo["1"] = "satellite tv"
+			if (input2El.checked) restaurantAmenitiesInfo["2"] = "coffee maker"
+			if (input3El.checked) restaurantAmenitiesInfo["3"] = "hair dryer"
+			if (input4El.checked) restaurantAmenitiesInfo["4"] = "swimming pool"
+			if (input5El.checked) restaurantAmenitiesInfo["5"] = "room service"
+			if (input6El.checked) restaurantAmenitiesInfo["6"] = "luxury bedding"
+			if (input7El.checked) restaurantAmenitiesInfo["7"] = "good showers"
+			if (input8El.checked) restaurantAmenitiesInfo["8"] = "free parking"
+			if (input9El.checked) restaurantAmenitiesInfo["9"] = "free wifi"
+			if (input10El.checked) restaurantAmenitiesInfo["10"] = "bath towels"
+			if (input11El.checked) restaurantAmenitiesInfo["11"] = "free coffee"
+			if (input12El.checked) restaurantAmenitiesInfo["12"] = "pets friendly"
+			if (input13El.checked) restaurantAmenitiesInfo["13"] = "running hot water"
+			if (input14El.checked) restaurantAmenitiesInfo["14"] = "attached garage"
+			if (input15El.checked) restaurantAmenitiesInfo["15"] = "elevator"
+			if (input16El.checked) restaurantAmenitiesInfo["16"] = "spa/sauna"
+			if (input17El.checked) restaurantAmenitiesInfo["17"] = "indoor pool"
+			if (input18El.checked) restaurantAmenitiesInfo["18"] = "secuirty cameras"
+
+			let summaryText = ""
+			const restaurantheadingEl = document.getElementById("restaurant_heading")
+			const restaurantSummaryEl = document.getElementById("restaurant_summary")
+
+			restaurantheadingEl.textContent = "Hi man, this is your restaurant summary: "
+
+			summaryText = "<b>restaurant details:<b><br>"
+			for (const key in restaurantInfo) {
+				summaryText += `<br><b>${key}<b> : ${restaurantInfo["" + key]}<br>`
+			}
+
+			summaryText += "<b><br><br>included amenities:<b><br>"
+
+			for (const key in restaurantAmenitiesInfo) {
+				summaryText += `<br><b>*<b> ${restaurantAmenitiesInfo["" + key]}<br>`
+			}
+
+
+			restaurantSummaryEl.innerHTML = summaryText
+
+			if (animating) return false;
+			animating = true;
+
+			current_fs = $(this).parent();
+			next_fs = $(this).parent().next();
+
+			//activate next step on progressbar using the index of next_fs
+			$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+			//show the next fieldset
+			next_fs.show();
+			//hide the current fieldset with style
+			current_fs.animate({ opacity: 0 }, {
+				step: function (now, mx) {
+					//as the opacity of current_fs reduces to 0 - stored in "now"
+					//1. scale current_fs down to 80%
+					scale = 1 - (1 - now) * 0.2;
+					//2. bring next_fs from the right(50%)
+					left = (now * 50) + "%";
+					//3. increase opacity of next_fs to 1 as it moves in
+					opacity = 1 - now;
+					current_fs.css({ 'transform': 'scale(' + scale + ')' });
+					next_fs.css({ 'left': left, 'opacity': opacity });
+				},
+				duration: 800,
+				complete: function () {
+					current_fs.hide();
+					animating = false;
+				},
+				//this comes from the custom easing plugin
+				easing: 'easeInOutBack'
+			});
 
 		})
 
 		$("#restaurant_previous1").click(function () {
+			if (animating) return false;
+			animating = true;
 
+			current_fs = $(this).parent();
+			previous_fs = $(this).parent().prev();
+
+			//de-activate current step on progressbar
+			$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+			//show the previous fieldset
+			previous_fs.show();
+			//hide the current fieldset with style
+			current_fs.animate({ opacity: 0 }, {
+				step: function (now, mx) {
+					//as the opacity of current_fs reduces to 0 - stored in "now"
+					//1. scale previous_fs from 80% to 100%
+					scale = 0.8 + (1 - now) * 0.2;
+					//2. take current_fs to the right(50%) - from 0%
+					left = ((1 - now) * 50) + "%";
+					//3. increase opacity of previous_fs to 1 as it moves in
+					opacity = 1 - now;
+					current_fs.css({ 'left': left });
+					previous_fs.css({ 'transform': 'scale(' + scale + ')', 'opacity': opacity });
+				},
+				duration: 800,
+				complete: function () {
+					current_fs.hide();
+					animating = false;
+				},
+				//this comes from the custom easing plugin
+				easing: 'easeInOutBack'
+			});
 		})
 		$("#restaurant_previous2").click(function () {
+			if (animating) return false;
+			animating = true;
 
+			current_fs = $(this).parent();
+			previous_fs = $(this).parent().prev();
+
+			//de-activate current step on progressbar
+			$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+			//show the previous fieldset
+			previous_fs.show();
+			//hide the current fieldset with style
+			current_fs.animate({ opacity: 0 }, {
+				step: function (now, mx) {
+					//as the opacity of current_fs reduces to 0 - stored in "now"
+					//1. scale previous_fs from 80% to 100%
+					scale = 0.8 + (1 - now) * 0.2;
+					//2. take current_fs to the right(50%) - from 0%
+					left = ((1 - now) * 50) + "%";
+					//3. increase opacity of previous_fs to 1 as it moves in
+					opacity = 1 - now;
+					current_fs.css({ 'left': left });
+					previous_fs.css({ 'transform': 'scale(' + scale + ')', 'opacity': opacity });
+				},
+				duration: 800,
+				complete: function () {
+					current_fs.hide();
+					animating = false;
+				},
+				//this comes from the custom easing plugin
+				easing: 'easeInOutBack'
+			});
 		})
 		$("#restaurant_submit").click(function () {
+			//hit the add restaurant endpoint here 
+			console.log(restaurantInfo);
+			console.log(restaurantAmenitiesInfo);
+			console.log("register restaurant!");
+
+			if (animating) return false;
+			animating = true;
+
+			current_fs = $(this).parent();
+			next_fs = $(this).parent().next();
+
+			//activate next step on progressbar using the index of next_fs
+			$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+			//show the next fieldset
+			next_fs.show();
+			//hide the current fieldset with style
+			current_fs.animate({ opacity: 0 }, {
+				step: function (now, mx) {
+					//as the opacity of current_fs reduces to 0 - stored in "now"
+					//1. scale current_fs down to 80%
+					scale = 1 - (1 - now) * 0.2;
+					//2. bring next_fs from the right(50%)
+					left = (now * 50) + "%";
+					//3. increase opacity of next_fs to 1 as it moves in
+					opacity = 1 - now;
+					current_fs.css({ 'transform': 'scale(' + scale + ')' });
+					next_fs.css({ 'left': left, 'opacity': opacity });
+				},
+				duration: 800,
+				complete: function () {
+					current_fs.hide();
+					animating = false;
+				},
+				//this comes from the custom easing plugin
+				easing: 'easeInOutBack'
+			});
+		})
+
+		$("#destination_next1").click(function () {
+			const errorEl = document.getElementById("error")
+			const datepicker1Value = document.getElementById("destination_datepicker1").value.trim()
+			const location1Value = document.getElementById("destination_location0").value.trim()
+			const guideValue = document.getElementById("destination_guide").value.trim()
+			const ratingValue = document.getElementById("destination_rating").value.trim()
+			const priceValue = document.getElementById("destination_price").value.trim()
+			const durationValue = document.getElementById("destination_duration").value.trim()
+			const groupsizeValue = document.getElementById("destination_groupsize").value.trim()
+			const summaryValue = document.getElementById("dn_summary").value.trim()
+			const descriptionValue = document.getElementById("dn_description").value.trim()
+
+			if (
+				!datepicker1Value.length ||
+				!location1Value.length ||
+				!guideValue.length ||
+				!ratingValue.length ||
+				!priceValue.length ||
+				!durationValue.length ||
+				!groupsizeValue.length ||
+				!summaryValue.length ||
+				!descriptionValue.length
+			) {
+
+				errorEl.style.opacity = 1
+				setTimeout(() => {
+					errorEl.style.opacity = 0
+
+				}, 5000)
+				return
+			}
+
+
+
+			destinationInfo['dp1'] = datepicker1Value
+			destinationInfo['loc1'] = location1Value
+			destinationInfo['guide'] = guideValue
+			destinationInfo['rating'] = ratingValue
+			destinationInfo['price'] = priceValue
+			destinationInfo['duration'] = durationValue
+			destinationInfo['groupsize'] = groupsizeValue
+			destinationInfo['summary'] = summaryValue
+			destinationInfo['description'] = descriptionValue
+
+
+			if (animating) return false;
+			animating = true;
+
+			current_fs = $(this).parent();
+			next_fs = $(this).parent().next();
+
+			//activate next step on progressbar using the index of next_fs
+			$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+			//show the next fieldset
+			next_fs.show();
+			//hide the current fieldset with style
+			current_fs.animate({ opacity: 0 }, {
+				step: function (now, mx) {
+					//as the opacity of current_fs reduces to 0 - stored in "now"
+					//1. scale current_fs down to 80%
+					scale = 1 - (1 - now) * 0.2;
+					//2. bring next_fs from the right(50%)
+					left = (now * 50) + "%";
+					//3. increase opacity of next_fs to 1 as it moves in
+					opacity = 1 - now;
+					current_fs.css({ 'transform': 'scale(' + scale + ')' });
+					next_fs.css({ 'left': left, 'opacity': opacity });
+				},
+				duration: 800,
+				complete: function () {
+					current_fs.hide();
+					animating = false;
+				},
+				//this comes from the custom easing plugin
+				easing: 'easeInOutBack'
+			});
+
+		})
+		$("#destination_next2").click(function () {
+
+			const input1El = document.getElementById("1")
+			const input2El = document.getElementById("2")
+			const input3El = document.getElementById("3")
+			const input4El = document.getElementById("4")
+			const input5El = document.getElementById("5")
+			const input6El = document.getElementById("6")
+			const input7El = document.getElementById("7")
+			const input8El = document.getElementById("8")
+			const input9El = document.getElementById("9")
+			const input10El = document.getElementById("10")
+			const input11El = document.getElementById("11")
+			const input12El = document.getElementById("12")
+			const input13El = document.getElementById("13")
+			const input14El = document.getElementById("14")
+			const input15El = document.getElementById("15")
+			const input16El = document.getElementById("16")
+			const input17El = document.getElementById("17")
+			const input18El = document.getElementById("18")
+
+			if (input1El.checked) destinationAmenitiesInfo["1"] = "satellite tv"
+			if (input2El.checked) destinationAmenitiesInfo["2"] = "coffee maker"
+			if (input3El.checked) destinationAmenitiesInfo["3"] = "hair dryer"
+			if (input4El.checked) destinationAmenitiesInfo["4"] = "swimming pool"
+			if (input5El.checked) destinationAmenitiesInfo["5"] = "room service"
+			if (input6El.checked) destinationAmenitiesInfo["6"] = "luxury bedding"
+			if (input7El.checked) destinationAmenitiesInfo["7"] = "good showers"
+			if (input8El.checked) destinationAmenitiesInfo["8"] = "free parking"
+			if (input9El.checked) destinationAmenitiesInfo["9"] = "free wifi"
+			if (input10El.checked) destinationAmenitiesInfo["10"] = "bath towels"
+			if (input11El.checked) destinationAmenitiesInfo["11"] = "free coffee"
+			if (input12El.checked) destinationAmenitiesInfo["12"] = "pets friendly"
+			if (input13El.checked) destinationAmenitiesInfo["13"] = "running hot water"
+			if (input14El.checked) destinationAmenitiesInfo["14"] = "attached garage"
+			if (input15El.checked) destinationAmenitiesInfo["15"] = "elevator"
+			if (input16El.checked) destinationAmenitiesInfo["16"] = "spa/sauna"
+			if (input17El.checked) destinationAmenitiesInfo["17"] = "indoor pool"
+			if (input18El.checked) destinationAmenitiesInfo["18"] = "secuirty cameras"
+
+			let summaryText = ""
+			const destinationheadingEl = document.getElementById("destination_heading")
+			const destinationSummaryEl = document.getElementById("destination_summary")
+
+			destinationheadingEl.textContent = "Hi man, this is your destination summary: "
+
+			summaryText = "<b>destination details:<b><br>"
+			for (const key in destinationInfo) {
+				summaryText += `<br><b>${key}<b> : ${destinationInfo["" + key]}<br>`
+			}
+
+			summaryText += "<b><br><br>included amenities:<b><br>"
+
+			for (const key in destinationAmenitiesInfo) {
+				summaryText += `<br><b>*<b> ${destinationAmenitiesInfo["" + key]}<br>`
+			}
+
+
+			destinationSummaryEl.innerHTML = summaryText
+
+			if (animating) return false;
+			animating = true;
+
+			current_fs = $(this).parent();
+			next_fs = $(this).parent().next();
+
+			//activate next step on progressbar using the index of next_fs
+			$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+			//show the next fieldset
+			next_fs.show();
+			//hide the current fieldset with style
+			current_fs.animate({ opacity: 0 }, {
+				step: function (now, mx) {
+					//as the opacity of current_fs reduces to 0 - stored in "now"
+					//1. scale current_fs down to 80%
+					scale = 1 - (1 - now) * 0.2;
+					//2. bring next_fs from the right(50%)
+					left = (now * 50) + "%";
+					//3. increase opacity of next_fs to 1 as it moves in
+					opacity = 1 - now;
+					current_fs.css({ 'transform': 'scale(' + scale + ')' });
+					next_fs.css({ 'left': left, 'opacity': opacity });
+				},
+				duration: 800,
+				complete: function () {
+					current_fs.hide();
+					animating = false;
+				},
+				//this comes from the custom easing plugin
+				easing: 'easeInOutBack'
+			});
+		})
+		$("#destination_previous1").click(function () {
+
+
+			if (animating) return false;
+			animating = true;
+
+			current_fs = $(this).parent();
+			previous_fs = $(this).parent().prev();
+
+			//de-activate current step on progressbar
+			$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+			//show the previous fieldset
+			previous_fs.show();
+			//hide the current fieldset with style
+			current_fs.animate({ opacity: 0 }, {
+				step: function (now, mx) {
+					//as the opacity of current_fs reduces to 0 - stored in "now"
+					//1. scale previous_fs from 80% to 100%
+					scale = 0.8 + (1 - now) * 0.2;
+					//2. take current_fs to the right(50%) - from 0%
+					left = ((1 - now) * 50) + "%";
+					//3. increase opacity of previous_fs to 1 as it moves in
+					opacity = 1 - now;
+					current_fs.css({ 'left': left });
+					previous_fs.css({ 'transform': 'scale(' + scale + ')', 'opacity': opacity });
+				},
+				duration: 800,
+				complete: function () {
+					current_fs.hide();
+					animating = false;
+				},
+				//this comes from the custom easing plugin
+				easing: 'easeInOutBack'
+			});
+
+		})
+		$("#destination_previous2").click(function () {
+
+			if (animating) return false;
+			animating = true;
+
+			current_fs = $(this).parent();
+			previous_fs = $(this).parent().prev();
+
+			//de-activate current step on progressbar
+			$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+			//show the previous fieldset
+			previous_fs.show();
+			//hide the current fieldset with style
+			current_fs.animate({ opacity: 0 }, {
+				step: function (now, mx) {
+					//as the opacity of current_fs reduces to 0 - stored in "now"
+					//1. scale previous_fs from 80% to 100%
+					scale = 0.8 + (1 - now) * 0.2;
+					//2. take current_fs to the right(50%) - from 0%
+					left = ((1 - now) * 50) + "%";
+					//3. increase opacity of previous_fs to 1 as it moves in
+					opacity = 1 - now;
+					current_fs.css({ 'left': left });
+					previous_fs.css({ 'transform': 'scale(' + scale + ')', 'opacity': opacity });
+				},
+				duration: 800,
+				complete: function () {
+					current_fs.hide();
+					animating = false;
+				},
+				//this comes from the custom easing plugin
+				easing: 'easeInOutBack'
+			});
+
+		})
+		$("#destination_submit").click(function () {
+			//hit the add restaurant endpoint here 
+			console.log(destinationInfo);
+			console.log(destinationAmenitiesInfo);
+			console.log("register destination!");
+
+			if (animating) return false;
+			animating = true;
+
+			current_fs = $(this).parent();
+			next_fs = $(this).parent().next();
+
+			//activate next step on progressbar using the index of next_fs
+			$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+			//show the next fieldset
+			next_fs.show();
+			//hide the current fieldset with style
+			current_fs.animate({ opacity: 0 }, {
+				step: function (now, mx) {
+					//as the opacity of current_fs reduces to 0 - stored in "now"
+					//1. scale current_fs down to 80%
+					scale = 1 - (1 - now) * 0.2;
+					//2. bring next_fs from the right(50%)
+					left = (now * 50) + "%";
+					//3. increase opacity of next_fs to 1 as it moves in
+					opacity = 1 - now;
+					current_fs.css({ 'transform': 'scale(' + scale + ')' });
+					next_fs.css({ 'left': left, 'opacity': opacity });
+				},
+				duration: 800,
+				complete: function () {
+					current_fs.hide();
+					animating = false;
+				},
+				//this comes from the custom easing plugin
+				easing: 'easeInOutBack'
+			});
 
 		})
 	});

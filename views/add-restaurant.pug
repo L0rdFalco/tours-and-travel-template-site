@@ -35,18 +35,18 @@ block content
                                         .row
                                             .col-xs-6
                                                 label restaurant Name
-                                                input.form-control(type='text' placeholder='Green Valley')
+                                                input#restaurant_name.form-control(type='text' placeholder='Green Valley')
                                             .col-xs-6
                                                 label Upload Logo
                                                 .cf-input
                                                     label.custom-file
-                                                        input#file.custom-file-input(type='file')
+                                                        input#restaurant_file.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload menu
                                                 .cf-input
                                                     label.custom-file
-                                                        input#file.custom-file-input(type='file')
+                                                        input#restaurant_file.custom-file-input(type='file')
                                                         span.custom-file-control                                                        
                                             .col-xs-6
                                                 label Rating
@@ -54,43 +54,43 @@ block content
                                                     select.form-control.wide
                                                         option restaurant rating
                                                         option Normal
+                                                        option 1 Star
+                                                        option 2 Stars
                                                         option 3 Stars
                                                         option 4 Stars
-                                                        option 5 Stars
-                                                        option 7 Star
                                             .col-xs-6
-                                                label Charge/person
-                                                input.form-control(type='text' placeholder='$220')
+                                                label average price/person
+                                                input#restaurant_price.form-control(type='text' placeholder='$220')
                                             .col-xs-6
                                                 label Phone
-                                                input.form-control(type='text' placeholder='+91 254 875 8457')
+                                                input#restaurant_phone.form-control(type='text' placeholder='+91 254 875 8457')
                                             .col-xs-6
                                                 label Landline
-                                                input.form-control(type='text' placeholder='172 025 458')
+                                                input#restaurant_ll.form-control(type='text' placeholder='172 025 458')
                                             .col-xs-6
                                                 label Email
-                                                input.form-control(type='text' placeholder='yourht@gmail.com')
+                                                input#restaurant_email.form-control(type='text' placeholder='yourht@gmail.com')
                                             .col-xs-6
                                                 label Fax
-                                                input.form-control(type='text' placeholder='fax')
+                                                input#restaurant_fax.form-control(type='text' placeholder='fax')
                                             .col-xs-6
                                                 label Address
-                                                input.form-control(type='text' placeholder='#548, Near Big Market')
+                                                input#restaurant_address.form-control(type='text' placeholder='#548, Near Big Market')
                                             .col-xs-6
                                                 label City
-                                                input.form-control(type='text' placeholder='city')
+                                                input#restaurant_city.form-control(type='text' placeholder='city')
                                             .col-xs-6
                                                 label State
-                                                input.form-control(type='text' placeholder='state')
+                                                input#restaurant_state.form-control(type='text' placeholder='state')
                                             .col-xs-6
                                                 label Country
-                                                input.form-control(type='text' placeholder='country')
+                                                input#restaurant_country.form-control(type='text' placeholder='country')
                                             .col-xs-6
                                                 label Owner Name
-                                                input.form-control(type='text' placeholder='Daniel Duke')
+                                                input#restaurant_owner.form-control(type='text' placeholder='Daniel Duke')
                                             .col-xs-6
                                                 label Owner Contact
-                                                input.form-control(type='text' placeholder='987 584 5847')
+                                                input#restaurant_contact.form-control(type='text' placeholder='987 584 5847')
                                             .col-xs-6
                                                 label Featured Image
                                                 .cf-input
@@ -129,7 +129,7 @@ block content
                                                 textarea#rt_description.form-control.height-120(value="test123" placeholder='long description about restaurant')
                                                 h2#error.fs-title ALL FIELDS ARE REQUIRED
 
-                                        input.next.action-button(type='button' name='next' value='Next')
+                                        input.next.action-button(type='button' name='next' value='Next' id="restaurant_next1")
                                     fieldset
                                         h2.fs-title Available Amenities
                                         //- h3.fs-subtitle Your presence on the social network
@@ -183,7 +183,7 @@ block content
                                                         | Free Wifi
                                                     li
                                                         span.custom-checkbox
-                                                            input#0(type='checkbox')
+                                                            input#10(type='checkbox')
                                                             label(for='0')
                                                         | Bath towel
                                                     li
@@ -226,15 +226,25 @@ block content
                                                             input#18(type='checkbox')
                                                             label(for='18')
                                                         | Security cameras
-                                        input.previous.action-button(type='button' name='previous' value='Previous')
-                                        input.next.action-button(type='button' name='next' value='Next')
+                                        input.previous.action-button(type='button' name='previous' value='Previous' id="restaurant_previous1")
+                                        input.next.action-button(type='button' name='next' value='Next' id="restaurant_next2")
+                                    fieldset
+                                        .row
+                                            .col-md-12.text-center
+                                                p#restaurant_heading
+                                                |
+                                                p#restaurant_summary
+                                                    strong Hi man
+                                                    | , this is the restaurant overview:
+                                        input.previous.action-button(type='button' name='previous' value='Previous' id="restaurant_previous2")
+                                        input.next.action-button(type='button' name='submit' value='submit' id="restaurant_submit")
                                     fieldset
                                         .row
                                             .col-md-12.text-center
                                                 i.ti-thumb-up.cl-success.font-50
                                                 h3.cl-success Congratulations!
                                                 p
-                                                    strong Hi Daniel
-                                                    | , You Listing has been submitted successfully
+                                                    strong Hi man
+                                                    | , Your restaurant listing has been submitted successfully      
     block content_contact 
         include _contact
