@@ -37,10 +37,10 @@ block content
                                                 input.form-control(type='text' value="test123" placeholder='Galaxy cruiser hotel')
 
                                             .col-xs-6
-                                                label Ratting
+                                                label Rating
                                                 .sl-box
                                                     select.form-control.wide
-                                                        option Hotel ratting
+                                                        option Hotel rating
                                                         option Normal
                                                         option 3 Start
                                                         option 4 Start
@@ -86,7 +86,25 @@ block content
                                                         input#featured-image.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
-                                                label Upload hotel image gallery
+                                                label Upload hotel gallery image 1
+                                                .cf-input
+                                                    label.custom-file
+                                                        input#gallery.custom-file-input(type='file')
+                                                        span.custom-file-control
+                                            .col-xs-6
+                                                label Upload hotel gallery image 2
+                                                .cf-input
+                                                    label.custom-file
+                                                        input#gallery.custom-file-input(type='file')
+                                                        span.custom-file-control
+                                            .col-xs-6
+                                                label Upload hotel gallery image 3
+                                                .cf-input
+                                                    label.custom-file
+                                                        input#gallery.custom-file-input(type='file')
+                                                        span.custom-file-control
+                                            .col-xs-6
+                                                label Upload hotel gallery image 4
                                                 .cf-input
                                                     label.custom-file
                                                         input#gallery.custom-file-input(type='file')
@@ -99,7 +117,7 @@ block content
                                                 textarea#description.form-control.height-120(value="test123" placeholder='long description about hotel')
                                                 h2#error.fs-title ALL FIELDS ARE REQUIRED
 
-                                        input.next.action-button(type='button' name='next' value='Next' id='next1')
+                                        input.next.action-button(type='button' name='next' value='Next' id='hotel_next1')
                                     fieldset
                                         h2.fs-title Available Amenities
                                         h3.fs-subtitle Your presence on the social network
@@ -196,8 +214,8 @@ block content
                                                             input#18(type='checkbox')
                                                             label(for='18')
                                                         | Security cameras
-                                        input.previous.action-button(type='button' name='previous' value='Previous' id="previous1")
-                                        input.next.action-button(type='button' name='next' value='Next' id="next2")
+                                        input.previous.action-button(type='button' name='previous' value='Previous' id="hotel_previous1")
+                                        input.next.action-button(type='button' name='next' value='Next' id="hotel_next2")
                                     fieldset
                                         .row
                                             .col-md-12.text-center
@@ -206,8 +224,8 @@ block content
                                                 p#hotelSummary
                                                     strong Hi Daniel
                                                     | , this is the hotel overview:
-                                        input.previous.action-button(type='button' name='previous' value='Previous' id="previous2")
-                                        input.next.action-button(type='button' name='submit' value='submit' id="submit1")
+                                        input.previous.action-button(type='button' name='previous' value='Previous' id="hotel_previous2")
+                                        input.next.action-button(type='button' name='submit' value='submit' id="hotel_submit")
                                     fieldset
                                         .row
                                             .col-md-12.text-center
