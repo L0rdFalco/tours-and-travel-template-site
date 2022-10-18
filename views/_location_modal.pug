@@ -1,0 +1,35 @@
+.location-modal.hidden
+    button.close-location-modal &times;
+    h5 add location info here
+        .row
+        .col-25
+            label(for='country') Country
+        .col-75
+            select#country(name='country')
+                option(value='australia') Australia
+                option(value='canada') Canada
+                option(value='usa') USA    
+        .row
+        .col-25
+            label(for='locdesc') description:
+        .col-75
+            input#locdesc(type='text', name='description', placeholder='location description..')
+        .row
+        .col-25
+            label(for='latval') Latitude:
+        .col-75
+            input#latval(type='text', name='lat', placeholder='latitude value..')
+        .row    
+        .col-25
+            label(for='longval') Langitude:
+        .col-75
+            input#longval(type='text', name='lat', placeholder='langitude value..')
+        .row    
+        .col-25
+            label(for='dayval') day:
+        .col-75
+            input#dayval(type='text', name='lat', placeholder='day value..')    
+        br
+        .row
+        input(type='submit', value='Submit' id="infosubmit")
+.location-overlay.hidden

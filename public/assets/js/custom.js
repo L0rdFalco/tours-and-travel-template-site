@@ -31,6 +31,33 @@ const destinationAmenitiesInfo = {};
 
 (function ($) {
 	"use strict";
+	const modal = document.querySelector(".location-modal");
+	const overlay = document.querySelector(".location-overlay");
+	const closeModalBtn = document.querySelector(".close-location-modal")
+
+	function modalIncluder() {
+		modal.classList.remove("hidden");
+		overlay.classList.remove("hidden");
+
+	}
+
+	function modalRemover() {
+		modal.classList.add("hidden");
+		overlay.classList.add("hidden");
+	}
+
+
+	closeModalBtn.addEventListener("click", modalRemover);
+	overlay.addEventListener("click", modalRemover);
+
+
+	document.getElementById("location0").addEventListener("click", modalIncluder)
+	document.getElementById("location1").addEventListener("click", modalIncluder)
+	document.getElementById("location2").addEventListener("click", modalIncluder)
+	document.getElementById("location3").addEventListener("click", modalIncluder)
+	document.getElementById("location4").addEventListener("click", modalIncluder)
+
+
 
 	/*---Bootstrap wysihtml5 editor --*/
 	$('.textarea').wysihtml5();
