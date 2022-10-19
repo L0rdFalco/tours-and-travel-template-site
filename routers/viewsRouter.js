@@ -33,10 +33,16 @@ ViewsRouter.route("/add-hotel").get(viewsController.getAddHotelPage)
 ViewsRouter.route("/add-restaurant").get(viewsController.getAddRestaurantPage)
 ViewsRouter.route("/add-tour").get(viewsController.getAddTourPage)
 
+
 ViewsRouter.route("/manage-destinations").get(viewsController.getManageDestinationsPage)
 ViewsRouter.route("/manage-tours").get(viewsController.getManageToursPage)
 ViewsRouter.route("/manage-restaurants").get(viewsController.getManageRestaurantsPage)
 ViewsRouter.route("/manage-hotels").get(viewsController.getManageHotelsPage)
+
+ViewsRouter.route("/edit-destination").get(viewsController.getEditDestinationPage)
+ViewsRouter.route("/edit-hotel").get(viewsController.getEditHotelPage)
+ViewsRouter.route("/edit-restaurant").get(viewsController.getEditRestaurantPage)
+ViewsRouter.route("/edit-tour").get(viewsController.getEditTourPage)
 
 ViewsRouter.route("/destination-detail").get(viewsController.getDestinationDetailPage)
 ViewsRouter.route("/destination-grid-sidebar").get(viewsController.getDestinationGridSidebarPage)

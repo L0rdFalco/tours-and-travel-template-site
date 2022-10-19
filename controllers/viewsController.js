@@ -103,6 +103,58 @@ exports.getAboutUsPage = (request, response, next) => {
         })
     }
 }
+exports.getEditDestinationPage = (request, response, next) => {
+    try {
+        response.status(200).render("edit-destination-listing")
+
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: " fail",
+
+        })
+    }
+}
+exports.getEditHotelPage = (request, response, next) => {
+    try {
+        response.status(200).render("edit-hotel-listing")
+
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: " fail",
+
+        })
+    }
+}
+exports.getEditRestaurantPage = (request, response, next) => {
+    try {
+        response.status(200).render("edit-restaurant-listing")
+
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: " fail",
+
+        })
+    }
+}
+exports.getEditTourPage = (request, response, next) => {
+    try {
+        response.status(200).render("edit-tour-listing")
+
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: " fail",
+
+        })
+    }
+}
 exports.getAddDestinationPage = (request, response, next) => {
     try {
         response.status(200).render("add-destination")

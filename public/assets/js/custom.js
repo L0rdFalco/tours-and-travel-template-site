@@ -129,8 +129,7 @@ const destinationAmenitiesInfo = {};
 
 		document.getElementById("" + currentKey).value = "added!"
 
-	}
-	)
+	})
 
 
 
@@ -256,7 +255,7 @@ const destinationAmenitiesInfo = {};
 		step: 1,
 		value: [10, 500],
 		onchange: function (low, high) {
-			console.log(low, high);
+			console.log("price range:", low, high);
 		}
 	});
 
@@ -280,6 +279,7 @@ const destinationAmenitiesInfo = {};
 		var animating; //flag to prevent quick multi-click glitches
 
 		$("#tour_next1").click(function () {
+			console.log();
 
 			const errorEl = document.getElementById("error")
 			const nameValue = document.getElementById("tourname").value.trim()

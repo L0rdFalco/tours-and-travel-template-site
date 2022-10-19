@@ -17,20 +17,11 @@ block content
                     .row.mrg-0.mrg-top-20
                         .tr-single-box
                             .tr-single-header
-                                h3.dashboard-title Add hotels
+                                h3.dashboard-title edit hotel listing
                             .tr-single-body
                                 form#msform
-                                    // progressbar
-                                    ul#progressbar
-                                        li.active Basic Information
-                                        li Available Amenities
-                                        li overview
-                                        li success page
-                                    // fieldsets
-                                    fieldset
                                         .text-center
                                             h2.fs-title Basic Information
-                                            h3.fs-subtitle This is step 1
                                         .row
                                             .col-xs-6
                                                 label hotel Name
@@ -117,8 +108,6 @@ block content
                                                 textarea#hl_description.form-control.height-120( placeholder='long description about hotel')
                                                 h2#error.fs-title ALL FIELDS ARE REQUIRED
 
-                                        input.next.action-button(type='button' name='next' value='Next' id='hotel_next1')
-                                    fieldset
                                         h2.fs-title Available Amenities
                                         //- h3.fs-subtitle Your presence on the social network
                                         .row
@@ -214,25 +203,7 @@ block content
                                                             input#18(type='checkbox')
                                                             label(for='18')
                                                         | Security cameras
-                                        input.previous.action-button(type='button' name='previous' value='Previous' id="hotel_previous1")
-                                        input.next.action-button(type='button' name='next' value='Next' id="hotel_next2")
-                                    fieldset
-                                        .row
-                                            .col-md-12.text-center
-                                                p#hotel_heading
-                                                |
-                                                p#hotel_summary
-                                                    strong Hi man
-                                                    | , this is the hotel overview:
-                                        input.previous.action-button(type='button' name='previous' value='Previous' id="hotel_previous2")
-                                        input.next.action-button(type='button' name='submit' value='submit' id="hotel_submit")
-                                    fieldset
-                                        .row
-                                            .col-md-12.text-center
-                                                i.ti-thumb-up.cl-success.font-50
-                                                h3.cl-success Congratulations!
-                                                p
-                                                    strong Hi man
-                                                    | , Your hotel listing has been submitted successfully            
+
+                                        input.next.action-button(type='button' name='hotel_update' value='update' id="hotel_update")         
     block content_contact 
         include _contact

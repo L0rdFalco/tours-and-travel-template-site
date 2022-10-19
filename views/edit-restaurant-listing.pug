@@ -1,5 +1,7 @@
 extends base
 
+block navigation_content 
+    include _navigation
 block content 
     section.dashboard.gray-bg.padd-0.mrg-top-50
         .container-fluid
@@ -17,108 +19,108 @@ block content
                     .row.mrg-0.mrg-top-20
                         .tr-single-box
                             .tr-single-header
-                                h3.dashboard-title Add hotels
+                                h3.dashboard-title Add Restaurant
                             .tr-single-body
                                 form#msform
-                                    // progressbar
-                                    ul#progressbar
-                                        li.active Basic Information
-                                        li Available Amenities
-                                        li overview
-                                        li success page
-                                    // fieldsets
-                                    fieldset
                                         .text-center
                                             h2.fs-title Basic Information
-                                            h3.fs-subtitle This is step 1
                                         .row
                                             .col-xs-6
-                                                label hotel Name
-                                                input#hotel_name.form-control(type='text'  placeholder='Galaxy cruiser hotel')
-
+                                                label restaurant Name
+                                                input#restaurant_name.form-control(type='text' placeholder='Green Valley')
+                                            .col-xs-6
+                                                label Upload Logo
+                                                .cf-input
+                                                    label.custom-file
+                                                        input#restaurant_file.custom-file-input(type='file')
+                                                        span.custom-file-control
+                                            .col-xs-6
+                                                label Upload menu
+                                                .cf-input
+                                                    label.custom-file
+                                                        input#restaurant_file.custom-file-input(type='file')
+                                                        span.custom-file-control                                                        
                                             .col-xs-6
                                                 label Rating
                                                 .sl-box
-                                                    select#hotel_rating.form-control.wide
-                                                        option Hotel rating
+                                                    select.form-control.wide
+                                                        option restaurant rating
                                                         option Normal
-                                                        option 3 Start
-                                                        option 4 Start
-                                                        option 5 Start
-                                                        option 7 Startg
+                                                        option 1 Star
+                                                        option 2 Stars
+                                                        option 3 Stars
+                                                        option 4 Stars
                                             .col-xs-6
-                                                label Charge/Night
-                                                input#hotel_price.form-control(type='text' placeholder='$220')
+                                                label average price/person
+                                                input#restaurant_price.form-control(type='text' placeholder='$220')
                                             .col-xs-6
                                                 label Phone
-                                                input#hotel_phone.form-control(type='text' placeholder='+91 254 875 8457')
+                                                input#restaurant_phone.form-control(type='text' placeholder='+91 254 875 8457')
                                             .col-xs-6
                                                 label Landline
-                                                input#hotel_ll.form-control(type='text' placeholder='172 025 458')
+                                                input#restaurant_ll.form-control(type='text' placeholder='172 025 458')
                                             .col-xs-6
                                                 label Email
-                                                input#hotel_email.form-control(type='text' placeholder='yourht@gmail.com')
+                                                input#restaurant_email.form-control(type='text' placeholder='yourht@gmail.com')
                                             .col-xs-6
                                                 label Fax
-                                                input#hotel_fax.form-control(type='text' placeholder='fax')
+                                                input#restaurant_fax.form-control(type='text' placeholder='fax')
                                             .col-xs-6
                                                 label Address
-                                                input#hotel_address.form-control(type='text' placeholder='#548, Near Big Market')
+                                                input#restaurant_address.form-control(type='text' placeholder='#548, Near Big Market')
                                             .col-xs-6
                                                 label City
-                                                input#hotel_city.form-control(type='text' placeholder='city')
+                                                input#restaurant_city.form-control(type='text' placeholder='city')
                                             .col-xs-6
                                                 label State
-                                                input#hotel_state.form-control(type='text' placeholder='state')
+                                                input#restaurant_state.form-control(type='text' placeholder='state')
                                             .col-xs-6
                                                 label Country
-                                                input#hotel_country.form-control(type='text' placeholder='country')
+                                                input#restaurant_country.form-control(type='text' placeholder='country')
                                             .col-xs-6
                                                 label Owner Name
-                                                input#hotel_owner.form-control(type='text' placeholder='Daniel Duke')
+                                                input#restaurant_owner.form-control(type='text' placeholder='Daniel Duke')
                                             .col-xs-6
                                                 label Owner Contact
-                                                input#hotel_contact.form-control(type='text' placeholder='987 584 5847')
+                                                input#restaurant_contact.form-control(type='text' placeholder='987 584 5847')
                                             .col-xs-6
-                                                label hotel banner Image
+                                                label Featured Image
                                                 .cf-input
                                                     label.custom-file
-                                                        input#hotel_featured-image.custom-file-input(type='file')
+                                                        input#featured-image.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
-                                                label Upload hotel gallery image 1
+                                                label Upload restaurant gallery image 1
                                                 .cf-input
                                                     label.custom-file
-                                                        input#hotel_gallery.custom-file-input(type='file')
+                                                        input#restaurant_gallery.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
-                                                label Upload hotel gallery image 2
+                                                label Upload restaurant gallery image 2
                                                 .cf-input
                                                     label.custom-file
-                                                        input#hotel_gallery.custom-file-input(type='file')
+                                                        input#restaurant_gallery.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
-                                                label Upload hotel gallery image 3
+                                                label Upload restaurant gallery image 3
                                                 .cf-input
                                                     label.custom-file
-                                                        input#hotel_gallery.custom-file-input(type='file')
+                                                        input#restaurant_gallery.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
-                                                label Upload hotel gallery image 4
+                                                label Upload restaurant gallery image 4
                                                 .cf-input
                                                     label.custom-file
-                                                        input#hotel_gallery.custom-file-input(type='file')
+                                                        input#restaurant_gallery.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-12
-                                                label hotel summary
-                                                textarea#hl_summary.form-control.height-120( placeholder='simple one liner description')
+                                                label restaurant summary
+                                                textarea#rt_summary.form-control.height-120( placeholder='simple one liner description')
                                             .col-xs-12
-                                                label hotel description
-                                                textarea#hl_description.form-control.height-120( placeholder='long description about hotel')
+                                                label restaurant description
+                                                textarea#rt_description.form-control.height-120( placeholder='long description about restaurant')
                                                 h2#error.fs-title ALL FIELDS ARE REQUIRED
 
-                                        input.next.action-button(type='button' name='next' value='Next' id='hotel_next1')
-                                    fieldset
                                         h2.fs-title Available Amenities
                                         //- h3.fs-subtitle Your presence on the social network
                                         .row
@@ -183,7 +185,7 @@ block content
                                                         span.custom-checkbox
                                                             input#12(type='checkbox')
                                                             label(for='12')
-                                                        | Pets Allowed
+                                                        | Pets Allow
                                                     li
                                                         span.custom-checkbox
                                                             input#13(type='checkbox')
@@ -214,25 +216,8 @@ block content
                                                             input#18(type='checkbox')
                                                             label(for='18')
                                                         | Security cameras
-                                        input.previous.action-button(type='button' name='previous' value='Previous' id="hotel_previous1")
-                                        input.next.action-button(type='button' name='next' value='Next' id="hotel_next2")
-                                    fieldset
-                                        .row
-                                            .col-md-12.text-center
-                                                p#hotel_heading
-                                                |
-                                                p#hotel_summary
-                                                    strong Hi man
-                                                    | , this is the hotel overview:
-                                        input.previous.action-button(type='button' name='previous' value='Previous' id="hotel_previous2")
-                                        input.next.action-button(type='button' name='submit' value='submit' id="hotel_submit")
-                                    fieldset
-                                        .row
-                                            .col-md-12.text-center
-                                                i.ti-thumb-up.cl-success.font-50
-                                                h3.cl-success Congratulations!
-                                                p
-                                                    strong Hi man
-                                                    | , Your hotel listing has been submitted successfully            
+
+                                        input.next.action-button(type='button' name='update' value='update' id="restaurant_update")
+  
     block content_contact 
         include _contact
