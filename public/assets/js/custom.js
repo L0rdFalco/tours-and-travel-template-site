@@ -83,6 +83,7 @@ const destinationAmenitiesInfo = {};
 		const latval = document.getElementById("latval").value.trim()
 		const longval = document.getElementById("longval").value.trim()
 		const dayval = document.getElementById("dayval").value.trim()
+		const addrval = document.getElementById("addressval").value.trim()
 		const errorEl = document.getElementById("error")
 
 		if (!locdesc || !latval || !longval || !dayval) {
@@ -102,7 +103,8 @@ const destinationAmenitiesInfo = {};
 				"description": locdesc,
 				"lat": latval,
 				"log": longval,
-				"day": dayval
+				"day": dayval,
+				"address": addrval
 			}
 		}
 		modalRemover()
@@ -261,18 +263,19 @@ const destinationAmenitiesInfo = {};
 
 		$("#tour_next1").click(function () {
 
-
 			const errorEl = document.getElementById("error")
+			const nameValue = document.getElementById("tourname").value.trim()
 			const datepicker1Value = document.getElementById("datepicker1").value.trim()
 			const datepicker2Value = document.getElementById("datepicker2").value.trim()
 			const datepicker3Value = document.getElementById("datepicker3").value.trim()
 			const datepicker4Value = document.getElementById("datepicker4").value.trim()
+			const location0Value = document.getElementById("location0").value.trim()
 			const location1Value = document.getElementById("location1").value.trim()
 			const location2Value = document.getElementById("location2").value.trim()
 			const location3Value = document.getElementById("location3").value.trim()
 			const location4Value = document.getElementById("location4").value.trim()
 			const guideValue = document.getElementById("guide").value.trim()
-			const ratingValue = document.getElementById("rating").value.trim()
+			const difficultyValue = document.getElementById("difficulty").value.trim()
 			const priceValue = document.getElementById("price").value.trim()
 			const durationValue = document.getElementById("duration").value.trim()
 			const groupsizeValue = document.getElementById("groupsize").value.trim()
@@ -282,16 +285,18 @@ const destinationAmenitiesInfo = {};
 
 
 			if (
+				!nameValue.length ||
 				!datepicker1Value.length ||
 				!datepicker2Value.length ||
 				!datepicker3Value.length ||
 				!datepicker4Value.length ||
+				!location0Value.length ||
 				!location1Value.length ||
 				!location2Value.length ||
 				!location3Value.length ||
 				!location4Value.length ||
 				!guideValue.length ||
-				!ratingValue.length ||
+				!difficultyValue.length ||
 				!priceValue.length ||
 				!durationValue.length ||
 				!groupsizeValue.length ||
@@ -309,21 +314,23 @@ const destinationAmenitiesInfo = {};
 
 
 
+			tourInfo['name'] = nameValue
+			tourInfo['duration'] = durationValue
+			tourInfo['groupsize'] = groupsizeValue
+			tourInfo['difficulty'] = difficultyValue
+			tourInfo['price'] = priceValue
+			tourInfo['summary'] = summaryValue
+			tourInfo['description'] = descriptionValue
 			tourInfo['dp1'] = datepicker1Value
 			tourInfo['dp2'] = datepicker2Value
 			tourInfo['dp3'] = datepicker3Value
 			tourInfo['dp4'] = datepicker4Value
-			tourInfo['loc1'] = location1Value
-			tourInfo['loc2'] = location2Value
-			tourInfo['loc3'] = location3Value
-			tourInfo['loc4'] = location4Value
-			tourInfo['guide'] = guideValue
-			tourInfo['rating'] = ratingValue
-			tourInfo['price'] = priceValue
-			tourInfo['duration'] = durationValue
-			tourInfo['groupsize'] = groupsizeValue
-			tourInfo['summary'] = summaryValue
-			tourInfo['description'] = descriptionValue
+			tourInfo['loc0value'] = location0Value
+			tourInfo['loc1value'] = location1Value
+			tourInfo['loc2value'] = location2Value
+			tourInfo['loc3value'] = location3Value
+			tourInfo['loc4value'] = location4Value
+			tourInfo['guides'] = guideValue
 
 			if (animating) return false;
 			animating = true;
