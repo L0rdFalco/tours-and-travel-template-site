@@ -13,6 +13,7 @@ block content
                             button.navbar-toggle(type='button' data-toggle='collapse' data-target='#dashboard-menu')
                                 i.fa.fa-bars
                     include _dashboard_sidebar
+                    include _location_modal
                     // /. NAV SIDE
                 .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
                     .row.mrg-0.mrg-top-20
@@ -43,9 +44,12 @@ block content
                                                         input#file1.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
-                                                label(for='datepicker1') pick first start date
+                                                label(for='destdatepicker1') pick start date
                                                 input#destination_datepicker1.datepicker_input.form-control.border-2(type='text',value="test123" required='', placeholder='DD/MM/YYYY')
-                                            
+                                            .col-xs-6
+                                                label(for='destdatepicker2') pick end date
+                                                input#destination_datepicker2.datepicker_input.form-control.border-2(type='text',value="test123" required='', placeholder='DD/MM/YYYY')
+                                                                                        
                                             .col-xs-6
                                                 label choose start location
                                                 input#destination_location0.form-control(type='text' value="test123" placeholder='lat, long')
