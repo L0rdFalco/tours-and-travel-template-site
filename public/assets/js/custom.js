@@ -35,6 +35,13 @@ const destinationAmenitiesInfo = {};
 	const overlay = document.querySelector(".location-overlay");
 	const closeModalBtn = document.querySelector(".close-location-modal")
 
+	const tl0 = document.getElementById("tourLocation0")
+	const tl1 = document.getElementById("tourLocation1")
+	const tl2 = document.getElementById("tourLocation2")
+	const tl3 = document.getElementById("tourLocation3")
+	const tl4 = document.getElementById("tourLocation4")
+	const dl0 = document.getElementById("destination_location0")
+
 	function modalIncluder(elementId) {
 		document.getElementById("currentElVal").textContent = elementId
 
@@ -53,31 +60,30 @@ const destinationAmenitiesInfo = {};
 	overlay.addEventListener("click", modalRemover);
 
 
-	document.getElementById("location0").addEventListener("click", function (e) {
-
+	if (tl0) tl0.addEventListener("click", function (e) {
 		modalIncluder(e.target.id)
 	})
 
-	document.getElementById("location1").addEventListener("click", function (e) {
+	if (tl1) tl1.addEventListener("click", function (e) {
 		modalIncluder(e.target.id)
-	}
-	)
+	})
 
-	document.getElementById("location2").addEventListener("click", function (e) {
+	if (tl2) tl2.addEventListener("click", function (e) {
 		modalIncluder(e.target.id)
-	}
-	)
+	})
 
-	document.getElementById("location3").addEventListener("click", function (e) {
+	if (tl3) tl3.addEventListener("click", function (e) {
 		modalIncluder(e.target.id)
-	}
-	)
+	})
 
-	document.getElementById("location4").addEventListener("click", function (e) {
+	if (tl4) tl4.addEventListener("click", function (e) {
 		modalIncluder(e.target.id)
-	}
-	)
+	})
 
+	if (dl0) dl0.addEventListener("click", function (e) {
+
+		modalIncluder(e.target.id)
+	})
 	document.getElementById("infosubmit").addEventListener("click", function (e) {
 		const locdesc = document.getElementById("locdesc").value.trim()
 		const latval = document.getElementById("latval").value.trim()
@@ -107,6 +113,18 @@ const destinationAmenitiesInfo = {};
 				"address": addrval
 			}
 		}
+
+		if (window.location.href.includes("add-destination")) {
+
+			destinationInfo[currentKey] = {
+				"description": locdesc,
+				"lat": latval,
+				"log": longval,
+				"day": dayval,
+				"address": addrval
+			}
+		}
+
 		modalRemover()
 
 		document.getElementById("" + currentKey).value = "added!"
@@ -265,15 +283,15 @@ const destinationAmenitiesInfo = {};
 
 			const errorEl = document.getElementById("error")
 			const nameValue = document.getElementById("tourname").value.trim()
-			const datepicker1Value = document.getElementById("datepicker1").value.trim()
-			const datepicker2Value = document.getElementById("datepicker2").value.trim()
-			const datepicker3Value = document.getElementById("datepicker3").value.trim()
-			const datepicker4Value = document.getElementById("datepicker4").value.trim()
-			const location0Value = document.getElementById("location0").value.trim()
-			const location1Value = document.getElementById("location1").value.trim()
-			const location2Value = document.getElementById("location2").value.trim()
-			const location3Value = document.getElementById("location3").value.trim()
-			const location4Value = document.getElementById("location4").value.trim()
+			const tourDatepicker1Value = document.getElementById("tourDatepicker1").value.trim()
+			const tourDatepicker2Value = document.getElementById("tourDatepicker2").value.trim()
+			const tourDatepicker3Value = document.getElementById("tourDatepicker3").value.trim()
+			const tourDatepicker4Value = document.getElementById("tourDatepicker4").value.trim()
+			const tourLocation0Value = document.getElementById("tourLocation0").value.trim()
+			const tourLocation1Value = document.getElementById("tourLocation1").value.trim()
+			const tourLocation2Value = document.getElementById("tourLocation2").value.trim()
+			const tourLocation3Value = document.getElementById("tourLocation3").value.trim()
+			const tourLocation4Value = document.getElementById("tourLocation4").value.trim()
 			const guideValue = document.getElementById("guide").value.trim()
 			const difficultyValue = document.getElementById("difficulty").value.trim()
 			const priceValue = document.getElementById("price").value.trim()
@@ -286,15 +304,15 @@ const destinationAmenitiesInfo = {};
 
 			if (
 				!nameValue.length ||
-				!datepicker1Value.length ||
-				!datepicker2Value.length ||
-				!datepicker3Value.length ||
-				!datepicker4Value.length ||
-				!location0Value.length ||
-				!location1Value.length ||
-				!location2Value.length ||
-				!location3Value.length ||
-				!location4Value.length ||
+				!tourDatepicker1Value.length ||
+				!tourDatepicker2Value.length ||
+				!tourDatepicker3Value.length ||
+				!tourDatepicker4Value.length ||
+				!tourLocation0Value.length ||
+				!tourLocation1Value.length ||
+				!tourLocation2Value.length ||
+				!tourLocation3Value.length ||
+				!tourLocation4Value.length ||
 				!guideValue.length ||
 				!difficultyValue.length ||
 				!priceValue.length ||
@@ -312,8 +330,6 @@ const destinationAmenitiesInfo = {};
 				return
 			}
 
-
-
 			tourInfo['name'] = nameValue
 			tourInfo['duration'] = durationValue
 			tourInfo['groupsize'] = groupsizeValue
@@ -321,15 +337,15 @@ const destinationAmenitiesInfo = {};
 			tourInfo['price'] = priceValue
 			tourInfo['summary'] = summaryValue
 			tourInfo['description'] = descriptionValue
-			tourInfo['dp1'] = datepicker1Value
-			tourInfo['dp2'] = datepicker2Value
-			tourInfo['dp3'] = datepicker3Value
-			tourInfo['dp4'] = datepicker4Value
-			tourInfo['loc0value'] = location0Value
-			tourInfo['loc1value'] = location1Value
-			tourInfo['loc2value'] = location2Value
-			tourInfo['loc3value'] = location3Value
-			tourInfo['loc4value'] = location4Value
+			tourInfo['tdp1'] = tourDatepicker1Value
+			tourInfo['tdp2'] = tourDatepicker2Value
+			tourInfo['tdp3'] = tourDatepicker3Value
+			tourInfo['tdp4'] = tourDatepicker4Value
+			tourInfo['tourLoc0value'] = tourLocation0Value
+			tourInfo['tourLoc1value'] = tourLocation1Value
+			tourInfo['tourLoc2value'] = tourLocation2Value
+			tourInfo['tourLoc3value'] = tourLocation3Value
+			tourInfo['tourLoc4value'] = tourLocation4Value
 			tourInfo['guides'] = guideValue
 
 			if (animating) return false;
@@ -1166,7 +1182,7 @@ const destinationAmenitiesInfo = {};
 
 		$("#destination_next1").click(function () {
 			const errorEl = document.getElementById("error")
-			const datepicker1Value = document.getElementById("destination_datepicker1").value.trim()
+			const dstDatepicker1Value = document.getElementById("destination_datepicker1").value.trim()
 			const location1Value = document.getElementById("destination_location0").value.trim()
 			const guideValue = document.getElementById("destination_guide").value.trim()
 			const ratingValue = document.getElementById("destination_rating").value.trim()
@@ -1177,7 +1193,7 @@ const destinationAmenitiesInfo = {};
 			const descriptionValue = document.getElementById("dn_description").value.trim()
 
 			if (
-				!datepicker1Value.length ||
+				!dstDatepicker1Value.length ||
 				!location1Value.length ||
 				!guideValue.length ||
 				!ratingValue.length ||
@@ -1198,7 +1214,7 @@ const destinationAmenitiesInfo = {};
 
 
 
-			destinationInfo['dp1'] = datepicker1Value
+			destinationInfo['dp1'] = dstDatepicker1Value
 			destinationInfo['loc1'] = location1Value
 			destinationInfo['guide'] = guideValue
 			destinationInfo['rating'] = ratingValue
