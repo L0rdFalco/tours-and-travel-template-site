@@ -1,10 +1,12 @@
 .location-modal.hidden
+    h2#error.fs-title ALL FIELDS ARE REQUIRED
+    textarea.hidden#currentElVal
     button.close-location-modal &times;
     h5 add location info here
         .row
-        .col-25
+        .col-25.hidden
             label(for='country') Country
-        .col-75
+        .col-75.hidden
             select#country(name='country')
                 option(value='australia') Australia
                 option(value='canada') Canada

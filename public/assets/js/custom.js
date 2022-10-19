@@ -35,7 +35,9 @@ const destinationAmenitiesInfo = {};
 	const overlay = document.querySelector(".location-overlay");
 	const closeModalBtn = document.querySelector(".close-location-modal")
 
-	function modalIncluder() {
+	function modalIncluder(elementId) {
+		document.getElementById("currentElVal").textContent = elementId
+
 		modal.classList.remove("hidden");
 		overlay.classList.remove("hidden");
 
@@ -51,11 +53,65 @@ const destinationAmenitiesInfo = {};
 	overlay.addEventListener("click", modalRemover);
 
 
-	document.getElementById("location0").addEventListener("click", modalIncluder)
-	document.getElementById("location1").addEventListener("click", modalIncluder)
-	document.getElementById("location2").addEventListener("click", modalIncluder)
-	document.getElementById("location3").addEventListener("click", modalIncluder)
-	document.getElementById("location4").addEventListener("click", modalIncluder)
+	document.getElementById("location0").addEventListener("click", function (e) {
+
+		modalIncluder(e.target.id)
+	})
+
+	document.getElementById("location1").addEventListener("click", function (e) {
+		modalIncluder(e.target.id)
+	}
+	)
+
+	document.getElementById("location2").addEventListener("click", function (e) {
+		modalIncluder(e.target.id)
+	}
+	)
+
+	document.getElementById("location3").addEventListener("click", function (e) {
+		modalIncluder(e.target.id)
+	}
+	)
+
+	document.getElementById("location4").addEventListener("click", function (e) {
+		modalIncluder(e.target.id)
+	}
+	)
+
+	document.getElementById("infosubmit").addEventListener("click", function (e) {
+		const locdesc = document.getElementById("locdesc").value.trim()
+		const latval = document.getElementById("latval").value.trim()
+		const longval = document.getElementById("longval").value.trim()
+		const dayval = document.getElementById("dayval").value.trim()
+		const errorEl = document.getElementById("error")
+
+		if (!locdesc || !latval || !longval || !dayval) {
+			errorEl.style.opacity = 1
+			setTimeout(() => {
+				errorEl.style.opacity = 0
+
+			}, 5000)
+			return
+		}
+
+		const currentKey = document.getElementById("currentElVal").value.trim();
+
+		if (window.location.href.includes("add-tour")) {
+
+			tourInfo[currentKey] = {
+				"description": locdesc,
+				"lat": latval,
+				"log": longval,
+				"day": dayval
+			}
+		}
+		modalRemover()
+
+		document.getElementById("" + currentKey).value = "added!"
+
+	}
+	)
+
 
 
 
