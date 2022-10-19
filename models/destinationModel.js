@@ -5,7 +5,10 @@ const destinationSchema = mongoose.Schema({
         type: String,
         required: [true, "a destination must have a name"],
         trim: true
-
+    },
+    itenerary: {
+        type: String,
+        required: [true, "a destination must have a itenerary"]
     },
     startDate: {
         type: Date,

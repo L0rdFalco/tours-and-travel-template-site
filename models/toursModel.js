@@ -10,6 +10,10 @@ const toursSchema = mongoose.Schema({
         maxLength: [40, "name has exceed maximum length (40)"],
         minLength: [10, "name length should be increased"]
     },
+    itenerary: {
+        type: String,
+        required: [true, "a tour must have an itenerary"]
+    },
     duration: {
         type: Number,
         required: [true, "a tour must have a duration"],
