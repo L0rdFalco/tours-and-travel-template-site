@@ -424,16 +424,27 @@ function getRandomInt(min, max) {
 			const tourSummaryEl = document.getElementById("tour_summary")
 			tour_headingEl.textContent = "Hi man, this is your tour summary: "
 
-			summaryText = "<b>tour details:<b><br>"
+			summaryText = `<b>tour details:<b><br> <table id="resources">`
 			for (const key in tourInfo) {
-				summaryText += `<br><b>${key}<b> : ${tourInfo["" + key]}<br>`
+				summaryText +=
+					`
+				  <tr>
+					<th>${key}</th>
+					<td>${tourInfo["" + key]}</td>
+				  </tr>
+
+				`
 			}
 
-			summaryText += "<b><br><br>included amenities:<b><br>"
+			summaryText += `</table><b><br><br>included amenities:<b><br> <table id="resources">`
 
 			for (const key in tourAmenitiesInfo) {
-				summaryText += `<br><b>*<b> ${tourAmenitiesInfo["" + key]}<br>`
+				summaryText += `<tr>
+				<td>${tourAmenitiesInfo["" + key]}</td>
+			  </tr>`
 			}
+
+			summaryText += "</table>"
 
 
 			tourSummaryEl.innerHTML = summaryText
