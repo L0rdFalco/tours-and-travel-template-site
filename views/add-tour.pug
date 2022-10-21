@@ -35,7 +35,7 @@ block content
                                         .row
                                             .col-xs-6
                                                 label Tour Name
-                                                input#tourname.form-control(type='text'  placeholder='Galaxy cruiser tour')
+                                                input#tourname.form-control(type='text'  value ="lorem ipsum title 1" placeholder='Galaxy cruiser tour')
 
                                             .col-xs-6
                                                 label Upload itenerary
@@ -45,16 +45,16 @@ block content
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label(for='datepicker1') pick first start date
-                                                input#tourDatepicker1.datepicker_input.form-control.border-2(type='date', required='', placeholder='DD/MM/YYYY')
+                                                input#tourDatepicker1.datepicker_input.form-control.border-2(type='date',value="10/10/2022" required='', placeholder='DD/MM/YYYY')
                                             .col-xs-6
                                                 label(for='datepicker2') pick second start date
-                                                input#tourDatepicker2.datepicker_input.form-control.border-2(type='date', required='', placeholder='DD/MM/YYYY')
+                                                input#tourDatepicker2.datepicker_input.form-control.border-2(type='date',value="11/10/2022" required='', placeholder='DD/MM/YYYY')
                                             .col-xs-6
                                                 label(for='datepicker3') pick third start date
-                                                input#tourDatepicker3.datepicker_input.form-control.border-2(type='date', required='', placeholder='DD/MM/YYYY')
+                                                input#tourDatepicker3.datepicker_input.form-control.border-2(type='date',value="12/10/2022", required='', placeholder='DD/MM/YYYY')
                                             .col-xs-6
                                                 label(for='datepicker4') pick fourth start date
-                                                input#tourDatepicker4.datepicker_input.form-control.border-2(type='date', required='', placeholder='DD/MM/YYYY')
+                                                input#tourDatepicker4.datepicker_input.form-control.border-2(type='date',value="13/10/2022", required='', placeholder='DD/MM/YYYY')
                                             .col-xs-6
                                                 label add first location
                                                 input#tourLocation1.form-control(type='text' placeholder='lat, long')
@@ -89,13 +89,13 @@ block content
                                                         option difficult                            
                                             .col-xs-6
                                                 label price/person
-                                                input#price.form-control(type='text'  placeholder='$555')
+                                                input#price.form-control(type='text' value= "1000", placeholder='$555')
                                             .col-xs-6
                                                 label duration
-                                                input#duration.form-control(type='text'  placeholder='5 hours')
+                                                input#duration.form-control(type='text' value= "5"  placeholder='5 hours')
                                             .col-xs-6
                                                 label maximum group size
-                                                input#groupsize.form-control(type='text'  placeholder='12')
+                                                input#groupsize.form-control(type='text' value= "5"  placeholder='12')
 
 
                                             .col-xs-6
@@ -131,10 +131,10 @@ block content
                                                         span.custom-file-control
                                             .col-xs-12
                                                 label tour summary
-                                                textarea#tr_summary.form-control.height-120( placeholder='simple one liner description')
+                                                textarea#tr_summary.form-control.height-120( placeholder='simple one liner description') Commodo odio aenean sed adipiscing diam donec adipiscing. Nisl purus in mollis nunc sed id semper risus
                                             .col-xs-12
                                                 label tour description
-                                                textarea#tr_description.form-control.height-120( placeholder='long description about tour')
+                                                textarea#tr_description.form-control.height-120(placeholder='long description about tour') Mauris a diam maecenas sed enim. Consectetur a erat nam at lectus. Eget mi proin sed libero enim sed faucibus turpis. Nulla malesuada pellentesque elit eget
                                                 h2#error.fs-title ALL FIELDS ARE REQUIRED
 
                                         input.next.action-button(type='button' name='next' value='Next' id='tour_next1')
@@ -156,7 +156,7 @@ block content
                                                         | Coffeemaker
                                                     li
                                                         span.custom-checkbox
-                                                            input#3(type='checkbox')
+                                                            input#3(type='checkbox' checked=true)
                                                             label(for='3')
                                                         | Hair Dryer
                                                     li
@@ -166,7 +166,7 @@ block content
                                                         | Swimming Pool
                                                     li
                                                         span.custom-checkbox
-                                                            input#5(type='checkbox')
+                                                            input#5(type='checkbox' checked=true)
                                                             label(for='5')
                                                         | Room Service
                                                     li
@@ -176,7 +176,7 @@ block content
                                                         | Luxury Bedding
                                                     li
                                                         span.custom-checkbox
-                                                            input#7(type='checkbox')
+                                                            input#7(type='checkbox' checked=true)
                                                             label(for='7')
                                                         | Good Showers
                                                     li
@@ -186,12 +186,12 @@ block content
                                                         | Free Parking
                                                     li
                                                         span.custom-checkbox
-                                                            input#9(type='checkbox')
+                                                            input#9(type='checkbox' checked=true)
                                                             label(for='9')
                                                         | Free Wifi
                                                     li
                                                         span.custom-checkbox
-                                                            input#10(type='checkbox')
+                                                            input#10(type='checkbox' checked=true)
                                                             label(for='0')
                                                         | Bath towel
                                                     li
@@ -201,27 +201,27 @@ block content
                                                         | Free Coffee
                                                     li
                                                         span.custom-checkbox
-                                                            input#12(type='checkbox')
+                                                            input#12(type='checkbox' checked=true)
                                                             label(for='12')
                                                         | Pets Allowed
                                                     li
                                                         span.custom-checkbox
-                                                            input#13(type='checkbox')
+                                                            input#13(type='checkbox' checked=true)
                                                             label(for='13')
                                                         | Hot Water
                                                     li
                                                         span.custom-checkbox
-                                                            input#14(type='checkbox')
+                                                            input#14(type='checkbox' checked=true)
                                                             label(for='14')
                                                         | Attached garage
                                                     li
                                                         span.custom-checkbox
-                                                            input#15(type='checkbox')
+                                                            input#15(type='checkbox' checked=true)
                                                             label(for='15')
                                                         | Elevator
                                                     li
                                                         span.custom-checkbox
-                                                            input#16(type='checkbox')
+                                                            input#16(type='checkbox' checked=true)
                                                             label(for='16')
                                                         | Spa/Sauna
                                                     li
@@ -231,7 +231,7 @@ block content
                                                         | Indoor pool
                                                     li
                                                         span.custom-checkbox
-                                                            input#18(type='checkbox')
+                                                            input#18(type='checkbox' checked=true)
                                                             label(for='18')
                                                         | Security cameras
                                         input.previous.action-button(type='button' name='tour_previous1' value='Previous' id="tour_previous1")

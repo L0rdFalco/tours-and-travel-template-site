@@ -101,6 +101,12 @@ const toursSchema = mongoose.Schema({
             ref: "User" // collection name
 
         }
+    ],
+    amenities: [
+        {
+            type: String,
+            required: [true, "tour must have a list of amenities"]
+        }
     ]
 
 },

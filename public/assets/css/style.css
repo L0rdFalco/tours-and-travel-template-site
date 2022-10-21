@@ -1823,7 +1823,7 @@ html body .label-default{
     font-size:16px;
     padding:11px 17px;
     border:none;
-    background-color:red background-color:red;
+    background-color:red;
     outline:0
 }
 .file-upload-button{
@@ -3496,7 +3496,7 @@ span.vcard.author a{
 .location,.tour-box .inner-box p{
     font-size:13.5px
 }
-. .coauthors .vcard .fn{
+.coauthors .vcard .fn{
     font-size:15px
 }
 .meta-item.meta-views:before{
@@ -6052,17 +6052,11 @@ a.cl-box{
      padding-top: 70px;
 }
 
-h2#error {
+h2#error, #errormodal {
     color: red;
     opacity: 0;
 
 }
-/*css for datepicker*/
-/* Adapts a floating label for use with a left-handed input group icon */
-/* .form-floating > .bi-calendar-date + .datepicker_input + label {
-    padding-left: 3.5rem;
-    z-index: 3;
-  } */
 
   /* css for modal*/
 .hidden {

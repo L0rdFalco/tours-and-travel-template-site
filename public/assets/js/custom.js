@@ -29,6 +29,13 @@ const restaurantAmenitiesInfo = {};
 const destinationInfo = {};
 const destinationAmenitiesInfo = {};
 
+function getRandomInt(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
 (function ($) {
 	"use strict";
 	const modal = document.querySelector(".location-modal");
@@ -90,7 +97,7 @@ const destinationAmenitiesInfo = {};
 		const longval = document.getElementById("longval").value.trim()
 		const dayval = document.getElementById("dayval").value.trim()
 		const addrval = document.getElementById("addressval").value.trim()
-		const errorEl = document.getElementById("error")
+		const errorEl = document.getElementById("errormodal")
 
 		if (!locdesc || !latval || !longval || !dayval) {
 			errorEl.style.opacity = 1

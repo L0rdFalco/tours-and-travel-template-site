@@ -1,5 +1,5 @@
 .location-modal.hidden
-    h2#error.fs-title ALL FIELDS ARE REQUIRED
+    h2#errormodal.fs-title ALL FIELDS ARE REQUIRED
     textarea.hidden#currentElVal
     button.close-location-modal &times;
     h5 add location info here
@@ -15,27 +15,27 @@
         .col-25
             label(for='locdesc') description:
         .col-75
-            input#locdesc(type='text', name='description', placeholder='location description..')
+            input#locdesc(type='text', name='description', value= "Lorem ipsum dolor sit amet", placeholder='location description..')
         .row
         .col-25
             label(for='latval') Latitude:
         .col-75
-            input#latval(type='text', name='lat', placeholder='latitude value..')
+            input#latval(type='text', name='lat', value = "123", placeholder='latitude value..')
         .row    
         .col-25
             label(for='longval') Langitude:
         .col-75
-            input#longval(type='text', name='lat', placeholder='langitude value..')
+            input#longval(type='text', name='lat', value = "-123", placeholder='langitude value..')
         .row    
         .col-25
             label(for='dayval') day:
         .col-75
-            input#dayval(type='text', name='lat', placeholder='day value..')    
+            input#dayval(type='text', name='lat', value= "1", placeholder='day value..')    
         .row    
         .col-25
             label(for='addressval') address:
         .col-75
-            input#addressval(type='text', name='address', placeholder='address value..')                
+            input#addressval(type='text', name='address', value= "proin sed, libero enim sed, faucibus turpis", placeholder='address value..')                
 
         br
         .row
