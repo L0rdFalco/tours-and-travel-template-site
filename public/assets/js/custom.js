@@ -18,7 +18,7 @@
 * 12. Add Listing Process
 **************************************/
 const tourInfo = {};
-const tourAmenitiesInfo = {};
+const tourAmenitiesInfo = [];
 
 const hotelInfo = {};
 const hotelAmenitiesInfo = {};
@@ -28,6 +28,12 @@ const restaurantAmenitiesInfo = {};
 
 const destinationInfo = {};
 const destinationAmenitiesInfo = {};
+
+const tourLocationInfo = []
+const destLocationInfo = []
+
+const source = ["dest", "hotel", "tour"]
+
 
 function getRandomInt(min, max) {
 	min = Math.ceil(min);
@@ -112,24 +118,22 @@ function getRandomInt(min, max) {
 
 		if (window.location.href.includes("add-tour")) {
 
-			tourInfo[currentKey] = {
+			tourLocationInfo.push({
 				"description": locdesc,
-				"lat": latval,
-				"log": longval,
+				"coordinates": [latval, longval],
 				"day": dayval,
 				"address": addrval
-			}
+			})
 		}
 
 		if (window.location.href.includes("add-destination")) {
 
-			destinationInfo[currentKey] = {
+			destLocationInfo.push({
 				"description": locdesc,
-				"lat": latval,
-				"log": longval,
+				"coordinates": [latval, longval],
 				"day": dayval,
 				"address": addrval
-			}
+			})
 		}
 
 		modalRemover()
@@ -294,11 +298,6 @@ function getRandomInt(min, max) {
 			const tourDatepicker2Value = document.getElementById("tourDatepicker2").value.trim()
 			const tourDatepicker3Value = document.getElementById("tourDatepicker3").value.trim()
 			const tourDatepicker4Value = document.getElementById("tourDatepicker4").value.trim()
-			const tourLocation0Value = document.getElementById("tourLocation0").value.trim()
-			const tourLocation1Value = document.getElementById("tourLocation1").value.trim()
-			const tourLocation2Value = document.getElementById("tourLocation2").value.trim()
-			const tourLocation3Value = document.getElementById("tourLocation3").value.trim()
-			const tourLocation4Value = document.getElementById("tourLocation4").value.trim()
 			const guideValue = document.getElementById("guide").value.trim()
 			const difficultyValue = document.getElementById("difficulty").value.trim()
 			const priceValue = document.getElementById("price").value.trim()
@@ -315,11 +314,6 @@ function getRandomInt(min, max) {
 				!tourDatepicker2Value.length ||
 				!tourDatepicker3Value.length ||
 				!tourDatepicker4Value.length ||
-				!tourLocation0Value.length ||
-				!tourLocation1Value.length ||
-				!tourLocation2Value.length ||
-				!tourLocation3Value.length ||
-				!tourLocation4Value.length ||
 				!guideValue.length ||
 				!difficultyValue.length ||
 				!priceValue.length ||
@@ -344,16 +338,13 @@ function getRandomInt(min, max) {
 			tourInfo['price'] = priceValue
 			tourInfo['summary'] = summaryValue
 			tourInfo['description'] = descriptionValue
-			tourInfo['tdp1'] = tourDatepicker1Value
-			tourInfo['tdp2'] = tourDatepicker2Value
-			tourInfo['tdp3'] = tourDatepicker3Value
-			tourInfo['tdp4'] = tourDatepicker4Value
-			tourInfo['tourLoc0value'] = tourLocation0Value
-			tourInfo['tourLoc1value'] = tourLocation1Value
-			tourInfo['tourLoc2value'] = tourLocation2Value
-			tourInfo['tourLoc3value'] = tourLocation3Value
-			tourInfo['tourLoc4value'] = tourLocation4Value
+			tourInfo['startDates'] = [tourDatepicker1Value, tourDatepicker2Value, tourDatepicker3Value, tourDatepicker4Value]
+			tourInfo['startLocation'] = tourLocationInfo[0]
+			tourInfo['locations'] = tourLocationInfo
 			tourInfo['guides'] = guideValue
+			tourInfo['imageCover'] = `tour-${getRandomInt(1, 9)}.jpg`
+			tourInfo['images'] = [`tour-${getRandomInt(1, 9)}.jpg`, `tour-${getRandomInt(1, 9)}.jpg`, `tour-${getRandomInt(1, 9)}.jpg`, `tour-${getRandomInt(1, 9)}.jpg`]
+			tourInfo['amenities'] = tourAmenitiesInfo
 
 			if (animating) return false;
 			animating = true;
@@ -409,24 +400,24 @@ function getRandomInt(min, max) {
 			const input17El = document.getElementById("17")
 			const input18El = document.getElementById("18")
 
-			if (input1El.checked) tourAmenitiesInfo["1"] = "satellite tv"
-			if (input2El.checked) tourAmenitiesInfo["2"] = "coffee maker"
-			if (input3El.checked) tourAmenitiesInfo["3"] = "hair dryer"
-			if (input4El.checked) tourAmenitiesInfo["4"] = "swimming pool"
-			if (input5El.checked) tourAmenitiesInfo["5"] = "room service"
-			if (input6El.checked) tourAmenitiesInfo["6"] = "luxury bedding"
-			if (input7El.checked) tourAmenitiesInfo["7"] = "good showers"
-			if (input8El.checked) tourAmenitiesInfo["8"] = "free parking"
-			if (input9El.checked) tourAmenitiesInfo["9"] = "free wifi"
-			if (input10El.checked) tourAmenitiesInfo["10"] = "bath towels"
-			if (input11El.checked) tourAmenitiesInfo["11"] = "free coffee"
-			if (input12El.checked) tourAmenitiesInfo["12"] = "pets friendly"
-			if (input13El.checked) tourAmenitiesInfo["13"] = "running hot water"
-			if (input14El.checked) tourAmenitiesInfo["14"] = "attached garage"
-			if (input15El.checked) tourAmenitiesInfo["15"] = "elevator"
-			if (input16El.checked) tourAmenitiesInfo["16"] = "spa/sauna"
-			if (input17El.checked) tourAmenitiesInfo["17"] = "indoor pool"
-			if (input18El.checked) tourAmenitiesInfo["18"] = "security cameras"
+			if (input1El.checked) tourAmenitiesInfo.push("satellite tv")
+			if (input2El.checked) tourAmenitiesInfo.push("coffee maker")
+			if (input3El.checked) tourAmenitiesInfo.push("hair dryer")
+			if (input4El.checked) tourAmenitiesInfo.push("swimming pool")
+			if (input5El.checked) tourAmenitiesInfo.push("room service")
+			if (input6El.checked) tourAmenitiesInfo.push("luxury bedding")
+			if (input7El.checked) tourAmenitiesInfo.push("good showers")
+			if (input8El.checked) tourAmenitiesInfo.push("free parking")
+			if (input9El.checked) tourAmenitiesInfo.push("free wifi")
+			if (input10El.checked) tourAmenitiesInfo.push("bath towels")
+			if (input11El.checked) tourAmenitiesInfo.push("free coffee")
+			if (input12El.checked) tourAmenitiesInfo.push("pets friendly")
+			if (input13El.checked) tourAmenitiesInfo.push("running hot water")
+			if (input14El.checked) tourAmenitiesInfo.push("attached garage")
+			if (input15El.checked) tourAmenitiesInfo.push("elevator")
+			if (input16El.checked) tourAmenitiesInfo.push("spa/sauna")
+			if (input17El.checked) tourAmenitiesInfo.push("indoor pool")
+			if (input18El.checked) tourAmenitiesInfo.push("security cameras")
 
 			let summaryText = ""
 			const tour_headingEl = document.getElementById("tour_heading")
@@ -553,8 +544,9 @@ function getRandomInt(min, max) {
 
 		$("#tour_submit").click(function () {
 			//hit the add tours endpoint here 
+			tourInfo["amenities"] = tourAmenitiesInfo
 			console.log(tourInfo);
-			console.log(tourAmenitiesInfo);
+			// console.log(tourAmenitiesInfo);
 			console.log("register tour!");
 
 			if (animating) return false;
