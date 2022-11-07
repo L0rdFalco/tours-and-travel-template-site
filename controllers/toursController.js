@@ -114,9 +114,10 @@ exports.getSingleTour = async (request, response, next) => {
 
 exports.createSingleTour = async (request, response, next) => {
     try {
+        console.log("---->", request.body);
         const toursDoc = await ToursModel.create(request.body)
 
-        response.status(200).json({
+        return response.status(200).json({
             status: "success",
             data: {
                 payload: toursDoc
@@ -124,9 +125,11 @@ exports.createSingleTour = async (request, response, next) => {
             }
         })
     } catch (error) {
+        console.log(error);
 
-        response.status(400).json({
-            status: "create single tour fail",
+        return response.status(400).json({
+            message: "create single tour fail",
+            type: "fail"
 
         })
     }

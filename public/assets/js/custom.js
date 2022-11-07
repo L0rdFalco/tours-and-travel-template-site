@@ -1,3 +1,4 @@
+
 /*************************************
 * Theme Name: Travel Stock
 * Author: Themez Hub
@@ -334,7 +335,7 @@ function getRandomInt(min, max) {
 
 			tourInfo['name'] = nameValue
 			tourInfo['duration'] = durationValue
-			tourInfo['groupsize'] = groupsizeValue
+			tourInfo['maxGroupSize'] = groupsizeValue
 			tourInfo['difficulty'] = difficultyValue
 			tourInfo['price'] = priceValue
 			tourInfo['summary'] = summaryValue
@@ -550,12 +551,18 @@ function getRandomInt(min, max) {
 				easing: 'easeInOutBack'
 			});
 		});
-		$("#tour_submit").click(function () {
+		$("#tour_submit").click(async function () {
 			//hit the add tours endpoint here 
 			tourInfo["amenities"] = tourAmenitiesInfo
+			tourInfo["itenerary"] = "itenerary.pdf"
 			console.log(tourInfo);
 			// console.log(tourAmenitiesInfo);
-			console.log("register tour!");
+			let res = await axios({
+				method: "POST",
+				url: "/api/v1/tours/",
+				data: tourInfo
+			})
+			console.log("register tour!", res.data);
 
 			if (animating) return false;
 			animating = true;
