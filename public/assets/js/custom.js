@@ -47,6 +47,7 @@ function getRandomInt(min, max) {
 	const modal = document.querySelector(".location-modal");
 	const overlay = document.querySelector(".location-overlay");
 	const closeModalBtn = document.querySelector(".close-location-modal")
+	const submitInfoBtn = document.getElementById("infosubmit")
 
 	const tl0 = document.getElementById("tourLocation0")
 	const tl1 = document.getElementById("tourLocation1")
@@ -69,8 +70,8 @@ function getRandomInt(min, max) {
 	}
 
 
-	closeModalBtn.addEventListener("click", modalRemover);
-	overlay.addEventListener("click", modalRemover);
+	if (closeModalBtn) closeModalBtn.addEventListener("click", modalRemover);
+	if (overlay) overlay.addEventListener("click", modalRemover);
 
 
 	if (tl0) tl0.addEventListener("click", function (e) {
@@ -97,7 +98,7 @@ function getRandomInt(min, max) {
 
 		modalIncluder(e.target.id)
 	})
-	document.getElementById("infosubmit").addEventListener("click", function (e) {
+	if (submitInfoBtn) submitInfoBtn.addEventListener("click", function (e) {
 		const locdesc = document.getElementById("locdesc").value.trim()
 		const latval = document.getElementById("latval").value.trim()
 		const longval = document.getElementById("longval").value.trim()
@@ -379,7 +380,6 @@ function getRandomInt(min, max) {
 				easing: 'easeInOutBack'
 			});
 		});
-
 		$("#tour_next2").click(function () {
 			const input1El = document.getElementById("1")
 			const input2El = document.getElementById("2")
@@ -482,7 +482,6 @@ function getRandomInt(min, max) {
 				easing: 'easeInOutBack'
 			});
 		});
-
 		$("#tour_previous1").click(function () {
 			if (animating) return false;
 			animating = true;
@@ -517,7 +516,6 @@ function getRandomInt(min, max) {
 				easing: 'easeInOutBack'
 			});
 		});
-
 		$("#tour_previous2").click(function () {
 			if (animating) return false;
 			animating = true;
@@ -552,7 +550,6 @@ function getRandomInt(min, max) {
 				easing: 'easeInOutBack'
 			});
 		});
-
 		$("#tour_submit").click(function () {
 			//hit the add tours endpoint here 
 			tourInfo["amenities"] = tourAmenitiesInfo
@@ -690,7 +687,6 @@ function getRandomInt(min, max) {
 			});
 
 		})
-
 		$("#hotel_next2").click(function () {
 			const input1El = document.getElementById("1")
 			const input2El = document.getElementById("2")
@@ -782,7 +778,6 @@ function getRandomInt(min, max) {
 				easing: 'easeInOutBack'
 			});
 		})
-
 		$("#hotel_previous1").click(function () {
 
 			if (animating) return false;
@@ -818,7 +813,6 @@ function getRandomInt(min, max) {
 				easing: 'easeInOutBack'
 			});
 		})
-
 		$("#hotel_previous2").click(function () {
 
 			if (animating) return false;
@@ -854,7 +848,6 @@ function getRandomInt(min, max) {
 				easing: 'easeInOutBack'
 			});
 		})
-
 		$("#hotel_submit").click(function () {
 
 			//hit the add hotel endpoint here 
@@ -987,7 +980,6 @@ function getRandomInt(min, max) {
 				easing: 'easeInOutBack'
 			});
 		})
-
 		$("#restaurant_next2").click(function () {
 			const input1El = document.getElementById("1")
 			const input2El = document.getElementById("2")
@@ -1081,7 +1073,6 @@ function getRandomInt(min, max) {
 			});
 
 		})
-
 		$("#restaurant_previous1").click(function () {
 			if (animating) return false;
 			animating = true;
