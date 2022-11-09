@@ -35,7 +35,7 @@ block content
                                         .row
                                             .col-xs-6
                                                 label destination Name
-                                                input.form-control(type='text'  placeholder='Galaxy cruiser destination')
+                                                input#dest_name.form-control(type='text'  value='Galaxy cruiser destination')
 
                                             .col-xs-6
                                                 label Upload itenerary
@@ -45,41 +45,39 @@ block content
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label(for='destdatepicker1') pick start date
-                                                input#destination_datepicker1.datepicker_input.form-control.border-2(type='date', required='', placeholder='DD/MM/YYYY')
+                                                input#destination_startdate.datepicker_input.form-control.border-2(type='date', required='', value='DD/MM/YYYY')
                                             .col-xs-6
                                                 label(for='destdatepicker2') pick end date
-                                                input#destination_datepicker2.datepicker_input.form-control.border-2(type='date', required='', placeholder='DD/MM/YYYY')
+                                                input#destination_enddate.datepicker_input.form-control.border-2(type='date', required='', value='DD/MM/YYYY')
                                                                                         
                                             .col-xs-6
                                                 label choose start location
-                                                input#destination_location0.form-control(type='text' placeholder='lat, long')
+                                                input#destination_location0.form-control(type='text' value='lat, long')
                                             .col-xs-6
                                                 label choose guide
                                                 .sl-box
                                                     select#destination_guide.form-control.wide
-                                                        option self-guided
-                                                        option guide name 1
-                                                        option guide name 2
-                                                        option guide name 3
-                                                        option guide name 4
-                                                        option guide name 5
+                                                        option 5c8a21d02f8fb814b56fa189
+                                                        option 5c8a21f22f8fb814b56fa18a
+                                                        option 5c8a23412f8fb814b56fa18c
+                                                        option 5c8a201e2f8fb814b56fa186
+                                                        option 5c8a1f292f8fb814b56fa184
                                             .col-xs-6
                                                 label choose difficulty
                                                 .sl-box
-                                                    select#destination_rating.form-control.wide
-                                                        option not rated
+                                                    select#destination_difficulty.form-control.wide
                                                         option easy
                                                         option medium
                                                         option difficult                                      
                                             .col-xs-6
-                                                label price/person
-                                                input#destination_price.form-control(type='text'  placeholder='$555')
+                                                label price/person ($)
+                                                input#destination_price.form-control(type='text'  value='515')
                                             .col-xs-6
                                                 label duration
-                                                input#destination_duration.form-control(type='text'  placeholder='5 hours')
+                                                input#destination_duration.form-control(type='text'  value='5')
                                             .col-xs-6
                                                 label maximum group size
-                                                input#destination_groupsize.form-control(type='text'  placeholder='12')
+                                                input#destination_groupsize.form-control(type='text'  value='12')
                                             .col-xs-6
                                                 label destination banner Image
                                                 .cf-input
@@ -112,10 +110,10 @@ block content
                                                         span.custom-file-control
                                             .col-xs-12
                                                 label destination summary
-                                                textarea#dn_summary.form-control.height-120( placeholder='simple one liner description')
+                                                textarea#dn_summary.form-control.height-120( placeholder='simple one liner description') Commodo odio aenean sed adipiscing diam donec adipiscing. Nisl purus in mollis nunc sed id semper risus
                                             .col-xs-12
                                                 label destination description
-                                                textarea#dn_description.form-control.height-120( placeholder='long description about destination')
+                                                textarea#dn_description.form-control.height-120( placeholder='long description about destination') Mauris a diam maecenas sed enim. Consectetur a erat nam at lectus. Eget mi proin sed libero enim sed faucibus turpis. Nulla malesuada pellentesque elit eget
                                                 h2#error.fs-title ALL FIELDS ARE REQUIRED
 
                                         input.next.action-button(type='button' name='next' value='Next' id='destination_next1')
@@ -142,7 +140,7 @@ block content
                                                         | Hair Dryer
                                                     li
                                                         span.custom-checkbox
-                                                            input#4(type='checkbox')
+                                                            input#4(type='checkbox' checked=true)
                                                             label(for='4')
                                                         | Swimming Pool
                                                     li
@@ -152,7 +150,7 @@ block content
                                                         | Room Service
                                                     li
                                                         span.custom-checkbox
-                                                            input#6(type='checkbox')
+                                                            input#6(type='checkbox' checked=true)
                                                             label(for='6')
                                                         | Luxury Bedding
                                                     li
@@ -162,7 +160,7 @@ block content
                                                         | Good Showers
                                                     li
                                                         span.custom-checkbox
-                                                            input#8(type='checkbox')
+                                                            input#8(type='checkbox' checked=true)
                                                             label(for='8')
                                                         | Free Parking
                                                     li
@@ -192,22 +190,22 @@ block content
                                                         | Hot Water
                                                     li
                                                         span.custom-checkbox
-                                                            input#14(type='checkbox')
+                                                            input#14(type='checkbox' checked=true)
                                                             label(for='14')
                                                         | Attached garage
                                                     li
                                                         span.custom-checkbox
-                                                            input#15(type='checkbox')
+                                                            input#15(type='checkbox' checked=true)
                                                             label(for='15')
                                                         | Elevator
                                                     li
                                                         span.custom-checkbox
-                                                            input#16(type='checkbox')
+                                                            input#16(type='checkbox' checked=true)
                                                             label(for='16')
                                                         | Spa/Sauna
                                                     li
                                                         span.custom-checkbox
-                                                            input#17(type='checkbox')
+                                                            input#17(type='checkbox' checked=true)
                                                             label(for='17')
                                                         | Indoor pool
                                                     li

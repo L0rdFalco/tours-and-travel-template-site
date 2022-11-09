@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const { default: slugify } = require("slugify")
 const restaurantSchema = mongoose.Schema({
 
     name: {
@@ -8,11 +9,11 @@ const restaurantSchema = mongoose.Schema({
     },
     logo: {
         type: String,
-        required: [true, "a restaurant must have a name"],
+        required: [true, "a restaurant must have a logo"],
     },
     menu: {
         type: String,
-        required: [true, "a restaurant must have a name"],
+        required: [true, "a restaurant must have a menu"],
     },
     rating: {
         type: Number,
@@ -127,6 +128,11 @@ const restaurantSchema = mongoose.Schema({
         toJSON: { virtuals: true },
         toObject: { virtuals: true }
     })
+
+restaurantSchema.pre("save", function (next) {
+    this.slug = slugify(this.name, { lower: true, trim: true })
+    next()
+})
 
 const restaurantModel = mongoose.model("Restaurant", restaurantSchema)
 

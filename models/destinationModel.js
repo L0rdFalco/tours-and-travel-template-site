@@ -35,6 +35,11 @@ const destinationSchema = mongoose.Schema({
         required: [true, "a destination must have a guide"],
         trim: true
     },
+    difficulty: {
+        type: String,
+        required: [true, "a destination must have a difficulty"],
+        trim: true
+    },
     rating: {
         type: Number,
         default: 4.5,
@@ -106,6 +111,11 @@ const destinationSchema = mongoose.Schema({
         toJSON: { virtuals: true },
         toObject: { virtuals: true }
     })
+
+destinationSchema.pre("save", function (next) {
+    this.slug = slugify(this.name, { lower: true, trim: true })
+    next()
+})
 
 const destinationModel = mongoose.model("Destination", destinationSchema)
 

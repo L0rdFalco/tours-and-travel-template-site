@@ -55,6 +55,7 @@ function getRandomInt(min, max) {
 	const tl2 = document.getElementById("tourLocation2")
 	const tl3 = document.getElementById("tourLocation3")
 	const tl4 = document.getElementById("tourLocation4")
+
 	const dl0 = document.getElementById("destination_location0")
 
 	function modalIncluder(elementId) {
@@ -960,9 +961,9 @@ function getRandomInt(min, max) {
 			}
 
 			restaurantInfo["name"] = restaurantNameValue
-			restaurantInfo["price4"] = restaurantPriceValue
+			restaurantInfo["price"] = restaurantPriceValue
 			restaurantInfo["phone"] = restaurantPhoneValue
-			restaurantInfo["ll"] = restaurantLlValue
+			restaurantInfo["landline"] = restaurantLlValue
 			restaurantInfo["email"] = restaurantEmailValue
 			restaurantInfo["fax"] = restaurantFaxValue
 			restaurantInfo["address"] = restaurantAddressValue
@@ -973,7 +974,9 @@ function getRandomInt(min, max) {
 			restaurantInfo["contact"] = restaurantContactValue
 			restaurantInfo["summary"] = restaurantSummaryValue
 			restaurantInfo["description"] = restaurantDescriptionValue
-
+			restaurantInfo['imageCover'] = `rest-${getRandomInt(1, 9)}.jpg`
+			restaurantInfo['logo'] = `rest-logo-${getRandomInt(1, 9)}.jpg`
+			restaurantInfo['images'] = [`rest-${getRandomInt(1, 9)}.jpg`, `rest-${getRandomInt(1, 9)}.jpg`, `rest-${getRandomInt(1, 9)}.jpg`, `rest-${getRandomInt(1, 9)}.jpg`]
 
 			if (animating) return false;
 			animating = true;
@@ -1028,44 +1031,56 @@ function getRandomInt(min, max) {
 			const input17El = document.getElementById("17")
 			const input18El = document.getElementById("18")
 
-			if (input1El.checked) restaurantAmenitiesInfo["1"] = "satellite tv"
-			if (input2El.checked) restaurantAmenitiesInfo["2"] = "coffee maker"
-			if (input3El.checked) restaurantAmenitiesInfo["3"] = "hair dryer"
-			if (input4El.checked) restaurantAmenitiesInfo["4"] = "swimming pool"
-			if (input5El.checked) restaurantAmenitiesInfo["5"] = "room service"
-			if (input6El.checked) restaurantAmenitiesInfo["6"] = "luxury bedding"
-			if (input7El.checked) restaurantAmenitiesInfo["7"] = "good showers"
-			if (input8El.checked) restaurantAmenitiesInfo["8"] = "free parking"
-			if (input9El.checked) restaurantAmenitiesInfo["9"] = "free wifi"
-			if (input10El.checked) restaurantAmenitiesInfo["10"] = "bath towels"
-			if (input11El.checked) restaurantAmenitiesInfo["11"] = "free coffee"
-			if (input12El.checked) restaurantAmenitiesInfo["12"] = "pets friendly"
-			if (input13El.checked) restaurantAmenitiesInfo["13"] = "running hot water"
-			if (input14El.checked) restaurantAmenitiesInfo["14"] = "attached garage"
-			if (input15El.checked) restaurantAmenitiesInfo["15"] = "elevator"
-			if (input16El.checked) restaurantAmenitiesInfo["16"] = "spa/sauna"
-			if (input17El.checked) restaurantAmenitiesInfo["17"] = "indoor pool"
-			if (input18El.checked) restaurantAmenitiesInfo["18"] = "secuirty cameras"
+			if (input1El.checked) restaurantAmenitiesInfo.push("satellite tv")
+			if (input2El.checked) restaurantAmenitiesInfo.push("coffee maker")
+			if (input3El.checked) restaurantAmenitiesInfo.push("hair dryer")
+			if (input4El.checked) restaurantAmenitiesInfo.push("swimming pool")
+			if (input5El.checked) restaurantAmenitiesInfo.push("room service")
+			if (input6El.checked) restaurantAmenitiesInfo.push("luxury bedding")
+			if (input7El.checked) restaurantAmenitiesInfo.push("good showers")
+			if (input8El.checked) restaurantAmenitiesInfo.push("free parking")
+			if (input9El.checked) restaurantAmenitiesInfo.push("free wifi")
+			if (input10El.checked) restaurantAmenitiesInfo.push("bath towels")
+			if (input11El.checked) restaurantAmenitiesInfo.push("free coffee")
+			if (input12El.checked) restaurantAmenitiesInfo.push("pets friendly")
+			if (input13El.checked) restaurantAmenitiesInfo.push("running hot water")
+			if (input14El.checked) restaurantAmenitiesInfo.push("attached garage")
+			if (input15El.checked) restaurantAmenitiesInfo.push("elevator")
+			if (input16El.checked) restaurantAmenitiesInfo.push("spa/sauna")
+			if (input17El.checked) restaurantAmenitiesInfo.push("indoor pool")
+			if (input18El.checked) restaurantAmenitiesInfo.push("secuirty cameras")
 
 			let summaryText = ""
 			const restaurantheadingEl = document.getElementById("restaurant_heading")
 			const restaurantSummaryEl = document.getElementById("restaurant_summary")
+			restaurantheadingEl.textContent = "Hi man, this is your restaurant listing summary: "
 
-			restaurantheadingEl.textContent = "Hi man, this is your restaurant summary: "
-
-			summaryText = "<b>restaurant details:<b><br>"
+			summaryText = `<b>restaurant listing details:<b><br> <table id="resources">`
 			for (const key in restaurantInfo) {
-				summaryText += `<br><b>${key}<b> : ${restaurantInfo["" + key]}<br>`
+				summaryText +=
+					`
+				  <tr>
+					<th>${key}</th>
+					<td>${restaurantInfo["" + key]}</td>
+				  </tr>
+
+				`
 			}
 
-			summaryText += "<b><br><br>included amenities:<b><br>"
+			summaryText += `</table><b><br><br>included amenities:<b><br> <table id="resources">`
+
 
 			for (const key in restaurantAmenitiesInfo) {
-				summaryText += `<br><b>*<b> ${restaurantAmenitiesInfo["" + key]}<br>`
+				summaryText += `<tr>
+				<td>${restaurantAmenitiesInfo["" + key]}</td>
+			  </tr>`
 			}
+
+			summaryText += "</table>"
 
 
 			restaurantSummaryEl.innerHTML = summaryText
+
 
 			if (animating) return false;
 			animating = true;
@@ -1169,11 +1184,18 @@ function getRandomInt(min, max) {
 				easing: 'easeInOutBack'
 			});
 		})
-		$("#restaurant_submit").click(function () {
+		$("#restaurant_submit").click(async function () {
 			//hit the add restaurant endpoint here 
+			restaurantInfo["amenities"] = restaurantAmenitiesInfo
+			restaurantInfo["menu"] = "menu.pdf"
 			console.log(restaurantInfo);
-			console.log(restaurantAmenitiesInfo);
-			console.log("register restaurant!");
+
+			const res = await axios({
+				method: "POST",
+				url: "/api/v1/restaurants/",
+				data: restaurantInfo
+			})
+			console.log("restaurant registered!", res.data);
 
 			if (animating) return false;
 			animating = true;
@@ -1211,10 +1233,12 @@ function getRandomInt(min, max) {
 
 		$("#destination_next1").click(function () {
 			const errorEl = document.getElementById("error")
-			const dstDatepicker1Value = document.getElementById("destination_datepicker1").value.trim()
+			const dstStartDateValue = document.getElementById("destination_startdate").value.trim()
+			const dstEndDateValue = document.getElementById("destination_enddate").value.trim()
 			const location1Value = document.getElementById("destination_location0").value.trim()
+			const nameValue = document.getElementById("dest_name").value.trim()
 			const guideValue = document.getElementById("destination_guide").value.trim()
-			const ratingValue = document.getElementById("destination_rating").value.trim()
+			const difficultyValue = document.getElementById("destination_difficulty").value.trim()
 			const priceValue = document.getElementById("destination_price").value.trim()
 			const durationValue = document.getElementById("destination_duration").value.trim()
 			const groupsizeValue = document.getElementById("destination_groupsize").value.trim()
@@ -1222,10 +1246,12 @@ function getRandomInt(min, max) {
 			const descriptionValue = document.getElementById("dn_description").value.trim()
 
 			if (
-				!dstDatepicker1Value.length ||
+				!dstStartDateValue.length ||
+				!dstEndDateValue.length ||
 				!location1Value.length ||
 				!guideValue.length ||
-				!ratingValue.length ||
+				!nameValue.length ||
+				!difficultyValue.length ||
 				!priceValue.length ||
 				!durationValue.length ||
 				!groupsizeValue.length ||
@@ -1241,18 +1267,19 @@ function getRandomInt(min, max) {
 				return
 			}
 
-
-
-			destinationInfo['dp1'] = dstDatepicker1Value
-			destinationInfo['loc1'] = location1Value
+			destinationInfo['startDate'] = dstStartDateValue
+			destinationInfo['endDate'] = dstEndDateValue
+			destinationInfo['name'] = nameValue
+			destinationInfo['location'] = destLocationInfo[0]
 			destinationInfo['guide'] = guideValue
-			destinationInfo['rating'] = ratingValue
+			destinationInfo['difficulty'] = difficultyValue
 			destinationInfo['price'] = priceValue
 			destinationInfo['duration'] = durationValue
-			destinationInfo['groupsize'] = groupsizeValue
+			destinationInfo['maxGroupSize'] = groupsizeValue
 			destinationInfo['summary'] = summaryValue
 			destinationInfo['description'] = descriptionValue
-
+			destinationInfo['imageCover'] = `dest-${getRandomInt(1, 9)}.jpg`
+			destinationInfo['images'] = [`dest-${getRandomInt(1, 9)}.jpg`, `dest-${getRandomInt(1, 9)}.jpg`, `dest-${getRandomInt(1, 9)}.jpg`, `dest-${getRandomInt(1, 9)}.jpg`]
 
 			if (animating) return false;
 			animating = true;
@@ -1309,45 +1336,55 @@ function getRandomInt(min, max) {
 			const input17El = document.getElementById("17")
 			const input18El = document.getElementById("18")
 
-			if (input1El.checked) destinationAmenitiesInfo["1"] = "satellite tv"
-			if (input2El.checked) destinationAmenitiesInfo["2"] = "coffee maker"
-			if (input3El.checked) destinationAmenitiesInfo["3"] = "hair dryer"
-			if (input4El.checked) destinationAmenitiesInfo["4"] = "swimming pool"
-			if (input5El.checked) destinationAmenitiesInfo["5"] = "room service"
-			if (input6El.checked) destinationAmenitiesInfo["6"] = "luxury bedding"
-			if (input7El.checked) destinationAmenitiesInfo["7"] = "good showers"
-			if (input8El.checked) destinationAmenitiesInfo["8"] = "free parking"
-			if (input9El.checked) destinationAmenitiesInfo["9"] = "free wifi"
-			if (input10El.checked) destinationAmenitiesInfo["10"] = "bath towels"
-			if (input11El.checked) destinationAmenitiesInfo["11"] = "free coffee"
-			if (input12El.checked) destinationAmenitiesInfo["12"] = "pets friendly"
-			if (input13El.checked) destinationAmenitiesInfo["13"] = "running hot water"
-			if (input14El.checked) destinationAmenitiesInfo["14"] = "attached garage"
-			if (input15El.checked) destinationAmenitiesInfo["15"] = "elevator"
-			if (input16El.checked) destinationAmenitiesInfo["16"] = "spa/sauna"
-			if (input17El.checked) destinationAmenitiesInfo["17"] = "indoor pool"
-			if (input18El.checked) destinationAmenitiesInfo["18"] = "secuirty cameras"
+			if (input1El.checked) destinationAmenitiesInfo.push("satellite tv")
+			if (input2El.checked) destinationAmenitiesInfo.push("coffee maker")
+			if (input3El.checked) destinationAmenitiesInfo.push("hair dryer")
+			if (input4El.checked) destinationAmenitiesInfo.push("swimming pool")
+			if (input5El.checked) destinationAmenitiesInfo.push("room service")
+			if (input6El.checked) destinationAmenitiesInfo.push("luxury bedding")
+			if (input7El.checked) destinationAmenitiesInfo.push("good showers")
+			if (input8El.checked) destinationAmenitiesInfo.push("free parking")
+			if (input9El.checked) destinationAmenitiesInfo.push("free wifi")
+			if (input10El.checked) destinationAmenitiesInfo.push("bath towels")
+			if (input11El.checked) destinationAmenitiesInfo.push("free coffee")
+			if (input12El.checked) destinationAmenitiesInfo.push("pets friendly")
+			if (input13El.checked) destinationAmenitiesInfo.push("running hot water")
+			if (input14El.checked) destinationAmenitiesInfo.push("attached garage")
+			if (input15El.checked) destinationAmenitiesInfo.push("elevator")
+			if (input16El.checked) destinationAmenitiesInfo.push("spa/sauna")
+			if (input17El.checked) destinationAmenitiesInfo.push("indoor pool")
+			if (input18El.checked) destinationAmenitiesInfo.push("secuirty cameras")
 
 			let summaryText = ""
 			const destinationheadingEl = document.getElementById("destination_heading")
 			const destinationSummaryEl = document.getElementById("destination_summary")
+			destinationheadingEl.textContent = "Hi man, this is your destination listing summary: "
 
-			destinationheadingEl.textContent = "Hi man, this is your destination summary: "
-
-			summaryText = "<b>destination details:<b><br>"
+			summaryText = `<b>destination listing details:<b><br> <table id="resources">`
 			for (const key in destinationInfo) {
-				summaryText += `<br><b>${key}<b> : ${destinationInfo["" + key]}<br>`
+				summaryText +=
+					`
+				  <tr>
+					<th>${key}</th>
+					<td>${destinationInfo["" + key]}</td>
+				  </tr>
+
+				`
 			}
 
-			summaryText += "<b><br><br>included amenities:<b><br>"
+			summaryText += `</table><b><br><br>included amenities:<b><br> <table id="resources">`
+
 
 			for (const key in destinationAmenitiesInfo) {
-				summaryText += `<br><b>*<b> ${destinationAmenitiesInfo["" + key]}<br>`
+				summaryText += `<tr>
+				<td>${destinationAmenitiesInfo["" + key]}</td>
+			  </tr>`
 			}
+
+			summaryText += "</table>"
 
 
 			destinationSummaryEl.innerHTML = summaryText
-
 			if (animating) return false;
 			animating = true;
 
@@ -1454,11 +1491,20 @@ function getRandomInt(min, max) {
 			});
 
 		})
-		$("#destination_submit").click(function () {
+		$("#destination_submit").click(async function () {
 			//hit the add restaurant endpoint here 
+			destinationInfo["amenities"] = destinationAmenitiesInfo
+			destinationInfo["itenerary"] = "dest_itenerary.pdf"
 			console.log(destinationInfo);
-			console.log(destinationAmenitiesInfo);
-			console.log("register destination!");
+
+			let res = await axios({
+				method: "POST",
+				url: "/api/v1/destination/",
+				data: destinationInfo
+
+			})
+
+			console.log("register destination!", res.data);
 
 			if (animating) return false;
 			animating = true;
