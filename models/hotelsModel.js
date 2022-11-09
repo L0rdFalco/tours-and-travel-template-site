@@ -119,6 +119,14 @@ const hotelSchema = mongoose.Schema({
         toObject: { virtuals: true }
     })
 
+hotelSchema.pre("save", function (next) {
+    this.slug = slugify(this.name, { lower: true, trim: true })
+    next()
+
+})
+
 const hotelsModel = mongoose.model("Hotel", hotelSchema)
+
+
 
 module.exports = hotelsModel;

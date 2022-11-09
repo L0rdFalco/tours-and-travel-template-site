@@ -114,7 +114,6 @@ exports.getSingleTour = async (request, response, next) => {
 
 exports.createSingleTour = async (request, response, next) => {
     try {
-        console.log("---->", request.body);
         const toursDoc = await ToursModel.create(request.body)
 
         return response.status(200).json({

@@ -34,51 +34,41 @@ block content
                                         .row
                                             .col-xs-6
                                                 label hotel Name
-                                                input#hotel_name.form-control(type='text'  placeholder='Galaxy cruiser hotel')
+                                                input#hotel_name.form-control(type='text'  value ='Galaxy cruiser hotel')
 
                                             .col-xs-6
-                                                label Rating
-                                                .sl-box
-                                                    select#hotel_rating.form-control.wide
-                                                        option Hotel rating
-                                                        option Normal
-                                                        option 3 Start
-                                                        option 4 Start
-                                                        option 5 Start
-                                                        option 7 Startg
-                                            .col-xs-6
-                                                label Charge/Night
-                                                input#hotel_price.form-control(type='text' placeholder='$220')
+                                                label Charge/Night ($)
+                                                input#hotel_price.form-control(type='text' value ='220')
                                             .col-xs-6
                                                 label Phone
-                                                input#hotel_phone.form-control(type='text' placeholder='+91 254 875 8457')
+                                                input#hotel_phone.form-control(type='text' value ='+912548758457')
                                             .col-xs-6
                                                 label Landline
-                                                input#hotel_ll.form-control(type='text' placeholder='172 025 458')
+                                                input#hotel_ll.form-control(type='text' value ='172025458')
                                             .col-xs-6
                                                 label Email
-                                                input#hotel_email.form-control(type='text' placeholder='yourht@gmail.com')
+                                                input#hotel_email.form-control(type='text' value ='ht@gimail.com')
                                             .col-xs-6
                                                 label Fax
-                                                input#hotel_fax.form-control(type='text' placeholder='fax')
+                                                input#hotel_fax.form-control(type='text' value ='+981225157')
                                             .col-xs-6
                                                 label Address
-                                                input#hotel_address.form-control(type='text' placeholder='#548, Near Big Market')
+                                                input#hotel_address.form-control(type='text' value ='#548, Near Big Market')
                                             .col-xs-6
                                                 label City
-                                                input#hotel_city.form-control(type='text' placeholder='city')
+                                                input#hotel_city.form-control(type='text' value ='olso')
                                             .col-xs-6
                                                 label State
-                                                input#hotel_state.form-control(type='text' placeholder='state')
+                                                input#hotel_state.form-control(type='text' value ='ohio')
                                             .col-xs-6
                                                 label Country
-                                                input#hotel_country.form-control(type='text' placeholder='country')
+                                                input#hotel_country.form-control(type='text' value ='norway')
                                             .col-xs-6
                                                 label Owner Name
-                                                input#hotel_owner.form-control(type='text' placeholder='Daniel Duke')
+                                                input#hotel_owner.form-control(type='text' value ='Daniel Duke')
                                             .col-xs-6
                                                 label Owner Contact
-                                                input#hotel_contact.form-control(type='text' placeholder='987 584 5847')
+                                                input#hotel_contact.form-control(type='text' value ='9875845847')
                                             .col-xs-6
                                                 label hotel banner Image
                                                 .cf-input
@@ -111,10 +101,10 @@ block content
                                                         span.custom-file-control
                                             .col-xs-12
                                                 label hotel summary
-                                                textarea#hl_summary.form-control.height-120( placeholder='simple one liner description')
+                                                textarea#hl_summary.form-control.height-120( placeholder='simple one liner description') Commodo odio aenean sed adipiscing diam donec adipiscing. Nisl purus in mollis nunc sed id semper risus
                                             .col-xs-12
                                                 label hotel description
-                                                textarea#hl_description.form-control.height-120( placeholder='long description about hotel')
+                                                textarea#hl_description.form-control.height-120( placeholder='long description about hotel') Mauris a diam maecenas sed enim. Consectetur a erat nam at lectus. Eget mi proin sed libero enim sed faucibus turpis. Nulla malesuada pellentesque elit eget
                                                 h2#error.fs-title ALL FIELDS ARE REQUIRED
 
                                         input.next.action-button(type='button' name='next' value='Next' id='hotel_next1')
@@ -126,7 +116,7 @@ block content
                                                 ul.add-amenities
                                                     li
                                                         span.custom-checkbox
-                                                            input#1(type='checkbox')
+                                                            input#1(type='checkbox' checked=true)
                                                             label(for='1')
                                                         | Satellite TV
                                                     li
@@ -136,7 +126,7 @@ block content
                                                         | Coffeemaker
                                                     li
                                                         span.custom-checkbox
-                                                            input#3(type='checkbox')
+                                                            input#3(type='checkbox' checked=true)
                                                             label(for='3')
                                                         | Hair Dryer
                                                     li
@@ -146,7 +136,7 @@ block content
                                                         | Swimming Pool
                                                     li
                                                         span.custom-checkbox
-                                                            input#5(type='checkbox')
+                                                            input#5(type='checkbox' checked=true)
                                                             label(for='5')
                                                         | Room Service
                                                     li
@@ -156,12 +146,12 @@ block content
                                                         | Luxury Bedding
                                                     li
                                                         span.custom-checkbox
-                                                            input#7(type='checkbox')
+                                                            input#7(type='checkbox' checked=true)
                                                             label(for='7')
                                                         | Good Showers
                                                     li
                                                         span.custom-checkbox
-                                                            input#8(type='checkbox')
+                                                            input#8(type='checkbox' checked=true)
                                                             label(for='8')
                                                         | Free Parking
                                                     li
@@ -171,7 +161,7 @@ block content
                                                         | Free Wifi
                                                     li
                                                         span.custom-checkbox
-                                                            input#10(type='checkbox')
+                                                            input#10(type='checkbox' checked=true)
                                                             label(for='0')
                                                         | Bath towel
                                                     li
@@ -181,7 +171,7 @@ block content
                                                         | Free Coffee
                                                     li
                                                         span.custom-checkbox
-                                                            input#12(type='checkbox')
+                                                            input#12(type='checkbox' checked=true)
                                                             label(for='12')
                                                         | Pets Allowed
                                                     li
@@ -191,7 +181,7 @@ block content
                                                         | Hot Water
                                                     li
                                                         span.custom-checkbox
-                                                            input#14(type='checkbox')
+                                                            input#14(type='checkbox' checked=true)
                                                             label(for='14')
                                                         | Attached garage
                                                     li
@@ -201,7 +191,7 @@ block content
                                                         | Elevator
                                                     li
                                                         span.custom-checkbox
-                                                            input#16(type='checkbox')
+                                                            input#16(type='checkbox' checked=true)
                                                             label(for='16')
                                                         | Spa/Sauna
                                                     li
@@ -211,7 +201,7 @@ block content
                                                         | Indoor pool
                                                     li
                                                         span.custom-checkbox
-                                                            input#18(type='checkbox')
+                                                            input#18(type='checkbox' checked=true)
                                                             label(for='18')
                                                         | Security cameras
                                         input.previous.action-button(type='button' name='previous' value='Previous' id="hotel_previous1")

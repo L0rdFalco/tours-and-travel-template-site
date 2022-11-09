@@ -22,13 +22,13 @@ const tourInfo = {};
 const tourAmenitiesInfo = [];
 
 const hotelInfo = {};
-const hotelAmenitiesInfo = {};
+const hotelAmenitiesInfo = [];
 
 const restaurantInfo = {};
-const restaurantAmenitiesInfo = {};
+const restaurantAmenitiesInfo = [];
 
 const destinationInfo = {};
-const destinationAmenitiesInfo = {};
+const destinationAmenitiesInfo = [];
 
 const tourLocationInfo = []
 const destLocationInfo = []
@@ -292,7 +292,6 @@ function getRandomInt(min, max) {
 		var animating; //flag to prevent quick multi-click glitches
 
 		$("#tour_next1").click(function () {
-			console.log();
 
 			const errorEl = document.getElementById("error")
 			const nameValue = document.getElementById("tourname").value.trim()
@@ -617,6 +616,7 @@ function getRandomInt(min, max) {
 			const hotelSummaryValue = document.getElementById("hl_summary").value.trim()
 			const hotelDescriptionValue = document.getElementById("hl_description").value.trim()
 
+
 			if (
 
 				!hotelNameValue ||
@@ -644,9 +644,9 @@ function getRandomInt(min, max) {
 			}
 
 			hotelInfo["name"] = hotelNameValue
-			hotelInfo["price4"] = hotelPriceValue
+			hotelInfo["price"] = hotelPriceValue
 			hotelInfo["phone"] = hotelPhoneValue
-			hotelInfo["ll"] = hotelLlValue
+			hotelInfo["landline"] = hotelLlValue
 			hotelInfo["email"] = hotelEmailValue
 			hotelInfo["fax"] = hotelFaxValue
 			hotelInfo["address"] = hotelAddressValue
@@ -657,7 +657,8 @@ function getRandomInt(min, max) {
 			hotelInfo["contact"] = hotelContactValue
 			hotelInfo["summary"] = hotelSummaryValue
 			hotelInfo["description"] = hotelDescriptionValue
-
+			hotelInfo['imageCover'] = `hotel-${getRandomInt(1, 9)}.jpg`
+			hotelInfo['images'] = [`hotel-${getRandomInt(1, 9)}.jpg`, `hotel-${getRandomInt(1, 9)}.jpg`, `hotel-${getRandomInt(1, 9)}.jpg`, `hotel-${getRandomInt(1, 9)}.jpg`]
 
 
 			if (animating) return false;
@@ -714,43 +715,56 @@ function getRandomInt(min, max) {
 			const input17El = document.getElementById("17")
 			const input18El = document.getElementById("18")
 
-			if (input1El.checked) hotelAmenitiesInfo["1"] = "satellite tv"
-			if (input2El.checked) hotelAmenitiesInfo["2"] = "coffee maker"
-			if (input3El.checked) hotelAmenitiesInfo["3"] = "hair dryer"
-			if (input4El.checked) hotelAmenitiesInfo["4"] = "swimming pool"
-			if (input5El.checked) hotelAmenitiesInfo["5"] = "room service"
-			if (input6El.checked) hotelAmenitiesInfo["6"] = "luxury bedding"
-			if (input7El.checked) hotelAmenitiesInfo["7"] = "good showers"
-			if (input8El.checked) hotelAmenitiesInfo["8"] = "free parking"
-			if (input9El.checked) hotelAmenitiesInfo["9"] = "free wifi"
-			if (input10El.checked) hotelAmenitiesInfo["10"] = "bath towels"
-			if (input11El.checked) hotelAmenitiesInfo["11"] = "free coffee"
-			if (input12El.checked) hotelAmenitiesInfo["12"] = "pets friendly"
-			if (input13El.checked) hotelAmenitiesInfo["13"] = "running hot water"
-			if (input14El.checked) hotelAmenitiesInfo["14"] = "attached garage"
-			if (input15El.checked) hotelAmenitiesInfo["15"] = "elevator"
-			if (input16El.checked) hotelAmenitiesInfo["16"] = "spa/sauna"
-			if (input17El.checked) hotelAmenitiesInfo["17"] = "indoor pool"
-			if (input18El.checked) hotelAmenitiesInfo["18"] = "secuirty cameras"
+			if (input1El.checked) hotelAmenitiesInfo.push("satellite tv")
+			if (input2El.checked) hotelAmenitiesInfo.push("coffee maker")
+			if (input3El.checked) hotelAmenitiesInfo.push("hair dryer")
+			if (input4El.checked) hotelAmenitiesInfo.push("swimming pool")
+			if (input5El.checked) hotelAmenitiesInfo.push("room service")
+			if (input6El.checked) hotelAmenitiesInfo.push("luxury bedding")
+			if (input7El.checked) hotelAmenitiesInfo.push("good showers")
+			if (input8El.checked) hotelAmenitiesInfo.push("free parking")
+			if (input9El.checked) hotelAmenitiesInfo.push("free wifi")
+			if (input10El.checked) hotelAmenitiesInfo.push("bath towels")
+			if (input11El.checked) hotelAmenitiesInfo.push("free coffee")
+			if (input12El.checked) hotelAmenitiesInfo.push("pets friendly")
+			if (input13El.checked) hotelAmenitiesInfo.push("running hot water")
+			if (input14El.checked) hotelAmenitiesInfo.push("attached garage")
+			if (input15El.checked) hotelAmenitiesInfo.push("elevator")
+			if (input16El.checked) hotelAmenitiesInfo.push("spa/sauna")
+			if (input17El.checked) hotelAmenitiesInfo.push("indoor pool")
+			if (input18El.checked) hotelAmenitiesInfo.push("secuirty cameras")
 
 			let summaryText = ""
-			const hotelheadingEl = document.getElementById("hotel_heading")
+			const hotel_headingEl = document.getElementById("hotel_heading")
 			const hotelSummaryEl = document.getElementById("hotel_summary")
-			hotelheadingEl.textContent = "Hi man, this is your hotel summary: "
+			hotel_headingEl.textContent = "Hi man, this is your hotel listing summary: "
 
-			summaryText = "<b>hotel details:<b><br>"
+			summaryText = `<b>hotel listing details:<b><br> <table id="resources">`
 			for (const key in hotelInfo) {
-				summaryText += `<br><b>${key}<b> : ${hotelInfo["" + key]}<br>`
+				summaryText +=
+					`
+				  <tr>
+					<th>${key}</th>
+					<td>${hotelInfo["" + key]}</td>
+				  </tr>
+
+				`
 			}
 
-			summaryText += "<b><br><br>included amenities:<b><br>"
+			summaryText += `</table><b><br><br>included amenities:<b><br> <table id="resources">`
+
 
 			for (const key in hotelAmenitiesInfo) {
-				summaryText += `<br><b>*<b> ${hotelAmenitiesInfo["" + key]}<br>`
+				summaryText += `<tr>
+				<td>${hotelAmenitiesInfo["" + key]}</td>
+			  </tr>`
 			}
+
+			summaryText += "</table>"
 
 
 			hotelSummaryEl.innerHTML = summaryText
+
 
 			if (animating) return false;
 			animating = true;
@@ -855,12 +869,19 @@ function getRandomInt(min, max) {
 				easing: 'easeInOutBack'
 			});
 		})
-		$("#hotel_submit").click(function () {
+		$("#hotel_submit").click(async function () {
 
 			//hit the add hotel endpoint here 
+			hotelInfo["amenities"] = hotelAmenitiesInfo
 			console.log(hotelInfo);
-			console.log(hotelAmenitiesInfo);
-			console.log("register hotel!");
+
+			const res = await axios({
+				method: "POST",
+				url: "/api/v1/hotels/",
+				data: hotelInfo
+
+			})
+			console.log("hotel registered !", res.data);
 
 			if (animating) return false;
 			animating = true;
