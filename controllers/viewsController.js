@@ -466,10 +466,20 @@ exports.getLoginPage = (request, response, next) => {
         })
     }
 }
-exports.getManageDestinationsPage = (request, response, next) => {
+exports.getManageDestinationsPage = async (request, response, next) => {
     try {
+        const destinationDocs = await destinationModel.find().select("name price location images imageCover slug");
 
-        response.status(200).render("manage-destinations")
+        let destInfo = destinationDocs.map((doc) => {
+
+            return { address: doc.location.address, name: doc.name, price: doc.price, images: doc.images, imageCover: doc.imageCover, slug: doc.slug }
+
+        })
+        console.log(destInfo);
+
+        response.status(200).render("manage-destinations", {
+            payload: destInfo
+        })
 
     } catch (error) {
 

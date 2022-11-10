@@ -13,295 +13,48 @@ block content
                         .navbar-header
                             button.navbar-toggle(type='button' data-toggle='collapse' data-target='#dashboard-menu')
                                 i.fa.fa-bars
-                        #dashboard-menu.collapse.sidebar-collapse
-                            .profile-wrapper
-                                .profile-wrapper-thumb
-                                    img.img-responsive.img-circle(src='assets/img/user-3.jpg' alt='')
-                                    span.dashboard-user-status.bg-success
-                                h4 Duke Daniel
-                            ul#main-menu.nav
-                                li
-                                    a(href='/dashboard')
-                                        i.fa.fa-dashboard(aria-hidden='true')
-                                        | Dashboard
-                                li
-                                    a(href='/messages')
-                                        i.ti-email(aria-hidden='true')
-                                        | Messages
-                                li.active
-                                    a(href='javascript:void(0)')
-                                        i.fa.fa-clone(aria-hidden='true')
-                                        | Manage Listing 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='/manage-hotels')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Hotels
-                                        li
-                                            a(href='/manage-tours')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Tours
-                                        li
-                                            a(href='/manage-destinations')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Destinations
-                                        li
-                                            a(href='/manage-restaurants')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Manage Restaurants
-                                li
-                                    a(href='javascript:void(0)')
-                                        i.ti-location-pin(aria-hidden='true')
-                                        | Add Listings 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='add-hotel')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Hotels
-                                        li
-                                            a(href='add-tour')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Tours
-                                        li
-                                            a(href='add-destination')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Destinations
-                                        li
-                                            a(href='add-restaurant')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Add Restaurants
-                                li
-                                    a(href='invoice')
-                                        i.fa-print(aria-hidden='true')
-                                        | Invoice
-                                li
-                                    a(href='javascript:void(0)')
-                                        i.ti-calendar(aria-hidden='true')
-                                        | My Booking 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='bookings')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Bookings
-                                li
-                                    a(href='javascript:void(0)')
-                                        i.fa.fa-cog(aria-hidden='true')
-                                        | Settings 
-                                        span.fa.arrow
-                                    ul.nav.nav-second-level
-                                        li
-                                            a(href='basic-settings')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Basic Settings
-                                        li
-                                            a(href='site-settings')
-                                                i.fa.fa-circle-o-notch(aria-hidden='true')
-                                                | Site Settings
-                                li
-                                    a(href='my-profile')
-                                        i.ti-user(aria-hidden='true')
-                                        | My Profile
-                                li.log-off
-                                    a(href='login')
-                                        i.fa.fa-power-off(aria-hidden='true')
-                                        | Logout
+                        include _dashboard_sidebar
                     // /. NAV SIDE
                 .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
                     .row.mrg-0.mrg-top-20
                         .tr-single-box
                             .tr-single-header
-                                h3.dashboard-title Manage Destination
+                                h3.dashboard-title Manage Destinations
                             .tr-single-body
                                 .row
-                                    // Single Destination
-                                    .col-md-4.col-sm-6
-                                        article.destination-box.style-1
-                                            .destination-box-image
-                                                figure
-                                                    a(href='/edit-destination')
-                                                        img.img-responsive.listing-box-img(src='assets/img/destination/des-4.jpg' alt='')
-                                                        .list-overlay
-                                                    .discount-flick -12%
-                                                    h4.destination-place
-                                                        a(href='/edit-destination') Marrakech, Morroco
-                                                    a.list-like.left(href='#')
-                                                        i.ti-heart
-                                            .entry-meta
-                                                .meta-item.meta-rating
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                                .meta-item.meta-comment.fl-right
-                                                    span.text-through $1856
-                                                    span.real-price.padd-l-10.font-bold $1750
-                                            .inner-box
-                                                .box-inner-ellipsis
-                                                    h4.entry-location
-                                                        a(href='/edit-destination') Saudi Arabia
-                                                    .price-box
-                                                        .destination-price.fl-right
-                                                            a(href='#')
-                                                                i.theme-cl.ti-arrow-right
-                                    // Single Destination
-                                    .col-md-4.col-sm-6
-                                        article.destination-box.style-1
-                                            .destination-box-image
-                                                figure
-                                                    a(href='/edit-destination')
-                                                        img.img-responsive.listing-box-img(src='assets/img/destination/des-5.jpg' alt='')
-                                                        .list-overlay
-                                                    .discount-flick -12%
-                                                    h4.destination-place
-                                                        a(href='/edit-destination') New York City, New York
-                                                    a.list-like.left(href='#')
-                                                        i.ti-heart
-                                            .entry-meta
-                                                .meta-item.meta-rating
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                                .meta-item.meta-comment.fl-right
-                                                    span.text-through $4525
-                                                    span.real-price.padd-l-10.font-bold $4258
-                                            .inner-box
-                                                .box-inner-ellipsis
-                                                    h4.entry-location
-                                                        a(href='/edit-destination') Switzerland
-                                                    .price-box
-                                                        .destination-price.fl-right
-                                                            a(href='#')
-                                                                i.theme-cl.ti-arrow-right
-                                    // Single Destination
-                                    .col-md-4.col-sm-6
-                                        article.destination-box.style-1
-                                            .destination-box-image
-                                                figure
-                                                    a(href='/edit-destination')
-                                                        img.img-responsive.listing-box-img(src='assets/img/destination/des-6.jpg' alt='')
-                                                        .list-overlay
-                                                    .discount-flick -12%
-                                                    h4.destination-place
-                                                        a(href='/edit-destination') Halifax, Nova Scotia 
-                                                    a.list-like.left(href='#')
-                                                        i.ti-heart
-                                            .entry-meta
-                                                .meta-item.meta-rating
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                                .meta-item.meta-comment.fl-right
-                                                    span.text-through $7802
-                                                    span.real-price.padd-l-10.font-bold $7581
-                                            .inner-box
-                                                .box-inner-ellipsis
-                                                    h4.entry-location
-                                                        a(href='/edit-destination') Singapore
-                                                    .price-box
-                                                        .destination-price.fl-right
-                                                            a(href='#')
-                                                                i.theme-cl.ti-arrow-right
-                                    // Single Destination
-                                    .col-md-4.col-sm-6
-                                        article.destination-box.style-1
-                                            .destination-box-image
-                                                figure
-                                                    a(href='/edit-destination')
-                                                        img.img-responsive.listing-box-img(src='assets/img/destination/des-7.jpg' alt='')
-                                                        .list-overlay
-                                                    .discount-flick -12%
-                                                    h4.destination-place
-                                                        a(href='/edit-destination') San Jose, Costa Rica
-                                                    a.list-like.left(href='#')
-                                                        i.ti-heart
-                                            .entry-meta
-                                                .meta-item.meta-rating
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                                .meta-item.meta-comment.fl-right
-                                                    span.text-through $2300
-                                                    span.real-price.padd-l-10.font-bold $2250
-                                            .inner-box
-                                                .box-inner-ellipsis
-                                                    h4.entry-location
-                                                        a(href='/edit-destination') New York, US
-                                                    .price-box
-                                                        .destination-price.fl-right
-                                                            a(href='#')
-                                                                i.theme-cl.ti-arrow-right
-                                    // Single Destination
-                                    .col-md-4.col-sm-6
-                                        article.destination-box.style-1
-                                            .destination-box-image
-                                                figure
-                                                    a(href='/edit-destination')
-                                                        img.img-responsive.listing-box-img(src='assets/img/destination/des-8.jpg' alt='')
-                                                        .list-overlay
-                                                    .discount-flick -12%
-                                                    h4.destination-place
-                                                        a(href='/edit-destination') Casablanca, Morocco
-                                                    a.list-like.left(href='#')
-                                                        i.ti-heart
-                                            .entry-meta
-                                                .meta-item.meta-rating
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                                .meta-item.meta-comment.fl-right
-                                                    span.text-through $2650
-                                                    span.real-price.padd-l-10.font-bold $2563
-                                            .inner-box
-                                                .box-inner-ellipsis
-                                                    h4.entry-location
-                                                        a(href='/edit-destination') Casablanca
-                                                    .price-box
-                                                        .destination-price.fl-right
-                                                            a(href='#')
-                                                                i.theme-cl.ti-arrow-right
-                                    // Single Destination
-                                    .col-md-4.col-sm-6
-                                        article.destination-box.style-1
-                                            .destination-box-image
-                                                figure
-                                                    a(href='/edit-destination')
-                                                        img.img-responsive.listing-box-img(src='assets/img/destination/des-9.jpg' alt='')
-                                                        .list-overlay
-                                                    .discount-flick -12%
-                                                    h4.destination-place
-                                                        a(href='/edit-destination') London, United Kingdom
-                                                    a.list-like.left(href='#')
-                                                        i.ti-heart
-                                            .entry-meta
-                                                .meta-item.meta-rating
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                                .meta-item.meta-comment.fl-right
-                                                    span.text-through $5800
-                                                    span.real-price.padd-l-10.font-bold $5682
-                                            .inner-box
-                                                .box-inner-ellipsis
-                                                    h4.entry-location
-                                                        a(href='/edit-destination') United Kingdom
-                                                    .price-box
-                                                        .destination-price.fl-right
-                                                            a(href='#')
-                                                                i.theme-cl.ti-arrow-right
+                                    each dest in payload
+                                        -const fullprice = dest.price*1.10
+                                        .col-md-4.col-sm-6
+                                            article.destination-box.style-1
+                                                .destination-box-image
+                                                    figure
+                                                        a(href='/edit-destination')
+                                                            img.img-responsive.listing-box-img(src=`assets/img/destination/${dest.imageCover}` alt='')
+                                                            .list-overlay
+                                                        .discount-flick -10%
+                                                        h4.destination-place
+                                                            a(href='/edit-destination')= `${dest.name}`
+                                                        a.list-like.left(href='#')
+                                                            i.ti-heart
+                                                .entry-meta
+                                                    .meta-item.meta-rating
+                                                        i.fa.fa-star
+                                                        i.fa.fa-star
+                                                        i.fa.fa-star
+                                                        i.fa.fa-star
+                                                        i.fa.fa-star-half
+                                                    .meta-item.meta-comment.fl-right
+                                                        span.text-through= fullprice
+                                                        span.real-price.padd-l-10.font-bold= `${dest.price}`
+                                                .inner-box
+                                                    .box-inner-ellipsis
+                                                        h4.entry-location
+                                                            a(href='/edit-destination')= `${dest.address}`
+                                                        .price-box
+                                                            .destination-price.fl-right
+                                                                a(href='#')
+                                                                    i.theme-cl.ti-arrow-right
+
                                 .row
                                     ul.pagination
                                         li.page-item
