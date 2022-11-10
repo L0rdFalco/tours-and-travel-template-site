@@ -22,276 +22,52 @@ block content
                                 h3.dashboard-title Manage Tours
                             .tr-single-body
                                 .row
-                                    // Single Tour
-                                    .col-md-4.col-sm-6
-                                        article.tour-box.style-1
-                                            .tour-box-image
-                                                figure
-                                                    a(href='/edit-tour')
-                                                        img.img-responsive.listing-box-img(src='assets/img/tour/tour-4.jpg' alt='')
-                                                        .list-overlay
-                                                    .entry-bookmark
-                                                        a(href='#')
-                                                            i.ti-bookmark
-                                                    .tour-time
-                                                        i.ti.ti-car
-                                                        span 22h
-                                                    h4.destination-place
-                                                        a(href='#') New York, Sean Pavone
-                                                    span.featured-tour
+                                    each doc in payload 
+                                        .col-md-4.col-sm-6
+                                            article.tour-box.style-1
+                                                .tour-box-image
+                                                    figure
+                                                        a(href='/edit-tour')
+                                                            img.img-responsive.listing-box-img(src=`assets/img/tour/${doc.imageCover}` alt='')
+                                                            .list-overlay
+                                                        .entry-bookmark
+                                                            a(href='#')
+                                                                i.ti-bookmark
+                                                        .tour-time
+                                                            i.ti.ti-car
+                                                            span= doc.maxGroupSize
+                                                        h4.destination-place
+                                                            a(href='#')= doc.name
+                                                        span.featured-tour
+                                                            i.fa.fa-star
+                                                        a.list-like.left(href='#')
+                                                            i.ti-heart
+                                                .entry-meta
+                                                    .meta-item.meta-author
+                                                        .coauthors
+                                                            span.vcard.author
+                                                                span.fn
+                                                                    a(href='#')
+                                                                        img.avatar.avatar-24(alt='' src='assets/img/user-4.jpg' height='24' width='24')
+                                                                        = doc.startLocation.address
+                                                    .meta-item.meta-comment.fl-right
+                                                        i.ti-comment-alt
+                                                        span= doc.duration
+                                                    .meta-item.meta-rating.fl-right
                                                         i.fa.fa-star
-                                                    a.list-like.left(href='#')
-                                                        i.ti-heart
-                                            .entry-meta
-                                                .meta-item.meta-author
-                                                    .coauthors
-                                                        span.vcard.author
-                                                            span.fn
-                                                                a(href='#')
-                                                                    img.avatar.avatar-24(alt='' src='assets/img/user-4.jpg' height='24' width='24')
-                                                                    | Lisa Scholfield
-                                                .meta-item.meta-comment.fl-right
-                                                    i.ti-comment-alt
-                                                    span 18
-                                                .meta-item.meta-rating.fl-right
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                            .inner-box
-                                                .box-inner-ellipsis
-                                                    h4.entry-title
-                                                        a(href='#') New York
-                                                    .price-box
-                                                        .tour-price.fl-right
-                                                            i.ti.ti-user
-                                                            span.theme-cl.f-bold $240
-                                    // Single Tour
-                                    .col-md-4.col-sm-6
-                                        article.tour-box.style-1
-                                            .tour-box-image
-                                                figure
-                                                    a(href='/edit-tour')
-                                                        img.img-responsive.listing-box-img(src='assets/img/tour/tour-5.jpg' alt='')
-                                                        .list-overlay
-                                                    .entry-bookmark
-                                                        a(href='#')
-                                                            i.ti-bookmark
-                                                    .tour-time
-                                                        i.ti.ti-car
-                                                        span 17h
-                                                    h4.destination-place
-                                                        a(href='#') Dubai, United Arab Emirates
-                                                    span.featured-tour
                                                         i.fa.fa-star
-                                                    a.list-like.left(href='#')
-                                                        i.ti-heart
-                                            .entry-meta
-                                                .meta-item.meta-author
-                                                    .coauthors
-                                                        span.vcard.author
-                                                            span.fn
-                                                                a(href='#')
-                                                                    img.avatar.avatar-24(alt='' src='assets/img/user-5.jpg' height='24' width='24')
-                                                                    | Lisa Scholfield
-                                                .meta-item.meta-comment.fl-right
-                                                    i.ti-comment-alt
-                                                    span 15
-                                                .meta-item.meta-rating.fl-right
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                            .inner-box
-                                                .box-inner-ellipsis
-                                                    h4.entry-title
-                                                        a(href='#') Saudi Arabia
-                                                    .price-box
-                                                        .tour-price.fl-right
-                                                            i.ti.ti-user
-                                                            span.theme-cl.f-bold $117
-                                    // Single Tour
-                                    .col-md-4.col-sm-6
-                                        article.tour-box.style-1
-                                            .tour-box-image
-                                                figure
-                                                    a(href='/edit-tour')
-                                                        img.img-responsive.listing-box-img(src='assets/img/tour/tour-6.jpg' alt='')
-                                                        .list-overlay
-                                                    .entry-bookmark
-                                                        a(href='#')
-                                                            i.ti-bookmark
-                                                    .tour-time
-                                                        i.ti.ti-car
-                                                        span 1 day
-                                                    h4.destination-place
-                                                        a(href='#') Paris, France. neirfy
-                                                    span.featured-tour
                                                         i.fa.fa-star
-                                                    a.list-like.left(href='#')
-                                                        i.ti-heart
-                                            .entry-meta
-                                                .meta-item.meta-author
-                                                    .coauthors
-                                                        span.vcard.author
-                                                            span.fn
-                                                                a(href='#')
-                                                                    img.avatar.avatar-24(alt='' src='assets/img/user-6.jpg' height='24' width='24')
-                                                                    | Lisa Scholfield
-                                                .meta-item.meta-comment.fl-right
-                                                    i.ti-comment-alt
-                                                    span 22
-                                                .meta-item.meta-rating.fl-right
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                            .inner-box
-                                                .box-inner-ellipsis
-                                                    h4.entry-title
-                                                        a(href='#') Singapore
-                                                    .price-box
-                                                        .tour-price.fl-right
-                                                            i.ti.ti-user
-                                                            span.theme-cl.f-bold $310
-                                    // Single Tour
-                                    .col-md-4.col-sm-6
-                                        article.tour-box.style-1
-                                            .tour-box-image
-                                                figure
-                                                    a(href='/edit-tour')
-                                                        img.img-responsive.listing-box-img(src='assets/img/tour/tour-2.jpg' alt='')
-                                                        .list-overlay
-                                                    .entry-bookmark
-                                                        a(href='#')
-                                                            i.ti-bookmark
-                                                    .tour-time
-                                                        i.ti.ti-car
-                                                        span 70h
-                                                    h4.destination-place
-                                                        a(href='#') London, England. AndreaAstes
-                                                    span.featured-tour
                                                         i.fa.fa-star
-                                                    a.list-like.left(href='#')
-                                                        i.ti-heart
-                                            .entry-meta
-                                                .meta-item.meta-author
-                                                    .coauthors
-                                                        span.vcard.author
-                                                            span.fn
-                                                                a(href='#')
-                                                                    img.avatar.avatar-24(alt='' src='assets/img/user-7.jpg' height='24' width='24')
-                                                                    | Lisa Scholfield
-                                                .meta-item.meta-comment.fl-right
-                                                    i.ti-comment-alt
-                                                    span 15
-                                                .meta-item.meta-rating.fl-right
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                            .inner-box
-                                                .box-inner-ellipsis
-                                                    h4.entry-title
-                                                        a(href='#') United Kingdom
-                                                    .price-box
-                                                        .tour-price.fl-right
-                                                            i.ti.ti-user
-                                                            span.theme-cl.f-bold $217
-                                    // Single Tour
-                                    .col-md-4.col-sm-6
-                                        article.tour-box.style-1
-                                            .tour-box-image
-                                                figure
-                                                    a(href='/edit-tour')
-                                                        img.img-responsive.listing-box-img(src='assets/img/tour/tour-7.jpg' alt='')
-                                                        .list-overlay
-                                                    .entry-bookmark
-                                                        a(href='#')
-                                                            i.ti-bookmark
-                                                    .tour-time
-                                                        i.ti.ti-car
-                                                        span 2 days
-                                                    h4.destination-place
-                                                        a(href='#') Bangkok, Thailand. thitivong
-                                                    span.featured-tour
-                                                        i.fa.fa-star
-                                                    a.list-like.left(href='#')
-                                                        i.ti-heart
-                                            .entry-meta
-                                                .meta-item.meta-author
-                                                    .coauthors
-                                                        span.vcard.author
-                                                            span.fn
-                                                                a(href='#')
-                                                                    img.avatar.avatar-24(alt='' src='assets/img/user-8.jpg' height='24' width='24')
-                                                                    | Lisa Scholfield
-                                                .meta-item.meta-comment.fl-right
-                                                    i.ti-comment-alt
-                                                    span 20
-                                                .meta-item.meta-rating.fl-right
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                            .inner-box
-                                                .box-inner-ellipsis
-                                                    h4.entry-title
-                                                        a(href='#') Hong Kong
-                                                    .price-box
-                                                        .tour-price.fl-right
-                                                            i.ti.ti-user
-                                                            span.theme-cl.f-bold $177
-                                    // Single Tour
-                                    .col-md-4.col-sm-6
-                                        article.tour-box.style-1
-                                            .tour-box-image
-                                                figure
-                                                    a(href='/edit-tour')
-                                                        img.img-responsive.listing-box-img(src='assets/img/tour/tour-8.jpg' alt='')
-                                                        .list-overlay
-                                                    .entry-bookmark
-                                                        a(href='#')
-                                                            i.ti-bookmark
-                                                    .tour-time
-                                                        i.ti.ti-car
-                                                        span 12h
-                                                    h4.destination-place
-                                                        a(href='#') Grand Canyon National Park
-                                                    span.featured-tour
-                                                        i.fa.fa-star
-                                                    a.list-like.left(href='#')
-                                                        i.ti-heart
-                                            .entry-meta
-                                                .meta-item.meta-author
-                                                    .coauthors
-                                                        span.vcard.author
-                                                            span.fn
-                                                                a(href='#')
-                                                                    img.avatar.avatar-24(alt='' src='assets/img/user-1.jpg' height='24' width='24')
-                                                                    | Lisa Scholfield
-                                                .meta-item.meta-comment.fl-right
-                                                    i.ti-comment-alt
-                                                    span 13
-                                                .meta-item.meta-rating.fl-right
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star
-                                                    i.fa.fa-star-half
-                                            .inner-box
-                                                .box-inner-ellipsis
-                                                    h4.entry-title
-                                                        a(href='#') India
-                                                    .price-box
-                                                        .tour-price.fl-right
-                                                            i.ti.ti-user
-                                                            span.theme-cl.f-bold $110
+                                                        i.fa.fa-star-half
+                                                .inner-box
+                                                    .box-inner-ellipsis
+                                                        h4.entry-title
+                                                            a(href='#')= doc.summary
+                                                        .price-box
+                                                            .tour-price.fl-right
+                                                                i.ti.ti-user
+                                                                span.theme-cl.f-bold= `$${doc.price}`
+
                                 .row
                                     ul.pagination
                                         li.page-item

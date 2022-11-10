@@ -468,7 +468,7 @@ exports.getLoginPage = (request, response, next) => {
 }
 exports.getManageDestinationsPage = async (request, response, next) => {
     try {
-        const destinationDocs = await destinationModel.find().select("name price location images imageCover slug");
+        const destinationDocs = await destinationModel.find().select("name price location imageCover slug");
 
         let destInfo = destinationDocs.map((doc) => {
 
@@ -489,9 +489,13 @@ exports.getManageDestinationsPage = async (request, response, next) => {
         })
     }
 }
-exports.getManageHotelsPage = (request, response, next) => {
+exports.getManageHotelsPage = async (request, response, next) => {
+
+    const hotelDocs = await hotelsModel.find().select("name price city summary imageCover")
     try {
-        response.status(200).render("manage-hotels")
+        response.status(200).render("manage-hotels", {
+            payload: hotelDocs
+        })
 
 
     } catch (error) {
@@ -502,9 +506,13 @@ exports.getManageHotelsPage = (request, response, next) => {
         })
     }
 }
-exports.getManageRestaurantsPage = (request, response, next) => {
+exports.getManageRestaurantsPage = async (request, response, next) => {
     try {
-        response.status(200).render("manage-restaurants")
+        const restaurantDocs = await restaurantModel.find().select("name price city summary imageCover")
+
+        response.status(200).render("manage-restaurants", {
+            payload: restaurantDocs
+        })
 
 
     } catch (error) {
@@ -515,9 +523,12 @@ exports.getManageRestaurantsPage = (request, response, next) => {
         })
     }
 }
-exports.getManageToursPage = (request, response, next) => {
+exports.getManageToursPage = async (request, response, next) => {
     try {
-        response.status(200).render("manage-tours")
+        const tourDocs = await toursModel.find().select("name summary startLocation price imageCover duration maxGroupSize")
+        response.status(200).render("manage-tours", {
+            payload: tourDocs
+        })
 
 
     } catch (error) {
