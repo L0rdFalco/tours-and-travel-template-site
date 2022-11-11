@@ -43,6 +43,7 @@ function getRandomInt(min, max) {
 }
 
 
+
 (function ($) {
 	"use strict";
 	const modal = document.querySelector(".location-modal");
@@ -57,6 +58,63 @@ function getRandomInt(min, max) {
 	const tl4 = document.getElementById("tourLocation4")
 
 	const dl0 = document.getElementById("destination_location0")
+
+	const nameEl = document.getElementById("name")
+	const emailEl = document.getElementById("email")
+	const phoneEl = document.getElementById("phone")
+	const subjectEl = document.getElementById("subject")
+	const messageEl = document.getElementById("message")
+	const submitMsgEl = document.getElementById("submit_msg")
+	const errorEl = document.getElementById("error")
+
+	if (submitMsgEl) submitMsgEl.addEventListener("click", async function (e) {
+
+		const nameVal = nameEl.value.trim();
+		const emailVal = emailEl.value.trim();
+		const phoneVal = phoneEl.value.trim();
+		const subjectVal = subjectEl.value.trim();
+		const messageVal = messageEl.value.trim();
+
+		if (!nameVal || !emailVal || !phoneVal || !subjectVal || !messageVal) {
+			errorEl.style.opacity = 1
+			setTimeout(() => {
+				errorEl.style.opacity = 0
+
+			}, 5000)
+			return
+		}
+
+		const contactData = {
+			name: nameVal,
+			email: emailVal,
+			phone: phoneVal,
+			subject: subjectVal,
+			message: messageVal
+
+		}
+
+		const res = await axios({
+			url: "/api/v1/messages",
+			method: "POST",
+			data: contactData
+		})
+
+		console.log("message sent!", res.data.status.includes("success"));
+
+		if (res.data.status.includes("success")) {
+			nameEl.value = ""
+			emailEl.value = ""
+			phoneEl.value = ""
+			subjectEl.value = ""
+			messageEl.value = ""
+		}
+
+
+
+
+	})
+
+
 
 	function modalIncluder(elementId) {
 		document.getElementById("currentElVal").textContent = elementId
@@ -429,20 +487,20 @@ function getRandomInt(min, max) {
 			for (const key in tourInfo) {
 				summaryText +=
 					`
-				  <tr>
-					<th>${key}</th>
-					<td>${tourInfo["" + key]}</td>
-				  </tr>
+				<tr>
+				<th>${key}</th>
+				<td>${tourInfo["" + key]}</td>
+				</tr>
 
-				`
+			`
 			}
 
 			summaryText += `</table><b><br><br>included amenities:<b><br> <table id="resources">`
 
 			for (const key in tourAmenitiesInfo) {
 				summaryText += `<tr>
-				<td>${tourAmenitiesInfo["" + key]}</td>
-			  </tr>`
+			<td>${tourAmenitiesInfo["" + key]}</td>
+			</tr>`
 			}
 
 			summaryText += "</table>"
@@ -744,12 +802,12 @@ function getRandomInt(min, max) {
 			for (const key in hotelInfo) {
 				summaryText +=
 					`
-				  <tr>
-					<th>${key}</th>
-					<td>${hotelInfo["" + key]}</td>
-				  </tr>
+				<tr>
+				<th>${key}</th>
+				<td>${hotelInfo["" + key]}</td>
+				</tr>
 
-				`
+			`
 			}
 
 			summaryText += `</table><b><br><br>included amenities:<b><br> <table id="resources">`
@@ -757,8 +815,8 @@ function getRandomInt(min, max) {
 
 			for (const key in hotelAmenitiesInfo) {
 				summaryText += `<tr>
-				<td>${hotelAmenitiesInfo["" + key]}</td>
-			  </tr>`
+			<td>${hotelAmenitiesInfo["" + key]}</td>
+			</tr>`
 			}
 
 			summaryText += "</table>"
@@ -1059,12 +1117,12 @@ function getRandomInt(min, max) {
 			for (const key in restaurantInfo) {
 				summaryText +=
 					`
-				  <tr>
-					<th>${key}</th>
-					<td>${restaurantInfo["" + key]}</td>
-				  </tr>
+				<tr>
+				<th>${key}</th>
+				<td>${restaurantInfo["" + key]}</td>
+				</tr>
 
-				`
+			`
 			}
 
 			summaryText += `</table><b><br><br>included amenities:<b><br> <table id="resources">`
@@ -1072,8 +1130,8 @@ function getRandomInt(min, max) {
 
 			for (const key in restaurantAmenitiesInfo) {
 				summaryText += `<tr>
-				<td>${restaurantAmenitiesInfo["" + key]}</td>
-			  </tr>`
+			<td>${restaurantAmenitiesInfo["" + key]}</td>
+			</tr>`
 			}
 
 			summaryText += "</table>"
@@ -1364,12 +1422,12 @@ function getRandomInt(min, max) {
 			for (const key in destinationInfo) {
 				summaryText +=
 					`
-				  <tr>
-					<th>${key}</th>
-					<td>${destinationInfo["" + key]}</td>
-				  </tr>
+				<tr>
+				<th>${key}</th>
+				<td>${destinationInfo["" + key]}</td>
+				</tr>
 
-				`
+			`
 			}
 
 			summaryText += `</table><b><br><br>included amenities:<b><br> <table id="resources">`
@@ -1377,8 +1435,8 @@ function getRandomInt(min, max) {
 
 			for (const key in destinationAmenitiesInfo) {
 				summaryText += `<tr>
-				<td>${destinationAmenitiesInfo["" + key]}</td>
-			  </tr>`
+			<td>${destinationAmenitiesInfo["" + key]}</td>
+			</tr>`
 			}
 
 			summaryText += "</table>"

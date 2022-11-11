@@ -8,9 +8,9 @@ block content
             .page-title-wrap
                 h2 Say Hello
                 p
-                    a.theme-cl(href='#') Home
+                    a.theme-cl(href='/') Home
                     |  | 
-                    span Say Hello
+                    span
     // ======================= End Page Title =====================
     // =========== Start All Hotel In Grid View ===================
     section.gray-bg
@@ -43,30 +43,32 @@ block content
                                     label
                                         | Name
                                         sup.cl-danger *
-                                    input.form-control(type='text')
+                                    input#name.form-control(type='text')
                                 .col-sm-6
                                     label
                                         | Email
                                         sup.cl-danger *
-                                    input.form-control(type='email')
+                                    input#email.form-control(type='email')
                             .row
                                 .col-sm-6
                                     label
                                         | Phone
                                         sup.cl-danger *
-                                    input.form-control(type='text')
+                                    input#phone.form-control(type='text')
                                 .col-sm-6
                                     label Subject
-                                    input.form-control(type='text')
+                                    input#subject.form-control(type='text')
                             .row
                                 .col-sm-12
                                     label Message
-                                    textarea.form-control.height-150
+                                    textarea#message.form-control.height-150
                             .row
                                 .col-sm-12
-                                    button.btn.theme-btn.btn-arrow(type='button') Submit Request
+                                    button#submit_msg.btn.theme-btn.btn-arrow(type='button') Submit Request
 
-            block content_contact 
-                include _contact
+                            h2#error.fs-title ALL FIELDS ARE REQUIRED
+
+            //- block content_contact 
+            //-     include _contact
 //- block content_footer 
 //-     include _footer
