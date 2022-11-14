@@ -27,7 +27,7 @@ block content
                                             article.hotel-box.style-1
                                                 .hotel-box-image
                                                     figure
-                                                        a(href='/edit-hotel')
+                                                        a(href=`/hotel-edit/${doc.id}`)
                                                             img.img-responsive.listing-box-img(src=`assets/img/hotel/${doc.imageCover}` alt='')
                                                             .list-overlay
                                                             .read_more
@@ -47,7 +47,7 @@ block content
                                                 .edit-hotel-box
                                                     .hotel-ellipsis
                                                         h4.hotel-name
-                                                            a(href='/edit-hotel')= doc.name
+                                                            a(href=`/hotel-edit/${doc.id}`)= doc.name
                                                         p= doc.summary
                                                 .hotel-inner.inner-box
                                                     .box-inner-ellipsis

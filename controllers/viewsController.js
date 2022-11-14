@@ -105,6 +105,7 @@ exports.getAboutUsPage = (request, response, next) => {
 }
 exports.getEditDestinationPage = (request, response, next) => {
     try {
+        console.log("params: ", request.params);
         response.status(200).render("edit-destination-listing")
 
 
@@ -468,11 +469,11 @@ exports.getLoginPage = (request, response, next) => {
 }
 exports.getManageDestinationsPage = async (request, response, next) => {
     try {
-        const destinationDocs = await destinationModel.find().select("name price location imageCover slug");
+        const destinationDocs = await destinationModel.find().select("_id name price location imageCover slug");
 
         let destInfo = destinationDocs.map((doc) => {
 
-            return { address: doc.location.address, name: doc.name, price: doc.price, images: doc.images, imageCover: doc.imageCover, slug: doc.slug }
+            return { id: doc._id, address: doc.location.address, name: doc.name, price: doc.price, imageCover: doc.imageCover, slug: doc.slug }
 
         })
         console.log(destInfo);
@@ -491,7 +492,7 @@ exports.getManageDestinationsPage = async (request, response, next) => {
 }
 exports.getManageHotelsPage = async (request, response, next) => {
 
-    const hotelDocs = await hotelsModel.find().select("name price city summary imageCover")
+    const hotelDocs = await hotelsModel.find().select("_id name price city summary imageCover")
     try {
         response.status(200).render("manage-hotels", {
             payload: hotelDocs
@@ -508,7 +509,7 @@ exports.getManageHotelsPage = async (request, response, next) => {
 }
 exports.getManageRestaurantsPage = async (request, response, next) => {
     try {
-        const restaurantDocs = await restaurantModel.find().select("name price city summary imageCover")
+        const restaurantDocs = await restaurantModel.find().select("_id name price city summary imageCover")
 
         response.status(200).render("manage-restaurants", {
             payload: restaurantDocs
@@ -525,7 +526,7 @@ exports.getManageRestaurantsPage = async (request, response, next) => {
 }
 exports.getManageToursPage = async (request, response, next) => {
     try {
-        const tourDocs = await toursModel.find().select("name summary startLocation price imageCover duration maxGroupSize")
+        const tourDocs = await toursModel.find().select("_id name summary startLocation price imageCover duration maxGroupSize")
         response.status(200).render("manage-tours", {
             payload: tourDocs
         })

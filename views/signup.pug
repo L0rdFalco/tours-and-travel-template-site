@@ -13,22 +13,23 @@ block content
           .form-group
             .row
               .col-md-6.col-sm-6
-                label(for='inputEmail') Full Name
-                input#inputEmail.form-control(type='name' placeholder='Full Name' required='')
+                label(for='inputName') Full Name
+                input#inputName.form-control(type='name' placeholder='Full Name' required='')
               .col-md-6.col-sm-6
                 label(for='inputEmail') Email
                 input#inputEmail.form-control(type='email' placeholder='Email' required='')
             .row
+
               .col-md-6.col-sm-6
-                label(for='inputEmail') User Name
-                input#inputEmail.form-control(type='text' placeholder='User Name' required='')
+                label(for='inputPW') Password
+                input#inputPW.form-control(type='password' placeholder='*******' required='')
               .col-md-6.col-sm-6
-                label(for='inputEmail') Password
-                input#inputEmail.form-control(type='password' placeholder='*******' required='')
+                label(for='inputPWConfirm') Repeat Password
+                input#inputPWConfirm.form-control(type='password' placeholder='*******' required='')
           .form-group
             .row
               .col-md-6.col-sm-6
-                button.btn.btn-dark(type='submit') SignUp
+                button#signup_btn.btn.btn-dark(type='submit') Sign Up
               .col-md-6.col-sm-6
           .log-option
               span OR

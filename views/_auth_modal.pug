@@ -5,16 +5,16 @@
                 .text-center
                     img.img-responsive(src='assets/img/logo.png', alt='')
                 // Nav tabs
-                ul.nav.nav-tabs.nav-advance.theme-bg(role='tablist')
-                    li.nav-item.active
-                        a.nav-link(data-toggle='tab', href='#vendor', role='tab')
-                            i.ti-user
-                            |  Vendor
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    li.nav-item
-                        a.nav-link(data-toggle='tab', href='#user', role='tab')
-                            i.ti-user
-                            |  User
+                //- ul.nav.nav-tabs.nav-advance.theme-bg(role='tablist')
+                //-     li.nav-item.active
+                //-         a.nav-link(data-toggle='tab', href='#vendor', role='tab')
+                //-             i.ti-user
+                //-             |  Vendor
+                //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                //-     li.nav-item
+                //-         a.nav-link(data-toggle='tab', href='#user', role='tab')
+                //-             i.ti-user
+                //-             |  User
                 // Nav tabs
                 // Tab panels
                 .tab-content
@@ -24,18 +24,18 @@
                             .form-group
                                 label Username or email
                                 | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                input.form-control(type='text', placeholder='User Name')
+                                input#auth_username.form-control(type='text', placeholder='User Name')
                             | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                             | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                             .form-group
                                 label Password
                                 | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                input.form-control(type='password', placeholder='*********')
+                                input#auth_password.form-control(type='password', placeholder='*********')
                             | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                             | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                             .form-group
                                 span.custom-checkbox
-                                    input#4(type='checkbox')
+                                    input#rememberCB(type='checkbox')
                                     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                                     label(for='4')
                                     | Remember me
@@ -43,7 +43,9 @@
                                 a.fl-right(href='forgot-password', title='Forget') Forgot Password?
                             | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                             .form-group.text-center
-                                button.btn.theme-btn.full-width.btn-m(type='button') LogIn 
+                                button#auth_login.btn.theme-btn.full-width.btn-m(type='button') LogIn 
+                            h2#error.fs-title ALL FIELDS ARE REQUIRED
+
                         | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                         | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                         .log-option
@@ -62,44 +64,44 @@
                                     | Sign In With Google+
                     // /.Panel 1
                     // Candidate Panel 2
-                    #candidate.tab-pane.fade(role='tabpanel')
-                        form
-                            .form-group
-                                label UserName or email
-                                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                input.form-control(type='text', placeholder='User Name')
-                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                            .form-group
-                                label Password
-                                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                input.form-control(type='password', placeholder='*********')
-                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                            .form-group
-                                span.custom-checkbox
-                                    input#4(type='checkbox')
-                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                    label(for='4')
-                                    | Remember me
-                                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                a.fl-right(href='/forgot-password', title='Forget') Forgot Password?
-                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                            .form-group.text-center
-                                button.btn.theme-btn.full-width.btn-m(type='button') LogIn 
-                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                        .log-option
-                            span OR
-                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                        .row.mrg-bot-20
-                            .col-md-6
-                                a.fb-log-btn.log-btn(href='#', title='')
-                                    i.fa.fa-facebook
-                                    | Sign In With Facebook
-                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                            .col-md-6
-                                a.gplus-log-btn.log-btn(href='#', title='')
-                                    i.fa.fa-google-plus
-                                    | Sign In With Google+
+                    //- #candidate.tab-pane.fade(role='tabpanel')
+                    //-     form
+                    //-         .form-group
+                    //-             label UserName or email
+                    //-             | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-             input.form-control(type='text', placeholder='User Name')
+                    //-         | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-         | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-         .form-group
+                    //-             label Password
+                    //-             | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-             input.form-control(type='password', placeholder='*********')
+                    //-         | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-         | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-         .form-group
+                    //-             span.custom-checkbox
+                    //-                 input#4(type='checkbox')
+                    //-                 | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-                 label(for='4')
+                    //-                 | Remember me
+                    //-             | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-             a.fl-right(href='/forgot-password', title='Forget') Forgot Password?
+                    //-         | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-         .form-group.text-center
+                    //-             button.btn.theme-btn.full-width.btn-m(type='button') LogIn 
+                    //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-     .log-option
+                    //-         span OR
+                    //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-     .row.mrg-bot-20
+                    //-         .col-md-6
+                    //-             a.fb-log-btn.log-btn(href='#', title='')
+                    //-                 i.fa.fa-facebook
+                    //-                 | Sign In With Facebook
+                    //-         | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    //-         .col-md-6
+                    //-             a.gplus-log-btn.log-btn(href='#', title='')
+                    //-                 i.fa.fa-google-plus
+                    //-                 | Sign In With Google+
