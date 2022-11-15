@@ -34,7 +34,7 @@ block content
                                             each doc in payload
                                                 -const summary = doc.message.split(".")[0] 
                                                 li
-                                                    a(href='/http://themezhub.com/')
+                                                    a(href=`/replies/${doc._id}`)
                                                         .message-avatar
                                                             img(src='assets/img/user-1.jpg' alt='')
                                                         .message-body

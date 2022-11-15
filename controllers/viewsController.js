@@ -544,11 +544,26 @@ exports.getManageToursPage = async (request, response, next) => {
 exports.getMessagesPage = async (request, response, next) => {
     try {
 
-        const messageDocs = await messagesModel.find().select("subject message")
-        console.log(messageDocs);
+        const messageDocs = await messagesModel.find().select("_id subject message")
         response.status(200).render("messages", {
             payload: messageDocs
         })
+
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: " fail",
+
+        })
+    }
+}
+
+exports.getRepliesPage = async (request, response, next) => {
+    try {
+        console.log("reder reply page");
+
+        response.status(200).render("repliesPage")
 
 
     } catch (error) {
