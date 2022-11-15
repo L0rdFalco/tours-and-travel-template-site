@@ -5,6 +5,7 @@ const toursModel = require("../models/toursModel.js")
 const destinationModel = require("../models/destinationModel.js")
 const hotelsModel = require("../models/hotelsModel.js")
 const restaurantModel = require("../models/restaurantModel.js")
+const messagesModel = require("../models/messagesModel.js")
 
 
 exports.getTestPage = (request, response, next) => {
@@ -540,9 +541,14 @@ exports.getManageToursPage = async (request, response, next) => {
         })
     }
 }
-exports.getMessagesPage = (request, response, next) => {
+exports.getMessagesPage = async (request, response, next) => {
     try {
-        response.status(200).render("messages")
+
+        const messageDocs = await messagesModel.find().select("subject message")
+        console.log(messageDocs);
+        response.status(200).render("messages", {
+            payload: messageDocs
+        })
 
 
     } catch (error) {
