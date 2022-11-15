@@ -104,6 +104,7 @@ exports.login = async (request, response, next) => {
 
 
     } catch (error) {
+        console.log(error);
 
         response.status(400).json({
             status: "login fail",
@@ -346,6 +347,7 @@ exports.protect = async (request, response, next) => {
         request.user = currentUser
 
         response.locals.user = currentUser
+
         //6.
         next()
     } catch (error) {
