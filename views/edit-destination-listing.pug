@@ -13,36 +13,38 @@ block content
                             button.navbar-toggle(type='button' data-toggle='collapse' data-target='#dashboard-menu')
                                 i.fa.fa-bars
                     include _dashboard_sidebar
-                    include _location_modal
+                    include _info_confirm_modal
+                    include _resource_delete_modal
                     // /. NAV SIDE
                 .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
                     .row.mrg-0.mrg-top-20
                         .tr-single-box
                             .tr-single-header
+                                h5.hidden(id="resourceId")= payload._id
+
                                 h3.dashboard-title edit this destination listing
                             .tr-single-body
                                 form#msform
-
                                         .text-center
                                             h2.fs-title Basic Information
                                             h3.fs-subtitle This is step 1
                                         .row
                                             .col-xs-6
                                                 label destination Name
-                                                input.form-control(type='text'  placeholder='Galaxy cruiser destination')
+                                                input#resource_name.form-control(type='text' value= payload.name  placeholder='Galaxy cruiser destination')
 
                                             .col-xs-6
                                                 label Upload itenerary
                                                 .cf-input
                                                     label.custom-file
-                                                        input#file1.custom-file-input(type='file')
+                                                        input#itenerary.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
-                                                label(for='destdatepicker1') pick start date
-                                                input#destination_datepicker1.datepicker_input.form-control.border-2(type='date', required='', placeholder='DD/MM/YYYY')
+                                                label(for='start_date') pick start date
+                                                input#start_date.datepicker_input.form-control.border-2(type='date', required='', placeholder='DD/MM/YYYY')
                                             .col-xs-6
-                                                label(for='destdatepicker2') pick end date
-                                                input#destination_datepicker2.datepicker_input.form-control.border-2(type='date', required='', placeholder='DD/MM/YYYY')
+                                                label(for='end_date') pick end date
+                                                input#end_date.datepicker_input.form-control.border-2(type='date', required='', placeholder='DD/MM/YYYY')
                                                                                         
                                             .col-xs-6
                                                 label choose start location
@@ -51,29 +53,28 @@ block content
                                                 label choose guide
                                                 .sl-box
                                                     select#destination_guide.form-control.wide
-                                                        option self-guided
-                                                        option guide name 1
-                                                        option guide name 2
-                                                        option guide name 3
-                                                        option guide name 4
-                                                        option guide name 5
+                                                        option 5c8a1f292f8fb814b56fa184
+                                                        option 5c8a1f4e2f8fb814b56fa185
+                                                        option 5c8a201e2f8fb814b56fa186
+                                                        option 5c8a21d02f8fb814b56fa189
+                                                        option 5c8a23412f8fb814b56fa18c
+                                                        option 5c8a21f22f8fb814b56fa18a
                                             .col-xs-6
                                                 label choose difficulty
                                                 .sl-box
-                                                    select#destination_rating.form-control.wide
-                                                        option not rated
+                                                    select#destination_difficulty.form-control.wide
                                                         option easy
                                                         option medium
                                                         option difficult                                      
                                             .col-xs-6
                                                 label price/person
-                                                input#destination_price.form-control(type='text'  placeholder='$555')
+                                                input#destination_price.form-control(type='text' value= payload.price placeholder='$555')
                                             .col-xs-6
                                                 label duration
-                                                input#destination_duration.form-control(type='text'  placeholder='5 hours')
+                                                input#destination_duration.form-control(type='text' value= payload.duration placeholder='5 hours')
                                             .col-xs-6
                                                 label maximum group size
-                                                input#destination_groupsize.form-control(type='text'  placeholder='12')
+                                                input#destination_groupsize.form-control(type='text' value = payload.maxGroupSize placeholder='12')
                                             .col-xs-6
                                                 label destination banner Image
                                                 .cf-input
@@ -84,128 +85,45 @@ block content
                                                 label Upload destination gallery image 1
                                                 .cf-input
                                                     label.custom-file
-                                                        input#destination_gallery.custom-file-input(type='file')
+                                                        input#destination_gallery1.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload destination gallery image 2
                                                 .cf-input
                                                     label.custom-file
-                                                        input#destination_gallery.custom-file-input(type='file')
+                                                        input#destination_gallery2.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload destination gallery image 3
                                                 .cf-input
                                                     label.custom-file
-                                                        input#destination_gallery.custom-file-input(type='file')
+                                                        input#destination_gallery3.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload destination gallery image 4
                                                 .cf-input
                                                     label.custom-file
-                                                        input#destination_gallery.custom-file-input(type='file')
+                                                        input#destination_gallery4.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-12
                                                 label destination summary
-                                                textarea#dn_summary.form-control.height-120( placeholder='simple one liner description')
+                                                textarea#dn_summary.form-control.height-120( placeholder='simple one liner description')= payload.summary
                                             .col-xs-12
                                                 label destination description
-                                                textarea#dn_description.form-control.height-120( placeholder='long description about destination')
+                                                textarea#dn_description.form-control.height-120( placeholder='long description about destination')= payload.description
                                                 h2#error.fs-title ALL FIELDS ARE REQUIRED
 
                                         h2.fs-title Available Amenities
                                         .row
                                             .col-md-12
                                                 ul.add-amenities
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#1(type='checkbox')
-                                                            label(for='1')
-                                                        | Satellite TV
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#2(type='checkbox')
-                                                            label(for='2')
-                                                        | Coffeemaker
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#3(type='checkbox')
-                                                            label(for='3')
-                                                        | Hair Dryer
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#4(type='checkbox')
-                                                            label(for='4')
-                                                        | Swimming Pool
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#5(type='checkbox')
-                                                            label(for='5')
-                                                        | Room Service
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#6(type='checkbox')
-                                                            label(for='6')
-                                                        | Luxury Bedding
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#7(type='checkbox')
-                                                            label(for='7')
-                                                        | Good Showers
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#8(type='checkbox')
-                                                            label(for='8')
-                                                        | Free Parking
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#9(type='checkbox')
-                                                            label(for='9')
-                                                        | Free Wifi
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#10(type='checkbox')
-                                                            label(for='0')
-                                                        | Bath towel
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#11(type='checkbox')
-                                                            label(for='11')
-                                                        | Free Coffee
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#12(type='checkbox')
-                                                            label(for='12')
-                                                        | Pets Allow
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#13(type='checkbox')
-                                                            label(for='13')
-                                                        | Hot Water
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#14(type='checkbox')
-                                                            label(for='14')
-                                                        | Attached garage
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#15(type='checkbox')
-                                                            label(for='15')
-                                                        | Elevator
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#16(type='checkbox')
-                                                            label(for='16')
-                                                        | Spa/Sauna
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#17(type='checkbox')
-                                                            label(for='17')
-                                                        | Indoor pool
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#18(type='checkbox')
-                                                            label(for='18')
-                                                        | Security cameras
+                                                    each amenity, key in amenities 
+                                                        
+                                                        li
+                                                            span.custom-checkbox
+                                                                input(type='checkbox' id=`${key+1}` checked= payload.amenities.includes(amenity.toLowerCase())? true: false )
+                                                                label(for=`${key+1}`)= amenity
+
 
                                         input.next.action-button(type='button' name='update' value='update' id="destination_update")
                                         input.next.action-button(type='button' name='delete' value='delete' id="destination_delete")

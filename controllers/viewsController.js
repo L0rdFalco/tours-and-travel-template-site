@@ -7,6 +7,26 @@ const hotelsModel = require("../models/hotelsModel.js")
 const restaurantModel = require("../models/restaurantModel.js")
 const messagesModel = require("../models/messagesModel.js")
 
+const ameninitesArray = [
+    "Satellite TV",
+    "Coffeemaker",
+    "Hair Dryer",
+    "Swimming Pool",
+    "Room Service",
+    "Luxury Bedding",
+    "Good Showers",
+    "Free Parking",
+    "Free Wifi",
+    "Bath towel",
+    "Free Coffee",
+    "Pets Allow",
+    "Hot Water",
+    "Attached garage",
+    "Elevator",
+    "Spa/Sauna",
+    "Indoor pool",
+    "Security cameras"
+]
 
 exports.getTestPage = (request, response, next) => {
     try {
@@ -104,10 +124,18 @@ exports.getAboutUsPage = (request, response, next) => {
         })
     }
 }
-exports.getEditDestinationPage = (request, response, next) => {
+exports.getEditDestinationPage = async (request, response, next) => {
     try {
         console.log("params: ", request.params);
-        response.status(200).render("edit-destination-listing")
+
+        const destDoc = await destinationModel.findById(request.params.id)
+        // console.log(destDoc);
+
+
+        response.status(200).render("edit-destination-listing", {
+            payload: destDoc,
+            amenities: ameninitesArray
+        })
 
 
     } catch (error) {
@@ -477,7 +505,6 @@ exports.getManageDestinationsPage = async (request, response, next) => {
             return { id: doc._id, address: doc.location.address, name: doc.name, price: doc.price, imageCover: doc.imageCover, slug: doc.slug }
 
         })
-        console.log(destInfo);
 
         response.status(200).render("manage-destinations", {
             payload: destInfo

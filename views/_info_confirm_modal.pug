@@ -1,0 +1,14 @@
+.location-modal.hidden
+    textarea.hidden#currentElVal
+    button.close-location-modal &times;
+    h5 confirm information before submitting
+
+        .row
+        .col-25
+            label(for='locdesc') description:
+        .col-75
+            input#locdesc(readonly type='text', name='description', value= "Lorem ipsum dolor sit amet")
+        br
+        .row
+        input(type='submit', value='Submit' id="UpdateSubmitBtn")
+.location-overlay.hidden
