@@ -3,31 +3,46 @@
 const destUpdateBtn = document.getElementById("destination_update")
 const destDeleteBtn = document.getElementById("destination_delete")
 
-const modal = document.querySelector(".location-modal");
-const overlay = document.querySelector(".location-overlay");
-const closeModalBtn = document.querySelector(".close-location-modal")
-const submitInfoBtn = document.getElementById("UpdateSubmitBtn")
-
-
 const delete_modal = document.querySelector(".delete-modal");
 const delete_overlay = document.querySelector(".delete-overlay");
 const delete_closeModalBtn = document.querySelector(".close-delete-modal")
 const deleteListingBtn = document.getElementById("deleteListingBtn")
 
-const resourceInfo = { amenities: [] }
+const confirm_modal = document.querySelector(".confirm-modal");
+const confirm_overlay = document.querySelector(".confirm-overlay");
+const confirm_closeModalBtn = document.querySelector(".close-confirm-modal")
+const updateListingBtn = document.getElementById("UpdateSubmitBtn")
+
+const locInfoSubmitBtn = document.getElementById("infosubmit")
+
+const resourceInfo = { amenities: [], images: [], location: [] }
 
 
-function modalIncluder(resourceObj) {
-    // document.getElementById("currentElVal").textContent = elementId
+function confirm_modalIncluder(resourceObj) {
+    confirm_modal.classList.remove("hidden");
+    confirm_overlay.classList.remove("hidden");
 
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
+    let resourceString = `<table id="resources">`
+
+    for (const [key, value] of Object.entries(resourceObj)) {
+        resourceString += `
+        <tr>
+        <th>${key}</th>
+        <td>${JSON.stringify(value)}</td>
+        </tr>
+
+    `
+
+    }
+    document.getElementById("conf_row").innerHTML = resourceString
+
+    //make post request here
 
 }
 
-function modalRemover() {
-    modal.classList.add("hidden");
-    overlay.classList.add("hidden");
+function confirm_modalRemover() {
+    confirm_modal.classList.add("hidden");
+    confirm_overlay.classList.add("hidden");
 }
 
 function deleteModalIncluder() {
@@ -43,14 +58,14 @@ function deleteModalRemover() {
     delete_overlay.classList.add("hidden");
 }
 
-if (closeModalBtn) closeModalBtn.addEventListener("click", modalRemover);
-if (overlay) overlay.addEventListener("click", modalRemover);
+if (confirm_closeModalBtn) confirm_closeModalBtn.addEventListener("click", confirm_modalRemover);
+if (confirm_overlay) confirm_overlay.addEventListener("click", confirm_modalRemover);
 
 if (delete_closeModalBtn) delete_closeModalBtn.addEventListener("click", deleteModalRemover);
 if (delete_overlay) delete_overlay.addEventListener("click", deleteModalRemover);
 
 
-
+//main page buttons
 if (destUpdateBtn) destUpdateBtn.addEventListener("click", function (e) {
     e.preventDefault()
     const resourceIdValue = document.getElementById("resourceId").innerText
@@ -91,8 +106,9 @@ if (destUpdateBtn) destUpdateBtn.addEventListener("click", function (e) {
     const input17El = document.getElementById("17").checked
     const input18El = document.getElementById("18").checked
 
+
     resourceIdValue.length > 0 ? resourceInfo["id"] = resourceIdValue : resourceInfo["id"] = null
-    resourceIdValue.length > 0 ? resourceInfo["itenerary"] = iteneraryValue : resourceInfo["itenerary"] = "dest_itenerary.pdf"
+    iteneraryValue.length > 0 ? resourceInfo["itenerary"] = iteneraryValue : resourceInfo["itenerary"] = "dest_itenerary.pdf"
     nameValue.length > 0 ? resourceInfo["name"] = nameValue : resourceInfo["name"] = null
     startDateValue.length > 0 ? resourceInfo["startDate"] = startDateValue : resourceInfo["startDate"] = null
     endDateValue.length > 0 ? resourceInfo["endDate"] = endDateValue : resourceInfo["endDate"] = null
@@ -104,12 +120,12 @@ if (destUpdateBtn) destUpdateBtn.addEventListener("click", function (e) {
     summaryValue.length > 0 ? resourceInfo["summary"] = summaryValue : resourceInfo["summary"] = null
     descValue.length > 0 ? resourceInfo["description"] = descValue : resourceInfo["description"] = null
 
-    // destination_location0Value.length > 0 ? resourceInfo["id"] = resourceIdValue : resourceInfo["id"] = null
-    destinationFeaturedImageVal.length > 0 ? resourceInfo["id"] = resourceIdValue : resourceInfo["id"] = null
-    destination_gallery1Value.length > 0 ? resourceInfo["id"] = resourceIdValue : resourceInfo["id"] = null
-    destination_gallery2Value.length > 0 ? resourceInfo["id"] = resourceIdValue : resourceInfo["id"] = null
-    destination_gallery3Value.length > 0 ? resourceInfo["id"] = resourceIdValue : resourceInfo["id"] = null
-    destination_gallery4Value.length > 0 ? resourceInfo["id"] = resourceIdValue : resourceInfo["id"] = null
+
+    destinationFeaturedImageVal.length > 0 ? resourceInfo["imageCover"] = destinationFeaturedImageVal : resourceInfo["imageCover"] = "dest-1.jpg"
+    destination_gallery1Value.length > 0 ? resourceInfo["images"].push(destination_gallery1Value) : resourceInfo["images"].push("dest-1.jpg")
+    destination_gallery2Value.length > 0 ? resourceInfo["images"].push(destination_gallery2Value) : resourceInfo["images"].push("dest-2.jpg")
+    destination_gallery3Value.length > 0 ? resourceInfo["images"].push(destination_gallery3Value) : resourceInfo["images"].push("dest-3.jpg")
+    destination_gallery4Value.length > 0 ? resourceInfo["images"].push(destination_gallery4Value) : resourceInfo["images"].push("dest-4.jpg")
 
     if (input1El) resourceInfo["amenities"].push("Satellite TV")
     if (input2El) resourceInfo["amenities"].push("Coffeemaker")
@@ -133,7 +149,7 @@ if (destUpdateBtn) destUpdateBtn.addEventListener("click", function (e) {
     console.log(resourceInfo);
 
 
-    modalIncluder(1)
+    confirm_modalIncluder(resourceInfo)
 })
 
 if (destDeleteBtn) destDeleteBtn.addEventListener("click", function (e) {
@@ -141,7 +157,8 @@ if (destDeleteBtn) destDeleteBtn.addEventListener("click", function (e) {
     deleteModalIncluder()
 })
 
-if (submitInfoBtn) submitInfoBtn.addEventListener("click", function (e) {
+//modal buttons
+if (updateListingBtn) updateListingBtn.addEventListener("click", function (e) {
     e.preventDefault()
     console.log("submit update");
 })
@@ -151,4 +168,38 @@ if (deleteListingBtn) deleteListingBtn.addEventListener("click", function (e) {
     console.log("delete listing");
 
     // deleteModalRemover()
+})
+
+if (locInfoSubmitBtn) locInfoSubmitBtn.addEventListener("click", function (e) {
+    const locdesc = document.getElementById("locdesc").value.trim()
+    const latval = document.getElementById("latval").value.trim()
+    const longval = document.getElementById("longval").value.trim()
+    const dayval = document.getElementById("dayval").value.trim()
+    const addrval = document.getElementById("addressval").value.trim()
+    const errorEl = document.getElementById("errormodal")
+
+    if (!locdesc || !latval || !longval || !dayval) {
+        errorEl.style.opacity = 1
+        setTimeout(() => {
+            errorEl.style.opacity = 0
+
+        }, 5000)
+        return
+    }
+
+    const currentKey = document.getElementById("currentElVal").value.trim();
+
+    console.log(window.location.href);
+    if (window.location.href.includes("dest-edit")) {
+
+        resourceInfo["location"].push({
+            "description": locdesc,
+            "coordinates": [latval, longval],
+            "address": addrval
+        })
+    }
+
+
+    document.getElementById("" + currentKey).value = "added!"
+
 })

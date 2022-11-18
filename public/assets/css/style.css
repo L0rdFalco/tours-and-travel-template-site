@@ -6064,7 +6064,8 @@ h2#error, #errormodal {
   display: none;
 }
 
-.location-modal {
+/*location delete and confirm modals*/
+.location-modal, .delete-modal, .confirm-modal {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -6077,7 +6078,7 @@ h2#error, #errormodal {
   z-index: 10;
 }
 
-.close-location-modal {
+.close-location-modal, .close-delete-modal,.close-confirm-modal {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -6088,7 +6089,7 @@ h2#error, #errormodal {
   background: none;
 }
 
-.location-overlay {
+.location-overlay, .delete-overlay,  .confirm-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -6100,40 +6101,7 @@ h2#error, #errormodal {
 }
 
 
-.delete-modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40%;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 5px;
-    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-    z-index: 10;
-  }
-  
-  .close-delete-modal {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 3rem;
-    color: #333;
-    cursor: pointer;
-    border: none;
-    background: none;
-  }
-  
-  .delete-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px);
-    z-index: 5;
-  }
+
 input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
