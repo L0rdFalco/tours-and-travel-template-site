@@ -28,7 +28,7 @@ block content
                                         .row
                                             .col-xs-6
                                                 label restaurant Name
-                                                input#restaurant_name.form-control(type='text' value='Green Valley')
+                                                input#restaurant_name.form-control(type='text' value=payload.name)
                                             .col-xs-6
                                                 label Upload Logo
                                                 .cf-input
@@ -43,73 +43,73 @@ block content
                                                         span.custom-file-control                                                        
                                             .col-xs-6
                                                 label average price/person ($)
-                                                input#restaurant_price.form-control(type='text' value='220')
+                                                input#restaurant_price.form-control(type='text' value=payload.price)
                                             .col-xs-6
                                                 label Phone
-                                                input#restaurant_phone.form-control(type='text' value='912548758457')
+                                                input#restaurant_phone.form-control(type='text' value=payload.phone)
                                             .col-xs-6
                                                 label Landline
-                                                input#restaurant_ll.form-control(type='text' value='17202558')
+                                                input#restaurant_ll.form-control(type='text' value=payload.landline)
                                             .col-xs-6
                                                 label Email
-                                                input#restaurant_email.form-control(type='text' value='rest@gymail.com')
+                                                input#restaurant_email.form-control(type='text' value=payload.email)
                                             .col-xs-6
                                                 label Fax
-                                                input#restaurant_fax.form-control(type='text' value='9561567516861')
+                                                input#restaurant_fax.form-control(type='text' value=payload.fax)
                                             .col-xs-6
                                                 label Address
-                                                input#restaurant_address.form-control(type='text' value='#548, Near Big Market')
+                                                input#restaurant_address.form-control(type='text' value=payload.address)
                                             .col-xs-6
                                                 label City
-                                                input#restaurant_city.form-control(type='text' value='harare')
+                                                input#restaurant_city.form-control(type='text' value=payload.city)
                                             .col-xs-6
                                                 label State
-                                                input#restaurant_state.form-control(type='text' value='virginia')
+                                                input#restaurant_state.form-control(type='text' value=payload.state)
                                             .col-xs-6
                                                 label Country
-                                                input#restaurant_country.form-control(type='text' value='sweden')
+                                                input#restaurant_country.form-control(type='text' value=payload.country)
                                             .col-xs-6
                                                 label Owner Name
-                                                input#restaurant_owner.form-control(type='text' value='Daniel Duke')
+                                                input#restaurant_owner.form-control(type='text' value=payload.owner)
                                             .col-xs-6
                                                 label Owner Contact
-                                                input#restaurant_contact.form-control(type='text' value='987 584 5847')
+                                                input#restaurant_contact.form-control(type='text' value=payload.contact)
                                             .col-xs-6
                                                 label Featured Image
                                                 .cf-input
                                                     label.custom-file
-                                                        input#featured-image.custom-file-input(type='file')
+                                                        input#restaurant_featured-image.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload restaurant gallery image 1
                                                 .cf-input
                                                     label.custom-file
-                                                        input#restaurant_gallery.custom-file-input(type='file')
+                                                        input#restaurant_gallery1.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload restaurant gallery image 2
                                                 .cf-input
                                                     label.custom-file
-                                                        input#restaurant_gallery.custom-file-input(type='file')
+                                                        input#restaurant_gallery2.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload restaurant gallery image 3
                                                 .cf-input
                                                     label.custom-file
-                                                        input#restaurant_gallery.custom-file-input(type='file')
+                                                        input#restaurant_gallery3.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload restaurant gallery image 4
                                                 .cf-input
                                                     label.custom-file
-                                                        input#restaurant_gallery.custom-file-input(type='file')
+                                                        input#restaurant_gallery4.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-12
                                                 label restaurant summary
-                                                textarea#rt_summary.form-control.height-120( placeholder='simple one liner description') Commodo odio aenean sed adipiscing diam donec adipiscing. Nisl purus in mollis nunc sed id semper risus
+                                                textarea#rt_summary.form-control.height-120( placeholder='simple one liner description')= payload.summary
                                             .col-xs-12
                                                 label restaurant description
-                                                textarea#rt_description.form-control.height-120( placeholder='long description about restaurant') Mauris a diam maecenas sed enim. Consectetur a erat nam at lectus. Eget mi proin sed libero enim sed faucibus turpis. Nulla malesuada pellentesque elit eget
+                                                textarea#rt_description.form-control.height-120( placeholder='long description about restaurant')= payload.description
                                                 h2#error.fs-title ALL FIELDS ARE REQUIRED
 
                                         h2.fs-title Available Amenities
@@ -123,7 +123,7 @@ block content
                                                                 input(type='checkbox' id=`${key+1}` checked= payload.amenities.includes(amenity.toLowerCase())? true: false )
                                                                 label(for=`${key+1}`)= amenity
 
-                                       input.next.action-button(type='button' name='update' value='update' id="restaurant_update")
+                                        input.next.action-button(type='button' name='update' value='update' id="restaurant_update")
                                         input.next.action-button(type='button' name='delete' value='delete' id="restaurant_delete")
 
   

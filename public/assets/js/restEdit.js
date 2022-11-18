@@ -82,7 +82,11 @@ if (updateMainBtn) updateMainBtn.addEventListener("click", function (e) {
     const restaurantContactValue = document.getElementById("restaurant_contact").value.trim()
     const restaurantSummaryValue = document.getElementById("rt_summary").value.trim()
     const restaurantDescriptionValue = document.getElementById("rt_description").value.trim()
-
+    const restaurantFeaturedImageVal = document.getElementById("restaurant_featured-image").value.trim()
+    const restaurant_gallery1Value = document.getElementById("restaurant_gallery1").value.trim()
+    const restaurant_gallery2Value = document.getElementById("restaurant_gallery2").value.trim()
+    const restaurant_gallery3Value = document.getElementById("restaurant_gallery3").value.trim()
+    const restaurant_gallery4Value = document.getElementById("restaurant_gallery4").value.trim()
 
     const input1El = document.getElementById("1").checked
     const input2El = document.getElementById("2").checked
@@ -105,8 +109,8 @@ if (updateMainBtn) updateMainBtn.addEventListener("click", function (e) {
 
     restaurantNameValue.length > 0 ? restaurantInfo["name"] = restaurantNameValue : restaurantInfo["name"] = null
     restaurantPriceValue.length > 0 ? restaurantInfo["price"] = restaurantPriceValue : restaurantInfo["price"] = null
-    restaurantLogoValue.length > 0 ? restaurantInfo["logo"] = restaurantLogoValue : restaurantInfo["logo"] = "restauant_logo.png"
-    restaurantMenuValue.length > 0 ? restaurantInfo["menu"] = restaurantMenuValue : restaurantInfo["menu"] = "restauant_menu.pdf"
+    restaurantLogoValue.length > 0 ? restaurantInfo["logo"] = restaurantLogoValue : restaurantInfo["logo"] = "restaurant_logo.png"
+    restaurantMenuValue.length > 0 ? restaurantInfo["menu"] = restaurantMenuValue : restaurantInfo["menu"] = "restaurant_menu.pdf"
     restaurantPhoneValue.length > 0 ? restaurantInfo["phone"] = restaurantPhoneValue : restaurantInfo["phone"] = null
     restaurantLlValue.length > 0 ? restaurantInfo["landline"] = restaurantLlValue : restaurantInfo["landline"] = null
     restaurantEmailValue.length > 0 ? restaurantInfo["email"] = restaurantEmailValue : restaurantInfo["email"] = null
@@ -119,6 +123,12 @@ if (updateMainBtn) updateMainBtn.addEventListener("click", function (e) {
     restaurantContactValue.length > 0 ? restaurantInfo["contact"] = restaurantContactValue : restaurantInfo["contact"] = null
     restaurantSummaryValue.length > 0 ? restaurantInfo["summary"] = restaurantSummaryValue : restaurantInfo["summary"] = null
     restaurantDescriptionValue.length > 0 ? restaurantInfo["description"] = restaurantDescriptionValue : restaurantInfo["description"] = null
+
+    restaurantFeaturedImageVal.length > 0 ? restaurantInfo["imageCover"] = restaurantFeaturedImageVal : restaurantInfo["imageCover"] = "rest-1.jpg"
+    restaurant_gallery1Value.length > 0 ? restaurantInfo["images"].push(restaurant_gallery1Value) : restaurantInfo["images"].push("rest-1.jpg")
+    restaurant_gallery2Value.length > 0 ? restaurantInfo["images"].push(restaurant_gallery2Value) : restaurantInfo["images"].push("rest-2.jpg")
+    restaurant_gallery3Value.length > 0 ? restaurantInfo["images"].push(restaurant_gallery3Value) : restaurantInfo["images"].push("rest-3.jpg")
+    restaurant_gallery4Value.length > 0 ? restaurantInfo["images"].push(restaurant_gallery4Value) : restaurantInfo["images"].push("rest-4.jpg")
 
     if (input1El) restaurantInfo["amenities"].push("Satellite TV")
     if (input2El) restaurantInfo["amenities"].push("Coffeemaker")

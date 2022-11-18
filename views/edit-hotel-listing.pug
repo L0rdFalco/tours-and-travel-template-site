@@ -12,6 +12,8 @@ block content
                             button.navbar-toggle(type='button' data-toggle='collapse' data-target='#dashboard-menu')
                                 i.fa.fa-bars
                     include _dashboard_sidebar
+                    include _info_confirm_modal
+                    include _resource_delete_modal
                     // /. NAV SIDE
                 .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
                     .row.mrg-0.mrg-top-20
@@ -25,51 +27,40 @@ block content
                                         .row
                                             .col-xs-6
                                                 label hotel Name
-                                                input#hotel_name.form-control(type='text'  placeholder='Galaxy cruiser hotel')
-
+                                                input#hotel_name.form-control(type='text'  value=payload.name)
                                             .col-xs-6
-                                                label Rating
-                                                .sl-box
-                                                    select#hotel_rating.form-control.wide
-                                                        option Hotel rating
-                                                        option Normal
-                                                        option 3 Start
-                                                        option 4 Start
-                                                        option 5 Start
-                                                        option 7 Startg
-                                            .col-xs-6
-                                                label Charge/Night
-                                                input#hotel_price.form-control(type='text' placeholder='$220')
+                                                label Charge/Night ($)
+                                                input#hotel_price.form-control(type='text' value=payload.price)
                                             .col-xs-6
                                                 label Phone
-                                                input#hotel_phone.form-control(type='text' placeholder='+91 254 875 8457')
+                                                input#hotel_phone.form-control(type='text' value=payload.phone)
                                             .col-xs-6
                                                 label Landline
-                                                input#hotel_ll.form-control(type='text' placeholder='172 025 458')
+                                                input#hotel_ll.form-control(type='text' value=payload.landline)
                                             .col-xs-6
                                                 label Email
-                                                input#hotel_email.form-control(type='text' placeholder='yourht@gmail.com')
+                                                input#hotel_email.form-control(type='text' value=payload.email)
                                             .col-xs-6
                                                 label Fax
-                                                input#hotel_fax.form-control(type='text' placeholder='fax')
+                                                input#hotel_fax.form-control(type='text' value=payload.fax)
                                             .col-xs-6
                                                 label Address
-                                                input#hotel_address.form-control(type='text' placeholder='#548, Near Big Market')
+                                                input#hotel_address.form-control(type='text' value=payload.address)
                                             .col-xs-6
                                                 label City
-                                                input#hotel_city.form-control(type='text' placeholder='city')
+                                                input#hotel_city.form-control(type='text' value=payload.city)
                                             .col-xs-6
                                                 label State
-                                                input#hotel_state.form-control(type='text' placeholder='state')
+                                                input#hotel_state.form-control(type='text' value=payload.state)
                                             .col-xs-6
                                                 label Country
-                                                input#hotel_country.form-control(type='text' placeholder='country')
+                                                input#hotel_country.form-control(type='text' value=payload.country)
                                             .col-xs-6
                                                 label Owner Name
-                                                input#hotel_owner.form-control(type='text' placeholder='Daniel Duke')
+                                                input#hotel_owner.form-control(type='text' value=payload.owner)
                                             .col-xs-6
                                                 label Owner Contact
-                                                input#hotel_contact.form-control(type='text' placeholder='987 584 5847')
+                                                input#hotel_contact.form-control(type='text' value=payload.contact)
                                             .col-xs-6
                                                 label hotel banner Image
                                                 .cf-input
@@ -80,32 +71,32 @@ block content
                                                 label Upload hotel gallery image 1
                                                 .cf-input
                                                     label.custom-file
-                                                        input#hotel_gallery.custom-file-input(type='file')
+                                                        input#hotel_gallery1.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload hotel gallery image 2
                                                 .cf-input
                                                     label.custom-file
-                                                        input#hotel_gallery.custom-file-input(type='file')
+                                                        input#hotel_gallery2.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload hotel gallery image 3
                                                 .cf-input
                                                     label.custom-file
-                                                        input#hotel_gallery.custom-file-input(type='file')
+                                                        input#hotel_gallery3.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload hotel gallery image 4
                                                 .cf-input
                                                     label.custom-file
-                                                        input#hotel_gallery.custom-file-input(type='file')
+                                                        input#hotel_gallery4.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-12
                                                 label hotel summary
-                                                textarea#hl_summary.form-control.height-120( placeholder='simple one liner description')
+                                                textarea#hl_summary.form-control.height-120( placeholder='simple one liner description')= payload.summary
                                             .col-xs-12
                                                 label hotel description
-                                                textarea#hl_description.form-control.height-120( placeholder='long description about hotel')
+                                                textarea#hl_description.form-control.height-120( placeholder='long description about hotel')= payload.description
                                                 h2#error.fs-title ALL FIELDS ARE REQUIRED
 
                                         h2.fs-title Available Amenities

@@ -146,9 +146,11 @@ exports.getEditDestinationPage = async (request, response, next) => {
         })
     }
 }
-exports.getEditHotelPage = (request, response, next) => {
+exports.getEditHotelPage = async (request, response, next) => {
     try {
+        const hotelDoc = await hotelsModel.findById(request.params.id)
         response.status(200).render("edit-hotel-listing", {
+            payload: hotelDoc,
             amenities: ameninitesArray
 
         })
