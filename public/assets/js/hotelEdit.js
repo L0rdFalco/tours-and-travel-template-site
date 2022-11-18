@@ -13,7 +13,7 @@ const confirm_overlay = document.querySelector(".confirm-overlay");
 const confirm_closeModalBtn = document.querySelector(".close-confirm-modal")
 const updateListingBtn = document.getElementById("UpdateSubmitBtn")
 
-const hotelInfo = { amenities: [], images: [] }
+const hotelListingObj = { amenities: [], images: [] }
 function deleteModalIncluder() {
     // document.getElementById("currentElVal").textContent = elementId
 
@@ -105,48 +105,48 @@ if (updateMainBtn) updateMainBtn.addEventListener("click", function (e) {
     const input17El = document.getElementById("17").checked
     const input18El = document.getElementById("18").checked
 
-    hotelNameValue.length > 0 ? hotelInfo["name"] = hotelNameValue : hotelInfo["name"] = null
-    hotelPriceValue.length > 0 ? hotelInfo["price"] = hotelPriceValue : hotelInfo["price"] = null
-    hotelPhoneValue.length > 0 ? hotelInfo["phone"] = hotelPhoneValue : hotelInfo["phone"] = null
-    hotelLlValue.length > 0 ? hotelInfo["landline"] = hotelLlValue : hotelInfo["landline"] = null
-    hotelEmailValue.length > 0 ? hotelInfo["email"] = hotelEmailValue : hotelInfo["email"] = null
-    hotelFaxValue.length > 0 ? hotelInfo["fax"] = hotelFaxValue : hotelInfo["fax"] = null
-    hotelAddressValue.length > 0 ? hotelInfo["address"] = hotelAddressValue : hotelInfo["address"] = null
-    hotelCityValue.length > 0 ? hotelInfo["city"] = hotelCityValue : hotelInfo["city"] = null
-    hotelStateValue.length > 0 ? hotelInfo["state"] = hotelStateValue : hotelInfo["state"] = null
-    hotelCountryValue.length > 0 ? hotelInfo["country"] = hotelCountryValue : hotelInfo["country"] = null
-    hotelOwnerValue.length > 0 ? hotelInfo["owner"] = hotelOwnerValue : hotelInfo["owner"] = null
-    hotelContactValue.length > 0 ? hotelInfo["contact"] = hotelContactValue : hotelInfo["contact"] = null
-    hotelSummaryValue.length > 0 ? hotelInfo["summary"] = hotelSummaryValue : hotelInfo["summary"] = null
-    hotelDescriptionValue.length > 0 ? hotelInfo["description"] = hotelDescriptionValue : hotelInfo["description"] = null
+    hotelNameValue.length > 0 ? hotelListingObj["name"] = hotelNameValue : hotelListingObj["name"] = null
+    hotelPriceValue.length > 0 ? hotelListingObj["price"] = hotelPriceValue : hotelListingObj["price"] = null
+    hotelPhoneValue.length > 0 ? hotelListingObj["phone"] = hotelPhoneValue : hotelListingObj["phone"] = null
+    hotelLlValue.length > 0 ? hotelListingObj["landline"] = hotelLlValue : hotelListingObj["landline"] = null
+    hotelEmailValue.length > 0 ? hotelListingObj["email"] = hotelEmailValue : hotelListingObj["email"] = null
+    hotelFaxValue.length > 0 ? hotelListingObj["fax"] = hotelFaxValue : hotelListingObj["fax"] = null
+    hotelAddressValue.length > 0 ? hotelListingObj["address"] = hotelAddressValue : hotelListingObj["address"] = null
+    hotelCityValue.length > 0 ? hotelListingObj["city"] = hotelCityValue : hotelListingObj["city"] = null
+    hotelStateValue.length > 0 ? hotelListingObj["state"] = hotelStateValue : hotelListingObj["state"] = null
+    hotelCountryValue.length > 0 ? hotelListingObj["country"] = hotelCountryValue : hotelListingObj["country"] = null
+    hotelOwnerValue.length > 0 ? hotelListingObj["owner"] = hotelOwnerValue : hotelListingObj["owner"] = null
+    hotelContactValue.length > 0 ? hotelListingObj["contact"] = hotelContactValue : hotelListingObj["contact"] = null
+    hotelSummaryValue.length > 0 ? hotelListingObj["summary"] = hotelSummaryValue : hotelListingObj["summary"] = null
+    hotelDescriptionValue.length > 0 ? hotelListingObj["description"] = hotelDescriptionValue : hotelListingObj["description"] = null
 
-    hotelFeaturedImageVal.length > 0 ? hotelInfo["imageCover"] = hotelFeaturedImageVal : hotelInfo["imageCover"] = "rest-1.jpg"
-    hotel_gallery1Value.length > 0 ? hotelInfo["images"].push(hotel_gallery1Value) : hotelInfo["images"].push("rest-1.jpg")
-    hotel_gallery2Value.length > 0 ? hotelInfo["images"].push(hotel_gallery2Value) : hotelInfo["images"].push("rest-2.jpg")
-    hotel_gallery3Value.length > 0 ? hotelInfo["images"].push(hotel_gallery3Value) : hotelInfo["images"].push("rest-3.jpg")
-    hotel_gallery4Value.length > 0 ? hotelInfo["images"].push(hotel_gallery4Value) : hotelInfo["images"].push("rest-4.jpg")
+    hotelFeaturedImageVal.length > 0 ? hotelListingObj["imageCover"] = hotelFeaturedImageVal : hotelListingObj["imageCover"] = "rest-1.jpg"
+    hotel_gallery1Value.length > 0 ? hotelListingObj["images"].push(hotel_gallery1Value) : hotelListingObj["images"].push("rest-1.jpg")
+    hotel_gallery2Value.length > 0 ? hotelListingObj["images"].push(hotel_gallery2Value) : hotelListingObj["images"].push("rest-2.jpg")
+    hotel_gallery3Value.length > 0 ? hotelListingObj["images"].push(hotel_gallery3Value) : hotelListingObj["images"].push("rest-3.jpg")
+    hotel_gallery4Value.length > 0 ? hotelListingObj["images"].push(hotel_gallery4Value) : hotelListingObj["images"].push("rest-4.jpg")
 
-    if (input1El) hotelInfo["amenities"].push("Satellite TV")
-    if (input2El) hotelInfo["amenities"].push("Coffeemaker")
-    if (input3El) hotelInfo["amenities"].push("Hair Dryer")
-    if (input4El) hotelInfo["amenities"].push("Swimming Pool")
-    if (input5El) hotelInfo["amenities"].push("Room Service")
-    if (input6El) hotelInfo["amenities"].push("Luxury Bedding")
-    if (input7El) hotelInfo["amenities"].push("Good Showers")
-    if (input8El) hotelInfo["amenities"].push("Free Parking")
-    if (input9El) hotelInfo["amenities"].push("Free Wifi")
-    if (input10El) hotelInfo["amenities"].push("Bath towel")
-    if (input11El) hotelInfo["amenities"].push("Free Coffee")
-    if (input12El) hotelInfo["amenities"].push("Pets Allow")
-    if (input13El) hotelInfo["amenities"].push("Hot Water")
-    if (input14El) hotelInfo["amenities"].push("Attached garage")
-    if (input15El) hotelInfo["amenities"].push("Elevator")
-    if (input16El) hotelInfo["amenities"].push("Spa/Sauna")
-    if (input17El) hotelInfo["amenities"].push("Indoor pool")
-    if (input18El) hotelInfo["amenities"].push("Security cameras")
+    if (input1El) hotelListingObj["amenities"].push("Satellite TV")
+    if (input2El) hotelListingObj["amenities"].push("Coffeemaker")
+    if (input3El) hotelListingObj["amenities"].push("Hair Dryer")
+    if (input4El) hotelListingObj["amenities"].push("Swimming Pool")
+    if (input5El) hotelListingObj["amenities"].push("Room Service")
+    if (input6El) hotelListingObj["amenities"].push("Luxury Bedding")
+    if (input7El) hotelListingObj["amenities"].push("Good Showers")
+    if (input8El) hotelListingObj["amenities"].push("Free Parking")
+    if (input9El) hotelListingObj["amenities"].push("Free Wifi")
+    if (input10El) hotelListingObj["amenities"].push("Bath towel")
+    if (input11El) hotelListingObj["amenities"].push("Free Coffee")
+    if (input12El) hotelListingObj["amenities"].push("Pets Allow")
+    if (input13El) hotelListingObj["amenities"].push("Hot Water")
+    if (input14El) hotelListingObj["amenities"].push("Attached garage")
+    if (input15El) hotelListingObj["amenities"].push("Elevator")
+    if (input16El) hotelListingObj["amenities"].push("Spa/Sauna")
+    if (input17El) hotelListingObj["amenities"].push("Indoor pool")
+    if (input18El) hotelListingObj["amenities"].push("Security cameras")
 
 
-    confirm_modalIncluder(hotelInfo)
+    confirm_modalIncluder(hotelListingObj)
 
 
 })
@@ -156,18 +156,11 @@ if (deleteMainBtn) deleteMainBtn.addEventListener("click", function (e) {
 
 })
 
-if (updateModalBtn) updateModalBtn.addEventListener("click", function (e) {
-
-})
-if (deleteModalBtn) deleteModalBtn.addEventListener("click", function (e) {
-
-})
-
 if (updateListingBtn) updateListingBtn.addEventListener("click", function (e) {
-    console.log("make post request here");
+    console.log("make hotel post request here");
 
 })
 if (deleteListingBtn) deleteListingBtn.addEventListener("click", function (e) {
-    console.log("make delete requet here");
+    console.log("make hotel delete requet here");
 
 })
