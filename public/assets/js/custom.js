@@ -18,6 +18,7 @@
 * 11. METIS MENU
 * 12. Add Listing Process
 **************************************/
+
 const tourInfo = {};
 const tourAmenitiesInfo = [];
 
@@ -40,6 +41,11 @@ function getRandomInt(min, max) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+function isAllowed() {
+	return (window.location.href.includes("add-tour") || window.location.href.includes("add-destination"))
 }
 
 
@@ -152,23 +158,24 @@ function getRandomInt(min, max) {
 	if (overlay) overlay.addEventListener("click", modalRemover);
 
 
-	if (tl0) tl0.addEventListener("click", function (e) {
+	if (tl0 && isAllowed()) tl0.addEventListener("click", function (e) {
+
 		modalIncluder(e.target.id)
 	})
 
-	if (tl1) tl1.addEventListener("click", function (e) {
+	if (tl1 && isAllowed()) tl1.addEventListener("click", function (e) {
 		modalIncluder(e.target.id)
 	})
 
-	if (tl2) tl2.addEventListener("click", function (e) {
+	if (tl2 && isAllowed()) tl2.addEventListener("click", function (e) {
 		modalIncluder(e.target.id)
 	})
 
-	if (tl3) tl3.addEventListener("click", function (e) {
+	if (tl3 && isAllowed()) tl3.addEventListener("click", function (e) {
 		modalIncluder(e.target.id)
 	})
 
-	if (tl4) tl4.addEventListener("click", function (e) {
+	if (tl4 && isAllowed()) tl4.addEventListener("click", function (e) {
 		modalIncluder(e.target.id)
 	})
 
@@ -507,7 +514,7 @@ function getRandomInt(min, max) {
 					`
 				<tr>
 				<th>${key}</th>
-				<td>${tourInfo["" + key]}</td>
+				<td>${JSON.stringify(tourInfo["" + key])}</td>
 				</tr>
 
 			`
@@ -517,7 +524,7 @@ function getRandomInt(min, max) {
 
 			for (const key in tourAmenitiesInfo) {
 				summaryText += `<tr>
-			<td>${tourAmenitiesInfo["" + key]}</td>
+			<td>${JSON.stringify(tourAmenitiesInfo["" + key])}</td>
 			</tr>`
 			}
 

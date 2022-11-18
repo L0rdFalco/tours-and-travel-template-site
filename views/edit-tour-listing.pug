@@ -13,6 +13,8 @@ block content
                                 i.fa.fa-bars
                     include _dashboard_sidebar
                     include _location_modal
+                    include _resource_delete_modal
+                    include _info_confirm_modal
                     // /. NAV SIDE
                 .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
                     .row.mrg-0.mrg-top-20
@@ -26,7 +28,7 @@ block content
                                         .row
                                             .col-xs-6
                                                 label Tour Name
-                                                input#tourname.form-control(type='text'  placeholder='Galaxy cruiser tour')
+                                                input#tourname.form-control(type='text' value= payload.name placeholder='Galaxy cruiser tour')
 
                                             .col-xs-6
                                                 label Upload itenerary
@@ -48,29 +50,28 @@ block content
                                                 input#tourDatepicker4.datepicker_input.form-control.border-2(type='date', required='', placeholder='DD/MM/YYYY')
                                             .col-xs-6
                                                 label add first location
-                                                input#tourLocation1.form-control(type='text' placeholder='lat, long')
+                                                input#tourLocation1.form-control(type='text' required='' placeholder='lat, long')
                                             .col-xs-6
                                                 label add second location
-                                                input#tourLocation2.form-control(type='text' placeholder='lat, long')
+                                                input#tourLocation2.form-control(type='text' required='' placeholder='lat, long')
                                             .col-xs-6
                                                 label add third location
-                                                input#tourLocation3.form-control(type='text' placeholder='lat, long')
+                                                input#tourLocation3.form-control(type='text' required='' placeholder='lat, long')
                                             .col-xs-6
                                                 label add fourth location
-                                                input#tourLocation4.form-control(type='text' placeholder='lat, long')                                               
+                                                input#tourLocation4.form-control(type='text' required='' placeholder='lat, long')                                               
                                             .col-xs-6
                                                 label choose start location
-                                                input#tourLocation0.form-control(type='text' placeholder='lat, long')
+                                                input#tourLocation0.form-control(type='text' required='' placeholder='lat, long')
                                             .col-xs-6
                                                 label choose guide
                                                 .sl-box
                                                     select#guide.form-control.wide
-                                                        option self-guided
-                                                        option guide name 1
-                                                        option guide name 2
-                                                        option guide name 3
-                                                        option guide name 4
-                                                        option guide name 5
+                                                        option 5c8a21d02f8fb814b56fa189
+                                                        option 5c8a21f22f8fb814b56fa18a
+                                                        option 5c8a23412f8fb814b56fa18c
+                                                        option 5c8a201e2f8fb814b56fa186
+                                                        option 5c8a1f292f8fb814b56fa184
                                             .col-xs-6
                                                 label choose difficulty
                                                 .sl-box
@@ -79,51 +80,51 @@ block content
                                                         option medium
                                                         option difficult                            
                                             .col-xs-6
-                                                label price/person
-                                                input#price.form-control(type='text'  placeholder='$555')
+                                                label price/person ($)
+                                                input#price.form-control(type='text'  value= payload.price placeholder='$555')
                                             .col-xs-6
                                                 label duration
-                                                input#duration.form-control(type='text'  placeholder='5 hours')
+                                                input#duration.form-control(type='text'  value= payload.duration placeholder='5 hours')
                                             .col-xs-6
                                                 label maximum group size
-                                                input#groupsize.form-control(type='text'  placeholder='12')
+                                                input#groupsize.form-control(type='text'  value= payload.maxGroupSize placeholder='12')
                                             .col-xs-6
                                                 label Tour banner Image
                                                 .cf-input
                                                     label.custom-file
-                                                        input#featured-image.custom-file-input(type='file')
+                                                        input#tour_featured-image.custom-file-input(type='file')
                                                         span.custom-file-control
 
                                             .col-xs-6
                                                 label Upload tour gallery image 1
                                                 .cf-input
                                                     label.custom-file
-                                                        input#tour_gallery.custom-file-input(type='file')
+                                                        input#tour_gallery1.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload tour gallery image 2
                                                 .cf-input
                                                     label.custom-file
-                                                        input#tour_gallery.custom-file-input(type='file')
+                                                        input#tour_gallery2.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload tour gallery image 3
                                                 .cf-input
                                                     label.custom-file
-                                                        input#tour_gallery.custom-file-input(type='file')
+                                                        input#tour_gallery3.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload tour gallery image 4
                                                 .cf-input
                                                     label.custom-file
-                                                        input#tour_gallery.custom-file-input(type='file')
+                                                        input#tour_gallery4.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-12
                                                 label tour summary
-                                                textarea#tr_summary.form-control.height-120( placeholder='simple one liner description')
+                                                textarea#tr_summary.form-control.height-120( placeholder='simple one liner description')= payload.summary
                                             .col-xs-12
                                                 label tour description
-                                                textarea#tr_description.form-control.height-120( placeholder='long description about tour')
+                                                textarea#tr_description.form-control.height-120( placeholder='long description about tour')= payload.description
 
                                         h2.fs-title Available Amenities
                                         .row
