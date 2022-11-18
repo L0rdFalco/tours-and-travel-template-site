@@ -148,7 +148,10 @@ exports.getEditDestinationPage = async (request, response, next) => {
 }
 exports.getEditHotelPage = (request, response, next) => {
     try {
-        response.status(200).render("edit-hotel-listing")
+        response.status(200).render("edit-hotel-listing", {
+            amenities: ameninitesArray
+
+        })
 
 
     } catch (error) {
@@ -159,22 +162,36 @@ exports.getEditHotelPage = (request, response, next) => {
         })
     }
 }
-exports.getEditRestaurantPage = (request, response, next) => {
+exports.getEditRestaurantPage = async (request, response, next) => {
     try {
-        response.status(200).render("edit-restaurant-listing")
+
+        const restDoc = await restaurantModel.findById(request.params.id)
+
+        console.log(restDoc);
+
+        response.status(200).render("edit-restaurant-listing", {
+            payload: restDoc,
+            amenities: ameninitesArray
+
+
+        })
 
 
     } catch (error) {
 
         response.status(400).json({
-            status: " fail",
+            status: "getEditRestaurantPage fail",
 
         })
     }
 }
 exports.getEditTourPage = (request, response, next) => {
     try {
-        response.status(200).render("edit-tour-listing")
+        response.status(200).render("edit-tour-listing",
+            {
+                amenities: ameninitesArray
+
+            })
 
 
     } catch (error) {

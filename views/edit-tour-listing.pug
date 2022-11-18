@@ -129,99 +129,17 @@ block content
                                         .row
                                             .col-md-12
                                                 ul.add-amenities
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#1(type='checkbox')
-                                                            label(for='1')
-                                                        | Satellite TV
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#2(type='checkbox')
-                                                            label(for='2')
-                                                        | Coffeemaker
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#3(type='checkbox')
-                                                            label(for='3')
-                                                        | Hair Dryer
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#4(type='checkbox')
-                                                            label(for='4')
-                                                        | Swimming Pool
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#5(type='checkbox')
-                                                            label(for='5')
-                                                        | Room Service
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#6(type='checkbox')
-                                                            label(for='6')
-                                                        | Luxury Bedding
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#7(type='checkbox')
-                                                            label(for='7')
-                                                        | Good Showers
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#8(type='checkbox')
-                                                            label(for='8')
-                                                        | Free Parking
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#9(type='checkbox')
-                                                            label(for='9')
-                                                        | Free Wifi
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#10(type='checkbox')
-                                                            label(for='0')
-                                                        | Bath towel
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#11(type='checkbox')
-                                                            label(for='11')
-                                                        | Free Coffee
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#12(type='checkbox')
-                                                            label(for='12')
-                                                        | Pets Allowed
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#13(type='checkbox')
-                                                            label(for='13')
-                                                        | Hot Water
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#14(type='checkbox')
-                                                            label(for='14')
-                                                        | Attached garage
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#15(type='checkbox')
-                                                            label(for='15')
-                                                        | Elevator
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#16(type='checkbox')
-                                                            label(for='16')
-                                                        | Spa/Sauna
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#17(type='checkbox')
-                                                            label(for='17')
-                                                        | Indoor pool
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#18(type='checkbox')
-                                                            label(for='18')
-                                                        | Security cameras
+                                                    each amenity, key in amenities 
+                                                        
+                                                        li
+                                                            span.custom-checkbox
+                                                                input(type='checkbox' id=`${key+1}` checked= payload.amenities.includes(amenity.toLowerCase())? true: false )
+                                                                label(for=`${key+1}`)= amenity
 
                                         input.next.action-button(type='button' name='tour_update' value='update' id="tour_update")
                                         input.next.action-button(type='button' name='delete' value='delete' id="tour_delete")
 
 
         include _contact
+
+    script(src='/assets/js/tourEdit.js')

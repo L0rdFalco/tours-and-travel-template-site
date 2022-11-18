@@ -14,6 +14,8 @@ block content
                             button.navbar-toggle(type='button' data-toggle='collapse' data-target='#dashboard-menu')
                                 i.fa.fa-bars
                     include _dashboard_sidebar
+                    include _info_confirm_modal
+                    include _resource_delete_modal
                     // /. NAV SIDE
                 .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
                     .row.mrg-0.mrg-top-20
@@ -22,67 +24,56 @@ block content
                                 h3.dashboard-title edit this restaurant listing
                             .tr-single-body
                                 form#msform
-                                        .text-center
-                                            h2.fs-title Basic Information
+                                    fieldset
                                         .row
                                             .col-xs-6
                                                 label restaurant Name
-                                                input#restaurant_name.form-control(type='text' placeholder='Green Valley')
+                                                input#restaurant_name.form-control(type='text' value='Green Valley')
                                             .col-xs-6
                                                 label Upload Logo
                                                 .cf-input
                                                     label.custom-file
-                                                        input#restaurant_file.custom-file-input(type='file')
+                                                        input#restaurant_logo.custom-file-input(type='file')
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload menu
                                                 .cf-input
                                                     label.custom-file
-                                                        input#restaurant_file.custom-file-input(type='file')
+                                                        input#restaurant_menu.custom-file-input(type='file')
                                                         span.custom-file-control                                                        
                                             .col-xs-6
-                                                label Rating
-                                                .sl-box
-                                                    select.form-control.wide
-                                                        option restaurant rating
-                                                        option Normal
-                                                        option 1 Star
-                                                        option 2 Stars
-                                                        option 3 Stars
-                                                        option 4 Stars
-                                            .col-xs-6
-                                                label average price/person
-                                                input#restaurant_price.form-control(type='text' placeholder='$220')
+                                                label average price/person ($)
+                                                input#restaurant_price.form-control(type='text' value='220')
                                             .col-xs-6
                                                 label Phone
-                                                input#restaurant_phone.form-control(type='text' placeholder='+91 254 875 8457')
+                                                input#restaurant_phone.form-control(type='text' value='912548758457')
                                             .col-xs-6
                                                 label Landline
-                                                input#restaurant_ll.form-control(type='text' placeholder='172 025 458')
+                                                input#restaurant_ll.form-control(type='text' value='17202558')
                                             .col-xs-6
                                                 label Email
-                                                input#restaurant_email.form-control(type='text' placeholder='yourht@gmail.com')
+                                                input#restaurant_email.form-control(type='text' value='rest@gymail.com')
                                             .col-xs-6
                                                 label Fax
-                                                input#restaurant_fax.form-control(type='text' placeholder='fax')
+                                                input#restaurant_fax.form-control(type='text' value='9561567516861')
                                             .col-xs-6
                                                 label Address
-                                                input#restaurant_address.form-control(type='text' placeholder='#548, Near Big Market')
+                                                input#restaurant_address.form-control(type='text' value='#548, Near Big Market')
                                             .col-xs-6
                                                 label City
-                                                input#restaurant_city.form-control(type='text' placeholder='city')
+                                                input#restaurant_city.form-control(type='text' value='harare')
                                             .col-xs-6
                                                 label State
-                                                input#restaurant_state.form-control(type='text' placeholder='state')
+                                                input#restaurant_state.form-control(type='text' value='virginia')
                                             .col-xs-6
                                                 label Country
-                                                input#restaurant_country.form-control(type='text' placeholder='country')
+                                                input#restaurant_country.form-control(type='text' value='sweden')
                                             .col-xs-6
                                                 label Owner Name
-                                                input#restaurant_owner.form-control(type='text' placeholder='Daniel Duke')
+                                                input#restaurant_owner.form-control(type='text' value='Daniel Duke')
                                             .col-xs-6
                                                 label Owner Contact
-                                                input#restaurant_contact.form-control(type='text' placeholder='987 584 5847')
+                                                input#restaurant_contact.form-control(type='text' value='987 584 5847')
                                             .col-xs-6
                                                 label Featured Image
                                                 .cf-input
@@ -115,111 +106,28 @@ block content
                                                         span.custom-file-control
                                             .col-xs-12
                                                 label restaurant summary
-                                                textarea#rt_summary.form-control.height-120( placeholder='simple one liner description')
+                                                textarea#rt_summary.form-control.height-120( placeholder='simple one liner description') Commodo odio aenean sed adipiscing diam donec adipiscing. Nisl purus in mollis nunc sed id semper risus
                                             .col-xs-12
                                                 label restaurant description
-                                                textarea#rt_description.form-control.height-120( placeholder='long description about restaurant')
+                                                textarea#rt_description.form-control.height-120( placeholder='long description about restaurant') Mauris a diam maecenas sed enim. Consectetur a erat nam at lectus. Eget mi proin sed libero enim sed faucibus turpis. Nulla malesuada pellentesque elit eget
                                                 h2#error.fs-title ALL FIELDS ARE REQUIRED
 
                                         h2.fs-title Available Amenities
-                                        //- h3.fs-subtitle Your presence on the social network
                                         .row
                                             .col-md-12
                                                 ul.add-amenities
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#1(type='checkbox')
-                                                            label(for='1')
-                                                        | Satellite TV
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#2(type='checkbox')
-                                                            label(for='2')
-                                                        | Coffeemaker
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#3(type='checkbox')
-                                                            label(for='3')
-                                                        | Hair Dryer
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#4(type='checkbox')
-                                                            label(for='4')
-                                                        | Swimming Pool
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#5(type='checkbox')
-                                                            label(for='5')
-                                                        | Room Service
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#6(type='checkbox')
-                                                            label(for='6')
-                                                        | Luxury Bedding
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#7(type='checkbox')
-                                                            label(for='7')
-                                                        | Good Showers
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#8(type='checkbox')
-                                                            label(for='8')
-                                                        | Free Parking
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#9(type='checkbox')
-                                                            label(for='9')
-                                                        | Free Wifi
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#10(type='checkbox')
-                                                            label(for='0')
-                                                        | Bath towel
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#11(type='checkbox')
-                                                            label(for='11')
-                                                        | Free Coffee
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#12(type='checkbox')
-                                                            label(for='12')
-                                                        | Pets Allow
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#13(type='checkbox')
-                                                            label(for='13')
-                                                        | Hot Water
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#14(type='checkbox')
-                                                            label(for='14')
-                                                        | Attached garage
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#15(type='checkbox')
-                                                            label(for='15')
-                                                        | Elevator
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#16(type='checkbox')
-                                                            label(for='16')
-                                                        | Spa/Sauna
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#17(type='checkbox')
-                                                            label(for='17')
-                                                        | Indoor pool
-                                                    li
-                                                        span.custom-checkbox
-                                                            input#18(type='checkbox')
-                                                            label(for='18')
-                                                        | Security cameras
+                                                    each amenity, key in amenities 
+                                                        
+                                                        li
+                                                            span.custom-checkbox
+                                                                input(type='checkbox' id=`${key+1}` checked= payload.amenities.includes(amenity.toLowerCase())? true: false )
+                                                                label(for=`${key+1}`)= amenity
 
-                                        input.next.action-button(type='button' name='update' value='update' id="restaurant_update")
+                                       input.next.action-button(type='button' name='update' value='update' id="restaurant_update")
                                         input.next.action-button(type='button' name='delete' value='delete' id="restaurant_delete")
 
   
     block content_contact 
         include _contact
+    
+    script(src='/assets/js/restEdit.js')

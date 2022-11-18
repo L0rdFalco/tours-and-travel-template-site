@@ -73,7 +73,6 @@ if (destUpdateBtn) destUpdateBtn.addEventListener("click", function (e) {
     const nameValue = document.getElementById("resource_name").value.trim()
     const startDateValue = document.getElementById("start_date").value.trim()
     const endDateValue = document.getElementById("end_date").value.trim()
-    const destination_location0Value = document.getElementById("destination_location0").value.trim()
     const guideValue = document.getElementById("destination_guide").value.trim()
     const difficultyValue = document.getElementById("destination_difficulty").value.trim()
     const priceValue = document.getElementById("destination_price").value.trim()
@@ -187,9 +186,6 @@ if (locInfoSubmitBtn) locInfoSubmitBtn.addEventListener("click", function (e) {
         return
     }
 
-    const currentKey = document.getElementById("currentElVal").value.trim();
-
-    console.log(window.location.href);
     if (window.location.href.includes("dest-edit")) {
 
         resourceInfo["location"].push({
@@ -200,6 +196,5 @@ if (locInfoSubmitBtn) locInfoSubmitBtn.addEventListener("click", function (e) {
     }
 
 
-    document.getElementById("" + currentKey).value = "added!"
 
 })
