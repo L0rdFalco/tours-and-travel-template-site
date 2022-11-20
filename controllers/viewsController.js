@@ -610,9 +610,13 @@ exports.getMessagesPage = async (request, response, next) => {
 
 exports.getRepliesPage = async (request, response, next) => {
     try {
-        console.log("reder reply page");
+        const messageDoc = await messagesModel.findById(request.params.id).populate("user")
 
-        response.status(200).render("repliesPage")
+        console.log("render reply page");
+
+        response.status(200).render("repliesPage", {
+            payload: messageDoc
+        })
 
 
     } catch (error) {

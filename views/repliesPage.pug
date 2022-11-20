@@ -24,14 +24,32 @@ block content
                                     // fieldsets
                                     fieldset
                                         .row
-
+                                            .col-25
+                                                label(for='user_name') name:
+                                            .col-75
+                                                input#user_name(readonly type='text', name='lat', value = payload.name, placeholder='name')                                    
+                                        .row
+                                            .col-25
+                                                label(for='user_email') email:
+                                            .col-75
+                                                input#user_email(readonly type='text', name='lat', value = payload.email, placeholder='name')     
+                                        .row
+                                            .col-25
+                                                label(for='user_phone') phone:
+                                            .col-75
+                                                input#user_phone(readonly type='text', name='lat', value = payload.phone, placeholder='name')     
+                                        .row
+                                            .col-25
+                                                label(for='user_subject') subject:
+                                            .col-75
+                                                input#user_subject(readonly type='text', name='lat', value = payload.subject, placeholder='name')     
+                                        .row
                                             .col-xs-12
-                                                label original message
-                                                h4#original_message.form-control.height-120( placeholder='original messge') Commodo odio aenean sed adipiscing diam donec adipiscing. Nisl purus in mollis nunc sed id semper risus
+                                                label(for='original_message') original message
+                                                textarea#original_message.form-control.height-120(readonly placeholder='original message' )= payload.message
                                             .col-xs-12
                                                 label your reply
-                                                textarea#reply.form-control.height-120(placeholder='type reply here') Mauris a diam maecenas sed enim. Consectetur a erat nam at lectus. Eget mi proin sed libero enim sed faucibus turpis. Nulla malesuada pellentesque elit eget
-                                                h2#error.fs-title ALL FIELDS ARE REQUIRED
+                                                textarea#reply.form-control.height-120(placeholder='type reply here...')
 
                                         input.next.action-button(type='button' name='next' value='submit' id='reply _submit')
                                         input.next.action-button(type='button' name='next' value='delete' id='message_delete')
