@@ -106,15 +106,6 @@ if (deleteMainBtn) deleteMainBtn.addEventListener("click", function (e) {
 
 })
 
-if (updateListingBtn) updateListingBtn.addEventListener("click", function (e) {
-    console.log("make post request here");
-
-})
-if (deleteListingBtn) deleteListingBtn.addEventListener("click", function (e) {
-    console.log("make delete requet here");
-
-})
-
 if (tl0 && isAllowed()) tl0.addEventListener("click", function (e) {
     location_modalIncluder(e.target.id)
 })
@@ -133,4 +124,13 @@ if (tl3 && isAllowed()) tl3.addEventListener("click", function (e) {
 
 if (tl4 && isAllowed()) tl4.addEventListener("click", function (e) {
     location_modalIncluder(e.target.id)
+})
+
+if (updateListingBtn) updateListingBtn.addEventListener("click", function (e) {
+    console.log("make post request here");
+
+})
+if (deleteListingBtn) deleteListingBtn.addEventListener("click", function (e) {
+    console.log("make delete requet here");
+
 })

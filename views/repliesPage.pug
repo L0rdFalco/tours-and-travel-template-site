@@ -12,7 +12,8 @@ block content
                             button.navbar-toggle(type='button' data-toggle='collapse' data-target='#dashboard-menu')
                                 i.fa.fa-bars
                     include _dashboard_sidebar
-                    include _location_modal
+                    include _info_confirm_modal
+                    include _resource_delete_modal
                     // /. NAV SIDE
                 .col-lg-10.col-md-10.col-sm-9.col-lg-push-2.col-md-push-2.col-sm-push-3
                     .row.mrg-0.mrg-top-20
@@ -51,8 +52,11 @@ block content
                                                 label your reply
                                                 textarea#reply.form-control.height-120(placeholder='type reply here...')
 
-                                        input.next.action-button(type='button' name='next' value='submit' id='reply _submit')
+                                        input.next.action-button(type='button' name='next' value='submit' id='reply_submit')
                                         input.next.action-button(type='button' name='next' value='delete' id='message_delete')
        
     block content_contact 
         include _contact
+
+    script(src='/assets/js/reply.js')
+   

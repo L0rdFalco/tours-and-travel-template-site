@@ -612,7 +612,6 @@ exports.getRepliesPage = async (request, response, next) => {
     try {
         const messageDoc = await messagesModel.findById(request.params.id).populate("user")
 
-        console.log("render reply page");
 
         response.status(200).render("repliesPage", {
             payload: messageDoc
@@ -622,7 +621,7 @@ exports.getRepliesPage = async (request, response, next) => {
     } catch (error) {
 
         response.status(400).json({
-            status: " fail",
+            status: "getRepliesPage fail",
 
         })
     }
