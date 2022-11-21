@@ -19,6 +19,7 @@ const RestaurantRouter = require("./routers/restaurantRouter.js")
 const HotelsRouter = require("./routers/hotelsRouter.js")
 const MessagesRouter = require("./routers/messagesRouter.js")
 const RepliesRouter = require("./routers/repliesRouter.js")
+const ProfileRouter = require("./routers/profileRouter.js")
 
 const app = express()
 //set up pug templating engine
@@ -105,6 +106,7 @@ app.use("/api/v1/hotels", HotelsRouter)
 app.use("/api/v1/restaurants", RestaurantRouter)
 app.use("/api/v1/messages", MessagesRouter)
 app.use("/api/v1/replies", RepliesRouter)
+app.use("/api/v1/profile", ProfileRouter)
 
 
 //this handles unknown routes
