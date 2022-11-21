@@ -26,13 +26,13 @@ block content
                                     .col-md-4
                                         p
                                             label First Name
-                                            input#firstname.form-control(type='text' value='Shaurya' name='firstname')
+                                            input#firstname.form-control(required='' type='text' value='Shaurya' name='firstname')
                                         p
                                             label Last Name
-                                            input#secondname.form-control(type='text' value='Preet' name='firstname')
+                                            input#lastname.form-control(required='' type='text' value='Preet' name='firstname')
                                         p
                                             label Email
-                                            input#useremail.form-control(type='text' value='danielraj@gmail.com' name='useremail')
+                                            input#useremail.form-control(required='' type='text' value='danielraj@gmail.com' name='useremail')
                                         p
                                             label About Me
                                             textarea#about_me.form-control(name='about_me')
@@ -42,9 +42,6 @@ block content
                                         p
                                             label I speak
                                             input#i_speak.form-control(type='text' value='' name='i_speak')
-                                        p
-                                            label Payment Info/Hidden Field
-                                            textarea#payment_info.form-control(name='payment_info' cols='70' rows='3')
                                         
                                         form#msform
                                             input.next.action-button(type='button' name='create' value='create' id="profile_create")
@@ -57,9 +54,7 @@ block content
                                         p
                                             label city
                                             input#usermobile.form-control(type='text' value='' name='usermobile')
-                                        p
-                                            label Skype
-                                            input#userskype.form-control(type='text' value='' name='userskype')
+
                                         p
                                             label Facebook Url
                                             input#userfacebook.form-control(type='text' value='' name='userfacebook')
