@@ -23,15 +23,16 @@ block content
                             .tr-single-header
                                 h3.dashboard-title My Profile
                             .tr-single-body
+                                -const nameArray = user.name.split(" ")
                                 form#msform
                                     .row
                                         .col-md-4
                                             p
                                                 label *First Name
-                                                input#firstname.form-control( type='text' value=user.name.split(" ")[0] name='firstname' required)
+                                                input#firstname.form-control( type='text' value=nameArray[0] name='firstname' required)
                                             p
                                                 label *Last Name
-                                                input#lastname.form-control( type='text'  value=user.name.split(" ")[1] name='lastname' required)
+                                                input#lastname.form-control( type='text'  value=nameArray[1] name='lastname' required)
                                             p
                                                 label *Email
                                                 input#useremail.form-control( type='text' value=user.email name='useremail' required)

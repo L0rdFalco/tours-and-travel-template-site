@@ -113,8 +113,6 @@ exports.login = async (request, response, next) => {
     }
 }
 
-
-
 exports.logout = (request, response, next) => {
     try {
         /**

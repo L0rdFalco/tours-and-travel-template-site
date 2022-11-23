@@ -156,18 +156,6 @@ if (destDeleteBtn) destDeleteBtn.addEventListener("click", function (e) {
     deleteModalIncluder()
 })
 
-//modal buttons
-if (updateListingBtn) updateListingBtn.addEventListener("click", function (e) {
-    e.preventDefault()
-    console.log("submit update");
-})
-
-if (deleteListingBtn) deleteListingBtn.addEventListener("click", function (e) {
-    e.preventDefault()
-    console.log("delete listing");
-
-    // deleteModalRemover()
-})
 
 if (locInfoSubmitBtn) locInfoSubmitBtn.addEventListener("click", function (e) {
     const locdesc = document.getElementById("locdesc").value.trim()
@@ -197,4 +185,19 @@ if (locInfoSubmitBtn) locInfoSubmitBtn.addEventListener("click", function (e) {
 
 
 
+})
+
+//modal buttons
+if (updateListingBtn) updateListingBtn.addEventListener("click", async function (e) {
+    e.preventDefault()
+    console.log("submit update");
+
+    confirm_modalRemover()
+})
+
+if (deleteListingBtn) deleteListingBtn.addEventListener("click", async function (e) {
+    e.preventDefault()
+    console.log("delete listing");
+
+    deleteModalRemover()
 })
