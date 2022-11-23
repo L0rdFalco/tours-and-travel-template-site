@@ -111,7 +111,8 @@ exports.updateSingleMessage = async (request, response, next) => {
 
 exports.deleteSingleMessage = async (request, response, next) => {
     try {
-        const deletedmessage = await messagesModel.findByIdAndDelete(request.params.id)
+        console.log("message id: ", request.params.id);
+        // const deletedmessage = await messagesModel.findByIdAndDelete(request.params.id)
 
         response.status(200).json({
             status: "delete single message success",

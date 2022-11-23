@@ -612,7 +612,6 @@ exports.getRepliesPage = async (request, response, next) => {
     try {
         const messageDoc = await messagesModel.findById(request.params.id).populate("user")
 
-
         response.status(200).render("repliesPage", {
             payload: messageDoc
         })
@@ -629,7 +628,11 @@ exports.getRepliesPage = async (request, response, next) => {
 exports.getMyProfilePage = (request, response, next) => {
     try {
 
-        response.status(200).render("my-profile")
+        console.log("current logged in user: ", request.user);
+
+        response.status(200).render("my-profile", {
+            user: request.user
+        })
 
     } catch (error) {
 

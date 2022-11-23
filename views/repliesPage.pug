@@ -28,22 +28,32 @@ block content
                                             .col-25
                                                 label(for='user_name') name:
                                             .col-75
-                                                input#user_name(readonly type='text', name='lat', value = payload.name, placeholder='name')                                    
+                                                input#asker_name(readonly type='text', name='lat', value = payload.name, placeholder='name')            
+                                        .row
+                                            .col-25
+                                                label(for='message_id') message id:
+                                            .col-75
+                                                input#message_id(readonly type='text', name='lat', value = payload._id, placeholder='message id')      
+                                        .row
+                                            .col-25
+                                                label(for='asker_id') asker id:
+                                            .col-75
+                                                input#asker_id(readonly type='text', name='lat', value = payload.user._id, placeholder='user id')                                          
                                         .row
                                             .col-25
                                                 label(for='user_email') email:
                                             .col-75
-                                                input#user_email(readonly type='text', name='lat', value = payload.email, placeholder='name')     
+                                                input#asker_email(readonly type='text', name='lat', value = payload.email, placeholder='name')     
                                         .row
                                             .col-25
                                                 label(for='user_phone') phone:
                                             .col-75
-                                                input#user_phone(readonly type='text', name='lat', value = payload.phone, placeholder='name')     
+                                                input#asker_phone(readonly type='text', name='lat', value = payload.phone, placeholder='name')     
                                         .row
                                             .col-25
                                                 label(for='user_subject') subject:
                                             .col-75
-                                                input#user_subject(readonly type='text', name='lat', value = payload.subject, placeholder='name')     
+                                                input#question_subject(readonly type='text', name='lat', value = payload.subject, placeholder='name')     
                                         .row
                                             .col-xs-12
                                                 label(for='original_message') original message

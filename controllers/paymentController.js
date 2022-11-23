@@ -31,7 +31,7 @@ exports.createOrder = async (request, response, next) => {
                 data: res2.data
             })
     } catch (error) {
-        console.log("ooo", error);
+        console.log("createOrder fail", error);
 
     }
 }
@@ -58,6 +58,7 @@ exports.capturePayment = async (request, response, next) => {
                     data: res1.data
                 })
         } catch (error) {
+            console.log("capturePayment fail");
             console.log(error);
 
         }

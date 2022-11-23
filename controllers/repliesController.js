@@ -1,7 +1,9 @@
 const repliesModel = require("../models/repliesModel.js")
 
-exports.createNewReply = (request, response, next) => {
+exports.createNewReply = async (request, response, next) => {
     try {
+
+        console.log("reply object: ", request.body);
 
     } catch (error) {
 

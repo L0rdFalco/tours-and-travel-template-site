@@ -10,7 +10,7 @@ MessagesRouter.route("/")
     .post(messagesController.createSingleMessage)
 MessagesRouter.route("/:id")
     .get(messagesController.getSingleMessage)
-    .patch(authController.protect, authController.restrictTo("admin", "lead-guide"), messagesController.updateSingleMessage)
-    .delete(authController.protect, authController.restrictTo("admin", "lead-guide"), messagesController.deleteSingleMessage)
+    .patch(messagesController.updateSingleMessage)
+    .delete(messagesController.deleteSingleMessage)
 
 module.exports = MessagesRouter

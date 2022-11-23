@@ -4,6 +4,8 @@ block navigation_content
     include _navigation
 block content 
     section.dashboard.gray-bg.padd-0.mrg-top-50
+        h2#user_id.hidden.fs-title= user._id 
+
         .container-fluid
             .row
                 .col-lg-2.col-md-2.col-sm-3.dashboard-bg
@@ -21,61 +23,61 @@ block content
                             .tr-single-header
                                 h3.dashboard-title My Profile
                             .tr-single-body
-                                .row
-                                    // col-md-4
-                                    .col-md-4
-                                        p
-                                            label First Name
-                                            input#firstname.form-control(required='' type='text' value='Shaurya' name='firstname')
-                                        p
-                                            label Last Name
-                                            input#lastname.form-control(required='' type='text' value='Preet' name='firstname')
-                                        p
-                                            label Email
-                                            input#useremail.form-control(required='' type='text' value='danielraj@gmail.com' name='useremail')
-                                        p
-                                            label About Me
-                                            textarea#about_me.form-control(name='about_me')
-                                        p
-                                            label I live in
-                                            input#live_in.form-control(type='text' value='' name='live_in')
-                                        p
-                                            label I speak
-                                            input#i_speak.form-control(type='text' value='' name='i_speak')
-                                        
-                                        form#msform
-                                            input.next.action-button(type='button' name='create' value='create' id="profile_create")
-                                    // /col-md-4
-                                    // col-md-4
-                                    .col-md-4
-                                        p
-                                            label Phone
-                                            input#userphone.form-control(type='text' value='' name='userphone')
-                                        p
-                                            label city
-                                            input#usermobile.form-control(type='text' value='' name='usermobile')
+                                form#msform
+                                    .row
+                                        .col-md-4
+                                            p
+                                                label *First Name
+                                                input#firstname.form-control( type='text' value=user.name.split(" ")[0] name='firstname' required)
+                                            p
+                                                label *Last Name
+                                                input#lastname.form-control( type='text'  value=user.name.split(" ")[1] name='lastname' required)
+                                            p
+                                                label *Email
+                                                input#useremail.form-control( type='text' value=user.email name='useremail' required)
+                                            p
+                                                label About Me
+                                                textarea#about_me.form-control(name='about_me')
+                                            p
+                                                label I live in
+                                                input#live_in.form-control(type='text' value='' name='live_in')
+                                            p
+                                                label I speak
+                                                input#i_speak.form-control(type='text' value='' name='i_speak')
+                                            
+                                            p
+                                                input.next.action-button(type='submit' name='create' value='create' id="profile_create")
+                                                input.next.action-button(type='submit' name='update' value='update' id="profile_update")
+                                                h2#prof_error.fs-title ALL FIELDS ARE REQUIRED
 
-                                        p
-                                            label Facebook Url
-                                            input#userfacebook.form-control(type='text' value='' name='userfacebook')
-                                        p
-                                            label Twitter Url
-                                            input#usertwitter.form-control(type='text' value='' name='usertwitter')
-                                        p
-                                            label Linkedin Url
-                                            input#userlinkedin.form-control(type='text' value='' name='userlinkedin')
-                                        p
-                                            label Pinterest Url
-                                            input#userpinterest.form-control(type='text' height='100' value='' name='userpinterest')
+                                        .col-md-4
+                                            p
+                                                label Phone
+                                                input#userphone.form-control(type='text' value='' name='userphone')
+                                            p
+                                                label city
+                                                input#usercity.form-control(type='text' value='' name='usermobile')
 
+                                            p
+                                                label Facebook Url
+                                                input#userfacebook.form-control(type='text' value='' name='userfacebook')
+                                            p
+                                                label Twitter Url
+                                                input#usertwitter.form-control(type='text' value='' name='usertwitter')
+                                            p
+                                                label Linkedin Url
+                                                input#userlinkedin.form-control(type='text' value='' name='userlinkedin')
+                                            p
+                                                label Pinterest Url
+                                                input#userpinterest.form-control(type='text' height='100' value='' name='userpinterest')
 
-                                    .col-md-4
-                                        #profile-div.feature-media-upload
-                                            img#profile-image.img-responsive(src='assets/img/user-3.jpg' alt='user image')
-                                            #upload-container
-                                                #aaiu-upload-container(style='position: relative;')
-                                                    button#aaiu-uploader.btn.theme-btn.full-width(type='file') Upload Image
-                                                span.upload_explain * recommended size: minimum 550px 
+                                        .col-md-4
+                                            #profile-div.feature-media-upload
+                                                img#profile-image.img-responsive(src='assets/img/user-3.jpg' alt='user image')
+                                                #upload-container
+                                                    #aaiu-upload-container(style='position: relative;')
+                                                        button#aaiu-uploader.btn.theme-btn.full-width(type='file') Upload Image
+                                                    span.upload_explain * recommended size: minimum 550px 
                                     // /col-md-4
     block content_contact 
         include _contact

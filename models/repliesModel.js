@@ -6,14 +6,14 @@ const repliesSchema = mongoose.Schema(
             required: [true, "a message must have a reply"],
             trim: true
         },
-        originalPoster: [ // parent referencing tour guides
+        askerId: [ // parent referencing tour guides
             {
                 type: mongoose.Schema.ObjectId,
                 ref: "User" // collection name
 
             }
         ],
-        originalMessage: [ // parent referencing tour guides
+        qestionId: [ // parent referencing tour guides
             {
                 type: mongoose.Schema.ObjectId,
                 ref: "Message" // collection name
