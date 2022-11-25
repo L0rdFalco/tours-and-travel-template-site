@@ -183,7 +183,7 @@ function isAllowed() {
 
 		modalIncluder(e.target.id)
 	})
-	if (submitInfoBtn) submitInfoBtn.addEventListener("click", function (e) {
+	if (submitInfoBtn && isAllowed()) submitInfoBtn.addEventListener("click", function (e) {
 		const locdesc = document.getElementById("locdesc").value.trim()
 		const latval = document.getElementById("latval").value.trim()
 		const longval = document.getElementById("longval").value.trim()

@@ -136,16 +136,17 @@ exports.createSingleTour = async (request, response, next) => {
 
 exports.updateSingleTour = async (request, response, next) => {
     try {
-        // const updatedTour = await ToursModel.updateOne({ _id: request.params.id }, request.body)
-        const updatedTour = await ToursModel.findByIdAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators: true })
+        console.log("updated tour listing: ", request.body);
+        // // const updatedTour = await ToursModel.updateOne({ _id: request.params.id }, request.body)
+        // const updatedTour = await ToursModel.findByIdAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators: true })
 
-        response.status(200).json({
-            status: "success",
-            data: {
-                payload: updatedTour
-            }
+        // response.status(200).json({
+        //     status: "success",
+        //     data: {
+        //         payload: updatedTour
+        //     }
 
-        })
+        // })
     } catch (error) {
 
         response.status(400).json({
@@ -157,17 +158,18 @@ exports.updateSingleTour = async (request, response, next) => {
 
 exports.deleteSingleTour = async (request, response, next) => {
     try {
-        const deletedTour = await ToursModel.deleteOne({ _id: request.params.id })
+        console.log("delete tour with id: ", request.params.id);
+        // const deletedTour = await ToursModel.deleteOne({ _id: request.params.id })
 
-        // const deletedTour = await ToursModel.findByIdAndDelete({ _id: request.params.id })
+        // // const deletedTour = await ToursModel.findByIdAndDelete({ _id: request.params.id })
 
-        response.status(204).json({
-            status: "success",
-            data: {
-                payload: deletedTour
-            }
+        // response.status(204).json({
+        //     status: "success",
+        //     data: {
+        //         payload: deletedTour
+        //     }
 
-        })
+        // })
     } catch (error) {
 
         response.status(400).json({

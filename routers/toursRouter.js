@@ -16,7 +16,7 @@ ToursRouter.route("/")
     .post(toursController.createSingleTour)
 ToursRouter.route("/:id")
     .get(toursController.getSingleTour)
-    .patch(authController.protect, authController.restrictTo("admin", "lead-guide"), toursController.updateSingleTour)
-    .delete(authController.protect, authController.restrictTo("admin", "lead-guide"), toursController.deleteSingleTour)
+    .patch(toursController.updateSingleTour)
+    .delete(toursController.deleteSingleTour)
 
 module.exports = ToursRouter

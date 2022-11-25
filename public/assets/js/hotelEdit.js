@@ -179,7 +179,7 @@ if (deleteListingBtn) deleteListingBtn.addEventListener("click", async function 
         console.log("make hotel delete request here");
 
         const res = await axios({
-            method: "delete",
+            method: "DELETE",
             url: `/api/v1/hotels/${window.location.href.split("hotel-edit/")[1]}`,
 
 

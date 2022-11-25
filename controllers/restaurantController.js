@@ -136,16 +136,17 @@ exports.createSingleRestaurant = async (request, response, next) => {
 
 exports.updateSingleRestaurant = async (request, response, next) => {
     try {
+        console.log("updated restaurant object: ", request.body);
         // const updatedrestaurant = await restaurantModel.updateOne({ _id: request.params.id }, request.body)
-        const updatedrestaurant = await restaurantModel.findByIdAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators: true })
+        // const updatedrestaurant = await restaurantModel.findByIdAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators: true })
 
-        response.status(200).json({
-            status: "success",
-            data: {
-                payload: updatedrestaurant
-            }
+        // response.status(200).json({
+        //     status: "success",
+        //     data: {
+        //         payload: updatedrestaurant
+        //     }
 
-        })
+        // })
     } catch (error) {
 
         response.status(400).json({
@@ -157,17 +158,18 @@ exports.updateSingleRestaurant = async (request, response, next) => {
 
 exports.deleteSingleRestaurant = async (request, response, next) => {
     try {
-        const deletedrestaurant = await restaurantModel.deleteOne({ _id: request.params.id })
+        console.log("delete restaurant with id: ", request.params.id);
+        // const deletedrestaurant = await restaurantModel.deleteOne({ _id: request.params.id })
 
-        // const deletedrestaurant = await restaurantModel.findByIdAndDelete({ _id: request.params.id })
+        // // const deletedrestaurant = await restaurantModel.findByIdAndDelete({ _id: request.params.id })
 
-        response.status(204).json({
-            status: "success",
-            data: {
-                payload: deletedrestaurant
-            }
+        // response.status(204).json({
+        //     status: "success",
+        //     data: {
+        //         payload: deletedrestaurant
+        //     }
 
-        })
+        // })
     } catch (error) {
 
         response.status(400).json({

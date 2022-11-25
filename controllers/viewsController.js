@@ -169,8 +169,6 @@ exports.getEditRestaurantPage = async (request, response, next) => {
 
         const restDoc = await restaurantModel.findById(request.params.id)
 
-        console.log(restDoc);
-
         response.status(200).render("edit-restaurant-listing", {
             payload: restDoc,
             amenities: ameninitesArray
@@ -190,7 +188,6 @@ exports.getEditRestaurantPage = async (request, response, next) => {
 exports.getEditTourPage = async (request, response, next) => {
     try {
         const tourDoc = await toursModel.findById(request.params.id)
-        console.log(tourDoc);
         response.status(200).render("edit-tour-listing",
             {
                 payload: tourDoc,
