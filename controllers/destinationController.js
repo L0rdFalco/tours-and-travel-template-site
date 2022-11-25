@@ -136,16 +136,17 @@ exports.createSingleDestination = async (request, response, next) => {
 
 exports.updateSingleDestination = async (request, response, next) => {
     try {
+        console.log("updated destination info: ", request.body);
         // const updateddestination = await destinationModel.updateOne({ _id: request.params.id }, request.body)
-        const updateddestination = await destinationModel.findByIdAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators: true })
+        // const updateddestination = await destinationModel.findByIdAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators: true })
 
-        response.status(200).json({
-            status: "success",
-            data: {
-                payload: updateddestination
-            }
+        // response.status(200).json({
+        //     status: "success",
+        //     data: {
+        //         payload: updateddestination
+        //     }
 
-        })
+        // })
     } catch (error) {
 
         response.status(400).json({
@@ -157,7 +158,8 @@ exports.updateSingleDestination = async (request, response, next) => {
 
 exports.deleteSingleDestination = async (request, response, next) => {
     try {
-        const deleteddestination = await destinationModel.deleteOne({ _id: request.params.id })
+        console.log("delete destination object");
+        // const deleteddestination = await destinationModel.deleteOne({ _id: request.params.id })
 
         // const deleteddestination = await destinationModel.findByIdAndDelete({ _id: request.params.id })
 

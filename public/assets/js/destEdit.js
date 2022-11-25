@@ -15,7 +15,7 @@ const updateListingBtn = document.getElementById("UpdateSubmitBtn")
 
 const locInfoSubmitBtn = document.getElementById("infosubmit")
 
-const resourceInfo = { amenities: [], images: [], location: [] }
+const resourceInfo = { amenities: [], images: [] }
 
 
 function confirm_modalIncluder(resourceObj) {
@@ -106,18 +106,18 @@ if (destUpdateBtn) destUpdateBtn.addEventListener("click", function (e) {
     const input18El = document.getElementById("18").checked
 
 
-    resourceIdValue.length > 0 ? resourceInfo["id"] = resourceIdValue : resourceInfo["id"] = null
-    iteneraryValue.length > 0 ? resourceInfo["itenerary"] = iteneraryValue : resourceInfo["itenerary"] = "dest_itenerary.pdf"
-    nameValue.length > 0 ? resourceInfo["name"] = nameValue : resourceInfo["name"] = null
-    startDateValue.length > 0 ? resourceInfo["startDate"] = startDateValue : resourceInfo["startDate"] = null
-    endDateValue.length > 0 ? resourceInfo["endDate"] = endDateValue : resourceInfo["endDate"] = null
-    guideValue.length > 0 ? resourceInfo["guide"] = guideValue : resourceInfo["guide"] = null
-    difficultyValue.length > 0 ? resourceInfo["difficulty"] = difficultyValue : resourceInfo["difficulty"] = null
-    priceValue.length > 0 ? resourceInfo["price"] = priceValue : resourceInfo["price"] = null
-    durationValue.length > 0 ? resourceInfo["duration"] = durationValue : resourceInfo["duration"] = null
-    groupsizeValue.length > 0 ? resourceInfo["maxGroupSize"] = groupsizeValue : resourceInfo["maxGroupSize"] = null
-    summaryValue.length > 0 ? resourceInfo["summary"] = summaryValue : resourceInfo["summary"] = null
-    descValue.length > 0 ? resourceInfo["description"] = descValue : resourceInfo["description"] = null
+    resourceIdValue.length > 0 ? resourceInfo["id"] = resourceIdValue : null
+    iteneraryValue.length > 0 ? resourceInfo["itenerary"] = iteneraryValue : null
+    nameValue.length > 0 ? resourceInfo["name"] = nameValue : null
+    startDateValue.length > 0 ? resourceInfo["startDate"] = startDateValue : null
+    endDateValue.length > 0 ? resourceInfo["endDate"] = endDateValue : null
+    guideValue.length > 0 ? resourceInfo["guide"] = guideValue : null
+    difficultyValue.length > 0 ? resourceInfo["difficulty"] = difficultyValue : null
+    priceValue.length > 0 ? resourceInfo["price"] = priceValue : null
+    durationValue.length > 0 ? resourceInfo["duration"] = durationValue : null
+    groupsizeValue.length > 0 ? resourceInfo["maxGroupSize"] = groupsizeValue : null
+    summaryValue.length > 0 ? resourceInfo["summary"] = summaryValue : null
+    descValue.length > 0 ? resourceInfo["description"] = descValue : null
 
 
     destinationFeaturedImageVal.length > 0 ? resourceInfo["imageCover"] = destinationFeaturedImageVal : resourceInfo["imageCover"] = "dest-1.jpg"
@@ -192,12 +192,39 @@ if (updateListingBtn) updateListingBtn.addEventListener("click", async function 
     e.preventDefault()
     console.log("submit update");
 
+    try {
+
+        const res = await axios({
+            method: "PATCH",
+            url: `/api/v1/destination/${window.location.href.split("dest-edit/")[1]}`,
+            data: resourceInfo
+        })
+
+        console.log("destination listing updated? ", res.data);
+    } catch (error) {
+        console.log(error);
+
+    }
+
     confirm_modalRemover()
 })
 
 if (deleteListingBtn) deleteListingBtn.addEventListener("click", async function (e) {
     e.preventDefault()
-    console.log("delete listing");
+
+    try {
+
+        console.log("delete listing");
+
+        const res = await axios({
+            method: "DELETE",
+            url: `/api/v1/destination/${window.location.href.split("")[1]}`
+        })
+
+        console.log("destination listing deleted?", res.data);
+    } catch (error) {
+        console.log(error);
+    }
 
     deleteModalRemover()
 })
