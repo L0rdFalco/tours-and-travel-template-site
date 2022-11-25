@@ -136,16 +136,17 @@ exports.createSingleHotel = async (request, response, next) => {
 
 exports.updateSingleHotel = async (request, response, next) => {
     try {
+        console.log("updated hotel listing", request.body);
         // const updatedhotel = await hotelsModel.updateOne({ _id: request.params.id }, request.body)
-        const updatedhotel = await hotelsModel.findByIdAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators: true })
+        // const updatedhotel = await hotelsModel.findByIdAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators: true })
 
-        response.status(200).json({
-            status: "success",
-            data: {
-                payload: updatedhotel
-            }
+        // response.status(200).json({
+        //     status: "success",
+        //     data: {
+        //         payload: updatedhotel
+        //     }
 
-        })
+        // })
     } catch (error) {
 
         response.status(400).json({
@@ -157,17 +158,18 @@ exports.updateSingleHotel = async (request, response, next) => {
 
 exports.deleteSingleHotel = async (request, response, next) => {
     try {
-        const deletedhotel = await hotelsModel.deleteOne({ _id: request.params.id })
+        console.log("delete hotel object", request.params.id);
+        // const deletedhotel = await hotelsModel.deleteOne({ _id: request.params.id })
 
-        // const deletedhotel = await hotelsModel.findByIdAndDelete({ _id: request.params.id })
+        // // const deletedhotel = await hotelsModel.findByIdAndDelete({ _id: request.params.id })
 
-        response.status(204).json({
-            status: "success",
-            data: {
-                payload: deletedhotel
-            }
+        // response.status(204).json({
+        //     status: "success",
+        //     data: {
+        //         payload: deletedhotel
+        //     }
 
-        })
+        // })
     } catch (error) {
 
         response.status(400).json({

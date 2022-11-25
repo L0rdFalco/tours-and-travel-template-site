@@ -15,7 +15,7 @@ const updateListingBtn = document.getElementById("UpdateSubmitBtn")
 
 const locInfoSubmitBtn = document.getElementById("infosubmit")
 
-const resourceInfo = { amenities: [], images: [] }
+let resourceInfo = { amenities: [], images: [] }
 
 
 function confirm_modalIncluder(resourceObj) {
@@ -68,6 +68,7 @@ if (delete_overlay) delete_overlay.addEventListener("click", deleteModalRemover)
 //main page buttons
 if (destUpdateBtn) destUpdateBtn.addEventListener("click", function (e) {
     e.preventDefault()
+    resourceInfo = { amenities: [], images: [] }
     const resourceIdValue = document.getElementById("resourceId").innerText
     const iteneraryValue = document.getElementById("itenerary").value.trim()
     const nameValue = document.getElementById("resource_name").value.trim()

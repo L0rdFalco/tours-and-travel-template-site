@@ -158,7 +158,7 @@ exports.updateSingleDestination = async (request, response, next) => {
 
 exports.deleteSingleDestination = async (request, response, next) => {
     try {
-        console.log("delete destination object");
+        console.log("delete destination object", request.params.id);
         // const deleteddestination = await destinationModel.deleteOne({ _id: request.params.id })
 
         // const deleteddestination = await destinationModel.findByIdAndDelete({ _id: request.params.id })

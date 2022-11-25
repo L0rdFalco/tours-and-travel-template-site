@@ -12,7 +12,7 @@ HotelsRouter.route("/")
     .post(hotelsController.createSingleHotel)
 HotelsRouter.route("/:id")
     .get(hotelsController.getSingleHotel)
-    .patch(authController.protect, authController.restrictTo("admin", "lead-guide"), hotelsController.updateSingleHotel)
-    .delete(authController.protect, authController.restrictTo("admin", "lead-guide"), hotelsController.deleteSingleHotel)
+    .patch(hotelsController.updateSingleHotel)
+    .delete(hotelsController.deleteSingleHotel)
 
 module.exports = HotelsRouter

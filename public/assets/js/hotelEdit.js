@@ -13,7 +13,7 @@ const confirm_overlay = document.querySelector(".confirm-overlay");
 const confirm_closeModalBtn = document.querySelector(".close-confirm-modal")
 const updateListingBtn = document.getElementById("UpdateSubmitBtn")
 
-const hotelListingObj = { amenities: [], images: [] }
+let hotelListingObj = { amenities: [], images: [] }
 function deleteModalIncluder() {
     // document.getElementById("currentElVal").textContent = elementId
 
@@ -64,7 +64,7 @@ if (delete_overlay) delete_overlay.addEventListener("click", deleteModalRemover)
 
 if (updateMainBtn) updateMainBtn.addEventListener("click", function (e) {
     e.preventDefault()
-    const errorEl = document.getElementById("error")
+    hotelListingObj = { amenities: [], images: [] }
     const hotelNameValue = document.getElementById("hotel_name").value.trim()
     const hotelPriceValue = document.getElementById("hotel_price").value.trim()
 
@@ -105,20 +105,20 @@ if (updateMainBtn) updateMainBtn.addEventListener("click", function (e) {
     const input17El = document.getElementById("17").checked
     const input18El = document.getElementById("18").checked
 
-    hotelNameValue.length > 0 ? hotelListingObj["name"] = hotelNameValue : hotelListingObj["name"] = null
-    hotelPriceValue.length > 0 ? hotelListingObj["price"] = hotelPriceValue : hotelListingObj["price"] = null
-    hotelPhoneValue.length > 0 ? hotelListingObj["phone"] = hotelPhoneValue : hotelListingObj["phone"] = null
+    hotelNameValue.length > 0 ? hotelListingObj["name"] = hotelNameValue : null
+    hotelPriceValue.length > 0 ? hotelListingObj["price"] = hotelPriceValue : null
+    hotelPhoneValue.length > 0 ? hotelListingObj["phone"] = hotelPhoneValue : null
     hotelLlValue.length > 0 ? hotelListingObj["landline"] = hotelLlValue : hotelListingObj["landline"] = null
-    hotelEmailValue.length > 0 ? hotelListingObj["email"] = hotelEmailValue : hotelListingObj["email"] = null
-    hotelFaxValue.length > 0 ? hotelListingObj["fax"] = hotelFaxValue : hotelListingObj["fax"] = null
-    hotelAddressValue.length > 0 ? hotelListingObj["address"] = hotelAddressValue : hotelListingObj["address"] = null
+    hotelEmailValue.length > 0 ? hotelListingObj["email"] = hotelEmailValue : null
+    hotelFaxValue.length > 0 ? hotelListingObj["fax"] = hotelFaxValue : null
+    hotelAddressValue.length > 0 ? hotelListingObj["address"] = hotelAddressValue : null
     hotelCityValue.length > 0 ? hotelListingObj["city"] = hotelCityValue : hotelListingObj["city"] = null
-    hotelStateValue.length > 0 ? hotelListingObj["state"] = hotelStateValue : hotelListingObj["state"] = null
-    hotelCountryValue.length > 0 ? hotelListingObj["country"] = hotelCountryValue : hotelListingObj["country"] = null
-    hotelOwnerValue.length > 0 ? hotelListingObj["owner"] = hotelOwnerValue : hotelListingObj["owner"] = null
-    hotelContactValue.length > 0 ? hotelListingObj["contact"] = hotelContactValue : hotelListingObj["contact"] = null
-    hotelSummaryValue.length > 0 ? hotelListingObj["summary"] = hotelSummaryValue : hotelListingObj["summary"] = null
-    hotelDescriptionValue.length > 0 ? hotelListingObj["description"] = hotelDescriptionValue : hotelListingObj["description"] = null
+    hotelStateValue.length > 0 ? hotelListingObj["state"] = hotelStateValue : null
+    hotelCountryValue.length > 0 ? hotelListingObj["country"] = hotelCountryValue : null
+    hotelOwnerValue.length > 0 ? hotelListingObj["owner"] = hotelOwnerValue : null
+    hotelContactValue.length > 0 ? hotelListingObj["contact"] = hotelContactValue : null
+    hotelSummaryValue.length > 0 ? hotelListingObj["summary"] = hotelSummaryValue : null
+    hotelDescriptionValue.length > 0 ? hotelListingObj["description"] = hotelDescriptionValue : null
 
     hotelFeaturedImageVal.length > 0 ? hotelListingObj["imageCover"] = hotelFeaturedImageVal : hotelListingObj["imageCover"] = "rest-1.jpg"
     hotel_gallery1Value.length > 0 ? hotelListingObj["images"].push(hotel_gallery1Value) : hotelListingObj["images"].push("rest-1.jpg")
@@ -156,11 +156,37 @@ if (deleteMainBtn) deleteMainBtn.addEventListener("click", function (e) {
 
 })
 
-if (updateListingBtn) updateListingBtn.addEventListener("click", function (e) {
-    console.log("make hotel post request here");
+if (updateListingBtn) updateListingBtn.addEventListener("click", async function (e) {
+    try {
+        e.preventDefault()
+
+        console.log("make hotel post request here");
+        const res = await axios({
+            method: "PATCH",
+            url: `/api/v1/hotels/${window.location.href.split("hotel-edit/")[1]}`,
+            data: hotelListingObj
+
+        })
+        console.log("hotel listing updated? ", res.data);
+    } catch (error) {
+        console.log(error);
+    }
 
 })
-if (deleteListingBtn) deleteListingBtn.addEventListener("click", function (e) {
-    console.log("make hotel delete requet here");
+if (deleteListingBtn) deleteListingBtn.addEventListener("click", async function (e) {
+    try {
+        e.preventDefault()
+        console.log("make hotel delete request here");
+
+        const res = await axios({
+            method: "delete",
+            url: `/api/v1/hotels/${window.location.href.split("hotel-edit/")[1]}`,
+
+
+        })
+        console.log("hotel listing deleted? ", res.data);
+    } catch (error) {
+        console.log(error);
+    }
 
 })
