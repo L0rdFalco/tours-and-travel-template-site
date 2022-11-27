@@ -7,7 +7,7 @@ const MessagesRouter = express.Router()
 
 MessagesRouter.route("/")
     .get(messagesController.getAllMessages)
-    .post(messagesController.createSingleMessage)
+    .post(authController.protect, messagesController.createSingleMessage)
 MessagesRouter.route("/:id")
     .get(messagesController.getSingleMessage)
     .patch(messagesController.updateSingleMessage)

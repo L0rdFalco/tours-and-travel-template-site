@@ -49,11 +49,13 @@ exports.getSingleMessage = async (request, response, next) => {
 }
 
 exports.createSingleMessage = async (request, response, next) => {
+    console.log(request.user);
+    console.log("currently logged in user", request.user);
     try {
 
         const messageData = {
             message: request.body.message,
-            user: "5c8a1dfa2f8fb814b56fa181",
+            user: request.user.id,
             name: request.body.name,
             email: request.body.email,
             phone: request.body.phone,
@@ -112,7 +114,7 @@ exports.updateSingleMessage = async (request, response, next) => {
 exports.deleteSingleMessage = async (request, response, next) => {
     try {
         console.log("message id: ", request.params.id);
-        // const deletedmessage = await messagesModel.findByIdAndDelete(request.params.id)
+        const deletedmessage = await messagesModel.findByIdAndDelete(request.params.id)
 
         response.status(200).json({
             status: "delete single message success",

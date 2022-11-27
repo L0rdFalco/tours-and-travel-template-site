@@ -6,24 +6,31 @@ const repliesSchema = mongoose.Schema(
             required: [true, "a message must have a reply"],
             trim: true
         },
-        askerId: [ // parent referencing tour guides
-            {
-                type: mongoose.Schema.ObjectId,
-                ref: "User" // collection name
+        askerId:  // parent referencing tour guides
+        {
+            required: [true, "reply must have an asker id"],
+            type: mongoose.Schema.ObjectId,
+            ref: "User" // collection name
 
-            }
-        ],
-        qestionId: [ // parent referencing tour guides
-            {
-                type: mongoose.Schema.ObjectId,
-                ref: "Message" // collection name
+        }
+        ,
+        questionId:  // parent referencing tour guides
+        {
+            required: [true, "reply must have a question id"],
+            type: mongoose.Schema.ObjectId,
+            ref: "Message" // collection name
 
-            }
-        ],
+        }
+        ,
 
     },
-    {})
+    {
+        //allows virtual fields to show up in responses
+        toJSON: { virtuals: true },
+        toObject: { virtuals: true }
+    })
 
+//don't correct the Replie typo
 const repliesModel = mongoose.model("Replie", repliesSchema)
 
 module.exports = repliesModel

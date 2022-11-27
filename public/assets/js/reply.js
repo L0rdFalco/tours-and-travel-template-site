@@ -52,6 +52,7 @@ function confirm_modalIncluder(resourceObj) {
 }
 
 function confirm_modalRemover() {
+    console.log("CALLED!!!");
     confirm_modal.classList.add("hidden");
     confirm_overlay.classList.add("hidden");
 }
@@ -69,11 +70,13 @@ if (replyBtn) replyBtn.addEventListener("click", function (e) {
     const asker_idVal = document.getElementById("asker_id").value.trim();
     const question_idVal = document.getElementById("message_id").value.trim();
     const replyVal = document.getElementById("reply").value.trim();
-    const reply = `Hello ${user_nameVal}, \n ${replyVal}. Reply to this message if you need to`
+    const reply = `Hello ${user_nameVal}, ${replyVal}. Reply to this message if you need to`
 
     messageReplyObj["askerId"] = asker_idVal;
     messageReplyObj["questionId"] = question_idVal;
     messageReplyObj["message"] = reply;
+
+    console.log(messageReplyObj);
 
     confirm_modalIncluder(messageReplyObj)
 
@@ -87,29 +90,41 @@ if (deleteBtn) deleteBtn.addEventListener("click", function (e) {
 if (messageReplyBtn) messageReplyBtn.addEventListener("click", async function (e) {
     console.log("make message reply post request here");
 
-    const res = await axios({
-        method: "POST",
-        url: "/api/v1/replies/",
-        data: messageReplyObj
-    })
+    try {
 
-    console.log("replyObj: ", res.data);
+        const res = await axios({
+            method: "POST",
+            url: "/api/v1/replies/",
+            data: messageReplyObj
+        })
+
+        console.log("replyObj: ", res.data);
+    } catch (error) {
+        console.log(error);
+
+    }
+
 
     confirm_modalRemover()
 
 })
 if (deleteMessageBtn) deleteMessageBtn.addEventListener("click", async function (e) {
+    console.log("make message delete request here");
 
-    const res = await axios({
-        method: "DELETE",
-        url: `/api/v1/messages/${window.location.href.split("replies/")[1]}`,
+    try {
 
-    })
+        const res = await axios({
+            method: "DELETE",
+            url: `/api/v1/messages/${window.location.href.split("replies/")[1]}`,
 
-    console.log("deleteObj: ", res.data);
+        })
+
+        console.log("deleteObj: ", res.data);
+    } catch (error) {
+        console.log(error);
+    }
 
     deleteModalRemover()
 
-    console.log("make message delete request here");
 
 })

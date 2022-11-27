@@ -149,6 +149,7 @@ function isAllowed() {
 	}
 
 	function modalRemover() {
+		console.log("Xcalled");
 		modal.classList.add("hidden");
 		overlay.classList.add("hidden");
 	}
