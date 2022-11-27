@@ -9,10 +9,10 @@ HotelsRouter.use("/:hotelid/reviews", ReviewsRouter)
 
 HotelsRouter.route("/")
     .get(hotelsController.getAllHotels)
-    .post(hotelsController.createSingleHotel)
+    .post(authController.protect, hotelsController.createSingleHotel)
 HotelsRouter.route("/:id")
     .get(hotelsController.getSingleHotel)
-    .patch(hotelsController.updateSingleHotel)
-    .delete(hotelsController.deleteSingleHotel)
+    .patch(authController.protect, hotelsController.updateSingleHotel)
+    .delete(authController.protect, hotelsController.deleteSingleHotel)
 
 module.exports = HotelsRouter

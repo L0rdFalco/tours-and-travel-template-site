@@ -13,10 +13,10 @@ ToursRouter.route("/get-monthly-plan/:year").get(toursController.getMonthlyPlan)
 
 ToursRouter.route("/")
     .get(toursController.getAllTours)
-    .post(toursController.createSingleTour)
+    .post(authController.protect, toursController.createSingleTour)
 ToursRouter.route("/:id")
     .get(toursController.getSingleTour)
-    .patch(toursController.updateSingleTour)
-    .delete(toursController.deleteSingleTour)
+    .patch(authController.protect, toursController.updateSingleTour)
+    .delete(authController.protect, toursController.deleteSingleTour)
 
 module.exports = ToursRouter

@@ -6,10 +6,10 @@ const UsersRouter = express.Router();
 
 UsersRouter.route("/signup").post(authController.signup)
 UsersRouter.route("/login").post(authController.login)
-UsersRouter.route("/logout").get(authController.logout)
+UsersRouter.route("/logout").get(authController.protect, authController.logout)
 UsersRouter.route("/forgotpassword").post(authController.forgotpassword)
-UsersRouter.route("/resetpassword/:token").post(authController.resetpassword)
-UsersRouter.route("/updatemydata").patch(usersController.updateMyData)
+UsersRouter.route("/resetpassword/:token").post(authController.protect, authController.resetpassword)
+UsersRouter.route("/updatemydata").patch(authController.protect, usersController.updateMyData)
 
 UsersRouter.route("/updatepassword")
     .patch(authController.protect,
