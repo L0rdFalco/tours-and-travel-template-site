@@ -7,6 +7,8 @@ exports.createProfileInfo = async (request, response, next) => {
 
         console.log("profile create INFO", request.body);
 
+
+
     } catch (error) {
 
         response.status(400).json({

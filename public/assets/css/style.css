@@ -5684,6 +5684,9 @@ label.btn-bs-file.btn{
 .message-body h5 span.pending{
     background:#2196f3
 }
+.message-body h5 span.read{
+    background:#21b42c
+}
 .message-body-heading span{
     float:right;
     color:#62748F;

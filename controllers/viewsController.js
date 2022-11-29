@@ -1,6 +1,7 @@
 const usersModel = require("../models/usersModel.js")
 const reviewsModel = require("../models/reviewsModel.js")
 const bookingsModel = require("../models/bookingsModel.js")
+const repliesModel = require("../models/repliesModel.js")
 const toursModel = require("../models/toursModel.js")
 const destinationModel = require("../models/destinationModel.js")
 const hotelsModel = require("../models/hotelsModel.js")
@@ -590,7 +591,7 @@ exports.getManageToursPage = async (request, response, next) => {
 exports.getMessagesPage = async (request, response, next) => {
     try {
 
-        const messageDocs = await messagesModel.find().select("_id subject message")
+        const messageDocs = await messagesModel.find().select("_id subject message state updatedAt")
         response.status(200).render("messages", {
             payload: messageDocs
         })
@@ -607,7 +608,18 @@ exports.getMessagesPage = async (request, response, next) => {
 
 exports.getRepliesPage = async (request, response, next) => {
     try {
-        const messageDoc = await messagesModel.findById(request.params.id).populate("user")
+        const questionID = request.params.id
+        const messageDoc = await messagesModel.findById(questionID).select("-__v").populate("replies")
+        console.log("populated doc: ", messageDoc);
+
+        /**
+         * 
+         this works to get all replies for the question
+         a more elegant solution is virtual populate
+         const repliesDocs = await repliesModel.find({ questionId: request.params.id });
+         console.log(repliesDocs);
+
+         */
 
         response.status(200).render("repliesPage", {
             payload: messageDoc

@@ -32,7 +32,8 @@ block content
                                     .inbox-message
                                         ul
                                             each doc in payload
-                                                -const summary = doc.message.split(".")[0] 
+                                                -const summary = doc.message.split(".")[0]
+                                                -const state = doc.state ==="read" 
                                                 li
                                                     a(href=`/replies/${doc._id}`)
                                                         .message-avatar
@@ -40,8 +41,14 @@ block content
                                                         .message-body
                                                             .message-body-heading
                                                                 h5= doc.subject
-                                                                    span.unread Unread
-                                                                span 7 hours ago
+                                                                    if state
+                                                                        span.read unanswered
+                                                                    else
+                                                                        span.unread unanswered
+                                                                if state
+                                                                    span= doc.updatedAt
+                                                                else 
+                                                                    span Not answered    
                                                             p= `${summary}...`
 
     block content_contact 

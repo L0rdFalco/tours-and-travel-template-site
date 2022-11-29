@@ -42,6 +42,7 @@ const messageSchema = mongoose.Schema({
         select: false
 
     },
+
     user: {
         type: mongoose.Schema.ObjectId,
         ref: "User"
@@ -51,9 +52,25 @@ const messageSchema = mongoose.Schema({
 },
     { //allows virtual fields to show up in responses
         toJSON: { virtuals: true },
-        toObject: { virtuals: true }
+        toObject: { virtuals: true },
+        timestamps: true
     })
 
+
+messageSchema.pre(/^find/, function (next) {
+    this.populate({
+        path: "user",
+        select: "-__v"
+    })
+
+    next()
+})
+
+messageSchema.virtual("replies", {
+    ref: "Replie",
+    foreignField: "questionId",
+    localField: "_id"
+})
 const messagesModel = mongoose.model("Message", messageSchema)
 
 module.exports = messagesModel

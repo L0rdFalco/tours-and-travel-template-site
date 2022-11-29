@@ -58,6 +58,10 @@ block content
                                             .col-xs-12
                                                 label(for='original_message') original message
                                                 textarea#original_message.form-control.height-120(readonly placeholder='original message' )= payload.message
+                                            each reply in payload.replies 
+                                                .col-xs-12
+                                                    label(for='original_message') admin said:
+                                                    textarea.form-control.height-120(readonly placeholder='original message' )= reply.message
                                             .col-xs-12
                                                 label your reply
                                                 textarea#reply.form-control.height-120(placeholder='type reply here...')

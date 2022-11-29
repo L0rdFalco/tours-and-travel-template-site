@@ -16,6 +16,16 @@ const confirm_closeModalBtn = document.querySelector(".close-confirm-modal")
 const messageReplyBtn = document.getElementById("UpdateSubmitBtn")
 
 const messageReplyObj = {}
+
+function redirect(res) {
+    console.log(res);
+    if (res.data.status.includes("success")) {
+        window.setTimeout(() => {
+            location.assign("/messages")
+        }, 1500)
+
+    }
+}
 function deleteModalIncluder() {
     // document.getElementById("currentElVal").textContent = elementId
 
@@ -89,10 +99,10 @@ if (deleteBtn) deleteBtn.addEventListener("click", function (e) {
 
 if (messageReplyBtn) messageReplyBtn.addEventListener("click", async function (e) {
     console.log("make message reply post request here");
-
+    let res = null;
     try {
 
-        const res = await axios({
+        res = await axios({
             method: "POST",
             url: "/api/v1/replies/",
             data: messageReplyObj
@@ -107,13 +117,16 @@ if (messageReplyBtn) messageReplyBtn.addEventListener("click", async function (e
 
     confirm_modalRemover()
 
+    redirect(res)
+
 })
 if (deleteMessageBtn) deleteMessageBtn.addEventListener("click", async function (e) {
     console.log("make message delete request here");
+    let res = null
 
     try {
 
-        const res = await axios({
+        res = await axios({
             method: "DELETE",
             url: `/api/v1/messages/${window.location.href.split("replies/")[1]}`,
 
@@ -125,6 +138,8 @@ if (deleteMessageBtn) deleteMessageBtn.addEventListener("click", async function 
     }
 
     deleteModalRemover()
+    redirect(res)
+
 
 
 })

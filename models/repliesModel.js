@@ -22,7 +22,10 @@ const repliesSchema = mongoose.Schema(
 
         }
         ,
-
+        createdAt: {
+            type: String,
+            default: Date.now
+        },
     },
     {
         //allows virtual fields to show up in responses

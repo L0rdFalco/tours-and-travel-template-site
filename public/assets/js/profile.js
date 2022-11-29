@@ -6,22 +6,36 @@ const imageUPloadBtn = document.getElementById("aaiu-uploader")
 const errorMsgEl = document.getElementById("prof_error")
 const userIdEl = document.getElementById("user_id")
 
-const firstnameVal = document.getElementById("firstname").value.trim()
-const lastnameVal = document.getElementById("lastname").value.trim()
-const emailVal = document.getElementById("useremail").value.trim()
-const about_meVal = document.getElementById("about_me").value.trim()
-const live_inVal = document.getElementById("live_in").value.trim()
-const i_speakVal = document.getElementById("i_speak").value.trim()
-const phoneVal = document.getElementById("userphone").value.trim()
-const cityVal = document.getElementById("usercity").value.trim()
-const userfacebookVal = document.getElementById("userfacebook").value.trim()
-const usertwitterVal = document.getElementById("usertwitter").value.trim()
-const userlinkedinVal = document.getElementById("userlinkedin").value.trim()
-const userpinterestVal = document.getElementById("userpinterest").value.trim()
+const firstnameEl = document.getElementById("firstname")
+const lastnameEl = document.getElementById("lastname")
+const emailEl = document.getElementById("useremail")
+const about_meEl = document.getElementById("about_me")
+const live_inEl = document.getElementById("live_in")
+const i_speakEl = document.getElementById("i_speak")
+const phoneEl = document.getElementById("userphone")
+const cityEl = document.getElementById("usercity")
+const userfacebookEl = document.getElementById("userfacebook")
+const usertwitterEl = document.getElementById("usertwitter")
+const userlinkedinEl = document.getElementById("userlinkedin")
+const userpinterestEl = document.getElementById("userpinterest")
 
 
 if (profileCreateBtn) profileCreateBtn.addEventListener("click", async function (e) {
     e.preventDefault();
+    console.log("xxcalled!");
+
+    const firstnameVal = firstnameEl.value.trim()
+    const lastnameVal = lastnameEl.value.trim()
+    const emailVal = emailEl.value.trim()
+    const about_meVal = about_meEl.value.trim()
+    const live_inVal = live_inEl.value.trim()
+    const i_speakVal = i_speakEl.value.trim()
+    const phoneVal = phoneEl.value.trim()
+    const cityVal = cityEl.value.trim()
+    const userfacebookVal = userfacebookEl.value.trim()
+    const usertwitterVal = usertwitterEl.value.trim()
+    const userlinkedinVal = userlinkedinEl.value.trim()
+    const userpinterestVal = userpinterestEl.value.trim()
 
     if (!firstnameVal || !lastnameVal || !emailVal) {
         errorMsgEl.style.opacity = 1
@@ -61,6 +75,19 @@ if (profileCreateBtn) profileCreateBtn.addEventListener("click", async function 
 
 if (profileUpdateBtn) profileUpdateBtn.addEventListener("click", async function (e) {
     e.preventDefault();
+
+    const firstnameVal = firstnameEl.value.trim()
+    const lastnameVal = lastnameEl.value.trim()
+    const emailVal = emailEl.value.trim()
+    const about_meVal = about_meEl.value.trim()
+    const live_inVal = live_inEl.value.trim()
+    const i_speakVal = i_speakEl.value.trim()
+    const phoneVal = phoneEl.value.trim()
+    const cityVal = cityEl.value.trim()
+    const userfacebookVal = userfacebookEl.value.trim()
+    const usertwitterVal = usertwitterEl.value.trim()
+    const userlinkedinVal = userlinkedinEl.value.trim()
+    const userpinterestVal = userpinterestEl.value.trim()
 
     const profileUpdateInfo = {
         "firstname": firstnameVal ? firstnameVal : null,

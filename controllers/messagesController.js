@@ -1,4 +1,6 @@
-const messagesModel = require("../models/messagesModel.js")
+const messagesModel = require("../models/messagesModel.js");
+const repliesModel = require("../models/repliesModel.js");
+
 exports.getAllMessages = async (request, response, next) => {
     try {
 
@@ -113,11 +115,13 @@ exports.updateSingleMessage = async (request, response, next) => {
 
 exports.deleteSingleMessage = async (request, response, next) => {
     try {
-        console.log("message id: ", request.params.id);
-        const deletedmessage = await messagesModel.findByIdAndDelete(request.params.id)
+        const questionID = request.params.id
+        const deletedmessage = await messagesModel.findByIdAndDelete(questionID)
+        //delete all related replies as well
+        const deletedReplies = await repliesModel.deleteMany({ questionId: questionID })
 
         response.status(200).json({
-            status: "delete single message success",
+            status: "delete single message and related replies success",
 
         })
 

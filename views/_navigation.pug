@@ -64,15 +64,22 @@ nav.navbar.navbar-default.navbar-mobile.navbar-fixed.light.bootsnav
               a(href='services') Services
             li
               a(href='/contact') Contact
-
-        li
-          a(href='/dashboard') Dashboard
+        if user
+          li
+            a(href='/dashboard') Dashboard
       ul.nav.navbar-nav.navbar-right
-        li.br-right
-          a(href='javascript:void(0)' data-toggle='modal' data-target='#signin')
-            i.login-icon.ti-user
-            | Login
-        li.sign-up
-          a.btn-signup.red-btn(href='/tours-grid-sidebar')
-            span.ti-briefcase
-            | Search Tours
+        if user 
+          li.sign-up
+            a#logoutbtn.btn-signup.red-btn
+              span.ti-briefcase
+              | Logout
+
+        else  
+          li.br-right
+            a(href='javascript:void(0)' data-toggle='modal' data-target='#signin')
+              i.login-icon.ti-user
+              | Login
+          li.sign-up
+            a.btn-signup.red-btn(href='/tours-grid-sidebar')
+              span.ti-briefcase
+              | Search Tours
