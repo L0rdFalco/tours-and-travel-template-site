@@ -153,11 +153,25 @@ exports.updateMyData = async (request, response, next) => {
          * email, profilepic, name, etc
          */
 
+        console.log(request.body);
+
         const userData = {
-            name: request.body.name,
-            email: request.body.email
+            "name": request.body.name ? request.body.name : null,
+            "email": request.body.email ? request.body.email : null,
+            "metadata.aboutme": request.body.aboutme ? request.body.aboutme : null,
+            "metadata.livein": request.body.livein ? request.body.livein : null,
+            "metadata.ispeak": request.body.ispeak ? request.body.ispeak : null,
+            "metadata.address": request.body.address ? request.body.address : null,
+            "metadata.phone": request.body.phone ? request.body.phone : null,
+            "metadata.city": request.body.city ? request.body.city : null,
+            "metadata.facebookurl": request.body.facebookurl ? request.body.facebookurl : null,
+            "metadata.twitterurl": request.body.twitterurl ? request.body.twitterurl : null,
+            "metadata.linkedinurl": request.body.linkedinurl ? request.body.linkedinurl : null,
+            "metadata.pinteresturl": request.body.pinteresturl ? request.body.pinteresturl : null,
         }
+
         const updatedUser = await UsersModel.findByIdAndUpdate(request.user.id, userData, { runValidators: true, new: true })
+        console.log(updatedUser);
 
         response.status(200).json({
             status: "updateMyData success",

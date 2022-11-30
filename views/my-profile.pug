@@ -28,49 +28,47 @@ block content
                                     .row
                                         .col-md-4
                                             p
-                                                label *First Name
-                                                input#firstname.form-control( type='text' value=nameArray[0] name='firstname' required)
-                                            p
-                                                label *Last Name
-                                                input#lastname.form-control( type='text'  value=nameArray[1] name='lastname' required)
+                                                label *Name
+                                                input#name.form-control( type='text' value=nameArray.toString().split(",").join(" ") name='firstname' required)
                                             p
                                                 label *Email
                                                 input#useremail.form-control( type='text' value=user.email name='useremail' required)
                                             p
                                                 label About Me
-                                                textarea#about_me.form-control(name='about_me')
+                                                textarea#about_me.form-control(name='about_me' )= user.metadata.aboutme?user.metadata.aboutme: ""
                                             p
                                                 label I live in
-                                                input#live_in.form-control(type='text' value='' name='live_in')
+                                                input#live_in.form-control(type='text' value=`${user.metadata.livein?user.metadata.livein: ""}` name='live_in')
                                             p
                                                 label I speak
-                                                input#i_speak.form-control(type='text' value='' name='i_speak')
-                                            
+                                                input#i_speak.form-control(type='text' value=`${user.metadata.ispeak?user.metadata.ispeak: ""}` name='i_speak')
                                             p
-                                                input.next.action-button(type='button' name='create' value='create' id="profile_create")
+                                                label Address
+                                                input#address.form-control(type='text' value=`${user.metadata.address?user.metadata.address: ""}` name='address')
+                                            p
                                                 input.next.action-button(type='button' name='update' value='update' id="profile_update")
                                                 h2#prof_error.fs-title ALL FIELDS ARE REQUIRED
 
                                         .col-md-4
                                             p
                                                 label Phone
-                                                input#userphone.form-control(type='text' value='' name='userphone')
+                                                input#userphone.form-control(type='number' value=`${user.metadata.phone?user.metadata.phone: ""}` name='userphone')
                                             p
                                                 label city
-                                                input#usercity.form-control(type='text' value='' name='usermobile')
+                                                input#usercity.form-control(type='text' value=`${user.metadata.city?user.metadata.city: ""}` name='city')
 
                                             p
                                                 label Facebook Url
-                                                input#userfacebook.form-control(type='text' value='' name='userfacebook')
+                                                input#userfacebook.form-control(type='text' value=`${user.metadata.facebookurl?user.metadata.facebookurl: ""}` name='userfacebook')
                                             p
                                                 label Twitter Url
-                                                input#usertwitter.form-control(type='text' value='' name='usertwitter')
+                                                input#usertwitter.form-control(type='text' value=`${user.metadata.twitterurl?user.metadata.twitterurl: ""}` name='usertwitter')
                                             p
                                                 label Linkedin Url
-                                                input#userlinkedin.form-control(type='text' value='' name='userlinkedin')
+                                                input#userlinkedin.form-control(type='text' value=`${user.metadata.linkedinurl?user.metadata.linkedinurl: ""}` name='userlinkedin')
                                             p
                                                 label Pinterest Url
-                                                input#userpinterest.form-control(type='text' height='100' value='' name='userpinterest')
+                                                input#userpinterest.form-control(type='text' height='100' value=`${user.metadata.pinteresturl?user.metadata.pinteresturl: ""}` name='userpinterest')
 
                                         .col-md-4
                                             #profile-div.feature-media-upload
