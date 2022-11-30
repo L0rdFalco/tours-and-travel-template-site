@@ -1,7 +1,5 @@
 const profileModel = require("../models/profileModel.js")
 
-//
-
 exports.createProfileInfo = async (request, response, next) => {
     try {
 

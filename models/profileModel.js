@@ -17,15 +17,15 @@ const profileSchema = mongoose.Schema(
         },
         aboutme: {
             type: String,
-            default: "this is about me section"
+            default: "my mind is wonderfully quiet these days. I love it"
         },
         livein: {
             type: String,
-            required: [true, "profile must have live in info"]
+            default: "Monaco"
         },
         ispeak: {
             type: String,
-            required: [true, "profile must provide spoken language info"]
+            default: "Italian"
         },
         phone: {
             type: Number,

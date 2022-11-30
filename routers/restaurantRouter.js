@@ -9,10 +9,10 @@ restaurantRouter.use("/:restaurantid/reviews", ReviewsRouter)
 
 restaurantRouter.route("/")
     .get(restaurantController.getAllRestaurants)
-    .post(authController.protect, restaurantController.createSingleRestaurant)
+    .post(authController.protect, authController.restrictTo("admin", "lead-guide"), restaurantController.createSingleRestaurant)
 restaurantRouter.route("/:id")
     .get(restaurantController.getSingleRestaurant)
-    .patch(authController.protect, restaurantController.updateSingleRestaurant)
-    .delete(authController.protect, restaurantController.deleteSingleRestaurant)
+    .patch(authController.protect, authController.restrictTo("admin", "lead-guide"), restaurantController.updateSingleRestaurant)
+    .delete(authController.protect, authController.restrictTo("admin", "lead-guide"), restaurantController.deleteSingleRestaurant)
 
 module.exports = restaurantRouter

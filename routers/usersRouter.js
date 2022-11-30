@@ -8,8 +8,8 @@ UsersRouter.route("/signup").post(authController.signup)
 UsersRouter.route("/login").post(authController.login)
 UsersRouter.route("/logout").get(authController.protect, authController.logout)
 UsersRouter.route("/forgotpassword").post(authController.forgotpassword)
-UsersRouter.route("/resetpassword/:token").post(authController.protect, authController.resetpassword)
-UsersRouter.route("/updatemydata").patch(authController.protect, usersController.updateMyData)
+UsersRouter.route("/resetpassword/:token").post(authController.protect, authController.restrictTo("admin", "user"), authController.resetpassword)
+UsersRouter.route("/updatemydata").patch(authController.protect, authController.restrictTo("admin", "user"), usersController.updateMyData)
 
 UsersRouter.route("/updatepassword")
     .patch(authController.protect,

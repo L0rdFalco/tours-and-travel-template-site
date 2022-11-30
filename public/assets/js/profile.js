@@ -20,10 +20,15 @@ const userlinkedinEl = document.getElementById("userlinkedin")
 const userpinterestEl = document.getElementById("userpinterest")
 
 
-if (profileCreateBtn) profileCreateBtn.addEventListener("click", async function (e) {
-    e.preventDefault();
-    console.log("xxcalled!");
+function errorRenderer() {
+    errorMsgEl.style.opacity = 1
+    setTimeout(() => {
+        errorMsgEl.style.opacity = 0
 
+    }, 5000)
+}
+
+function metaDataInfo() {
     const firstnameVal = firstnameEl.value.trim()
     const lastnameVal = lastnameEl.value.trim()
     const emailVal = emailEl.value.trim()
@@ -38,16 +43,13 @@ if (profileCreateBtn) profileCreateBtn.addEventListener("click", async function 
     const userpinterestVal = userpinterestEl.value.trim()
 
     if (!firstnameVal || !lastnameVal || !emailVal) {
-        errorMsgEl.style.opacity = 1
-        setTimeout(() => {
-            errorMsgEl.style.opacity = 0
 
-        }, 5000)
+        errorRenderer()
         return
     }
 
 
-    const profileCreateInfo = {
+    return {
         "firstname": firstnameVal ? firstnameVal : null,
         "lastname": lastnameVal ? lastnameVal : null,
         "email": emailVal ? emailVal : null,
@@ -61,11 +63,15 @@ if (profileCreateBtn) profileCreateBtn.addEventListener("click", async function 
         "linkedinurl": userlinkedinVal ? userlinkedinVal : null,
         "pinteresturl": userpinterestVal ? userpinterestVal : null,
     }
+}
+
+if (profileCreateBtn) profileCreateBtn.addEventListener("click", async function (e) {
+    e.preventDefault();
 
     const res = await axios({
         method: "POST",
         url: "/api/v1/profile/",
-        data: profileCreateInfo
+        data: metaDataInfo()
 
     })
 
@@ -76,38 +82,10 @@ if (profileCreateBtn) profileCreateBtn.addEventListener("click", async function 
 if (profileUpdateBtn) profileUpdateBtn.addEventListener("click", async function (e) {
     e.preventDefault();
 
-    const firstnameVal = firstnameEl.value.trim()
-    const lastnameVal = lastnameEl.value.trim()
-    const emailVal = emailEl.value.trim()
-    const about_meVal = about_meEl.value.trim()
-    const live_inVal = live_inEl.value.trim()
-    const i_speakVal = i_speakEl.value.trim()
-    const phoneVal = phoneEl.value.trim()
-    const cityVal = cityEl.value.trim()
-    const userfacebookVal = userfacebookEl.value.trim()
-    const usertwitterVal = usertwitterEl.value.trim()
-    const userlinkedinVal = userlinkedinEl.value.trim()
-    const userpinterestVal = userpinterestEl.value.trim()
-
-    const profileUpdateInfo = {
-        "firstname": firstnameVal ? firstnameVal : null,
-        "lastname": lastnameVal ? lastnameVal : null,
-        "email": emailVal ? emailVal : null,
-        "aboutme": about_meVal ? about_meVal : null,
-        "livein": live_inVal ? live_inVal : null,
-        "ispeak": i_speakVal ? i_speakVal : null,
-        "phone": phoneVal ? phoneVal : null,
-        "city": cityVal ? cityVal : null,
-        "facebookurl": userfacebookVal ? userfacebookVal : null,
-        "twitterurl": usertwitterVal ? usertwitterVal : null,
-        "linkedinurl": userlinkedinVal ? userlinkedinVal : null,
-        "pinteresturl": userpinterestVal ? userpinterestVal : null,
-    }
-
     const res = await axios({
         method: "PATCH",
         url: `/api/v1/profile/${userIdEl.innerText}`,
-        data: profileUpdateInfo
+        data: metaDataInfo()
 
     })
 

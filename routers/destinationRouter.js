@@ -9,10 +9,10 @@ destinationRouter.use("/:destinationid/reviews", ReviewsRouter)
 
 destinationRouter.route("/")
     .get(destinationController.getAllDestinations)
-    .post(authController.protect, destinationController.createSingleDestination)
+    .post(authController.protect, authController.restrictTo("admin", "lead-guide"), destinationController.createSingleDestination)
 destinationRouter.route("/:id")
     .get(destinationController.getSingleDestination)
-    .patch(authController.protect, destinationController.updateSingleDestination)
-    .delete(authController.protect, destinationController.deleteSingleDestination)
+    .patch(authController.protect, authController.restrictTo("admin", "lead-guide"), destinationController.updateSingleDestination)
+    .delete(authController.protect, authController.restrictTo("admin", "lead-guide"), destinationController.deleteSingleDestination)
 
 module.exports = destinationRouter

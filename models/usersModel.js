@@ -24,6 +24,7 @@ const usersSchema = mongoose.Schema({
         type: String,
         default: "default.jpg"
     },
+
     password: {
         type: String,
         required: [true, "you must specify a password for a user"],

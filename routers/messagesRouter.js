@@ -6,11 +6,11 @@ const MessagesRouter = express.Router()
 
 
 MessagesRouter.route("/")
-    .get(authController.protect, messagesController.getAllMessages)
-    .post(authController.protect, messagesController.createSingleMessage)
+    .get(authController.protect, authController.restrictTo("admin", "lead-guide"), messagesController.getAllMessages)
+    .post(authController.protect, authController.restrictTo("user"), messagesController.createSingleMessage)
 MessagesRouter.route("/:id")
-    .get(authController.protect, messagesController.getSingleMessage)
-    .patch(authController.protect, messagesController.updateSingleMessage)
-    .delete(authController.protect, messagesController.deleteSingleMessage)
+    .get(authController.protect, authController.restrictTo("admin", "lead-guide"), messagesController.getSingleMessage)
+    .patch(authController.protect, authController.restrictTo("admin", "lead-guide"), messagesController.updateSingleMessage)
+    .delete(authController.protect, authController.restrictTo("admin", "lead-guide"), messagesController.deleteSingleMessage)
 
 module.exports = MessagesRouter
