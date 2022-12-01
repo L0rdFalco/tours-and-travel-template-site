@@ -1,10 +1,15 @@
 "use strict"
 
+const { default: axios } = require("axios")
+
 //modal login
 const auth_email_El = document.getElementById("auth_email")
 const auth_password_El = document.getElementById("auth_password")
 const auth_login_El = document.getElementById("auth_login")
 const errorEl = document.getElementById("error")
+
+const facebookAuthEl = document.getElementById("facebookLogin")
+const gplusAuthEl = document.getElementById("gplusLogin")
 
 //signup page
 const inputNameEl = document.getElementById("inputName")
@@ -73,3 +78,25 @@ if (signup_btn) signup_btn.addEventListener("click", async function (e) {
     }
 
 })
+
+
+if (facebookAuthEl) facebookAuthEl.addEventListener("click", async function (e) {
+    e.preventDefault()
+
+    const res = await axios({
+        method: "GET",
+        url: "/api/v1/users/facebookAuth"
+    })
+
+    console.log("facebook Auth? ", res.data);
+})
+
+if (gplusAuthEl) gplusAuthEl.addEventListener("click", async function (e) {
+    e.preventDefault()
+})
+const res = await axios({
+    method: "GET",
+    url: "/api/v1/users/gplusAuth"
+})
+
+console.log("gplus Auth? ", res.data);

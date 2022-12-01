@@ -14,7 +14,21 @@ function cookieOptions() {
     return cookieOptions
 }
 
+exports.gplusAuth = async (request, response, next) => {
+    try {
 
+    } catch (error) {
+
+    }
+}
+
+exports.facebookAuth = async (request, response, next) => {
+    try {
+
+    } catch (error) {
+
+    }
+}
 exports.signup = async (request, response, next) => {
     try {
         /**

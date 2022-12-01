@@ -4,6 +4,8 @@ const usersController = require("../controllers/usersController.js")
 
 const UsersRouter = express.Router();
 
+UsersRouter.route("/gplusAuth").get(authController.gplusAuth)
+UsersRouter.route("/facebookAuth").get(authController.facebookAuth)
 UsersRouter.route("/signup").post(authController.signup)
 UsersRouter.route("/login").post(authController.login)
 UsersRouter.route("/logout").get(authController.protect, authController.logout)

@@ -143,7 +143,6 @@ usersSchema.methods.doPasswordsMatch = async function (inputtedPW, savedPW) {
 //instance method used for verification in protected routes
 usersSchema.methods.passwordChangedAfter = function (tokenIssueDate) {
 
-
     //return true if token was issued after password was changed
     if (this.passwordChangedAt) return parseInt(this.passwordChangedAt.getTime() / 1000, 10) > tokenIssueDate
 
