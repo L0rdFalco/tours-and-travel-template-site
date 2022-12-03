@@ -8,6 +8,8 @@ const path = require("path")
 const hpp = require("hpp")
 const cookieParser = require("cookie-parser")
 
+const passportSetup = require("./utils/passport-setup.js")
+
 const ViewsRouter = require("./routers/viewsRouter.js")
 const BookingsRouter = require("./routers/bookingsRouter.js")
 const ReviewsRouter = require("./routers/reviewsRouter.js")
@@ -92,6 +94,7 @@ app.use((request, response, next) => {
     request.reqTime = Date.now()
     next()
 })
+
 
 app.use("/", ViewsRouter)
 app.use("/orders", PaymentRouter)

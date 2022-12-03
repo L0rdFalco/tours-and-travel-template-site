@@ -1,7 +1,5 @@
 "use strict"
 
-const { default: axios } = require("axios")
-
 //modal login
 const auth_email_El = document.getElementById("auth_email")
 const auth_password_El = document.getElementById("auth_password")
@@ -89,14 +87,7 @@ if (facebookAuthEl) facebookAuthEl.addEventListener("click", async function (e) 
     })
 
     console.log("facebook Auth? ", res.data);
+
+    //if success redirect to dashboard
 })
 
-if (gplusAuthEl) gplusAuthEl.addEventListener("click", async function (e) {
-    e.preventDefault()
-})
-const res = await axios({
-    method: "GET",
-    url: "/api/v1/users/gplusAuth"
-})
-
-console.log("gplus Auth? ", res.data);

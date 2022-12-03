@@ -1,11 +1,14 @@
 const express = require("express")
+const passport = require("passport")
 const authController = require("../controllers/authController.js")
 const usersController = require("../controllers/usersController.js")
 
 const UsersRouter = express.Router();
 
-UsersRouter.route("/gplusAuth").get(authController.gplusAuth)
+UsersRouter.route("/gplusAuth").get(authController.gplusAuth) // pops out consent screen
+UsersRouter.route("/gplusPermissions").get(passport.authenticate('google', { failureRedirect: "/", successRedirect: "/dashboard" }), authController.processGplusPermissions)// called with user consents
 UsersRouter.route("/facebookAuth").get(authController.facebookAuth)
+UsersRouter.route("/fbPermissions/").get(authController.processGplusPermissions)
 UsersRouter.route("/signup").post(authController.signup)
 UsersRouter.route("/login").post(authController.login)
 UsersRouter.route("/logout").get(authController.protect, authController.logout)

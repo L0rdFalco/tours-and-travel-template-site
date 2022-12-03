@@ -1,7 +1,10 @@
 const crypto = require("crypto")
 const jwt = require("jsonwebtoken")
+const passport = require("passport")
 const UsersModel = require("../models/usersModel.js")
+const SocialUsersModel = require("../models/socialUserModel.js")
 const Email = require("../utils/Email.js")
+
 function cookieOptions() {
     let cookieOptions =
     {
@@ -14,7 +17,70 @@ function cookieOptions() {
     return cookieOptions
 }
 
-exports.gplusAuth = async (request, response, next) => {
+//pops out consent screen
+exports.gplusAuth = passport.authenticate("google", {
+    scope: ['profile', 'email']
+})
+
+//called when user picks an account as second cb in the middleware stack
+exports.processGplusPermissions = async (request, response, next) => {
+    try {
+        console.log("3---> ", request.query);
+
+    } catch (error) {
+
+        console.log("processGplusPermissions fail");
+
+    }
+}
+//first called when user picks an account as first cb in middleware stack
+exports.gplusAccountSelectCB = async function (accessToken, refreshToken, profile, finished) {
+    /**
+     * 1. extract profile info from profile argument
+     * 2. find out if user exists in the db based on the google id
+     * 3. create user if doesnt exist
+     * 4. if user exists ... 
+     */
+
+    try {
+        let socialUserDoc = null;
+
+        const socialUserObj = {
+            gplus_id: profile._json.sub,
+            name: profile._json.name,
+            given_name: profile._json.given_name,
+            family_name: profile._json.family_name,
+            provider: profile.provider,
+            picture: profile._json.picture,
+            email: profile._json.email,
+            email_verified: profile._json.email_verified,
+            locale: profile._json.locale
+
+        }
+
+        socialUserDoc = await SocialUsersModel.findOne({ gplus_id: profile.id })
+
+        if (!socialUserDoc) socialUserDoc = await SocialUsersModel.create(socialUserObj)
+
+        console.log(socialUserDoc);
+
+    } catch (error) {
+        console.log(error);
+
+
+    }
+
+
+
+
+
+}
+
+exports.facebookAuth = passport.authenticate("facebook", {
+    scope: ["profile", "email"]
+})
+
+exports.processFacebookPermissions = async (request, response, next) => {
     try {
 
     } catch (error) {
@@ -22,13 +88,7 @@ exports.gplusAuth = async (request, response, next) => {
     }
 }
 
-exports.facebookAuth = async (request, response, next) => {
-    try {
 
-    } catch (error) {
-
-    }
-}
 exports.signup = async (request, response, next) => {
     try {
         /**
