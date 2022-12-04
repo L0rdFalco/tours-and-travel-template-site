@@ -1,4 +1,5 @@
 const UsersModel = require("../models/usersModel.js")
+const SocialUsersModel = require("../models/socialUserModel.js")
 
 exports.getAllUsers = async (request, response, next) => {
     try {
@@ -149,11 +150,6 @@ exports.getMyData = async (request, response, next) => {
 
 exports.updateMyData = async (request, response, next) => {
     try {
-        /**
-         * email, profilepic, name, etc
-         */
-
-        console.log(request.body);
 
         const userData = {
             "name": request.body.name ? request.body.name : null,
@@ -170,8 +166,15 @@ exports.updateMyData = async (request, response, next) => {
             "metadata.pinteresturl": request.body.pinteresturl ? request.body.pinteresturl : null,
         }
 
-        const updatedUser = await UsersModel.findByIdAndUpdate(request.user.id, userData, { runValidators: true, new: true })
-        console.log(updatedUser);
+        let updatedUser = null;
+        if (request.user.provider === "manual") {
+
+            updatedUser = await UsersModel.findByIdAndUpdate(request.user.id, userData, { runValidators: true, new: true })
+        }
+
+        else if (request.user.provider === "google") {
+            updatedUser = await SocialUsersModel.findByIdAndUpdate(request.user.id, userData, { runValidators: true, new: true })
+        }
 
         response.status(200).json({
             status: "updateMyData success",
