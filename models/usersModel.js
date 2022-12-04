@@ -86,6 +86,10 @@ const usersSchema = mongoose.Schema({
             message: "passwords do not match"
         }
     },
+    provider: {
+        type: String,
+        default: "manual"
+    },
     passwordChangedAt: Date,
     encrResetToken: String,
     resetTokenExpires: Date,

@@ -590,11 +590,33 @@ exports.getManageToursPage = async (request, response, next) => {
 }
 exports.getMessagesPage = async (request, response, next) => {
     try {
+        //correct this to display correct messages based on user role
+        let messageDocs = null;
 
-        const messageDocs = await messagesModel.find().select("_id subject message state updatedAt")
-        response.status(200).render("messages", {
-            payload: messageDocs
-        })
+        if (request.user.role === "user") {
+
+            messageDocs = await messagesModel.find().select("_id subject message state updatedAt")
+            response.status(200).render("messages", {
+                payload: messageDocs
+            })
+        }
+        else if (request.user.role === "guide") {
+
+        }
+
+        else if (request.user.role === "lead-guide") {
+
+        }
+
+        else if (request.user.role === "admin") {
+
+            const messageDocs = await messagesModel.find().select("_id subject message state updatedAt")
+            response.status(200).render("messages", {
+                payload: messageDocs
+            })
+        }
+
+
 
 
     } catch (error) {

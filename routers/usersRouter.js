@@ -6,7 +6,7 @@ const usersController = require("../controllers/usersController.js")
 const UsersRouter = express.Router();
 
 UsersRouter.route("/gplusAuth").get(authController.gplusAuth) // pops out consent screen
-UsersRouter.route("/gplusPermissions").get(passport.authenticate('google', { failureRedirect: "/", successRedirect: "/dashboard" }), authController.processGplusPermissions)// called with user consents
+UsersRouter.route("/gplusPermissions").get(passport.authenticate('google'), authController.processGplusPermissions)// called with user consents
 UsersRouter.route("/facebookAuth").get(authController.facebookAuth)
 UsersRouter.route("/fbPermissions/").get(authController.processGplusPermissions)
 UsersRouter.route("/signup").post(authController.signup)

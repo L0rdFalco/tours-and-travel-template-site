@@ -1,5 +1,46 @@
 const mongoose = require("mongoose");
 const validator = require("validator")
+const metaDataSchema = mongoose.Schema({
+    aboutme: {
+        type: String,
+        default: "my mind is wonderfully quiet these days. I love it"
+    },
+    livein: {
+        type: String,
+        default: "Monaco"
+    },
+    ispeak: {
+        type: String,
+        default: "Italian"
+    },
+    address: {
+        type: String,
+        default: "golden mile"
+    },
+    phone: {
+        type: Number,
+        default: 2568168964168
+    },
+    city: {
+        type: String,
+        default: "Monte Carlo"
+    },
+    facebookurl: {
+        type: String,
+
+    },
+    twitterurl: {
+        type: String,
+
+    },
+    linkedinurl: {
+        type: String
+    },
+    pinteresturl: {
+        type: String
+
+    },
+})
 
 const socialUsersSchema = mongoose.Schema(
     {
@@ -52,7 +93,9 @@ const socialUsersSchema = mongoose.Schema(
             default: "user",
             enum: ["user", "admin", "guide", "lead-guide"]
 
-        }
+        },
+        metadata: metaDataSchema,
+
     },
 
     {

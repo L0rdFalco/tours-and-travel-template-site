@@ -7,6 +7,8 @@ const xss = require("xss-clean")
 const path = require("path")
 const hpp = require("hpp")
 const cookieParser = require("cookie-parser")
+const cookieSession = require("cookie-session")
+const passport = require("passport")
 
 const passportSetup = require("./utils/passport-setup.js")
 
@@ -88,6 +90,17 @@ app.use(cookieParser())
 
 app.use(express.urlencoded({ extended: true, limit: '10kb' }))
 
+app.use(cookieSession({
+    maxAge: 90 * 24 * 60 * 60 * 1000,
+    keys: [process.env.PASSPORT_COOKIE_KEY]
+
+}))
+
+//initialise passport 
+app.use(passport.initialize())
+
+//use session cookies with passports when authenticating
+app.use(passport.session())
 
 app.use((request, response, next) => {
     console.log("my custom middleware", request.originalUrl);

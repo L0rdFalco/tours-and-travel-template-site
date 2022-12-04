@@ -51,8 +51,6 @@ exports.getSingleMessage = async (request, response, next) => {
 }
 
 exports.createSingleMessage = async (request, response, next) => {
-    console.log(request.user);
-    console.log("currently logged in user", request.user);
     try {
 
         const messageData = {

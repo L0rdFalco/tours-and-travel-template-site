@@ -25,7 +25,13 @@ exports.gplusAuth = passport.authenticate("google", {
 //called when user picks an account as second cb in the middleware stack
 exports.processGplusPermissions = async (request, response, next) => {
     try {
-        console.log("3---> ", request.query);
+        //sign a jwt and render the dashboard
+        const currentUser = request.user
+
+        let authToken = jwt.sign({ id: currentUser._id }, process.env.JWT_SECRET, { expiresIn: process.env.EXP_IN + "d" })
+
+        response.cookie(process.env.cookie_name, authToken, cookieOptions());
+        response.redirect("/dashboard")
 
     } catch (error) {
 
@@ -34,7 +40,7 @@ exports.processGplusPermissions = async (request, response, next) => {
     }
 }
 //first called when user picks an account as first cb in middleware stack
-exports.gplusAccountSelectCB = async function (accessToken, refreshToken, profile, finished) {
+exports.gplusAccountSelectCB = async function (accessToken, refreshToken, profile, done) {
     /**
      * 1. extract profile info from profile argument
      * 2. find out if user exists in the db based on the google id
@@ -54,7 +60,9 @@ exports.gplusAccountSelectCB = async function (accessToken, refreshToken, profil
             picture: profile._json.picture,
             email: profile._json.email,
             email_verified: profile._json.email_verified,
-            locale: profile._json.locale
+            locale: profile._json.locale,
+            metadata: {
+            }
 
         }
 
@@ -62,7 +70,8 @@ exports.gplusAccountSelectCB = async function (accessToken, refreshToken, profil
 
         if (!socialUserDoc) socialUserDoc = await SocialUsersModel.create(socialUserObj)
 
-        console.log(socialUserDoc);
+
+        done(null, socialUserDoc)
 
     } catch (error) {
         console.log(error);
@@ -200,7 +209,11 @@ exports.logout = (request, response, next) => {
             httpOnly: true
         })
 
-        response.status(200).json({ message: "you have been logged out!" })
+        //strips out the important parts in the session cookies sent by passport
+        request.logout()
+
+        //redirects to home page
+        response.redirect("/")
 
 
     } catch (error) {
@@ -410,10 +423,13 @@ exports.protect = async (request, response, next) => {
         let decoded = await verifyPromise
 
         let currentUser = await UsersModel.findById(decoded.id)
+
+        if (!currentUser) currentUser = await SocialUsersModel.findById(request.user.id)
+
         if (!currentUser) return response.status(400).json({ message: "sorry but user does not exist in db" })
 
         //4.
-        if (currentUser.passwordChangedAfter(decoded.iat)) return response.status(401).json({ message: "sorry! password mismatch!" })
+        if (currentUser === "manual" && currentUser.passwordChangedAfter(decoded.iat)) return response.status(401).json({ message: "sorry! password mismatch!" })
 
         //5.
         request.user = currentUser
