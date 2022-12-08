@@ -3,7 +3,7 @@
         .profile-wrapper-thumb
             img.img-responsive.img-circle(src='/assets/img/user-1.jpg' alt='')
             span.dashboard-user-status.bg-success
-        //- h4= `${user.role} : ${user.name.split(" ")[0]}`
+        h4= `${user.role} : ${user.name.split(" ")[0]}`
     ul#main-menu.nav
         li
             a(href='/dashboard')
@@ -71,20 +71,21 @@
                     a(href='/bookings')
                         i.fa.fa-circle-o-notch(aria-hidden='true')
                         | Bookings
-        li
-            a(href='javascript:void(0)')
-                i.fa.fa-cog(aria-hidden='true')
-                | Settings 
-                span.fa.arrow
-            ul.nav.nav-second-level
-                li
-                    a(href='/basic-settings')
-                        i.fa.fa-circle-o-notch(aria-hidden='true')
-                        | Basic Settings
-                li
-                    a(href='/site-settings')
-                        i.fa.fa-circle-o-notch(aria-hidden='true')
-                        | Site Settings
+        if user.role === "admin"                
+            li
+                a(href='javascript:void(0)')
+                    i.fa.fa-cog(aria-hidden='true')
+                    | Settings 
+                    span.fa.arrow
+                ul.nav.nav-second-level
+                    li
+                        a(href='/basic-settings')
+                            i.fa.fa-circle-o-notch(aria-hidden='true')
+                            | Basic Settings
+                    li
+                        a(href='/site-settings')
+                            i.fa.fa-circle-o-notch(aria-hidden='true')
+                            | Site Settings
         li
             a(href='/my-profile')
                 i.ti-user(aria-hidden='true')

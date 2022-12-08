@@ -311,7 +311,12 @@ exports.getContactPage = (request, response, next) => {
 }
 exports.getDashboardPage = (request, response, next) => {
     try {
-        response.status(200).render("dashboard")
+
+        console.log(request.user);
+        response.status(200).render("dashboard", {
+            user: request.user
+        }
+        )
 
 
     } catch (error) {

@@ -129,16 +129,24 @@ exports.signup = async (request, response, next) => {
         let authToken = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: process.env.EXP_IN + "d" })
 
         //5.
-        response.cookie(process.env.cookie_name, authToken, cookieOptions())
-        response.status(200).json({
-            status: "signup  success",
-            token: authToken,
-            payload: {
-                userdata: newUser
-            }
+        /**commented out to currently prevent signups
+         * 
+         * 
+         response.cookie(process.env.cookie_name, authToken, cookieOptions())
+         response.status(200).json({
+             status: "signup  success",
+             token: authToken,
+             payload: {
+                 userdata: newUser
+             }
+ 
+         })
+         */
+
+        response.status(400).json({
+            status: "currently prevent signups",
 
         })
-
     } catch (error) {
 
         response.status(400).json({
