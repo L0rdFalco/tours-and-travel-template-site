@@ -4,6 +4,7 @@ const passport = require("passport")
 const UsersModel = require("../models/usersModel.js")
 const SocialUsersModel = require("../models/socialUserModel.js")
 const Email = require("../utils/Email.js")
+const { promisify } = require("util")
 
 function cookieOptions() {
     let cookieOptions =
@@ -78,10 +79,6 @@ exports.gplusAccountSelectCB = async function (accessToken, refreshToken, profil
 
 
     }
-
-
-
-
 
 }
 
@@ -377,10 +374,32 @@ exports.updatepassword = async (request, response, next) => {
     }
 }
 
-exports.isLoggedIn = (request, response, next) => {
+exports.isLoggedIn = async (request, response, next) => {
     try {
 
+        let token = null;
+
+        const authHeader = request.headers.authrization
+
+        if (authHeader && authHeader.startsWith("Bearer")) token = authHeader.split(" ")[1]
+        else if (request.cookies?.auth_cookie) token = request.cookies.auth_cookie
+
+        if (token) {
+
+            let decodedToken = await promisify(jwt.verify)(token, process.env.JWT_SECRET)
+
+            let currentUser = await UsersModel.findById(decodedToken.id)
+
+            if (!currentUser) next()
+            if (currentUser.passwordChangedAfter(decodedToken.iat)) return next()
+            response.locals.user = currentUser;
+
+
+            return next()
+        }
+
         next()
+
 
 
 
@@ -391,6 +410,7 @@ exports.isLoggedIn = (request, response, next) => {
 
     } catch (error) {
 
+        console.log(error);
         response.status(400).json({
             status: "isLoggedIn fail",
 
