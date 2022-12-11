@@ -1,4 +1,73 @@
+const multer = require("multer");
+const sharp = require("sharp")
+
 const restaurantModel = require("../models/restaurantModel.js")
+
+//this stores the image as a buffer in memory
+const multerStorage = multer.memoryStorage()
+//tests if uploaded file is an image
+const multerFilter = (request, file, callback) => {
+
+    file.mimetype.split("/")[0] === "image" ? callback(null, true) : callback(new Error("not an image"), false);
+
+}
+
+const upload = multer({ storage: multerStorage, fileFilter: multerFilter })
+
+exports.uploadRestaurantImages = upload.fields([
+    {
+        name: "imageCover",
+        maxCount: 1
+    },
+    {
+        name: "images",
+        maxCount: 5
+
+    }
+])
+
+exports.resizeRestaurantImages = async (request, response, next) => {
+
+    try {
+        request.files.imageCover || request.files.images ? null : next()
+
+        console.log("num of images: ", request.files.images.length);
+
+        const imageCoverName = `${request.user.id}-${request.files.imageCover[0].originalname}.jpeg`
+
+        const imageRes = await sharp(request.files.imageCover[0].buffer)
+            .resize(2000, 1330)
+            .toFormat("jpeg")
+            .jpeg({ quality: 90 })
+            .toFile(`public/assets/img/res/${imageCoverName}`)
+
+
+        request.body.imageCover = imageCoverName
+
+        request.body.images = []
+        request.files.images.forEach(async (image, i) => {
+            const filename = `${request.user.id}-${image.originalname}-${i + 1}.jpeg`
+
+            await sharp(image.buffer)
+                .resize(800, 500)
+                .toFormat("jpeg")
+                .jpeg({ quality: 90 })
+                .toFile(`public/assets/img/res/${filename}`)
+
+            request.body.images.push(filename)
+
+
+        })
+
+        next()
+    } catch (error) {
+        console.log(error);
+        response.status(400).json({
+            status: "resizeRestaurantImage fail",
+
+        })
+    }
+}
 
 exports.getAllRestaurants = async (request, response, next) => {
     try {
@@ -136,7 +205,6 @@ exports.createSingleRestaurant = async (request, response, next) => {
 
 exports.updateSingleRestaurant = async (request, response, next) => {
     try {
-        console.log("updated restaurant object: ", request.body);
         // const updatedrestaurant = await restaurantModel.updateOne({ _id: request.params.id }, request.body)
         // const updatedrestaurant = await restaurantModel.findByIdAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators: true })
 

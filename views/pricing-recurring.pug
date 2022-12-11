@@ -1,0 +1,84 @@
+extends base
+
+block navigation_content 
+    include _navigation
+block content 
+    .page-title.image-title(style='background-image:url(assets/img/banner.jpg);')
+        .container
+            .page-title-wrap
+                h2 Our Packages
+                p
+                    a.theme-cl(href='#') Home
+                    |  | 
+                    span Pricing
+    // ======================= End Page Title =====================
+    // =========== Start Pricing ===================
+    section.gray-bg
+        .container
+            .container
+                .col-md-4
+                    .price-table-box.style-2.br-primary
+                        i.ti-settings
+                        h4 Professional
+                        .price-box
+                            h2
+                                sup $
+                                | 45
+                        .price-features
+                            ul
+                                li 2 PSD With Font
+                                li 2 Logo Option
+                                li 45 Days Trial
+                                li 30 GB Space
+                                li Sale After Purchase
+                                li 24X7 Full Support
+                        .price-btn
+                            a.btn.btn-pricing(href='#')
+                                | Purchase Now
+                                i.ti-shopping-cart
+                .col-md-4
+                    .price-table-box.style-2.active.br-danger
+                        i.ti-thumb-up
+                        h4 Standard
+                        .price-box
+                            h2
+                                sup $
+                                | 199
+                        .price-features
+                            ul
+                                li 2 PSD With Font
+                                li 2 Logo Option
+                                li 45 Days Trial
+                                li 30 GB Space
+                                li Sale After Purchase
+                                li 24X7 Full Support
+                        .price-btn
+                            a.btn.btn-pricing(href='#')
+                                | Purchase Now
+                                i.ti-shopping-cart
+                .col-md-4
+                    .price-table-box.style-2.br-success
+                        i.ti-cup
+                        h4 Premium
+                        .price-box
+                            h2
+                                sup $
+                                | 299
+                        .price-features
+                            ul
+                                li 2 PSD With Font
+                                li 2 Logo Option
+                                li 45 Days Trial
+                                li 30 GB Space
+                                li Sale After Purchase
+                                li 24X7 Full Support
+                        .price-btn
+                            a.btn.btn-pricing(href='#')
+                                | Purchase Now
+                                i.ti-shopping-cart
+            block content_contact 
+                include _contact
+
+
+block content_footer 
+    include _footer

@@ -678,9 +678,23 @@ exports.getMyProfilePage = (request, response, next) => {
         })
     }
 }
-exports.getPricingPage = (request, response, next) => {
+exports.getOneTimePricingPage = (request, response, next) => {
     try {
-        response.status(200).render("pricing")
+        response.status(200).render("pricing-onetime")
+
+
+    } catch (error) {
+
+        response.status(400).json({
+            status: " fail",
+
+        })
+    }
+}
+
+exports.getRecurringPricingPage = (request, response, next) => {
+    try {
+        response.status(200).render("pricing-recurring")
 
 
     } catch (error) {

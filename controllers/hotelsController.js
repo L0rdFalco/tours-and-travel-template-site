@@ -1,4 +1,76 @@
+const multer = require("multer")
+const sharp = require("sharp")
+
 const hotelsModel = require("../models/hotelsModel.js")
+
+/**
+ * these configurations dont resize the image
+  
+ const multerStorage = multer.diskStorage({
+     destination: (request, file, callback) => {
+ 
+         callback(null, "public/img/hotel")
+ 
+     },
+     filename: (request, file, callback) => {
+ 
+         const userid = request.user.id
+         const ext = file.mimetype.split("/")[1]
+ 
+ 
+         callback(null, `hotel-${userid}.${ext}`)
+ 
+ 
+     }
+ })
+ */
+
+//this stores the image as a buffer in memory
+const multerStorage = multer.memoryStorage()
+//tests if uploaded file is an image
+const multerFilter = (request, file, callback) => {
+
+    file.mimetype.split("/")[0] === "image" ? callback(null, true) : callback(new Error("not an image"), false);
+
+}
+
+const upload = multer({ storage: multerStorage, fileFilter: multerFilter })
+
+exports.uploadFeaturedImage = upload.single("hotel_featured-image")
+
+exports.resizePhoto = async (request, response, next) => {
+    try {
+        const userid = request.user.id
+
+        if (!request.file) return next()
+
+        request.file.filename = `hotel-${userid}.jpeg`
+        const imageRes = await sharp(request.file.buffer).resize(500, 1200).toFormat("jpeg").jpeg({ quality: 90 }).toFile(`public/assets/img/hotel/${request.file.filename}`)
+
+        next()
+
+    } catch (error) {
+
+        console.log(error);
+
+        response.status(400).json({
+            status: "resize photo fail",
+
+        })
+    }
+}
+
+
+
+/**
+ upload.array is used with one field accepting multiple files
+ eg. upload.array("name of field", maxCount as number)
+
+ upload.single("name of field") is used when uploading a single file
+
+ upload.fields({name:"name of field1", maxCount},{name:"name of field2", maxCount}) used for multiple uplaods from multiple fields
+*/
+
 
 exports.getAllHotels = async (request, response, next) => {
     try {
@@ -136,16 +208,20 @@ exports.createSingleHotel = async (request, response, next) => {
 
 exports.updateSingleHotel = async (request, response, next) => {
     try {
-        console.log("updated hotel listing", request.body);
+        console.log("updated file image ", request.file);
+        const filteredBody = request.body
+
+        if (request.file) filteredBody.imageCover = request.file.filename;
+
+        // console.log("filtered: ", filteredBody);
         // const updatedhotel = await hotelsModel.updateOne({ _id: request.params.id }, request.body)
-        // const updatedhotel = await hotelsModel.findByIdAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators: true })
+        // const updatedhotel = await hotelsModel.findByIdAndUpdate({ _id: request.params.id }, filteredBody, { new: true, runValidators: true })
 
         // response.status(200).json({
         //     status: "success",
         //     data: {
         //         payload: updatedhotel
         //     }
-
         // })
     } catch (error) {
 

@@ -62,10 +62,10 @@ block content
                                                 label Owner Contact
                                                 input#hotel_contact.form-control(type='text' value=payload.contact)
                                             .col-xs-6
-                                                label hotel banner Image
+                                                label(for="hotel_featured-image") hotel banner Image
                                                 .cf-input
                                                     label.custom-file
-                                                        input#hotel_featured-image.custom-file-input(type='file')
+                                                        input#hotel_featured-image.custom-file-input(type='file' accept='image/*' name="hotel_featured-image")
                                                         span.custom-file-control
                                             .col-xs-6
                                                 label Upload hotel gallery image 1

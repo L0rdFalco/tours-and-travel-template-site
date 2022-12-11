@@ -67,7 +67,6 @@ if (updateMainBtn) updateMainBtn.addEventListener("click", function (e) {
     hotelListingObj = { amenities: [], images: [] }
     const hotelNameValue = document.getElementById("hotel_name").value.trim()
     const hotelPriceValue = document.getElementById("hotel_price").value.trim()
-
     const hotelPhoneValue = document.getElementById("hotel_phone").value.trim()
     const hotelLlValue = document.getElementById("hotel_ll").value.trim()
     const hotelEmailValue = document.getElementById("hotel_email").value.trim()
@@ -80,11 +79,13 @@ if (updateMainBtn) updateMainBtn.addEventListener("click", function (e) {
     const hotelContactValue = document.getElementById("hotel_contact").value.trim()
     const hotelSummaryValue = document.getElementById("hl_summary").value.trim()
     const hotelDescriptionValue = document.getElementById("hl_description").value.trim()
-    const hotelFeaturedImageVal = document.getElementById("hotel_featured-image").value.trim()
-    const hotel_gallery1Value = document.getElementById("hotel_gallery1").value.trim()
-    const hotel_gallery2Value = document.getElementById("hotel_gallery2").value.trim()
-    const hotel_gallery3Value = document.getElementById("hotel_gallery3").value.trim()
-    const hotel_gallery4Value = document.getElementById("hotel_gallery4").value.trim()
+
+    // const hotelFeaturedImageVal = document.getElementById("hotel_featured-image").files[0]
+    // const hotel_gallery1Value = document.getElementById("hotel_gallery1").files[0]
+    // const hotel_gallery2Value = document.getElementById("hotel_gallery2").files[0]
+    // const hotel_gallery3Value = document.getElementById("hotel_gallery3").files[0]
+    // const hotel_gallery4Value = document.getElementById("hotel_gallery4").files[0]
+
 
     const input1El = document.getElementById("1").checked
     const input2El = document.getElementById("2").checked
@@ -120,11 +121,12 @@ if (updateMainBtn) updateMainBtn.addEventListener("click", function (e) {
     hotelSummaryValue.length > 0 ? hotelListingObj["summary"] = hotelSummaryValue : null
     hotelDescriptionValue.length > 0 ? hotelListingObj["description"] = hotelDescriptionValue : null
 
-    hotelFeaturedImageVal.length > 0 ? hotelListingObj["imageCover"] = hotelFeaturedImageVal : hotelListingObj["imageCover"] = "rest-1.jpg"
-    hotel_gallery1Value.length > 0 ? hotelListingObj["images"].push(hotel_gallery1Value) : hotelListingObj["images"].push("rest-1.jpg")
-    hotel_gallery2Value.length > 0 ? hotelListingObj["images"].push(hotel_gallery2Value) : hotelListingObj["images"].push("rest-2.jpg")
-    hotel_gallery3Value.length > 0 ? hotelListingObj["images"].push(hotel_gallery3Value) : hotelListingObj["images"].push("rest-3.jpg")
-    hotel_gallery4Value.length > 0 ? hotelListingObj["images"].push(hotel_gallery4Value) : hotelListingObj["images"].push("rest-4.jpg")
+
+    // hotelFeaturedImageVal ? hotelListingObj["hotel_featured-image"] = hotelFeaturedImageVal : hotelListingObj["hotel_featured-image"] = "rest-1.jpg"
+    // hotel_gallery1Value ? hotelListingObj["images"].push(hotel_gallery1Value) : hotelListingObj["images"].push("rest-1.jpg")
+    // hotel_gallery2Value ? hotelListingObj["images"].push(hotel_gallery2Value) : hotelListingObj["images"].push("rest-2.jpg")
+    // hotel_gallery3Value ? hotelListingObj["images"].push(hotel_gallery3Value) : hotelListingObj["images"].push("rest-3.jpg")
+    // hotel_gallery4Value ? hotelListingObj["images"].push(hotel_gallery4Value) : hotelListingObj["images"].push("rest-4.jpg")
 
     if (input1El) hotelListingObj["amenities"].push("Satellite TV")
     if (input2El) hotelListingObj["amenities"].push("Coffeemaker")
@@ -160,11 +162,24 @@ if (updateListingBtn) updateListingBtn.addEventListener("click", async function 
     try {
         e.preventDefault()
 
+        const form = new FormData()
+
+        for (const key in hotelListingObj) {
+            form.append(key, hotelListingObj[key])
+        }
+
+        form.append("hotel_featured-image", document.getElementById("hotel_featured-image").files[0])
+
+
+
+
+
+        console.log("form: ", form);
         console.log("make hotel post request here");
         const res = await axios({
             method: "PATCH",
             url: `/api/v1/hotels/${window.location.href.split("hotel-edit/")[1]}`,
-            data: hotelListingObj
+            data: form
 
         })
         console.log("hotel listing updated? ", res.data);

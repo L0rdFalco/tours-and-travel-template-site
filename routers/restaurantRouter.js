@@ -12,7 +12,7 @@ restaurantRouter.route("/")
     .post(authController.protect, authController.restrictTo("admin", "lead-guide"), restaurantController.createSingleRestaurant)
 restaurantRouter.route("/:id")
     .get(restaurantController.getSingleRestaurant)
-    .patch(authController.protect, authController.restrictTo("admin", "lead-guide"), restaurantController.updateSingleRestaurant)
+    .patch(authController.protect, authController.restrictTo("admin", "lead-guide"), restaurantController.uploadRestaurantImages, restaurantController.resizeRestaurantImages, restaurantController.updateSingleRestaurant)
     .delete(authController.protect, authController.restrictTo("admin", "lead-guide"), restaurantController.deleteSingleRestaurant)
 
 module.exports = restaurantRouter

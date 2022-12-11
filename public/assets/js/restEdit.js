@@ -81,11 +81,6 @@ if (updateMainBtn) updateMainBtn.addEventListener("click", function (e) {
     const restaurantContactValue = document.getElementById("restaurant_contact").value.trim()
     const restaurantSummaryValue = document.getElementById("rt_summary").value.trim()
     const restaurantDescriptionValue = document.getElementById("rt_description").value.trim()
-    const restaurantFeaturedImageVal = document.getElementById("restaurant_featured-image").value.trim()
-    const restaurant_gallery1Value = document.getElementById("restaurant_gallery1").value.trim()
-    const restaurant_gallery2Value = document.getElementById("restaurant_gallery2").value.trim()
-    const restaurant_gallery3Value = document.getElementById("restaurant_gallery3").value.trim()
-    const restaurant_gallery4Value = document.getElementById("restaurant_gallery4").value.trim()
 
     const input1El = document.getElementById("1").checked
     const input2El = document.getElementById("2").checked
@@ -123,12 +118,6 @@ if (updateMainBtn) updateMainBtn.addEventListener("click", function (e) {
     restaurantSummaryValue.length > 0 ? restaurantListingObj["summary"] = restaurantSummaryValue : null
     restaurantDescriptionValue.length > 0 ? restaurantListingObj["description"] = restaurantDescriptionValue : null
 
-    restaurantFeaturedImageVal.length > 0 ? restaurantListingObj["imageCover"] = restaurantFeaturedImageVal : restaurantListingObj["imageCover"] = "rest-1.jpg"
-    restaurant_gallery1Value.length > 0 ? restaurantListingObj["images"].push(restaurant_gallery1Value) : restaurantListingObj["images"].push("rest-1.jpg")
-    restaurant_gallery2Value.length > 0 ? restaurantListingObj["images"].push(restaurant_gallery2Value) : restaurantListingObj["images"].push("rest-2.jpg")
-    restaurant_gallery3Value.length > 0 ? restaurantListingObj["images"].push(restaurant_gallery3Value) : restaurantListingObj["images"].push("rest-3.jpg")
-    restaurant_gallery4Value.length > 0 ? restaurantListingObj["images"].push(restaurant_gallery4Value) : restaurantListingObj["images"].push("rest-4.jpg")
-
     if (input1El) restaurantListingObj["amenities"].push("Satellite TV")
     if (input2El) restaurantListingObj["amenities"].push("Coffeemaker")
     if (input3El) restaurantListingObj["amenities"].push("Hair Dryer")
@@ -164,11 +153,26 @@ if (updateListingBtn) updateListingBtn.addEventListener("click", async function 
     try {
         e.preventDefault()
 
+        const formObj = new FormData()
+
+        for (key in restaurantListingObj) {
+            formObj.append(key, restaurantListingObj[key])
+        }
+
+        formObj.append("imageCover", document.getElementById("restaurant_featured-image").files[0]);
+
+        for (let i = 1; i <= 3; i++) {
+
+            formObj.append("images", document.getElementById(`restaurant_gallery${i}`).files[0])
+        }
+
         const res = await axios({
             method: "PATCH",
             url: `/api/v1/restaurants/${window.location.href.split("rest-edit/")[1]}`,
-            data: restaurantListingObj
+            data: formObj
         })
+
+
 
         console.log("restaurant listing updated? ", res.data);
     } catch (error) {
