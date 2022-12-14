@@ -22,7 +22,7 @@ passport.deserializeUser(async (id, done) => {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "/api/v1/users/gplusPermissions"
+    callbackURL: "https://toursandtravel.onrender.com/api/v1/users/gplusPermissions"
 
 }, authController.gplusAccountSelectCB))
 
