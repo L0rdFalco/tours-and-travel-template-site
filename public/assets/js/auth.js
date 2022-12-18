@@ -1,5 +1,6 @@
 "use strict"
 
+
 //modal login
 const auth_email_El = document.getElementById("auth_email")
 const auth_password_El = document.getElementById("auth_password")
@@ -81,12 +82,12 @@ if (signup_btn) signup_btn.addEventListener("click", async function (e) {
 if (facebookAuthEl) facebookAuthEl.addEventListener("click", async function (e) {
     e.preventDefault()
 
-    const res = await axios({
-        method: "GET",
-        url: "/api/v1/users/facebookAuth"
-    })
+    // const res = await axios({
+    //     method: "GET",
+    //     url: "/api/v1/users/facebookAuth"
+    // })
 
-    console.log("facebook Auth? ", res.data);
+    // console.log("facebook Auth? ", res.data);
 
     //if success redirect to dashboard
 })

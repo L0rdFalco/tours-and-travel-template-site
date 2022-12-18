@@ -5,10 +5,12 @@ const usersController = require("../controllers/usersController.js")
 
 const UsersRouter = express.Router();
 
-UsersRouter.route("/gplusAuth").get(authController.gplusAuth) // pops out consent screen
-UsersRouter.route("/gplusPermissions").get(passport.authenticate('google'), authController.processGplusPermissions)// called with user consents
+UsersRouter.route("/gplus-login").get(authController.gplusLogin) // pops out consent screen
+UsersRouter.route("/gcloud-webhook").get(passport.authenticate('google'), authController.googleCloudWebhook)// called by google cloud when user consents
+
 UsersRouter.route("/facebookAuth").get(authController.facebookAuth)
-UsersRouter.route("/fbPermissions/").get(authController.processGplusPermissions)
+UsersRouter.route("/fbPermissions/").get(authController.processFacebookPermissions)
+
 UsersRouter.route("/signup").post(authController.signup)
 UsersRouter.route("/login").post(authController.login)
 UsersRouter.route("/logout").get(authController.protect, authController.logout)

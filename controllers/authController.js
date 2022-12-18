@@ -19,12 +19,12 @@ function cookieOptions() {
 }
 
 //pops out consent screen
-exports.gplusAuth = passport.authenticate("google", {
+exports.gplusLogin = passport.authenticate("google", {
     scope: ['profile', 'email']
 })
 
 //called when user picks an account as second cb in the middleware stack
-exports.processGplusPermissions = async (request, response, next) => {
+exports.googleCloudWebhook = async (request, response, next) => {
     try {
         //sign a jwt and render the dashboard
         const currentUser = request.user
@@ -36,12 +36,12 @@ exports.processGplusPermissions = async (request, response, next) => {
 
     } catch (error) {
 
-        console.log("processGplusPermissions fail");
+        console.log("googleCloudWebhook fail");
 
     }
 }
 //first called when user picks an account as first cb in middleware stack
-exports.gplusAccountSelectCB = async function (accessToken, refreshToken, profile, done) {
+exports.passportCallback = async function (accessToken, refreshToken, profile, done) {
     /**
      * 1. extract profile info from profile argument
      * 2. find out if user exists in the db based on the google id
@@ -78,6 +78,24 @@ exports.gplusAccountSelectCB = async function (accessToken, refreshToken, profil
         console.log(error);
 
 
+    }
+
+}
+
+
+exports.passportSerialiseUserCB = (user, done) => {
+    done(null, user.id)
+}
+
+exports.passportDeserialiseUserCB = async (id, done) => {
+    try {
+
+        const socialUser = await SocialUsersModel.findById(id)
+
+        if (socialUser) done(null, socialUser)
+
+    } catch (error) {
+        console.log(error);
     }
 
 }
