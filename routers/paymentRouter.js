@@ -5,7 +5,7 @@ const authController = require("../controllers/authController.js")
 const PaypalRouter = express.Router()
 
 
-PaypalRouter.route("/").post(authController.protect, authController.restrictTo("user"), paymentController.createOrder)
-PaypalRouter.route("/:orderID/capture").post(authController.protect, authController.restrictTo("user"), paymentController.capturePayment)
+PaypalRouter.route("/").post(paymentController.createOrder)
+PaypalRouter.route("/:orderID/capture").post(paymentController.capturePayment)
 
 module.exports = PaypalRouter

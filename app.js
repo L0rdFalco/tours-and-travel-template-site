@@ -99,7 +99,7 @@ app.use(cookieSession({
 //initialise passport 
 app.use(passport.initialize())
 
-//use session cookies with passports when authenticating
+//use session cookies with passport when authenticating
 app.use(passport.session())
 
 app.use((request, response, next) => {
