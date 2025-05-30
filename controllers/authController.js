@@ -1,513 +1,410 @@
-const crypto = require("crypto")
-const jwt = require("jsonwebtoken")
-const passport = require("passport")
-const UsersModel = require("../models/usersModel.js")
-const SocialUsersModel = require("../models/socialUserModel.js")
-const Email = require("../utils/Email.js")
-const { promisify } = require("util")
+const jwt = require("jsonwebtoken");
+const passport = require("passport");
+const { promisify } = require("util");
+const UsersModel = require("../models/UsersModel");
+const SocialUsersModel = require("../models/SocialUsersModel");
 
 function cookieOptions() {
-    let cookieOptions =
-    {
-        expires: new Date(Date.now() + (process.env.EXP_IN * 24 * 60 * 60 * 1000)),
-        secure: false,
-        httpOnly: true
-    }
-    if (process.env.NODE_ENV === "production") cookieOptions.secure = true
-
-    return cookieOptions
-}
-
-//pops out consent screen
-exports.gplusLogin = passport.authenticate("google", {
-    scope: ['profile', 'email']
-})
-
-//called when user picks an account as second cb in the middleware stack
-exports.googleCloudWebhook = async (request, response, next) => {
-    try {
-        //sign a jwt and render the dashboard
-        const currentUser = request.user
-
-        let authToken = jwt.sign({ id: currentUser._id }, process.env.JWT_SECRET, { expiresIn: process.env.EXP_IN + "d" })
-
-        response.cookie(process.env.cookie_name, authToken, cookieOptions());
-        response.redirect("/dashboard")
-
-    } catch (error) {
-
-        console.log("googleCloudWebhook fail");
-
-    }
-}
-//first called when user picks an account as first cb in middleware stack
-exports.passportCallback = async function (accessToken, refreshToken, profile, done) {
-    /**
-     * 1. extract profile info from profile argument
-     * 2. find out if user exists in the db based on the google id
-     * 3. create user if doesnt exist
-     * 4. if user exists ... 
-     */
-
-    try {
-        let socialUserDoc = null;
-
-        const socialUserObj = {
-            gplus_id: profile._json.sub,
-            name: profile._json.name,
-            given_name: profile._json.given_name,
-            family_name: profile._json.family_name,
-            provider: profile.provider,
-            picture: profile._json.picture,
-            email: profile._json.email,
-            email_verified: profile._json.email_verified,
-            locale: profile._json.locale,
-            metadata: {
-            }
-
-        }
-
-        socialUserDoc = await SocialUsersModel.findOne({ gplus_id: profile.id })
-
-        if (!socialUserDoc) socialUserDoc = await SocialUsersModel.create(socialUserObj)
-
-
-        done(null, socialUserDoc)
-
-    } catch (error) {
-        console.log(error);
-
-
-    }
-
-}
-
-
-exports.passportSerialiseUserCB = (user, done) => {
-    done(null, user.id)
-}
-
-exports.passportDeserialiseUserCB = async (id, done) => {
-    try {
-
-        const socialUser = await SocialUsersModel.findById(id)
-
-        if (socialUser) done(null, socialUser)
-
-    } catch (error) {
-        console.log(error);
-    }
-
-}
-
-exports.facebookAuth = passport.authenticate("facebook", {
-    scope: ["profile", "email"]
-})
-
-exports.processFacebookPermissions = async (request, response, next) => {
-    try {
-
-    } catch (error) {
-
-    }
-}
-
-
-exports.signup = async (request, response, next) => {
-    try {
-        /**
-         * 1. extract all required fields from request.body
-         * 2. use usermodel.create() to create a user doc in the db
-         * 3. set special fields to null do that they dont appear in the response
-         * 4. generate a jwt encoded with the id of the returned user
-         * 5. automatically log in user by sending said jwt in the response
-         */
-
-        //1.
-        const userData = {
-            name: request.body.name,
-            email: request.body.email,
-            password: request.body.password,
-            passwordConfirm: request.body.passwordConfirm
-        }
-
-        //2.
-        const newUser = await UsersModel.create(userData)
-
-        //3.
-        newUser.password = undefined
-        newUser.role = undefined
-        newUser.isActive = undefined
-        newUser.__v = undefined
-
-        //4.
-        let authToken = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: process.env.EXP_IN + "d" })
-
-        //5.
-        /**commented out to currently prevent signups
-         * 
-         * 
-         response.cookie(process.env.cookie_name, authToken, cookieOptions())
-         response.status(200).json({
-             status: "signup  success",
-             token: authToken,
-             payload: {
-                 userdata: newUser
-             }
- 
-         })
-         */
-
-        response.status(400).json({
-            status: "currently prevent signups",
-
-        })
-    } catch (error) {
-
-        response.status(400).json({
-            status: "signup fail",
-
-        })
-    }
-}
-
-exports.login = async (request, response, next) => {
-    try {
-        /**
-         * 1. check if both email and password are provided in the request.body
-         * 2. find out if user with said credentials exists in the db
-         * 3. check if provided credentials match those in the queried user
-         * 4. if the above checks pass, sign a jwt and send it back as a response
-         * 
-         */
-
-        const email = request.body.email;
-        const password = request.body.password;
-
-        //1. 
-        if (!email || !password) return response.status(400).json({ message: "please provide required information!" })
-
-        //2.
-        const queriedUser = await UsersModel.findOne({ email: email }).select("+password")
-
-        //3.
-        if (!queriedUser) return response.status(400).json({ message: "user does not exist in the db" });
-
-        const matches = await queriedUser.doPasswordsMatch(password, queriedUser.password)
-
-        if (!matches) return response.status(400).json({ message: "please enter correct password" });
-
-        //4.
-        const authToken = jwt.sign({ id: queriedUser._id }, process.env.JWT_SECRET, { expiresIn: 90 + "d" });
-
-        response.cookie(process.env.cookie_name, authToken, cookieOptions());
-        response.status(200).json({
-            status: "login  success",
-            token: authToken
-
-        })
-
-
-
-    } catch (error) {
-        console.log(error);
-
-        response.status(400).json({
-            status: "login fail",
-
-        })
-    }
-}
-
-exports.logout = (request, response, next) => {
-    try {
-        /**
-         * send auth_cookie as null to overwrite the preexisting cookie in the client
-         * give new cookie very short expiration time
-         */
-
-        response.cookie(process.env.cookie_name, "", {
-            expires: new Date(Date.now() + (10 * 1000)),
-            secure: false,
-            httpOnly: true
-        })
-
-        //strips out the important parts in the session cookies sent by passport
-        request.logout()
-
-        //redirects to home page
-        response.redirect("/")
-
-
-    } catch (error) {
-
-        response.status(400).json({
-            status: "logout fail",
-
-        })
-    }
-}
-
-exports.forgotpassword = async (request, response, next) => {
-    try {
-        /**
-         * 1. find user with provided email
-         * 2. generate reset token, save encrypted version and time remaining to expire
-         * 3. save the ecrypted token to the db
-         * 4. generate endpoint with appended endpoint and send it to said email
-         */
-
-        const queriedUser = await UsersModel.findOne({ email: request.body.email })
-
-        if (!queriedUser) return response.status(400).json({ message: "user does not exist" })
-
-        const plainResetToken = queriedUser.createPasswordResetToken();
-
-        //this aupdates the document with the newly created fields
-        //turning off validation keeps node from looking for required fields for user b4 saving
-        queriedUser.save({ validateBeforeSave: false })
-
-        const resetURL = `${request.protocol}://${request.get("host")}/api/v1/users/reset-password/${plainResetToken}`
-
-        await new Email(queriedUser, resetURL).sendPWResetEmail()
-
-        response.status(200).json({
-            status: "forgotpassword  success",
-
-        })
-
-    } catch (error) {
-        response.status(400).json({
-            status: "forgotpassword fail",
-
-        })
-    }
-}
-
-exports.resetpassword = async (request, response, next) => {
-    try {
-        /**
-         * 1. extract plain reset token from request.params
-         * 2. query the db for a user with the hashed version of the above token
-         * 3. check if token is valid and whether it has expired
-         * 4. overwrite the password field in the db with the new on in request.body
-         * 5. automatically log in user by signing and sending a JWT
-         */
-
-        //1.
-        const plainResetToken = request.params.token;
-
-        const hashedToken = crypto.createHash("sha256").update(plainResetToken).digest("hex")
-
-        //2. and 3.
-        const queriedUser = await UsersModel.findOne(
-            {
-                encrResetToken: hashedToken,
-                resetTokenExpires: { $gt: Date.now() }
-
-            })
-
-        if (!queriedUser) return response.status(400).json({ message: "user does not exist or token has expired" })
-
-        //4.
-        queriedUser.password = request.body.password;
-        queriedUser.passwordConfirm = request.body.passwordConfirm;
-        queriedUser.encrResetToken = undefined;
-        queriedUser.resetTokenExpires = undefined;
-
-        await queriedUser.save() //input validation is turned on
-
-
-        //5.
-        const authToken = jwt.sign({ id: queriedUser._id }, process.env.JWT_SECRET, { expiresIn: 90 + "d" });
-
-        response.cookie(process.env.cookie_name, authToken, cookieOptions());
-        response.status(200).json({
-            status: "resetpassword success",
-            token: authToken
-
-        })
-
-
-    } catch (error) {
-
-        response.status(400).json({
-            status: "reset fail",
-
-        })
-    }
-}
-
-exports.updatepassword = async (request, response, next) => {
-    try {
-        /**
-         *1. check of provided password match
-         *2. query db for user from request.user.id
-         *3. find out if provided password matches the stored pw using a static method in the schema
-         *4. overwrite password using usermdel.save()
-            [runs automatically when save() is called] presave middleware to update passwordChangedAt field
-         *5. automatically log in user by sending a newly generated jwt
-         * 
-         */
-
-        const oldPassword = request.body.oldPassword
-        const newPassword = request.body.newPassword
-        const passwordConfirm = request.body.passwordConfirm
-
-        //1.
-        if (newPassword !== passwordConfirm) return response.status(400).json({ message: "provided passwords dont match!" })
-
-        //2.
-        const queriedUser = await UsersModel.findById(request.user._id).select("+password")
-
-        //3.
-        const matches = await queriedUser.doPasswordsMatch(oldPassword, queriedUser.password)
-
-        if (!matches) return response.status(400).json({ message: "no user with THE provided password." })
-
-        queriedUser.password = newPassword;
-        queriedUser.passwordConfirm = passwordConfirm;
-
-        //4.
-        await queriedUser.save()
-
-        //5.
-        const authToken = jwt.sign({ id: queriedUser._id }, process.env.JWT_SECRET, { expiresIn: 90 + "d" });
-
-        response.cookie(process.env.cookie_name, authToken, cookieOptions());
-        response.status(200).json({
-            status: "updatepassword success",
-            token: authToken
-
-        })
-
-
-    } catch (error) {
-
-        console.log(error);
-        response.status(400).json({
-            status: "updatepassword fail",
-
-        })
-    }
-}
-
-exports.isLoggedIn = async (request, response, next) => {
-    try {
-
-        let token = null;
-
-        const authHeader = request.headers.authrization
-
-        if (authHeader && authHeader.startsWith("Bearer")) token = authHeader.split(" ")[1]
-        else if (request.cookies?.auth_cookie) token = request.cookies.auth_cookie
-
-        if (token) {
-
-            let decodedToken = await promisify(jwt.verify)(token, process.env.JWT_SECRET)
-
-            let currentUser = await UsersModel.findById(decodedToken.id)
-
-            if (!currentUser) next()
-            if (currentUser.passwordChangedAfter(decodedToken.iat)) return next()
-            response.locals.user = currentUser;
-
-
-            return next()
-        }
-
-        next()
-
-
-
-
-        // response.status(200).json({
-        //     status: "isLoggedIn  success",
-
-        // })
-
-    } catch (error) {
-
-        console.log(error);
-        response.status(400).json({
-            status: "isLoggedIn fail",
-
-        })
-    }
+  let cookieOptions = {
+    expires: new Date(Date.now() + process.env.EXP_IN * 24 * 60 * 60 * 1000),
+    secure: false,
+    httpOnly: true,
+  };
+  if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
+
+  return cookieOptions;
 }
 
 exports.protect = async (request, response, next) => {
-    try {
-        /**
-         *1. check if jwt has been sent in th header or cookie
-         *2. verify the token
-         *3. check if econded user is in the db
-         *4. check of user changed passwords after token was issued
-         *5. asign said user to request.user()
-         *6. call next() if all abiove checks pass
-         */
+  try {
+    let token = null;
 
-        let token = null;
+    const authHeader = request.headers.authorization;
 
-        const authHeader = request.headers.authrization
+    if (authHeader && authHeader.startsWith("Bearer"))
+      token = authHeader.split(" ")[1];
+    else if (request.cookies?.Auth_Cookie) token = request.cookies.Auth_Cookie;
 
-        if (authHeader && authHeader.startsWith("Bearer")) token = authHeader.split(" ")[1]
-        else if (request.cookies?.auth_cookie) token = request.cookies.auth_cookie
+    if (!token)
+      return response.status(400).render("errorpage", {
+        data: { status: 400, message: "please log in or create an account!" },
+      });
 
-        if (!token) return response.status(400).json({ message: "please log in" })
+    let verifyPromise = new Promise(function (resolve, reject) {
+      return jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) reject(err);
+        else if (decoded) resolve(decoded);
+      });
+    });
 
-        let verifyPromise = new Promise(function (resolve, reject) {
+    let decoded = await verifyPromise;
 
-            return jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-                if (err) reject(err)
-                else if (decoded) resolve(decoded)
-            })
+    let currentUser = await UsersModel.findById(decoded.id);
 
-        })
+    if (!currentUser)
+      currentUser = await SocialUsersModel.findById(request.user.id);
 
-        //2.
-        let decoded = await verifyPromise
+    if (!currentUser)
+      return response.status(400).render("errorpage", {
+        data: { status: 400, message: "sorry but user does not exist in db" },
+      });
 
-        let currentUser = await UsersModel.findById(decoded.id)
+    //4.
+    if (
+      currentUser === "manual" &&
+      currentUser.passwordChangedAfter(decoded.iat)
+    )
+      return response.status(401).render("errorpage", {
+        data: { status: 400, message: "sorry! password mismatch!" },
+      });
 
-        if (!currentUser) currentUser = await SocialUsersModel.findById(request.user.id)
+    //5.
 
-        if (!currentUser) return response.status(400).json({ message: "sorry but user does not exist in db" })
+    request.user = currentUser;
 
-        //4.
-        if (currentUser === "manual" && currentUser.passwordChangedAfter(decoded.iat)) return response.status(401).json({ message: "sorry! password mismatch!" })
+    response.locals.user = currentUser;
 
-        //5.
-        request.user = currentUser
+    next();
+  } catch (error) {
+    return response.redirect("/login");
+  }
+};
 
-        response.locals.user = currentUser
+exports.isLoggedIn = async (request, response, next) => {
+  try {
+    let token = null;
 
-        //6.
-        next()
-    } catch (error) {
-        console.log(error);
+    const authHeader = request.headers.authorization;
+    // console.log("auth header", request.headers);
 
-        response.status(400).json({
-            status: "protect fail",
+    if (authHeader && authHeader.startsWith("Bearer"))
+      token = authHeader.split(" ")[1];
+    else if (request.cookies?.Auth_Cookie) token = request.cookies.Auth_Cookie;
 
-        })
+    if (token) {
+      let decodedToken = await promisify(jwt.verify)(
+        token,
+        process.env.JWT_SECRET
+      );
+
+      let currentUser = null;
+
+      currentUser = await UsersModel.findById(decodedToken.id);
+
+      if (!currentUser) {
+        currentUser = await SocialUsersModel.findById(decodedToken.id);
+      }
+
+      if (!currentUser) return next();
+
+      //this check is for manual authentication only
+      if (
+        currentUser.provider === "manual" &&
+        currentUser.passwordChangedAfter(decodedToken.iat)
+      )
+        return next();
+
+      response.locals.user = currentUser;
+      return next();
     }
-}
+
+    next();
+  } catch (error) {
+    console.log(error);
+    response.status(400).render("errorpage", {
+      data: { status: 400, message: "isLoggedIn failed" },
+    });
+  }
+};
 
 exports.restrictTo = (...roles) => {
-    return (request, response, next) => {
-        try {
+  return (request, response, next) => {
+    try {
+      if (!roles.includes(request.user.role))
+        return response.status(400).render("errorpage", {
+          data: { status: 400, message: "inadequate permissions" },
+        });
 
-            if (!roles.includes(request.user.role)) return response.status(400).json({ message: "inadequate permissions" })
-
-            next()
-        } catch (error) {
-
-            console.log("restrictTo failed");
-            response.status(400).json({
-                status: "restrictTo fail",
-
-            })
-        }
+      next();
+    } catch (error) {
+      response.status(400).render("errorpage", {
+        data: {
+          status: 400,
+          message: "restrictTo fail",
+        },
+      });
     }
-}
+  };
+};
+
+exports.signup = async (request, response, next) => {
+  try {
+    /**
+         1. extract all required fields from requet.body
+         2. use userModel.create to create a user donc in the db
+         3. set special fields to null that the dont appear in the response
+         4. generate a jwt encoded with the id id the returned user
+         5. automatically log in user by returning said JWT in the response   
+
+         TODO: use the generateSecureRandomString function to create and save a uniqe referral code
+         */
+
+
+    let name = request.body.name;
+    let email = request.body.email;
+    let password = request.body.password;
+    let passwordConfirm = request.body.passwordConfirm;
+
+    if (!name || !email || !password || !passwordConfirm)
+      return response.status(400).json({
+        message: "please provide all the information required above!",
+      });
+
+    //1.
+    const userData = {
+      name: request.body.name,
+      email: request.body.email,
+      password: request.body.password,
+      passwordConfirm: request.body.passwordConfirm,
+    };
+
+    const queriedUser = await UsersModel.findOne({ email: email });
+
+    if (queriedUser)
+      return response
+        .status(400)
+        .json({ message: "a user with that email already exists!" });
+
+    //2.
+    const newUser = await UsersModel.create(userData);
+
+    // set daily limit
+    setDailyLimit(newUser._id, 5)
+
+    //3.
+    newUser.password = undefined;
+    newUser.role = undefined;
+    newUser.isActive = undefined;
+    newUser.__v = undefined;
+
+    //4.
+    let authToken = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
+      expiresIn: process.env.EXP_IN + "d",
+    });
+
+    //5.
+
+    response.cookie(process.env.COOKIE_NAME, authToken, cookieOptions());
+
+    response.status(200).json({
+      message: "signup success",
+      token: authToken,
+      payload: {
+        userData: newUser,
+      },
+    });
+  } catch (error) {
+    const nameError = error.errors.name?.properties.message;
+    const emailError = error.errors.email?.properties.message;
+    const passwordError = error.errors.password?.properties.message;
+    const passwordConfirmError =
+      error.errors.passwordConfirm?.properties.message;
+    if (passwordError)
+      response.status(400).json({ message: `signup failed! ${passwordError}` });
+    else if (emailError)
+      response.status(400).json({ message: `signup failed! ${emailError}` });
+    else if (passwordConfirmError)
+      response
+        .status(400)
+        .json({ message: `signup failed! ${passwordConfirmError}` });
+    else if (nameError)
+      response.status(400).json({ message: `signup failed! ${nameError}` });
+    else response.status(400).json({ message: `signup failed!` });
+  }
+};
+
+exports.login = async (request, response, next) => {
+  try {
+    const email = request.body.email;
+    const password = request.body.password;
+
+    if (!email || !password)
+      return response
+        .status(400)
+        .json({ message: "please provide required information!" });
+
+    const queriedUser = await UsersModel.findOne({ email: email }).select(
+      "+password"
+    );
+
+    if (!queriedUser)
+      return response
+        .status(400)
+        .json({ message: "no user with those credentials" });
+
+    const matches = await queriedUser.doPasswordsMatch(
+      password,
+      queriedUser.password
+    );
+
+    if (!matches)
+      return response
+        .status(400)
+        .json({ message: "please enter correct password" });
+
+    let authToken = jwt.sign({ id: queriedUser._id }, process.env.JWT_SECRET, {
+      expiresIn: process.env.EXP_IN + "d",
+    });
+
+    response.cookie(process.env.COOKIE_NAME, authToken, cookieOptions());
+
+    response.status(200).json({
+      message: "login success",
+      token: authToken,
+      payload: {
+        userData: queriedUser,
+      },
+    });
+  } catch (error) {
+    return response.status(400).render({ message: "login failed" });
+  }
+};
+
+exports.logout = (request, response, next) => {
+  try {
+    response.cookie(process.env.COOKIE_NAME, "no_token", {
+      expires: new Date(Date.now() + 1 * 1000),
+      secure: false,
+      httpOnly: true,
+    });
+
+    //strips out the important parts in the session cookies sent by passport
+    request.logout();
+
+    response.redirect("/offload");
+  } catch (error) {
+    return response
+      .status(400)
+      .render("errorpage", { data: { status: 400, message: "logout failed" } });
+  }
+};
+
+exports.forgotPassword = async (request, response, next) => {
+  try {
+    const email = request.body.email;
+    if (!email)
+      return response.status(400).render("errorpage", {
+        data: { status: 400, message: "please enter valid email" },
+      });
+
+    const queriedUser = await UsersModel.findOne({ email: email }).select(
+      "+password"
+    );
+
+    if (!queriedUser)
+      return response.status(400).render("errorpage", {
+        data: { status: 400, message: "please enter valid email" },
+      });
+
+    //configure nodemailer to send email to the queried users email
+  } catch (error) {
+    return response.status(400).render("errorpage", {
+      data: { status: 400, message: "forgotPassword failed" },
+    });
+  }
+};
+
+exports.resetPassword = async (request, response, next) => {
+  try {
+  } catch (error) {
+    return response.status(400).render("errorpage", {
+      data: { status: 400, message: "resetPassword failed" },
+    });
+  }
+};
+
+exports.updatePassword = (request, response, next) => {
+  try {
+  } catch (error) {
+    return response.status(400).render("errorpage", {
+      data: { status: 400, message: "updatePassword failed" },
+    });
+  }
+};
+
+////PASSPORT.JS CALLBACKS/////
+
+//this callback pops out the consent screen
+exports.gplusAuth = passport.authenticate("google", {
+  scope: ["profile", "email"],
+});
+
+//first called when a user picks an account as FIRST callback in middleware stack
+exports.passportCallback = async function (
+  accessToken,
+  refreshToken,
+  profile,
+  done
+) {
+  try {
+
+    let socialUserDoc = null;
+
+    const socialUserObj = {
+      gplus_id: profile._json.sub,
+      name: profile._json.name || "Falco",
+      given_name: profile._json.given_name || "Day",
+      family_name: profile._json.family_name || "Knight",
+      provider: profile.provider || "google",
+      picture: profile._json.picture,
+      email: profile._json.email,
+      email_verified: profile._json.email_verified,
+      locale: profile._json.locale || "en",
+      metadata: {},
+    };
+
+    socialUserDoc = await SocialUsersModel.findOne({ gplus_id: profile.id });
+
+    if (!socialUserDoc){
+      socialUserDoc = await SocialUsersModel.create(socialUserObj);
+      setDailyLimit(socialUserDoc._id, 5)
+    }
+
+    done(null, socialUserDoc);
+  } catch (error) {
+    console.log("passportCallback error, ", error);
+  }
+};
+
+//first called when a user picks an account as SECOND callback in middleware stack
+exports.googleCloudWebhookCB = async (request, response, next) => {
+  try {
+    //sign a jwt and render the catalog
+    const currentUser = request.user;
+
+    let authToken = jwt.sign({ id: currentUser._id }, process.env.JWT_SECRET, {
+      expiresIn: process.env.EXP_IN + "d",
+    });
+
+    response.cookie(process.env.COOKIE_NAME, authToken, cookieOptions());
+    response.redirect("/success");
+  } catch (error) {
+    console.log("googleCloudWebhookCB error");
+  }
+};
+
+exports.passportSerialiseUserCB = (user, done) => {
+  done(null, user.id);
+};
+
+//used with browser requests on protected routes
+exports.passportDeserialiseUserCB = async (id, done) => {
+  try {
+    const socialUser = await SocialUsersModel.findById(id);
+
+    if (socialUser) done(null, socialUser);
+    else done(null, null);
+  } catch (error) {
+    console.log("passportDeserialiseUserCB error");
+  }
+};
