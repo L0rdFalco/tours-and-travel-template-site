@@ -112,15 +112,15 @@ app.use((request, response, next) => {
 app.use("/", ViewsRouter)
 app.use("/orders", PaymentRouter)
 
-app.use("/api/v1/booking", BookingsRouter)
-app.use("/api/v1/reviews", ReviewsRouter)
-app.use("/api/v1/tours", ToursRouter)
-app.use("/api/v1/users", UsersRouter)
-app.use("/api/v1/destination", DestinationRouter)
-app.use("/api/v1/hotels", HotelsRouter)
-app.use("/api/v1/restaurants", RestaurantRouter)
-app.use("/api/v1/messages", MessagesRouter)
-app.use("/api/v1/replies", RepliesRouter)
+app.use("/booking", BookingsRouter)
+app.use("/reviews", ReviewsRouter)
+app.use("/tours", ToursRouter)
+app.use("/users", UsersRouter)
+app.use("/destination", DestinationRouter)
+app.use("/hotels", HotelsRouter)
+app.use("/restaurants", RestaurantRouter)
+app.use("/messages", MessagesRouter)
+app.use("/replies", RepliesRouter)
 
 
 //this handles unknown routes

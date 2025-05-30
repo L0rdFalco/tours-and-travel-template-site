@@ -379,6 +379,7 @@ exports.passportCallback = async function (
 //first called when a user picks an account as SECOND callback in middleware stack
 exports.googleCloudWebhookCB = async (request, response, next) => {
   try {
+    console.log("HERE");
     //sign a jwt and render the catalog
     const currentUser = request.user;
 
