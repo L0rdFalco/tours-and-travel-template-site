@@ -179,7 +179,6 @@ exports.signup = async (request, response, next) => {
     const newUser = await UsersModel.create(userData);
 
     // set daily limit
-    setDailyLimit(newUser._id, 5)
 
     //3.
     newUser.password = undefined;
@@ -367,7 +366,6 @@ exports.passportCallback = async function (
 
     if (!socialUserDoc){
       socialUserDoc = await SocialUsersModel.create(socialUserObj);
-      setDailyLimit(socialUserDoc._id, 5)
     }
 
     done(null, socialUserDoc);
