@@ -386,7 +386,7 @@ exports.googleCloudWebhookCB = async (request, response, next) => {
     });
 
     response.cookie(process.env.COOKIE_NAME, authToken, cookieOptions());
-    response.redirect("/success");
+    response.redirect("/dashboard");
   } catch (error) {
     console.log("googleCloudWebhookCB error");
   }
