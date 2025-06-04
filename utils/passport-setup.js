@@ -15,7 +15,7 @@ else if (process.env.NODE_ENV === "production") {
     passport.use(new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "https://toursntravel.onrender.com/api/v1/users/gcloud-webhook"
+        callbackURL: "https://toursntravel-jioz.onrender.com/users/googlecloud-webhook"
     
     }, authController.passportCallback))
     
